@@ -50,12 +50,12 @@ const AboutSection = () => {
             <div className="relative">
               <div className="w-full max-w-md mx-auto">
                 <div className="aspect-square rounded-2xl bg-gradient-to-br from-brand-dark to-brand-teal p-1">
-                  <div className="w-full h-full rounded-2xl bg-brand-light flex items-center justify-center">
-                    <div className="text-center text-brand-dark">
-                      <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-brand-sage"></div>
-                      <p className="font-medium">Foto Profissional</p>
-                      <p className="text-sm">Lucas Coelho</p>
-                    </div>
+                  <div className="w-full h-full rounded-2xl overflow-hidden">
+                    <img
+                      src="/lovable-uploads/80f55b94-865f-42bc-90b8-22b3bde13504.png"
+                      alt="Lucas Coelho - Web Designer"
+                      className="w-full h-full object-cover rounded-2xl"
+                    />
                   </div>
                 </div>
               </div>
