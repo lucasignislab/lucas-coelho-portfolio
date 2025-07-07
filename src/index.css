@@ -9,83 +9,83 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 255 255 255;
-    --foreground: 15 23 42;
+    --background: 235 235 231;
+    --foreground: 51 51 51;
 
     --card: 255 255 255;
-    --card-foreground: 15 23 42;
+    --card-foreground: 51 51 51;
 
     --popover: 255 255 255;
-    --popover-foreground: 15 23 42;
+    --popover-foreground: 51 51 51;
 
-    --primary: 59 130 246;
-    --primary-foreground: 255 255 255;
+    --primary: 51 51 51;
+    --primary-foreground: 235 235 231;
 
-    --secondary: 241 245 249;
-    --secondary-foreground: 15 23 42;
+    --secondary: 200 206 196;
+    --secondary-foreground: 51 51 51;
 
-    --muted: 248 250 252;
-    --muted-foreground: 100 116 139;
+    --muted: 200 206 196;
+    --muted-foreground: 51 51 51;
 
-    --accent: 241 245 249;
-    --accent-foreground: 15 23 42;
+    --accent: 155 168 168;
+    --accent-foreground: 51 51 51;
 
     --destructive: 239 68 68;
     --destructive-foreground: 255 255 255;
 
-    --border: 226 232 240;
-    --input: 226 232 240;
-    --ring: 59 130 246;
+    --border: 200 206 196;
+    --input: 200 206 196;
+    --ring: 51 51 51;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 255 255 255;
-    --sidebar-foreground: 15 23 42;
-    --sidebar-primary: 59 130 246;
-    --sidebar-primary-foreground: 255 255 255;
-    --sidebar-accent: 241 245 249;
-    --sidebar-accent-foreground: 15 23 42;
-    --sidebar-border: 226 232 240;
-    --sidebar-ring: 59 130 246;
+    --sidebar-background: 235 235 231;
+    --sidebar-foreground: 51 51 51;
+    --sidebar-primary: 51 51 51;
+    --sidebar-primary-foreground: 235 235 231;
+    --sidebar-accent: 200 206 196;
+    --sidebar-accent-foreground: 51 51 51;
+    --sidebar-border: 200 206 196;
+    --sidebar-ring: 51 51 51;
   }
 
   .dark {
-    --background: 15 23 42;
-    --foreground: 248 250 252;
+    --background: 51 51 51;
+    --foreground: 235 235 231;
 
-    --card: 30 41 59;
-    --card-foreground: 248 250 252;
+    --card: 51 51 51;
+    --card-foreground: 235 235 231;
 
-    --popover: 30 41 59;
-    --popover-foreground: 248 250 252;
+    --popover: 51 51 51;
+    --popover-foreground: 235 235 231;
 
-    --primary: 99 102 241;
-    --primary-foreground: 255 255 255;
+    --primary: 235 235 231;
+    --primary-foreground: 51 51 51;
 
-    --secondary: 51 65 85;
-    --secondary-foreground: 248 250 252;
+    --secondary: 155 168 168;
+    --secondary-foreground: 235 235 231;
 
-    --muted: 51 65 85;
-    --muted-foreground: 148 163 184;
+    --muted: 155 168 168;
+    --muted-foreground: 200 206 196;
 
-    --accent: 51 65 85;
-    --accent-foreground: 248 250 252;
+    --accent: 155 168 168;
+    --accent-foreground: 235 235 231;
 
     --destructive: 239 68 68;
-    --destructive-foreground: 255 255 255;
+    --destructive-foreground: 235 235 231;
 
-    --border: 51 65 85;
-    --input: 51 65 85;
-    --ring: 99 102 241;
+    --border: 155 168 168;
+    --input: 155 168 168;
+    --ring: 235 235 231;
 
-    --sidebar-background: 15 23 42;
-    --sidebar-foreground: 248 250 252;
-    --sidebar-primary: 99 102 241;
-    --sidebar-primary-foreground: 255 255 255;
-    --sidebar-accent: 51 65 85;
-    --sidebar-accent-foreground: 248 250 252;
-    --sidebar-border: 51 65 85;
-    --sidebar-ring: 99 102 241;
+    --sidebar-background: 51 51 51;
+    --sidebar-foreground: 235 235 231;
+    --sidebar-primary: 235 235 231;
+    --sidebar-primary-foreground: 51 51 51;
+    --sidebar-accent: 155 168 168;
+    --sidebar-accent-foreground: 235 235 231;
+    --sidebar-border: 155 168 168;
+    --sidebar-ring: 235 235 231;
   }
 }
 
@@ -112,7 +112,7 @@ All colors MUST be HSL.
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-brand-blue via-brand-purple to-brand-indigo bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-brand-dark via-brand-teal to-brand-sage bg-clip-text text-transparent;
   }
 
   .hover-lift {
@@ -166,10 +166,10 @@ All colors MUST be HSL.
   }
 
   .glow-effect {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 0 20px rgba(51, 51, 51, 0.3);
   }
 
   .glow-effect:hover {
-    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 30px rgba(51, 51, 51, 0.5);
   }
 }
