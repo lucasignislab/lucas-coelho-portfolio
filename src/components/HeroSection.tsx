@@ -31,14 +31,14 @@ const HeroSection = () => {
   return (
     <section 
       id="hero" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-brand-light via-brand-sage to-brand-teal"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-brand-light via-brand-light to-brand-sage"
     >
       {/* Parallax Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-20 w-32 h-32 bg-brand-dark rounded-full animate-float"></div>
-        <div className="absolute top-40 right-32 w-20 h-20 bg-brand-dark rounded-full animate-float animation-delay-200"></div>
+        <div className="absolute top-40 right-32 w-20 h-20 bg-brand-teal rounded-full animate-float animation-delay-200"></div>
         <div className="absolute bottom-32 left-1/4 w-24 h-24 bg-brand-dark rounded-full animate-float animation-delay-400"></div>
-        <div className="absolute bottom-20 right-20 w-16 h-16 bg-brand-dark rounded-full animate-float animation-delay-600"></div>
+        <div className="absolute bottom-20 right-20 w-16 h-16 bg-brand-teal rounded-full animate-float animation-delay-600"></div>
       </div>
 
       <div className="container-custom mx-auto px-4 text-center relative z-10">

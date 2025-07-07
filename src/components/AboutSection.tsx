@@ -23,7 +23,7 @@ const AboutSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="about" className="section-padding bg-brand-light">
+    <section ref={sectionRef} id="about" className="section-padding bg-white">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className={`space-y-6 ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
