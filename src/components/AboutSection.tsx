@@ -23,7 +23,7 @@ const AboutSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="about" className="section-padding bg-white">
+    <section ref={sectionRef} id="about" className="section-padding bg-brand-light">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className={`space-y-6 ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
@@ -48,13 +48,13 @@ const AboutSection = () => {
 
           <div className={`${isVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
             <div className="relative">
-              <div className="w-full max-w-md mx-auto">
-                <div className="aspect-square rounded-2xl bg-gradient-to-br from-brand-dark to-brand-teal p-1">
-                  <div className="w-full h-full rounded-2xl overflow-hidden">
+              <div className="w-full max-w-sm mx-auto">
+                <div className="aspect-square rounded-full bg-gradient-to-br from-brand-dark to-brand-teal p-2">
+                  <div className="w-full h-full rounded-full overflow-hidden">
                     <img
                       src="/lovable-uploads/80f55b94-865f-42bc-90b8-22b3bde13504.png"
                       alt="Lucas Coelho - Web Designer"
-                      className="w-full h-full object-cover rounded-2xl"
+                      className="w-full h-full object-cover rounded-full"
                     />
                   </div>
                 </div>
