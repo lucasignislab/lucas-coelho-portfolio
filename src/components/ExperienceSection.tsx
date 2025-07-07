@@ -1,0 +1,130 @@
+
+import { useEffect, useRef, useState } from 'react';
+import { Building2, Calendar } from 'lucide-react';
+
+interface Experience {
+  title: string;
+  company: string;
+  period: string;
+  location: string;
+  description: string[];
+}
+
+const experiences: Experience[] = [
+  {
+    title: "Web Designer & Especialista em Automação",
+    company: "Creis Consultoria",
+    period: "Mai de 2024 – Set de 2024",
+    location: "Campinas, São Paulo, Brasil",
+    description: [
+      "Desenvolvimento e otimização de interfaces e experiências digitais, com foco em UI/UX Design, utilizando Figma e WordPress (Elementor) para criar landing pages de alta conversão.",
+      "Implementação e gestão de soluções de automação de processos com ferramentas como n8n e Make, e desenvolvimento de chatbots com Inteligência Artificial, resultando na otimização do atendimento ao cliente e fluxos de trabalho.",
+      "Aplicação de estratégias de Otimização para Mecanismos de Busca (SEO) para aumentar a visibilidade e o tráfego orgânico dos projetos web.",
+      "Colaboração em equipe multidisciplinar para entregar soluções web completas, integrando design, funcionalidade e automação alinhados aos objetivos de negócio."
+    ]
+  },
+  {
+    title: "Designer",
+    company: "Full Cycle",
+    period: "Maio de 2022 – Julho de 2023",
+    location: "Campinas, São Paulo, Brasil",
+    description: [
+      "Atuação como Designer Gráfico e Motion Designer, desenvolvendo artes para redes sociais e edição de vídeos para diversas campanhas.",
+      "Colaboração em projetos de UX/UI Design, contribuindo para a criação de interfaces mais intuitivas e com melhor experiência do usuário.",
+      "Utilização de softwares como Adobe Photoshop, After Effects e Figma na criação e edição de peças visuais."
+    ]
+  },
+  {
+    title: "Designer Freelancer",
+    company: "Freelancer",
+    period: "Janeiro de 2015 – Março de 2022",
+    location: "Remota",
+    description: [
+      "Gestão de portfólio de clientes, desenvolvendo projetos de design gráfico e motion design, incluindo ilustrações e edição de vídeos para redes sociais.",
+      "Garantia da qualidade e satisfação do cliente, gerenciando projetos desde o briefing inicial até a entrega final."
+    ]
+  }
+];
+
+const ExperienceSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section ref={sectionRef} id="experience" className="section-padding bg-white">
+      <div className="container-custom">
+        <h2 className={`font-space font-bold text-4xl md:text-5xl text-center text-gradient mb-16 ${
+          isVisible ? 'animate-fade-in' : 'opacity-0'
+        }`}>
+          EXPERIÊNCIA PROFISSIONAL
+        </h2>
+
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-0.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-blue to-brand-purple"></div>
+
+          <div className="space-y-12">
+            {experiences.map((exp, index) => (
+              <div
+                key={index}
+                className={`relative flex flex-col md:flex-row items-start md:items-center ${
+                  index % 2 === 0 ? 'md:flex-row-reverse' : ''
+                } ${isVisible ? 'animate-slide-in-left animation-delay-' + (index * 200) : 'opacity-0'}`}
+              >
+                {/* Timeline dot */}
+                <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 bg-gradient-to-r from-brand-blue to-brand-purple rounded-full border-4 border-white shadow-lg flex items-center justify-center">
+                  <Building2 className="w-4 h-4 text-white" />
+                </div>
+
+                {/* Content */}
+                <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
+                  <div className="bg-white rounded-xl shadow-lg p-6 hover-lift border border-gray-100">
+                    <h3 className="font-space font-bold text-xl text-brand-blue mb-2">
+                      {exp.title}
+                    </h3>
+                    <h4 className="font-semibold text-lg text-gray-800 mb-2">
+                      {exp.company}
+                    </h4>
+                    <div className="flex items-center text-gray-600 mb-2">
+                      <Calendar className="w-4 h-4 mr-2" />
+                      <span className="text-sm">{exp.period}</span>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-4">{exp.location}</p>
+                    
+                    <ul className="space-y-2">
+                      {exp.description.map((desc, descIndex) => (
+                        <li key={descIndex} className="text-gray-700 text-sm leading-relaxed flex items-start">
+                          <span className="w-2 h-2 bg-brand-blue rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          {desc}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ExperienceSection;
