@@ -108,7 +108,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-brand-tertiary">Localização</h3>
-                  <p className="text-white">Campinas, São Paulo, Brasil</p>
+                  <p className="text-white hover:text-brand-secondary transition-colors duration-200">Campinas, São Paulo, Brasil</p>
                 </div>
               </div>
             </div>
