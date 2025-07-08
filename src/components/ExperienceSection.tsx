@@ -87,7 +87,7 @@ const ExperienceSection = () => {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-0.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-accent to-brand-secondary"></div>
+          <div className={`absolute left-4 md:left-1/2 transform md:-translate-x-0.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-accent to-brand-secondary ${isVisible ? 'animate-slide-in-down animation-delay-200' : 'opacity-0'}`}></div>
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
@@ -95,7 +95,7 @@ const ExperienceSection = () => {
                 key={index}
                 className={`relative flex flex-col md:flex-row items-start md:items-center ${
                   index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                } ${isVisible ? 'animate-slide-in-left animation-delay-' + (index * 200) : 'opacity-0'}`}
+                } ${isVisible ? `animate-slide-in-down animation-delay-${index * 200 + 400}` : 'opacity-0'}`}
               >
                 {/* Timeline dot */}
                 <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 bg-gradient-to-r from-brand-accent to-brand-secondary rounded-full border-4 border-brand-dark shadow-lg flex items-center justify-center">
