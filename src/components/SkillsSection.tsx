@@ -91,7 +91,7 @@ const SkillsSection = () => {
                   <IconComponent className="w-8 h-8 text-white drop-shadow-md" />
                 </div>
 
-                <h3 className="font-poppins font-bold text-xl text-brand-accent mb-4">
+                <h3 className="font-poppins font-bold text-xl text-brand-tertiary mb-4">
                   {category.title}
                 </h3>
 
@@ -99,7 +99,7 @@ const SkillsSection = () => {
                   {category.skills.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
-                      className="px-3 py-1 bg-brand-accent/10 text-brand-accent rounded-full text-sm font-medium hover:bg-brand-accent/20 transition-colors duration-200"
+                      className="px-3 py-1 bg-brand-secondary/20 text-brand-secondary rounded-full text-sm font-medium hover:bg-brand-secondary/30 transition-colors duration-200"
                     >
                       {skill}
                     </span>
