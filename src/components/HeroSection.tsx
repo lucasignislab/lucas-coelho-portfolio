@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 const HeroSection = () => {
   const [displayedText, setDisplayedText] = useState('');
-  const fullText = 'Web Designer | Especialista em Automação (n8n, Make) | UX/UI | Otimização de Processos Digitais|';
+  const fullText = 'Web Designer | Especialista em Automação (n8n, Make) | UX/UI';
 
   useEffect(() => {
     let i = 0;
