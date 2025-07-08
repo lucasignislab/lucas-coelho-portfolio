@@ -84,12 +84,12 @@ const SkillsSection = () => {
             return (
               <div
                 key={index}
-                className={`bg-brand-dark/50 backdrop-blur-sm rounded-xl shadow-lg p-6 hover-lift border border-brand-secondary/20 ${
+                className={`glass-card p-6 hover-lift border border-brand-secondary/20 ${
                   isVisible ? 'animate-scale-in animation-delay-' + (index * 200) : 'opacity-0'
                 }`}
               >
-                <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${category.color} flex items-center justify-center mb-6`}>
-                  <IconComponent className="w-8 h-8 text-white" />
+                <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${category.color} flex items-center justify-center mb-6 shadow-lg`}>
+                  <IconComponent className="w-8 h-8 text-white drop-shadow-md" />
                 </div>
 
                 <h3 className="font-poppins font-bold text-xl text-brand-tertiary mb-4">

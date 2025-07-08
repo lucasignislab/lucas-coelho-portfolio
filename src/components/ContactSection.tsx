@@ -79,7 +79,7 @@ const ContactSection = () => {
             isVisible ? 'animate-slide-in-left animation-delay-400' : 'opacity-0'
           }`}>
             <div className="space-y-6">
-              <div className="flex items-center space-x-4 p-4 bg-brand-dark/50 backdrop-blur-sm rounded-xl shadow-md hover-lift border border-brand-secondary/20">
+              <div className="flex items-center space-x-4 p-4 glass-card hover-lift border border-brand-secondary/20">
                 <div className="w-12 h-12 bg-gradient-to-r from-brand-accent to-brand-secondary rounded-full flex items-center justify-center">
                   <Mail className="w-6 h-6 text-white" />
                 </div>
@@ -91,7 +91,7 @@ const ContactSection = () => {
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4 p-4 bg-brand-dark/50 backdrop-blur-sm rounded-xl shadow-md hover-lift border border-brand-secondary/20">
+              <div className="flex items-center space-x-4 p-4 glass-card hover-lift border border-brand-secondary/20">
                 <div className="w-12 h-12 bg-gradient-to-r from-brand-secondary to-brand-accent rounded-full flex items-center justify-center">
                   <Phone className="w-6 h-6 text-white" />
                 </div>
@@ -103,7 +103,7 @@ const ContactSection = () => {
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4 p-4 bg-brand-dark/50 backdrop-blur-sm rounded-xl shadow-md hover-lift border border-brand-secondary/20">
+              <div className="flex items-center space-x-4 p-4 glass-card hover-lift border border-brand-secondary/20">
                 <div className="w-12 h-12 bg-gradient-to-r from-brand-accent to-brand-tertiary rounded-full flex items-center justify-center">
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
@@ -114,7 +114,7 @@ const ContactSection = () => {
               </div>
             </div>
 
-            <div className="bg-brand-dark/50 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-brand-secondary/20">
+            <div className="glass-card p-6 border border-brand-secondary/20">
               <h3 className="font-poppins font-bold text-xl text-brand-tertiary mb-4">
                 Vamos criar algo incrível?
               </h3>
@@ -128,10 +128,10 @@ const ContactSection = () => {
           <div className={`${
             isVisible ? 'animate-slide-in-right animation-delay-600' : 'opacity-0'
           }`}>
-            <form onSubmit={handleSubmit} className="bg-brand-dark/50 backdrop-blur-sm rounded-xl shadow-lg p-6 space-y-6 border border-brand-secondary/20">
+            <form onSubmit={handleSubmit} className="glass-card p-8 space-y-6 border border-brand-secondary/20">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-brand-tertiary mb-2">
+                  <label htmlFor="name" className="block text-sm font-semibold text-brand-tertiary mb-3">
                     Nome
                   </label>
                   <Input
@@ -141,12 +141,12 @@ const ContactSection = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-brand-black/30 border-brand-secondary/30 text-brand-tertiary focus:border-brand-accent"
+                    className="w-full bg-brand-black/50 border-brand-secondary/40 text-brand-tertiary placeholder:text-brand-secondary/60 focus:border-brand-accent focus:ring-brand-accent/20 h-12 text-base"
                     placeholder="Seu nome"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-brand-tertiary mb-2">
+                  <label htmlFor="email" className="block text-sm font-semibold text-brand-tertiary mb-3">
                     Email
                   </label>
                   <Input
@@ -156,14 +156,14 @@ const ContactSection = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-brand-black/30 border-brand-secondary/30 text-brand-tertiary focus:border-brand-accent"
+                    className="w-full bg-brand-black/50 border-brand-secondary/40 text-brand-tertiary placeholder:text-brand-secondary/60 focus:border-brand-accent focus:ring-brand-accent/20 h-12 text-base"
                     placeholder="seu@email.com"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-brand-tertiary mb-2">
+                <label htmlFor="subject" className="block text-sm font-semibold text-brand-tertiary mb-3">
                   Assunto
                 </label>
                 <Input
@@ -173,13 +173,13 @@ const ContactSection = () => {
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="w-full bg-brand-black/30 border-brand-secondary/30 text-brand-tertiary focus:border-brand-accent"
+                  className="w-full bg-brand-black/50 border-brand-secondary/40 text-brand-tertiary placeholder:text-brand-secondary/60 focus:border-brand-accent focus:ring-brand-accent/20 h-12 text-base"
                   placeholder="Assunto da mensagem"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-brand-tertiary mb-2">
+                <label htmlFor="message" className="block text-sm font-semibold text-brand-tertiary mb-3">
                   Mensagem
                 </label>
                 <Textarea
@@ -189,7 +189,7 @@ const ContactSection = () => {
                   onChange={handleInputChange}
                   required
                   rows={6}
-                  className="w-full bg-brand-black/30 border-brand-secondary/30 text-brand-tertiary focus:border-brand-accent"
+                  className="w-full bg-brand-black/50 border-brand-secondary/40 text-brand-tertiary placeholder:text-brand-secondary/60 focus:border-brand-accent focus:ring-brand-accent/20 text-base leading-relaxed"
                   placeholder="Conte-me mais sobre seu projeto..."
                 />
               </div>
@@ -197,17 +197,17 @@ const ContactSection = () => {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-brand-accent to-brand-secondary hover:from-brand-secondary hover:to-brand-accent font-semibold py-3 rounded-lg transition-all duration-300 hover:scale-105 glow-effect"
+                className="w-full bg-gradient-to-r from-brand-accent to-brand-secondary hover:from-brand-secondary hover:to-brand-accent font-semibold py-4 h-14 text-base rounded-lg transition-all duration-300 hover:scale-105 glow-effect shadow-lg"
               >
                 {isSubmitting ? (
                   <span className="flex items-center space-x-2">
-                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                     <span>Enviando...</span>
                   </span>
                 ) : (
                   <span className="flex items-center space-x-2">
                     <span>Enviar Mensagem</span>
-                    <Send className="w-4 h-4" />
+                    <Send className="w-5 h-5" />
                   </span>
                 )}
               </Button>

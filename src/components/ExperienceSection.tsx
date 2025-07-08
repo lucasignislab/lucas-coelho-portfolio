@@ -95,7 +95,7 @@ const ExperienceSection = () => {
 
                 {/* Content */}
                 <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
-                  <div className="bg-brand-black/10 backdrop-blur-sm rounded-xl shadow-lg p-6 hover-lift border border-brand-secondary/20">
+                  <div className="glass-card p-6 hover-lift border border-brand-secondary/20">
                     <h3 className="font-poppins font-bold text-xl text-brand-accent mb-2">
                       {exp.title}
                     </h3>
