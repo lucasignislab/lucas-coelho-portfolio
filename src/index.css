@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -111,7 +112,7 @@ All colors MUST be HSL.
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-brand-light via-brand-teal to-brand-sage bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-brand-accent via-brand-dark to-brand-secondary bg-clip-text text-transparent;
   }
 
   .hover-lift {
@@ -165,10 +166,10 @@ All colors MUST be HSL.
   }
 
   .glow-effect {
-    box-shadow: 0 0 20px rgba(235, 235, 231, 0.3);
+    box-shadow: 0 0 20px rgba(135, 84, 255, 0.3);
   }
 
   .glow-effect:hover {
-    box-shadow: 0 0 30px rgba(235, 235, 231, 0.5);
+    box-shadow: 0 0 30px rgba(135, 84, 255, 0.5);
   }
 }
