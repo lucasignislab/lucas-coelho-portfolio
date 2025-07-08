@@ -49,8 +49,9 @@ const HeroSection = () => {
             LUCAS COELHO
           </h1>
           <div className="h-20 mb-8">
-            <p className="font-inter text-lg md:text-xl lg:text-2xl text-brand-accent leading-relaxed max-w-4xl mx-auto font-semibold">
-              Web Designer | Especialista em Automação (n8n, Make) | UX/UI | Otimização de Processos Digitais
+            <p className="font-inter text-lg md:text-xl lg:text-2xl text-brand-accent leading-relaxed max-w-4xl mx-auto font-semibold typewriter">
+              {displayedText}
+              <span className="animate-pulse">|</span>
             </p>
           </div>
           <p className="font-inter text-lg md:text-xl text-brand-secondary mb-12 max-w-2xl mx-auto">
