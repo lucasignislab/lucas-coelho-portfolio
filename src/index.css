@@ -121,7 +121,34 @@ All colors MUST be HSL.
   }
 
   .glass-card {
-    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-xl;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      radial-gradient(circle at 60% 80%, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 50px 50px, 60px 60px, 40px 40px, 70px 70px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .glass-card > * {
+    position: relative;
+    z-index: 2;
   }
 
   .section-padding {

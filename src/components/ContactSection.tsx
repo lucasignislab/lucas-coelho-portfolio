@@ -79,7 +79,7 @@ const ContactSection = () => {
             isVisible ? 'animate-slide-in-left animation-delay-400' : 'opacity-0'
           }`}>
             <div className="space-y-6">
-              <div className="flex items-center space-x-4 p-4 glass-card hover-lift border border-brand-secondary/20">
+              <div className="flex items-center space-x-4 p-4 glass-card hover-lift">
                 <div className="w-12 h-12 bg-gradient-to-r from-brand-accent to-brand-secondary rounded-full flex items-center justify-center">
                   <Mail className="w-6 h-6 text-white" />
                 </div>
@@ -91,7 +91,7 @@ const ContactSection = () => {
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4 p-4 glass-card hover-lift border border-brand-secondary/20">
+              <div className="flex items-center space-x-4 p-4 glass-card hover-lift">
                 <div className="w-12 h-12 bg-gradient-to-r from-brand-secondary to-brand-accent rounded-full flex items-center justify-center">
                   <Phone className="w-6 h-6 text-white" />
                 </div>
@@ -103,7 +103,7 @@ const ContactSection = () => {
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4 p-4 glass-card hover-lift border border-brand-secondary/20">
+              <div className="flex items-center space-x-4 p-4 glass-card hover-lift">
                 <div className="w-12 h-12 bg-gradient-to-r from-brand-accent to-brand-tertiary rounded-full flex items-center justify-center">
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
@@ -114,7 +114,7 @@ const ContactSection = () => {
               </div>
             </div>
 
-            <div className="glass-card p-6 border border-brand-secondary/20">
+            <div className="glass-card p-6">
               <h3 className="font-poppins font-bold text-xl text-brand-tertiary mb-4">
                 Vamos criar algo incrível?
               </h3>
@@ -128,7 +128,7 @@ const ContactSection = () => {
           <div className={`${
             isVisible ? 'animate-slide-in-right animation-delay-600' : 'opacity-0'
           }`}>
-            <form onSubmit={handleSubmit} className="glass-card p-8 space-y-6 border border-brand-secondary/20">
+            <form onSubmit={handleSubmit} className="glass-card p-8 space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-brand-tertiary mb-3">

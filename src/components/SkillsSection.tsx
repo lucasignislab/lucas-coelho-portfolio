@@ -84,7 +84,7 @@ const SkillsSection = () => {
             return (
               <div
                 key={index}
-                className={`glass-card p-6 hover-lift border border-brand-secondary/20 ${
+                className={`glass-card p-6 hover-lift ${
                   isVisible ? 'animate-scale-in animation-delay-' + (index * 200) : 'opacity-0'
                 }`}
               >
