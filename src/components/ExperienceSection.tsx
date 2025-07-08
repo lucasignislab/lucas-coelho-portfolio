@@ -105,7 +105,7 @@ const ExperienceSection = () => {
                 {/* Content */}
                 <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
                   <div className="glass-card p-6 hover-lift">
-                    <span className="inline-block px-5 py-2 bg-gradient-to-r from-brand-accent to-brand-secondary text-white rounded-full text-base font-semibold mb-2">
+                    <span className="inline-block px-7 py-3 bg-gradient-to-r from-brand-accent to-brand-secondary text-white rounded-full text-lg font-bold mb-3">
                       {exp.title}
                     </span>
                     <h4 className="font-semibold text-lg text-brand-tertiary mb-2">
