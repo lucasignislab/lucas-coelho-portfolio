@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -68,10 +67,11 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				// Nova paleta de cores
-				'brand-dark': '#333333',
-				'brand-teal': '#9BA8A8',
-				'brand-light': '#EBEBE7',
-				'brand-sage': '#C8CEC4',
+				'brand-black': '#000000',
+				'brand-dark': '#3A4143',
+				'brand-secondary': '#C0C5C7',
+				'brand-accent': '#8754FF',
+				'brand-tertiary': '#E5D7C4',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

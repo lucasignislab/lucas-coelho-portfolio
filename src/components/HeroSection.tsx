@@ -31,14 +31,14 @@ const HeroSection = () => {
   return (
     <section 
       id="hero" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-brand-light via-brand-light to-brand-sage"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-brand-tertiary via-brand-tertiary to-brand-secondary"
     >
       {/* Parallax Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-20 w-32 h-32 bg-brand-dark rounded-full animate-float"></div>
-        <div className="absolute top-40 right-32 w-20 h-20 bg-brand-teal rounded-full animate-float animation-delay-200"></div>
+        <div className="absolute top-40 right-32 w-20 h-20 bg-brand-accent rounded-full animate-float animation-delay-200"></div>
         <div className="absolute bottom-32 left-1/4 w-24 h-24 bg-brand-dark rounded-full animate-float animation-delay-400"></div>
-        <div className="absolute bottom-20 right-20 w-16 h-16 bg-brand-teal rounded-full animate-float animation-delay-600"></div>
+        <div className="absolute bottom-20 right-20 w-16 h-16 bg-brand-accent rounded-full animate-float animation-delay-600"></div>
       </div>
 
       <div className="container-custom mx-auto px-4 text-center relative z-10">
@@ -48,7 +48,7 @@ const HeroSection = () => {
           </h1>
           
           <div className="h-20 mb-8">
-            <p className="font-inter text-lg md:text-xl lg:text-2xl text-brand-dark/90 leading-relaxed max-w-4xl mx-auto">
+            <p className="font-inter text-lg md:text-xl lg:text-2xl text-brand-accent leading-relaxed max-w-4xl mx-auto font-semibold">
               {displayedText}
               <span className="animate-pulse">|</span>
             </p>
@@ -62,7 +62,7 @@ const HeroSection = () => {
             <Button
               onClick={() => scrollToSection('#portfolio')}
               size="lg"
-              className="bg-brand-dark text-brand-light hover:bg-brand-teal hover:text-brand-dark font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 glow-effect"
+              className="bg-brand-accent text-brand-tertiary hover:bg-brand-dark hover:text-brand-tertiary font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 glow-effect"
             >
               Ver Portfólio
             </Button>
@@ -70,7 +70,7 @@ const HeroSection = () => {
               onClick={() => scrollToSection('#contact')}
               variant="outline"
               size="lg"
-              className="border-2 border-brand-dark text-brand-dark hover:bg-brand-dark hover:text-brand-light font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105"
+              className="border-2 border-brand-dark text-brand-dark hover:bg-brand-dark hover:text-brand-tertiary font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105"
             >
               Entrar em Contato
             </Button>
@@ -79,13 +79,13 @@ const HeroSection = () => {
           <div className="flex justify-center space-x-6 animate-fade-in animation-delay-800">
             <a
               href="mailto:lucascoelho.cps@gmail.com"
-              className="p-3 bg-brand-dark/20 rounded-full hover:bg-brand-dark/30 transition-all duration-300 hover:scale-110"
+              className="p-3 bg-brand-dark/20 rounded-full hover:bg-brand-accent/30 transition-all duration-300 hover:scale-110"
             >
               <Mail className="w-6 h-6 text-brand-dark" />
             </a>
             <a
               href="tel:+5519992492409"
-              className="p-3 bg-brand-dark/20 rounded-full hover:bg-brand-dark/30 transition-all duration-300 hover:scale-110"
+              className="p-3 bg-brand-dark/20 rounded-full hover:bg-brand-accent/30 transition-all duration-300 hover:scale-110"
             >
               <Phone className="w-6 h-6 text-brand-dark" />
             </a>
@@ -93,7 +93,7 @@ const HeroSection = () => {
               href="https://www.behance.net/lucascoelho30"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 bg-brand-dark/20 rounded-full hover:bg-brand-dark/30 transition-all duration-300 hover:scale-110"
+              className="p-3 bg-brand-dark/20 rounded-full hover:bg-brand-accent/30 transition-all duration-300 hover:scale-110"
             >
               <ExternalLink className="w-6 h-6 text-brand-dark" />
             </a>

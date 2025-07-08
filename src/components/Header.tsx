@@ -34,11 +34,11 @@ const Header = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      isScrolled ? 'bg-brand-tertiary/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
     }`}>
       <nav className="container-custom mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="font-poppins font-bold text-xl text-gradient">
+          <div className="font-poppins font-bold text-xl bg-gradient-to-r from-brand-accent via-brand-dark to-brand-secondary bg-clip-text text-transparent">
             Lucas Coelho
           </div>
 
@@ -48,10 +48,10 @@ const Header = () => {
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className="font-medium text-brand-dark hover:text-brand-teal transition-colors duration-200 relative group"
+                className="font-medium text-brand-dark hover:text-brand-accent transition-colors duration-200 relative group"
               >
                 {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-teal transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-accent transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
           </div>
@@ -67,13 +67,13 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-brand-teal">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-brand-tertiary shadow-lg border-t border-brand-secondary">
             <div className="py-4">
               {navItems.map((item) => (
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-4 py-3 font-medium text-brand-dark hover:text-brand-teal hover:bg-brand-sage/20 transition-colors duration-200"
+                  className="block w-full text-left px-4 py-3 font-medium text-brand-dark hover:text-brand-accent hover:bg-brand-secondary/20 transition-colors duration-200"
                 >
                   {item.label}
                 </button>

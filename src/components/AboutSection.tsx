@@ -23,17 +23,17 @@ const AboutSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="about" className="section-padding bg-white">
+    <section ref={sectionRef} id="about" className="section-padding bg-brand-tertiary">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className={`space-y-6 ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
-            <h2 className="font-poppins font-bold text-4xl md:text-5xl text-gradient mb-8">
+            <h2 className="font-poppins font-bold text-4xl md:text-5xl bg-gradient-to-r from-brand-accent via-brand-dark to-brand-secondary bg-clip-text text-transparent mb-8">
               SOBRE MIM
             </h2>
             
             <div className="space-y-6 text-brand-dark leading-relaxed">
               <p className="text-lg">
-                Olá! Sou <strong className="text-brand-teal">Lucas</strong>, um Web Designer apaixonado por transformar ideias em experiências digitais impactantes e eficientes. Com uma sólida formação em Design de Produtos Digitais (UX/UI) e Marketing Digital, minha expertise se estende à Gestão de Automações e Desenvolvimento de Chatbots com Inteligência Artificial, com proficiência em plataformas líderes como n8n e Make.
+                Olá! Sou <strong className="text-brand-accent">Lucas</strong>, um Web Designer apaixonado por transformar ideias em experiências digitais impactantes e eficientes. Com uma sólida formação em Design de Produtos Digitais (UX/UI) e Marketing Digital, minha expertise se estende à Gestão de Automações e Desenvolvimento de Chatbots com Inteligência Artificial, com proficiência em plataformas líderes como n8n e Make.
               </p>
               
               <p className="text-lg">
@@ -49,7 +49,7 @@ const AboutSection = () => {
           <div className={`${isVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
             <div className="relative">
               <div className="w-full max-w-sm mx-auto">
-                <div className="aspect-square rounded-full bg-gradient-to-br from-brand-dark to-brand-teal p-2">
+                <div className="aspect-square rounded-full bg-gradient-to-br from-brand-dark to-brand-accent p-2">
                   <div className="w-full h-full rounded-full overflow-hidden">
                     <img
                       src="/lovable-uploads/80f55b94-865f-42bc-90b8-22b3bde13504.png"
@@ -61,8 +61,8 @@ const AboutSection = () => {
               </div>
               
               {/* Floating elements */}
-              <div className="absolute -top-4 -left-4 w-16 h-16 bg-brand-teal rounded-full animate-float opacity-20"></div>
-              <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-brand-sage rounded-full animate-float animation-delay-400 opacity-20"></div>
+              <div className="absolute -top-4 -left-4 w-16 h-16 bg-brand-accent rounded-full animate-float opacity-20"></div>
+              <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-brand-secondary rounded-full animate-float animation-delay-400 opacity-20"></div>
             </div>
           </div>
         </div>
