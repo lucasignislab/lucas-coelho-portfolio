@@ -2,8 +2,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { ExternalLink, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 interface Project {
+  id: string;
   title: string;
   description: string;
   category: string;
@@ -12,36 +14,42 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: "landing-page-ecommerce",
     title: "Landing Page E-commerce",
     description: "Design e desenvolvimento de landing page de alta conversão para e-commerce de moda",
     category: "Web Design",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
   },
   {
+    id: "sistema-automacao-crm",
     title: "Sistema de Automação CRM",
     description: "Implementação de automação completa para gestão de leads e relacionamento com clientes",
     category: "Automação",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop"
   },
   {
+    id: "app-mobile-ui-ux",
     title: "App Mobile UI/UX",
     description: "Design de interface e experiência do usuário para aplicativo de finanças pessoais",
     category: "UX/UI Design",
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop"
   },
   {
+    id: "chatbot-inteligente",
     title: "Chatbot Inteligente",
     description: "Desenvolvimento de chatbot com IA para atendimento automatizado 24/7",
     category: "IA & Chatbots",
     image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&h=400&fit=crop"
   },
   {
+    id: "identidade-visual-corporativa",
     title: "Identidade Visual Corporativa",
     description: "Criação completa de identidade visual para startup de tecnologia",
     category: "Design Gráfico",
     image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&h=400&fit=crop"
   },
   {
+    id: "dashboard-analytics",
     title: "Dashboard Analytics",
     description: "Interface de dashboard para análise de dados e métricas de performance",
     category: "Web Design",
@@ -78,15 +86,15 @@ const PortfolioSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="portfolio" className="section-padding bg-white">
+    <section ref={sectionRef} id="portfolio" className="section-padding bg-brand-dark">
       <div className="container-custom">
-        <h2 className={`font-space font-bold text-4xl md:text-5xl text-center text-gradient mb-8 ${
+        <h2 className={`font-poppins font-bold text-4xl md:text-5xl text-center bg-gradient-to-r from-brand-accent via-brand-tertiary to-brand-secondary bg-clip-text text-transparent mb-8 ${
           isVisible ? 'animate-fade-in' : 'opacity-0'
         }`}>
           PORTFÓLIO DE TRABALHOS
         </h2>
 
-        <p className={`text-center text-gray-600 text-lg mb-12 max-w-2xl mx-auto ${
+        <p className={`text-center text-brand-tertiary text-lg mb-12 max-w-2xl mx-auto ${
           isVisible ? 'animate-fade-in animation-delay-200' : 'opacity-0'
         }`}>
           Conheça alguns dos projetos que desenvolvi, sempre buscando inovação e resultados excepcionais
@@ -102,8 +110,8 @@ const PortfolioSection = () => {
               onClick={() => setFilter(category)}
               className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
                 filter === category
-                  ? 'bg-gradient-to-r from-brand-blue to-brand-purple text-white shadow-lg'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-gradient-to-r from-brand-accent to-brand-secondary text-white shadow-lg'
+                  : 'bg-brand-secondary/20 text-brand-secondary hover:bg-brand-secondary/30'
               }`}
             >
               {category}
@@ -116,7 +124,7 @@ const PortfolioSection = () => {
           {filteredProjects.map((project, index) => (
             <div
               key={index}
-              className={`group relative bg-white rounded-xl shadow-lg overflow-hidden hover-lift ${
+              className={`group relative bg-brand-black/30 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden hover-lift border border-brand-secondary/20 ${
                 isVisible ? 'animate-scale-in animation-delay-' + (index * 100 + 600) : 'opacity-0'
               }`}
             >
@@ -128,24 +136,27 @@ const PortfolioSection = () => {
                 />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="flex space-x-4">
-                    <button className="p-2 bg-white rounded-full hover:bg-gray-100 transition-colors duration-200">
-                      <Eye className="w-5 h-5 text-gray-700" />
-                    </button>
-                    <button className="p-2 bg-white rounded-full hover:bg-gray-100 transition-colors duration-200">
-                      <ExternalLink className="w-5 h-5 text-gray-700" />
+                    <Link
+                      to={`/portfolio/${project.id}`}
+                      className="p-2 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200"
+                    >
+                      <Eye className="w-5 h-5 text-brand-dark" />
+                    </Link>
+                    <button className="p-2 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200">
+                      <ExternalLink className="w-5 h-5 text-brand-dark" />
                     </button>
                   </div>
                 </div>
               </div>
 
               <div className="p-6">
-                <span className="inline-block px-3 py-1 bg-brand-blue/10 text-brand-blue rounded-full text-sm font-medium mb-3">
+                <span className="inline-block px-3 py-1 bg-brand-accent/20 text-brand-accent rounded-full text-sm font-medium mb-3">
                   {project.category}
                 </span>
-                <h3 className="font-space font-bold text-xl text-gray-800 mb-2">
+                <h3 className="font-poppins font-bold text-xl text-brand-tertiary mb-2">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-brand-secondary text-sm leading-relaxed">
                   {project.description}
                 </p>
               </div>
@@ -160,7 +171,7 @@ const PortfolioSection = () => {
           <Button
             asChild
             size="lg"
-            className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-blue font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 glow-effect"
+            className="bg-gradient-to-r from-brand-accent to-brand-secondary hover:from-brand-secondary hover:to-brand-accent font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 glow-effect"
           >
             <a
               href="https://www.behance.net/lucascoelho30"

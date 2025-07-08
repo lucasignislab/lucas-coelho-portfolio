@@ -68,9 +68,9 @@ const ExperienceSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="experience" className="section-padding bg-white">
+    <section ref={sectionRef} id="experience" className="section-padding bg-brand-dark">
       <div className="container-custom">
-        <h2 className={`font-space font-bold text-4xl md:text-5xl text-center text-gradient mb-16 ${
+        <h2 className={`font-poppins font-bold text-4xl md:text-5xl text-center bg-gradient-to-r from-brand-accent via-brand-tertiary to-brand-secondary bg-clip-text text-transparent mb-16 ${
           isVisible ? 'animate-fade-in' : 'opacity-0'
         }`}>
           EXPERIÊNCIA PROFISSIONAL
@@ -78,7 +78,7 @@ const ExperienceSection = () => {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-0.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-blue to-brand-purple"></div>
+          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-0.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-accent to-brand-secondary"></div>
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
@@ -89,29 +89,29 @@ const ExperienceSection = () => {
                 } ${isVisible ? 'animate-slide-in-left animation-delay-' + (index * 200) : 'opacity-0'}`}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 bg-gradient-to-r from-brand-blue to-brand-purple rounded-full border-4 border-white shadow-lg flex items-center justify-center">
+                <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 bg-gradient-to-r from-brand-accent to-brand-secondary rounded-full border-4 border-brand-dark shadow-lg flex items-center justify-center">
                   <Building2 className="w-4 h-4 text-white" />
                 </div>
 
                 {/* Content */}
                 <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
-                  <div className="bg-white rounded-xl shadow-lg p-6 hover-lift border border-gray-100">
-                    <h3 className="font-space font-bold text-xl text-brand-blue mb-2">
+                  <div className="bg-brand-black/10 backdrop-blur-sm rounded-xl shadow-lg p-6 hover-lift border border-brand-secondary/20">
+                    <h3 className="font-poppins font-bold text-xl text-brand-accent mb-2">
                       {exp.title}
                     </h3>
-                    <h4 className="font-semibold text-lg text-gray-800 mb-2">
+                    <h4 className="font-semibold text-lg text-brand-tertiary mb-2">
                       {exp.company}
                     </h4>
-                    <div className="flex items-center text-gray-600 mb-2">
+                    <div className="flex items-center text-brand-secondary mb-2">
                       <Calendar className="w-4 h-4 mr-2" />
                       <span className="text-sm">{exp.period}</span>
                     </div>
-                    <p className="text-sm text-gray-600 mb-4">{exp.location}</p>
+                    <p className="text-sm text-brand-secondary/80 mb-4">{exp.location}</p>
                     
                     <ul className="space-y-2">
                       {exp.description.map((desc, descIndex) => (
-                        <li key={descIndex} className="text-gray-700 text-sm leading-relaxed flex items-start">
-                          <span className="w-2 h-2 bg-brand-blue rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                        <li key={descIndex} className="text-brand-tertiary text-sm leading-relaxed flex items-start">
+                          <span className="w-2 h-2 bg-brand-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           {desc}
                         </li>
                       ))}

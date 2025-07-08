@@ -70,9 +70,9 @@ const SkillsSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="skills" className="section-padding bg-brand-tertiary">
+    <section ref={sectionRef} id="skills" className="section-padding bg-brand-black">
       <div className="container-custom">
-        <h2 className={`font-poppins font-bold text-4xl md:text-5xl text-center bg-gradient-to-r from-brand-accent via-brand-dark to-brand-secondary bg-clip-text text-transparent mb-16 ${
+        <h2 className={`font-poppins font-bold text-4xl md:text-5xl text-center bg-gradient-to-r from-brand-accent via-brand-tertiary to-brand-secondary bg-clip-text text-transparent mb-16 ${
           isVisible ? 'animate-fade-in' : 'opacity-0'
         }`}>
           HABILIDADES TÉCNICAS E FERRAMENTAS
@@ -84,7 +84,7 @@ const SkillsSection = () => {
             return (
               <div
                 key={index}
-                className={`bg-brand-black/5 rounded-xl shadow-lg p-6 hover-lift border border-brand-secondary/20 ${
+                className={`bg-brand-dark/50 backdrop-blur-sm rounded-xl shadow-lg p-6 hover-lift border border-brand-secondary/20 ${
                   isVisible ? 'animate-scale-in animation-delay-' + (index * 200) : 'opacity-0'
                 }`}
               >
@@ -92,7 +92,7 @@ const SkillsSection = () => {
                   <IconComponent className="w-8 h-8 text-white" />
                 </div>
 
-                <h3 className="font-poppins font-bold text-xl text-brand-dark mb-4">
+                <h3 className="font-poppins font-bold text-xl text-brand-tertiary mb-4">
                   {category.title}
                 </h3>
 
@@ -100,7 +100,7 @@ const SkillsSection = () => {
                   {category.skills.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
-                      className="px-3 py-1 bg-brand-secondary/30 text-brand-dark rounded-full text-sm font-medium hover:bg-brand-secondary/50 transition-colors duration-200"
+                      className="px-3 py-1 bg-brand-secondary/20 text-brand-secondary rounded-full text-sm font-medium hover:bg-brand-secondary/30 transition-colors duration-200"
                     >
                       {skill}
                     </span>

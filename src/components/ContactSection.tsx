@@ -59,15 +59,15 @@ const ContactSection = () => {
   };
 
   return (
-    <section ref={sectionRef} id="contact" className="section-padding bg-gray-50">
+    <section ref={sectionRef} id="contact" className="section-padding bg-brand-black">
       <div className="container-custom">
-        <h2 className={`font-space font-bold text-4xl md:text-5xl text-center text-gradient mb-8 ${
+        <h2 className={`font-poppins font-bold text-4xl md:text-5xl text-center bg-gradient-to-r from-brand-accent via-brand-tertiary to-brand-secondary bg-clip-text text-transparent mb-8 ${
           isVisible ? 'animate-fade-in' : 'opacity-0'
         }`}>
           ENTRE EM CONTATO
         </h2>
 
-        <p className={`text-center text-gray-600 text-lg mb-16 max-w-2xl mx-auto ${
+        <p className={`text-center text-brand-tertiary text-lg mb-16 max-w-2xl mx-auto ${
           isVisible ? 'animate-fade-in animation-delay-200' : 'opacity-0'
         }`}>
           Vamos conversar sobre seu próximo projeto? Estou sempre aberto para discutir ideias inovadoras e criar soluções incríveis juntos!
@@ -79,46 +79,46 @@ const ContactSection = () => {
             isVisible ? 'animate-slide-in-left animation-delay-400' : 'opacity-0'
           }`}>
             <div className="space-y-6">
-              <div className="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-md hover-lift">
-                <div className="w-12 h-12 bg-gradient-to-r from-brand-blue to-brand-purple rounded-full flex items-center justify-center">
+              <div className="flex items-center space-x-4 p-4 bg-brand-dark/50 backdrop-blur-sm rounded-xl shadow-md hover-lift border border-brand-secondary/20">
+                <div className="w-12 h-12 bg-gradient-to-r from-brand-accent to-brand-secondary rounded-full flex items-center justify-center">
                   <Mail className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-800">Email</h3>
-                  <a href="mailto:lucascoelho.cps@gmail.com" className="text-brand-blue hover:text-brand-purple transition-colors duration-200">
+                  <h3 className="font-semibold text-brand-tertiary">Email</h3>
+                  <a href="mailto:lucascoelho.cps@gmail.com" className="text-brand-accent hover:text-brand-secondary transition-colors duration-200">
                     lucascoelho.cps@gmail.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-md hover-lift">
-                <div className="w-12 h-12 bg-gradient-to-r from-brand-purple to-brand-indigo rounded-full flex items-center justify-center">
+              <div className="flex items-center space-x-4 p-4 bg-brand-dark/50 backdrop-blur-sm rounded-xl shadow-md hover-lift border border-brand-secondary/20">
+                <div className="w-12 h-12 bg-gradient-to-r from-brand-secondary to-brand-accent rounded-full flex items-center justify-center">
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-800">Telefone</h3>
-                  <a href="tel:+5519992492409" className="text-brand-blue hover:text-brand-purple transition-colors duration-200">
+                  <h3 className="font-semibold text-brand-tertiary">Telefone</h3>
+                  <a href="tel:+5519992492409" className="text-brand-accent hover:text-brand-secondary transition-colors duration-200">
                     +55 19 99249-2409
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-md hover-lift">
-                <div className="w-12 h-12 bg-gradient-to-r from-brand-indigo to-brand-cyan rounded-full flex items-center justify-center">
+              <div className="flex items-center space-x-4 p-4 bg-brand-dark/50 backdrop-blur-sm rounded-xl shadow-md hover-lift border border-brand-secondary/20">
+                <div className="w-12 h-12 bg-gradient-to-r from-brand-accent to-brand-tertiary rounded-full flex items-center justify-center">
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-800">Localização</h3>
-                  <p className="text-gray-600">Campinas, São Paulo, Brasil</p>
+                  <h3 className="font-semibold text-brand-tertiary">Localização</h3>
+                  <p className="text-brand-secondary">Campinas, São Paulo, Brasil</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="font-space font-bold text-xl text-gray-800 mb-4">
+            <div className="bg-brand-dark/50 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-brand-secondary/20">
+              <h3 className="font-poppins font-bold text-xl text-brand-tertiary mb-4">
                 Vamos criar algo incrível?
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-brand-secondary leading-relaxed">
                 Seja para um projeto de web design, automação de processos, ou desenvolvimento de chatbots com IA, estou pronto para transformar suas ideias em realidade digital.
               </p>
             </div>
@@ -128,10 +128,10 @@ const ContactSection = () => {
           <div className={`${
             isVisible ? 'animate-slide-in-right animation-delay-600' : 'opacity-0'
           }`}>
-            <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-lg p-6 space-y-6">
+            <form onSubmit={handleSubmit} className="bg-brand-dark/50 backdrop-blur-sm rounded-xl shadow-lg p-6 space-y-6 border border-brand-secondary/20">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-brand-tertiary mb-2">
                     Nome
                   </label>
                   <Input
@@ -141,12 +141,12 @@ const ContactSection = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full"
+                    className="w-full bg-brand-black/30 border-brand-secondary/30 text-brand-tertiary focus:border-brand-accent"
                     placeholder="Seu nome"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-brand-tertiary mb-2">
                     Email
                   </label>
                   <Input
@@ -156,14 +156,14 @@ const ContactSection = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full"
+                    className="w-full bg-brand-black/30 border-brand-secondary/30 text-brand-tertiary focus:border-brand-accent"
                     placeholder="seu@email.com"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="subject" className="block text-sm font-medium text-brand-tertiary mb-2">
                   Assunto
                 </label>
                 <Input
@@ -173,13 +173,13 @@ const ContactSection = () => {
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="w-full"
+                  className="w-full bg-brand-black/30 border-brand-secondary/30 text-brand-tertiary focus:border-brand-accent"
                   placeholder="Assunto da mensagem"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-brand-tertiary mb-2">
                   Mensagem
                 </label>
                 <Textarea
@@ -189,7 +189,7 @@ const ContactSection = () => {
                   onChange={handleInputChange}
                   required
                   rows={6}
-                  className="w-full"
+                  className="w-full bg-brand-black/30 border-brand-secondary/30 text-brand-tertiary focus:border-brand-accent"
                   placeholder="Conte-me mais sobre seu projeto..."
                 />
               </div>
@@ -197,7 +197,7 @@ const ContactSection = () => {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-blue font-semibold py-3 rounded-lg transition-all duration-300 hover:scale-105 glow-effect"
+                className="w-full bg-gradient-to-r from-brand-accent to-brand-secondary hover:from-brand-secondary hover:to-brand-accent font-semibold py-3 rounded-lg transition-all duration-300 hover:scale-105 glow-effect"
               >
                 {isSubmitting ? (
                   <span className="flex items-center space-x-2">
