@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { Mail, Phone, Send, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -85,7 +84,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-brand-tertiary">Email</h3>
-                  <a href="mailto:lucascoelho.cps@gmail.com" className="text-brand-accent hover:text-brand-secondary transition-colors duration-200">
+                  <a href="mailto:lucascoelho.cps@gmail.com" className="text-white hover:text-brand-secondary transition-colors duration-200">
                     lucascoelho.cps@gmail.com
                   </a>
                 </div>
@@ -97,7 +96,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-brand-tertiary">Telefone</h3>
-                  <a href="tel:+5519992492409" className="text-brand-accent hover:text-brand-secondary transition-colors duration-200">
+                  <a href="tel:+5519992492409" className="text-white hover:text-brand-secondary transition-colors duration-200">
                     +55 19 99249-2409
                   </a>
                 </div>
@@ -109,7 +108,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-brand-tertiary">Localização</h3>
-                  <p className="text-brand-secondary">Campinas, São Paulo, Brasil</p>
+                  <p className="text-white">Campinas, São Paulo, Brasil</p>
                 </div>
               </div>
             </div>
