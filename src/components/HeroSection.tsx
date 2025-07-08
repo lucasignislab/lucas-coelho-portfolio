@@ -76,23 +76,23 @@ const HeroSection = () => {
           <div className="flex justify-center space-x-6">
             <a
               href="mailto:lucascoelho.cps@gmail.com"
-              className="p-3 bg-brand-tertiary/20 rounded-full hover:bg-brand-accent/30 transition-all duration-300 hover:scale-110"
+              className="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-r from-brand-dark to-brand-accent shadow-lg hover:scale-110 transition-all duration-300"
             >
-              <Mail className="w-6 h-6 text-brand-tertiary" />
+              <Mail className="w-7 h-7 text-white drop-shadow-md" />
             </a>
             <a
               href="tel:+5519992492409"
-              className="p-3 bg-brand-tertiary/20 rounded-full hover:bg-brand-accent/30 transition-all duration-300 hover:scale-110"
+              className="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-r from-brand-dark to-brand-accent shadow-lg hover:scale-110 transition-all duration-300"
             >
-              <Phone className="w-6 h-6 text-brand-tertiary" />
+              <Phone className="w-7 h-7 text-white drop-shadow-md" />
             </a>
             <a
               href="https://www.behance.net/lucascoelho30"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 bg-brand-tertiary/20 rounded-full hover:bg-brand-accent/30 transition-all duration-300 hover:scale-110"
+              className="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-r from-brand-dark to-brand-accent shadow-lg hover:scale-110 transition-all duration-300"
             >
-              <ExternalLink className="w-6 h-6 text-brand-tertiary" />
+              <ExternalLink className="w-7 h-7 text-white drop-shadow-md" />
             </a>
           </div>
         </div>
