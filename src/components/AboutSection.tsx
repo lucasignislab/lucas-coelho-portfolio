@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 
 const AboutSection = () => {
@@ -33,7 +32,7 @@ const AboutSection = () => {
             
             <div className="space-y-6 text-brand-tertiary leading-relaxed">
               <p className="text-lg">
-                Olá! Sou <strong className="text-brand-accent">Lucas</strong>, um Web Designer apaixonado por transformar ideias em experiências digitais impactantes e eficientes. Com uma sólida formação em Design de Produtos Digitais (UX/UI) e Marketing Digital, minha expertise se estende à Gestão de Automações e Desenvolvimento de Chatbots com Inteligência Artificial, com proficiência em plataformas líderes como n8n e Make.
+                Olá! Sou <strong className="text-brand-accent">Lucas</strong>, um Web Designer apaixonado por transformar ideias em experiências digitais impactantes e eficientes. Sou graduado em <strong className="text-brand-accent">Design Gráfico</strong>, pós-graduado em <strong className="text-brand-accent">Design UX/UI</strong> e possuo <strong className="text-brand-accent">MBA em Marketing Digital</strong>. Com uma sólida formação em Design de Produtos Digitais (UX/UI) e Marketing Digital, minha expertise se estende à Gestão de Automações e Desenvolvimento de Chatbots com Inteligência Artificial, com proficiência em plataformas líderes como n8n e Make.
               </p>
               
               <p className="text-lg">
