@@ -150,7 +150,7 @@ const PortfolioSection = () => {
               </div>
 
               <div className="p-6">
-                <span className="inline-block px-3 py-1 bg-brand-secondary/20 text-brand-secondary rounded-full text-sm font-medium mb-3">
+                <span className="inline-block px-3 py-1 bg-gradient-to-r from-brand-accent to-brand-secondary text-white rounded-full text-sm font-medium mb-3">
                   {project.category}
                 </span>
                 <h3 className="font-poppins font-bold text-xl text-brand-tertiary mb-2">
