@@ -1,4 +1,5 @@
 
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -173,3 +174,4 @@ All colors MUST be HSL.
     box-shadow: 0 0 30px rgba(135, 84, 255, 0.5);
   }
 }
+

@@ -31,19 +31,19 @@ const HeroSection = () => {
   return (
     <section 
       id="hero" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-brand-tertiary via-brand-tertiary to-brand-secondary"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-brand-black"
     >
       {/* Parallax Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-brand-dark rounded-full animate-float"></div>
-        <div className="absolute top-40 right-32 w-20 h-20 bg-brand-accent rounded-full animate-float animation-delay-200"></div>
-        <div className="absolute bottom-32 left-1/4 w-24 h-24 bg-brand-dark rounded-full animate-float animation-delay-400"></div>
-        <div className="absolute bottom-20 right-20 w-16 h-16 bg-brand-accent rounded-full animate-float animation-delay-600"></div>
+        <div className="absolute top-20 left-20 w-32 h-32 bg-brand-accent rounded-full animate-float"></div>
+        <div className="absolute top-40 right-32 w-20 h-20 bg-brand-secondary rounded-full animate-float animation-delay-200"></div>
+        <div className="absolute bottom-32 left-1/4 w-24 h-24 bg-brand-accent rounded-full animate-float animation-delay-400"></div>
+        <div className="absolute bottom-20 right-20 w-16 h-16 bg-brand-secondary rounded-full animate-float animation-delay-600"></div>
       </div>
 
       <div className="container-custom mx-auto px-4 text-center relative z-10">
         <div className="animate-fade-in">
-          <h1 className="font-poppins font-bold text-5xl md:text-7xl lg:text-8xl text-brand-dark mb-6 text-shadow">
+          <h1 className="font-poppins font-bold text-5xl md:text-7xl lg:text-8xl text-brand-tertiary mb-6 text-shadow">
             LUCAS COELHO
           </h1>
           
@@ -54,7 +54,7 @@ const HeroSection = () => {
             </p>
           </div>
 
-          <p className="font-inter text-lg md:text-xl text-brand-dark/80 mb-12 max-w-2xl mx-auto animate-fade-in animation-delay-400">
+          <p className="font-inter text-lg md:text-xl text-brand-secondary mb-12 max-w-2xl mx-auto animate-fade-in animation-delay-400">
             Transformando ideias em experiências digitais impactantes e eficientes
           </p>
 
@@ -62,7 +62,7 @@ const HeroSection = () => {
             <Button
               onClick={() => scrollToSection('#portfolio')}
               size="lg"
-              className="bg-brand-accent text-brand-tertiary hover:bg-brand-dark hover:text-brand-tertiary font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 glow-effect"
+              className="bg-brand-tertiary text-brand-dark hover:bg-brand-accent hover:text-brand-tertiary font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 glow-effect"
             >
               Ver Portfólio
             </Button>
@@ -70,7 +70,7 @@ const HeroSection = () => {
               onClick={() => scrollToSection('#contact')}
               variant="outline"
               size="lg"
-              className="border-2 border-brand-dark text-brand-dark hover:bg-brand-dark hover:text-brand-tertiary font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105"
+              className="border-2 border-brand-tertiary text-brand-tertiary hover:bg-brand-tertiary hover:text-brand-dark font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105"
             >
               Entrar em Contato
             </Button>
@@ -79,23 +79,23 @@ const HeroSection = () => {
           <div className="flex justify-center space-x-6 animate-fade-in animation-delay-800">
             <a
               href="mailto:lucascoelho.cps@gmail.com"
-              className="p-3 bg-brand-dark/20 rounded-full hover:bg-brand-accent/30 transition-all duration-300 hover:scale-110"
+              className="p-3 bg-brand-tertiary/20 rounded-full hover:bg-brand-accent/30 transition-all duration-300 hover:scale-110"
             >
-              <Mail className="w-6 h-6 text-brand-dark" />
+              <Mail className="w-6 h-6 text-brand-tertiary" />
             </a>
             <a
               href="tel:+5519992492409"
-              className="p-3 bg-brand-dark/20 rounded-full hover:bg-brand-accent/30 transition-all duration-300 hover:scale-110"
+              className="p-3 bg-brand-tertiary/20 rounded-full hover:bg-brand-accent/30 transition-all duration-300 hover:scale-110"
             >
-              <Phone className="w-6 h-6 text-brand-dark" />
+              <Phone className="w-6 h-6 text-brand-tertiary" />
             </a>
             <a
               href="https://www.behance.net/lucascoelho30"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 bg-brand-dark/20 rounded-full hover:bg-brand-accent/30 transition-all duration-300 hover:scale-110"
+              className="p-3 bg-brand-tertiary/20 rounded-full hover:bg-brand-accent/30 transition-all duration-300 hover:scale-110"
             >
-              <ExternalLink className="w-6 h-6 text-brand-dark" />
+              <ExternalLink className="w-6 h-6 text-brand-tertiary" />
             </a>
           </div>
         </div>
@@ -103,7 +103,7 @@ const HeroSection = () => {
 
       {/* Scroll Down Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ChevronDown className="w-8 h-8 text-brand-dark/70" />
+        <ChevronDown className="w-8 h-8 text-brand-tertiary/70" />
       </div>
     </section>
   );
