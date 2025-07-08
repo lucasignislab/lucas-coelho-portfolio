@@ -163,27 +163,6 @@ const PortfolioSection = () => {
             </div>
           ))}
         </div>
-
-        {/* Behance CTA */}
-        <div className={`text-center ${
-          isVisible ? 'animate-fade-in animation-delay-800' : 'opacity-0'
-        }`}>
-          <Button
-            asChild
-            size="lg"
-            className="bg-gradient-to-r from-brand-accent to-brand-secondary hover:from-brand-secondary hover:to-brand-accent font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 glow-effect"
-          >
-            <a
-              href="https://www.behance.net/lucascoelho30"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-2"
-            >
-              <span>Ver Mais no Behance</span>
-              <ExternalLink className="w-5 h-5" />
-            </a>
-          </Button>
-        </div>
       </div>
     </section>
   );
