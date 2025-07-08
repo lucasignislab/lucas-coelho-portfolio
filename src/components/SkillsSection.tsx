@@ -91,7 +91,7 @@ const SkillsSection = () => {
                   <IconComponent className="w-8 h-8 text-white drop-shadow-md" />
                 </div>
 
-                <h3 className="font-poppins font-bold text-xl text-brand-accent mb-4">
+                <h3 className="font-poppins font-bold text-xl text-white mb-4">
                   {category.title}
                 </h3>
 
