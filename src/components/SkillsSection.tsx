@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { Monitor, Zap, Palette, TrendingUp, Code, Users } from 'lucide-react';
 
@@ -88,7 +87,7 @@ const SkillsSection = () => {
                   isVisible ? 'animate-scale-in animation-delay-' + (index * 200) : 'opacity-0'
                 }`}
               >
-                <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${category.color} flex items-center justify-center mb-6 shadow-lg`}>
+                <div className={`w-16 h-16 rounded-xl bg-gradient-to-r from-brand-dark to-brand-accent flex items-center justify-center mb-6 shadow-lg`}>
                   <IconComponent className="w-8 h-8 text-white drop-shadow-md" />
                 </div>
 

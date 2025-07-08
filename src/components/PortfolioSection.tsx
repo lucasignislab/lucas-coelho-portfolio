@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { ExternalLink, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -124,25 +123,26 @@ const PortfolioSection = () => {
           {filteredProjects.map((project, index) => (
             <div
               key={index}
-              className={`group relative bg-brand-black/30 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden hover-lift border border-brand-secondary/20 ${
+              className={`group relative glass-card hover-lift transition-all duration-300 rounded-2xl shadow-2xl border border-white/20 ${
                 isVisible ? 'animate-scale-in animation-delay-' + (index * 100 + 600) : 'opacity-0'
               }`}
+              style={{ boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)' }}
             >
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden rounded-2xl">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 border border-white/30 rounded-xl shadow-md"
                 />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="flex space-x-4">
                     <Link
                       to={`/portfolio/${project.id}`}
-                      className="p-2 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200"
+                      className="p-2 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200 shadow-md"
                     >
                       <Eye className="w-5 h-5 text-brand-dark" />
                     </Link>
-                    <button className="p-2 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200">
+                    <button className="p-2 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200 shadow-md">
                       <ExternalLink className="w-5 h-5 text-brand-dark" />
                     </button>
                   </div>
