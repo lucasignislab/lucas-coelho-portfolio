@@ -13,11 +13,11 @@ interface Project {
 
 const projects: Project[] = [
   {
-    id: "website-agencia-ignis-lab",
+    id: "landing-page-ecommerce",
     title: "Site - Agência Ignis Lab",
     description: "Design e desenvolvimento do site para a Agência Ignis Lab",
     category: "Web Design",
-    image: "/lovable-uploads/2.png"
+    image: "/lovable-uploads/ea7e1a49-11a9-4e1b-968c-0396456d8957.png"
   },
   {
     id: "sistema-automacao-crm",
@@ -54,8 +54,8 @@ const PortfolioSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
-  const mainProject = projects.find(p => p.id === 'website-agencia-ignis-lab');
-  const otherProjects = projects.filter(p => p.id !== 'website-agencia-ignis-lab');
+  const mainProject = projects.find(p => p.id === 'landing-page-ecommerce');
+  const otherProjects = projects.filter(p => p.id !== 'landing-page-ecommerce');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -108,13 +108,16 @@ const PortfolioSection = () => {
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 border border-white/30 rounded-xl shadow-md"
                 />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="flex justify-center w-full">
+                  <div className="flex space-x-4">
                     <Link
                       to={`/portfolio/${mainProject.id}`}
-                      className="p-4 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200 shadow-md"
+                      className="p-2 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200 shadow-md"
                     >
-                      <ExternalLink className="w-7 h-7 text-brand-dark" />
+                      <Eye className="w-5 h-5 text-brand-dark" />
                     </Link>
+                    <button className="p-2 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200 shadow-md">
+                      <ExternalLink className="w-5 h-5 text-brand-dark" />
+                    </button>
                   </div>
                 </div>
               </div>
