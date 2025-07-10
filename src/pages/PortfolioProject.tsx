@@ -43,7 +43,7 @@ const projectsData: Record<string, ProjectData> = {
     ],
     gallery: [
       "/lovable-uploads/ea7e1a49-11a9-4e1b-968c-0396456d8957.png",
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop",
+      "public/lovable-uploads/2.webp",
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop"
     ],
     projectUrl: "https://ignislab.com.br"
