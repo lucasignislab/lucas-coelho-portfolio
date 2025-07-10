@@ -13,7 +13,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    id: "landing-page-ecommerce",
+    id: "website-agencia-ignis-lab",
     title: "Site - Agência Ignis Lab",
     description: "Design e desenvolvimento do site para a Agência Ignis Lab",
     category: "Web Design",
@@ -54,8 +54,8 @@ const PortfolioSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
-  const mainProject = projects.find(p => p.id === 'landing-page-ecommerce');
-  const otherProjects = projects.filter(p => p.id !== 'landing-page-ecommerce');
+  const mainProject = projects.find(p => p.id === 'website-agencia-ignis-lab');
+  const otherProjects = projects.filter(p => p.id !== 'website-agencia-ignis-lab');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
