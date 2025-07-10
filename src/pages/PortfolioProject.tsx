@@ -29,17 +29,16 @@ const projectsData: Record<string, ProjectData> = {
     category: "Web Design",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
     fullDescription: "Desenvolvimento de um site moderno e altamente otimizado para uma agência especializada em web design e automações. O processo incluiu pesquisa detalhada de usuário, análise competitiva, construção de wireframes, design visual impactante e a implementação técnica, garantindo uma presença digital que atrai e converte.",
-    technologies: ["Figma", "WordPress", "Elementor", "CSS", "JavaScript", "Google Analytics"],
-    client: "Boutique Fashion Store",
-    date: "Março 2024",
-    duration: "3 semanas",
-    challenge: "Criar uma experiência de compra intuitiva que convertesse visitantes em clientes, com foco na apresentação dos produtos e facilidade de navegação.",
-    solution: "Implementei um design limpo e moderno, com seções estratégicamente posicionadas para guiar o usuário através do funil de vendas, incluindo depoimentos, garantias e call-to-actions persuasivos.",
+    technologies: ["Figma", "React", "TypeScript", "Tailwind CSS", "Vite"],
+    client: "Agência Ignis Lab",
+    date: "Fevereiro 2025",
+    duration: "2 semanas",
+    challenge: "Criar uma apresentação única da agência, com foco na apresentação das soluções digitais.",
+    solution: "Um design limpo e moderno, com seções estratégicamente posicionadas para guiar o usuário através dos serviços oferecidos pela Agência Ignis Lab.",
     results: [
-      "Aumento de 45% na taxa de conversão",
-      "Redução de 30% na taxa de rejeição",
+      "Aumento de 85% na visita do site",
       "Aumento de 60% no tempo médio de permanência na página",
-      "Crescimento de 25% nas vendas online no primeiro mês"
+      "Crescimento de 25% em serviços no primeiro mês"
     ],
     gallery: [
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
