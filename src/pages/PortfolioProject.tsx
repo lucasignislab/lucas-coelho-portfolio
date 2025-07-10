@@ -43,9 +43,7 @@ const projectsData: Record<string, ProjectData> = {
       "Crescimento de 25% em serviços no primeiro mês"
     ],
     gallery: [
-      "/lovable-uploads/80f55b94-865f-42bc-90b8-22b3bde13504.png",
-      "/lovable-uploads/2.png",
-      "https://i.imgur.com/1X1X1X1.png"
+
     ],
     projectUrl: "https://ignislab.com.br"
   },
