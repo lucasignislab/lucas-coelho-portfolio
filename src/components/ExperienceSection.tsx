@@ -16,7 +16,7 @@ const experiences: Experience[] = [
     period: "Nov de 2024 - Atual",
     location: "Remoto",
     description: [
-      "Desenvolvimento e otimização de interfaces e experiências digitais, com foco em UI/UX Design, utilizando Figma e WordPress (Elementor) para criar landing pages de alta conversão.",
+      "Desenvolvimento e otimização de interfaces e experiências digitais, com foco em UI/UX Design, utilizando Figma, Webflow, Framer e Lovable.dev para criar sites e  landing pages de alta conversão.",
       "Implementação e gestão de soluções de automação de processos com ferramentas como n8n e Make, e desenvolvimento de chatbots com Inteligência Artificial, resultando na otimização do atendimento ao cliente e fluxos de trabalho.",
       "Aplicação de estratégias de Otimização para Mecanismos de Busca (SEO) para aumentar a visibilidade e o tráfego orgânico dos projetos web.",
       "Colaboração em equipe multidisciplinar para entregar soluções web completas, integrando design, funcionalidade e automação alinhados aos objetivos de negócio."
