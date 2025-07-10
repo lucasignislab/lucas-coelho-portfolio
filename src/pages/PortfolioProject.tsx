@@ -19,6 +19,7 @@ interface ProjectData {
   solution: string;
   results: string[];
   gallery: string[];
+  projectUrl?: string;
 }
 
 const projectsData: Record<string, ProjectData> = {
@@ -44,7 +45,8 @@ const projectsData: Record<string, ProjectData> = {
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
       "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop",
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop"
-    ]
+    ],
+    projectUrl: "https://ignislab.com.br"
   },
   "sistema-automacao-crm": {
     id: "sistema-automacao-crm",
@@ -239,7 +241,7 @@ const PortfolioProject = () => {
                   asChild
                   className="bg-gradient-to-r from-brand-accent to-brand-secondary hover:from-brand-secondary hover:to-brand-accent"
                 >
-                  <a href="#" className="flex items-center space-x-2">
+                  <a href={project.projectUrl || "#"} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2">
                     <span>Ver Projeto Online</span>
                     <ExternalLink className="w-4 h-4" />
                   </a>
