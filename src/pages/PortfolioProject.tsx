@@ -1,8 +1,9 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ExternalLink, Calendar, Tag, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { useEffect } from 'react';
 
 interface ProjectData {
   id: string;
@@ -177,6 +178,14 @@ const projectsData: Record<string, ProjectData> = {
 
 const PortfolioProject = () => {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (id === 'landing-page-ecommerce') {
+      navigate('/portfolio/website-agencia-ignis-lab', { replace: true });
+    }
+  }, [id, navigate]);
+
   const project = id ? projectsData[id] : null;
 
   if (!project) {
