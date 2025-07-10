@@ -17,7 +17,7 @@ const projects: Project[] = [
     title: "Site - Agência Ignis Lab",
     description: "Design e desenvolvimento do site para a Agência Ignis Lab",
     category: "Web Design",
-    image: "/lovable-uploads/ea7e1a49-11a9-4e1b-968c-0396456d8957.png"
+    image: "/lovable-uploads/2.png"
   },
   {
     id: "sistema-automacao-crm",

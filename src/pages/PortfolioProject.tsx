@@ -28,7 +28,7 @@ const projectsData: Record<string, ProjectData> = {
     title: "Website - Agência Ignis Lab",
     description: "Design e desenvolvimento do site para a Agência Ignis Lab",
     category: "Web Design",
-    image: "/lovable-uploads/ea7e1a49-11a9-4e1b-968c-0396456d8957.png",
+    image: "/lovable-uploads/2.png",
     fullDescription: "Desenvolvimento de um site moderno e altamente otimizado para uma agência especializada em web design e automações. O processo incluiu pesquisa detalhada de usuário, análise competitiva, construção de wireframes, design visual impactante e a implementação técnica, garantindo uma presença digital que atrai e converte.",
     technologies: ["Figma", "React", "TypeScript", "Tailwind CSS", "Vite"],
     client: "Agência Ignis Lab",
@@ -43,8 +43,8 @@ const projectsData: Record<string, ProjectData> = {
     ],
     gallery: [
       "/lovable-uploads/80f55b94-865f-42bc-90b8-22b3bde13504.png",
-      "/lovable-uploads/ea7e1a49-11a9-4e1b-968c-0396456d8957.png",
-        "https://i.imgur.com/1X1X1X1.png"
+      "/lovable-uploads/2.png",
+      "https://i.imgur.com/1X1X1X1.png"
     ],
     projectUrl: "https://ignislab.com.br"
   },
