@@ -52,14 +52,10 @@ const projects: Project[] = [
 
 const PortfolioSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [filter, setFilter] = useState('Todos');
   const sectionRef = useRef<HTMLElement>(null);
 
-  const categories = ['Todos', ...Array.from(new Set(projects.map(p => p.category)))];
-
-  const filteredProjects = filter === 'Todos' 
-    ? projects 
-    : projects.filter(project => project.category === filter);
+  const mainProject = projects.find(p => p.id === 'landing-page-ecommerce');
+  const otherProjects = projects.filter(p => p.id !== 'landing-page-ecommerce');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -93,32 +89,57 @@ const PortfolioSection = () => {
           Conheça alguns dos projetos que desenvolvi, sempre buscando inovação e resultados excepcionais
         </p>
 
-        {/* Filter Buttons */}
-        <div className={`flex flex-wrap justify-center gap-4 mb-12 ${
+        {/* Projects Grid */}
+        <div className={`grid md:grid-cols-3 md:grid-rows-2 gap-8 mb-12 ${
           isVisible ? 'animate-fade-in animation-delay-400' : 'opacity-0'
         }`}>
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setFilter(category)}
-              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-                filter === category
-                  ? 'bg-gradient-to-r from-brand-accent to-brand-secondary text-white shadow-lg'
-                  : 'bg-brand-secondary/20 text-brand-secondary hover:bg-brand-secondary/30'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {filteredProjects.map((project, index) => (
+          {mainProject && (
             <div
-              key={index}
+              key={mainProject.id}
+              className={`group relative glass-card hover-lift transition-all duration-300 rounded-2xl shadow-2xl border border-white/20 md:col-span-2 md:row-span-2 ${
+                isVisible ? 'animate-scale-in animation-delay-600' : 'opacity-0'
+              }`}
+              style={{ boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)' }}
+            >
+              <div className="relative overflow-hidden rounded-2xl">
+                <img
+                  src={mainProject.image}
+                  alt={mainProject.title}
+                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 border border-white/30 rounded-xl shadow-md"
+                />
+                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="flex space-x-4">
+                    <Link
+                      to={`/portfolio/${mainProject.id}`}
+                      className="p-2 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200 shadow-md"
+                    >
+                      <Eye className="w-5 h-5 text-brand-dark" />
+                    </Link>
+                    <button className="p-2 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200 shadow-md">
+                      <ExternalLink className="w-5 h-5 text-brand-dark" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-6">
+                <span className="inline-block px-3 py-1 bg-gradient-to-r from-brand-accent to-brand-secondary text-white rounded-full text-sm font-medium mb-3">
+                  {mainProject.category}
+                </span>
+                <h3 className="font-poppins font-bold text-xl text-brand-tertiary mb-2">
+                  {mainProject.title}
+                </h3>
+                <p className="text-brand-secondary text-sm leading-relaxed">
+                  {mainProject.description}
+                </p>
+              </div>
+            </div>
+          )}
+          {otherProjects.map((project, index) => (
+            <div
+              key={project.id}
               className={`group relative glass-card hover-lift transition-all duration-300 rounded-2xl shadow-2xl border border-white/20 ${
-                isVisible ? 'animate-scale-in animation-delay-' + (index * 100 + 600) : 'opacity-0'
+                isVisible ? 'animate-scale-in animation-delay-' + ((index + 1) * 100 + 600) : 'opacity-0'
               }`}
               style={{ boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)' }}
             >
