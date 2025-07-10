@@ -1,8 +1,9 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ExternalLink, Calendar, Tag, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { useEffect } from 'react';
 
 interface ProjectData {
   id: string;
@@ -28,7 +29,7 @@ const projectsData: Record<string, ProjectData> = {
     title: "Website - Agência Ignis Lab",
     description: "Design e desenvolvimento do site para a Agência Ignis Lab",
     category: "Web Design",
-    image: "/lovable-uploads/ea7e1a49-11a9-4e1b-968c-0396456d8957.png",
+    image: "/lovable-uploads/2.png",
     fullDescription: "Desenvolvimento de um site moderno e altamente otimizado para uma agência especializada em web design e automações. O processo incluiu pesquisa detalhada de usuário, análise competitiva, construção de wireframes, design visual impactante e a implementação técnica, garantindo uma presença digital que atrai e converte.",
     technologies: ["Figma", "React", "TypeScript", "Tailwind CSS", "Vite"],
     client: "Agência Ignis Lab",
@@ -42,9 +43,7 @@ const projectsData: Record<string, ProjectData> = {
       "Crescimento de 25% em serviços no primeiro mês"
     ],
     gallery: [
-      "/lovable-uploads/ea7e1a49-11a9-4e1b-968c-0396456d8957.png",
-      "/lovable-uploads/2.png",
-      "public/lovable-uploads/4.webp"
+
     ],
     projectUrl: "https://ignislab.com.br"
   },
@@ -177,6 +176,14 @@ const projectsData: Record<string, ProjectData> = {
 
 const PortfolioProject = () => {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (id === 'landing-page-ecommerce') {
+      navigate('/portfolio/website-agencia-ignis-lab', { replace: true });
+    }
+  }, [id, navigate]);
+
   const project = id ? projectsData[id] : null;
 
   if (!project) {
