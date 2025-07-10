@@ -42,11 +42,18 @@ const projectsData: Record<string, ProjectData> = {
       "Crescimento de 25% em serviços no primeiro mês"
     ],
     gallery: [
-      "/lovable-uploads/ea7e1a49-11a9-4e1b-968c-0396456d8957.png",
+<<<<<<< HEAD
+      "/lovable-uploads/80f55b94-865f-42bc-90b8-22b3bde13504.png",
       "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop",
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop"
     ],
     projectUrl: "https://ignislab.com.br"
+=======
+      "https://i.imgur.com/2Y4Y4Y4.png",
+      "https://i.imgur.com/3Z3Z3Z3.png",
+      "https://i.imgur.com/1X1X1X1.png"
+    ]
+>>>>>>> a3287f2 (feat: update gallery images for landing-page-ecommerce project)
   },
   "sistema-automacao-crm": {
     id: "sistema-automacao-crm",
