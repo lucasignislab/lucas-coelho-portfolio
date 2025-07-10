@@ -40,13 +40,7 @@ const projects: Project[] = [
     category: "IA & Chatbots",
     image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&h=400&fit=crop"
   },
-  {
-    id: "identidade-visual-corporativa",
-    title: "Identidade Visual Corporativa",
-    description: "Criação completa de identidade visual para startup de tecnologia",
-    category: "Design Gráfico",
-    image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&h=400&fit=crop"
-  },
+
   {
     id: "dashboard-analytics",
     title: "Dashboard Analytics",
