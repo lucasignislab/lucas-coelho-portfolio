@@ -1,4 +1,3 @@
-
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ExternalLink, Calendar, Tag, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -25,11 +24,11 @@ interface ProjectData {
 const projectsData: Record<string, ProjectData> = {
   "landing-page-ecommerce": {
     id: "landing-page-ecommerce",
-    title: "Landing Page E-commerce",
-    description: "Design e desenvolvimento de landing page de alta conversão para e-commerce de moda",
+    title: "Website - Agência Ignis Lab",
+    description: "Design e desenvolvimento do site para a Agência Ignis Lab",
     category: "Web Design",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
-    fullDescription: "Desenvolvimento completo de uma landing page otimizada para conversão, focada em vendas de produtos de moda feminina. O projeto incluiu pesquisa de usuário, análise de concorrência, wireframes, design visual e implementação técnica.",
+    fullDescription: "Desenvolvimento de um site moderno e altamente otimizado para uma agência especializada em web design e automações. O processo incluiu pesquisa detalhada de usuário, análise competitiva, construção de wireframes, design visual impactante e a implementação técnica, garantindo uma presença digital que atrai e converte.",
     technologies: ["Figma", "WordPress", "Elementor", "CSS", "JavaScript", "Google Analytics"],
     client: "Boutique Fashion Store",
     date: "Março 2024",
