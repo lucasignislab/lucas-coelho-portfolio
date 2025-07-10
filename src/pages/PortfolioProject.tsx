@@ -45,7 +45,7 @@ const projectsData: Record<string, ProjectData> = {
 <<<<<<< HEAD
       "/lovable-uploads/80f55b94-865f-42bc-90b8-22b3bde13504.png",
       "/lovable-uploads/ea7e1a49-11a9-4e1b-968c-0396456d8957.png",
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop"
+        "https://i.imgur.com/1X1X1X1.png",
     ],
     projectUrl: "https://ignislab.com.br"
 =======
