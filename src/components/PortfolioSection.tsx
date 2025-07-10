@@ -108,16 +108,13 @@ const PortfolioSection = () => {
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 border border-white/30 rounded-xl shadow-md"
                 />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="flex space-x-4">
+                  <div className="flex justify-center w-full">
                     <Link
                       to={`/portfolio/${mainProject.id}`}
-                      className="p-2 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200 shadow-md"
+                      className="p-4 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200 shadow-md"
                     >
-                      <Eye className="w-5 h-5 text-brand-dark" />
+                      <ExternalLink className="w-7 h-7 text-brand-dark" />
                     </Link>
-                    <button className="p-2 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200 shadow-md">
-                      <ExternalLink className="w-5 h-5 text-brand-dark" />
-                    </button>
                   </div>
                 </div>
               </div>
