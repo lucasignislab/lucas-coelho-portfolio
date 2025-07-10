@@ -23,7 +23,7 @@ interface ProjectData {
 }
 
 const projectsData: Record<string, ProjectData> = {
-  "website agencia ignis lab": {
+  "website-agencia-ignis-lab": {
     id: "website-agencia-ignis-lab",
     title: "Website - Agência Ignis Lab",
     description: "Design e desenvolvimento do site para a Agência Ignis Lab",
