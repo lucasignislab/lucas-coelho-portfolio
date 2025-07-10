@@ -101,11 +101,11 @@ const PortfolioSection = () => {
               }`}
               style={{ boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)' }}
             >
-              <div className="relative overflow-hidden rounded-2xl">
+              <div className="relative overflow-hidden rounded-2xl h-[80%]">
                 <img
                   src={mainProject.image}
                   alt={mainProject.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 border border-white/30 rounded-xl shadow-md"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 border border-white/30 rounded-xl shadow-md"
                 />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="flex space-x-4">
