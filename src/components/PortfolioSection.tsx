@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react';
 import { ExternalLink, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -14,8 +15,8 @@ interface Project {
 const projects: Project[] = [
   {
     id: "landing-page-ecommerce",
-    title: "Site - Agência Ignis Lab",
-    description: "Design e desenvolvimento do site para a Agência Ignis Lab",
+    title: "Website - Agência Ignis Lab",
+    description: "Desenvolvimento de um site moderno e altamente otimizado para uma agência especializada em web design e automações. O processo incluiu pesquisa detalhada de usuário, análise competitiva, construção de wireframes, design visual impactante e a implementação técnica, garantindo uma presença digital que atrai e converte.",
     category: "Web Design",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
   },
