@@ -102,7 +102,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
           <p>
             © {currentYear} Lucas Coelho. Todos os direitos reservados. 
-            Desenvolvido com paixão e tecnologia.
+            Desenvolvido com paixão, tecnologia e café.
           </p>
         </div>
       </div>
