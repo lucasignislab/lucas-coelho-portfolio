@@ -42,9 +42,9 @@ const projectsData: Record<string, ProjectData> = {
       "Crescimento de 25% em serviços no primeiro mês"
     ],
     gallery: [
-      "/lovable-uploads/ea7e1a49-11a9-4e1b-968c-0396456d8957.png",
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop"
+      "/lovable-uploads/bb70c7b1-34a0-4b05-949e-ad3aad34069d.png",
+      "/lovable-uploads/7707975d-161a-42b0-a77c-0f974ab20166.png",
+      "/lovable-uploads/789e90e8-4107-4733-94f6-ecaa3c14e450.png"
     ],
     projectUrl: "https://ignislab.com.br"
   },
