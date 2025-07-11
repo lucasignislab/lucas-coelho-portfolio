@@ -289,18 +289,39 @@ const PortfolioProject = () => {
                   </ul>
                 </div>
                 
-                {/* Gallery */}
+                {/* Gallery - Bento Grid */}
                 <div>
                   <h2 className="font-poppins font-bold text-2xl text-brand-tertiary mb-6">Galeria do Projeto</h2>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    {project.gallery.map((image, index) => (
+                  <div className="grid grid-cols-4 grid-rows-2 gap-4 h-[400px] md:h-[500px]">
+                    {/* Primeira imagem - ocupa 2 colunas */}
+                    <div className="col-span-2 row-span-2 relative overflow-hidden rounded-xl bg-brand-dark/30 border border-brand-secondary/20 hover-lift">
                       <img
-                        key={index}
-                        src={image}
-                        alt={`${project.title} - Imagem ${index + 1}`}
-                        className="w-full rounded-lg shadow-lg hover-lift"
+                        src={project.gallery[0]}
+                        alt={`${project.title} - Imagem 1`}
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                       />
-                    ))}
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    
+                    {/* Segunda imagem - canto superior direito */}
+                    <div className="col-span-2 row-span-1 relative overflow-hidden rounded-xl bg-brand-dark/30 border border-brand-secondary/20 hover-lift">
+                      <img
+                        src={project.gallery[1]}
+                        alt={`${project.title} - Imagem 2`}
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    
+                    {/* Terceira imagem - canto inferior direito */}
+                    <div className="col-span-2 row-span-1 relative overflow-hidden rounded-xl bg-brand-dark/30 border border-brand-secondary/20 hover-lift">
+                      <img
+                        src={project.gallery[2]}
+                        alt={`${project.title} - Imagem 3`}
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
                   </div>
                 </div>
               </div>
