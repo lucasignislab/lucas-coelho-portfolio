@@ -73,24 +73,24 @@ const projectsData: Record<string, ProjectData> = {
       "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=800&h=600&fit=crop"
     ]
   },
-  "app-mobile-ui-ux": {
-    id: "app-mobile-ui-ux",
-    title: "App Mobile UI/UX",
-    description: "Design de interface e experiência do usuário para aplicativo de finanças pessoais",
+  "saas-content-planner": {
+    id: "saas-content-planner",
+    title: "SaaS Content Planner",
+    description: "Design de interface e experiência do usuário para um SaaS Content Planner",
     category: "UX/UI Design",
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=600&fit=crop",
-    fullDescription: "Projeto completo de UX/UI para aplicativo mobile de controle financeiro pessoal, desde a pesquisa de usuário até o design final das interfaces e prototipagem interativa.",
+    fullDescription: "Projeto completo de UX/UI para uma plataforma SaaS de planejamento de conteúdo, focada em ajudar criadores e empresas a organizar, planejar e agendar conteúdo para redes sociais de forma eficiente e estratégica.",
     technologies: ["Figma", "Adobe XD", "Principle", "InVision", "User Research", "Prototyping"],
-    client: "FinTech Startup",
+    client: "ContentFlow SaaS",
     date: "Agosto 2024",
     duration: "6 semanas",
-    challenge: "Criar uma interface intuitiva para gestão financeira que fosse acessível para usuários com diferentes níveis de conhecimento financeiro.",
-    solution: "Desenvolvi um sistema de design consistente com hierarquia visual clara, utilizando cores e iconografia que facilitam a compreensão de informações complexas.",
+    challenge: "Criar uma interface intuitiva para planejamento de conteúdo que fosse acessível para usuários com diferentes níveis de experiência em marketing digital.",
+    solution: "Desenvolvi um sistema de design consistente com calendário visual, drag-and-drop, templates pré-definidos e dashboard de analytics integrado para facilitar o workflow de criação de conteúdo.",
     results: [
-      "Aumento de 80% na satisfação do usuário (NPS)",
-      "Redução de 50% nas dúvidas de suporte",
-      "Crescimento de 65% no engajamento diário",
-      "Melhoria de 40% na taxa de retenção de usuários"
+      "Aumento de 90% na produtividade dos usuários",
+      "Redução de 60% no tempo de planejamento de conteúdo",
+      "Crescimento de 75% no engajamento da plataforma",
+      "Melhoria de 45% na taxa de conversão de trial para pago"
     ],
     gallery: [
       "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",

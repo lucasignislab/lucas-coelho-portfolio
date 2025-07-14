@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react';
 import { ExternalLink, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -27,9 +28,9 @@ const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop"
   },
   {
-    id: "app-mobile-ui-ux",
-    title: "App Mobile UI/UX",
-    description: "Design de interface e experiência do usuário para aplicativo de finanças pessoais",
+    id: "saas-content-planner",
+    title: "SaaS Content Planner",
+    description: "Design de interface e experiência do usuário para um SaaS Content Planner",
     category: "UX/UI Design",
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop"
   },
