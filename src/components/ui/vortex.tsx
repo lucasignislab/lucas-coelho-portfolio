@@ -1,10 +1,10 @@
 import { cn } from "@/lib/utils"; 
  import React, { useEffect, useRef } from "react"; 
  import { createNoise3D } from "simplex-noise"; 
- import { motion } from "@motionone/react"; 
+ import { motion } from "framer-motion"; 
  
  interface VortexProps { 
-   children?: React.ReactNode; 
+   children?: React.ReactNode;
    className?: string; 
    containerClassName?: string; 
    particleCount?: number; 
@@ -233,7 +233,7 @@ import { cn } from "@/lib/utils";
          animate={{ opacity: 1 }} 
          transition={{ 
            duration: 1, 
-           easing: "ease-in-out"
+           ease: "easeInOut"
          }} 
          ref={containerRef} 
          className="absolute h-full w-full inset-0 z-0 bg-transparent flex items-center justify-center" 
