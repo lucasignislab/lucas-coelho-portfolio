@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ChevronDown, Mail, Phone, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import VortexBackground from './VortexBackground';
+import { Vortex } from './ui/vortex';
 
 const HeroSection = () => {
   const [displayedText, setDisplayedText] = useState('');
@@ -31,16 +31,19 @@ const HeroSection = () => {
   return (
     <section 
       id="hero" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-brand-black"
+      className="min-h-screen relative overflow-hidden"
     >
-      {/* Vortex Background */}
-      <VortexBackground />
-      
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-black/30 via-transparent to-brand-black/50 z-5" />
-
-      <div className="container-custom mx-auto px-4 text-center relative z-10">
-        <div>
+      <Vortex
+        backgroundColor="#000000"
+        baseHue={260}
+        particleCount={1000}
+        rangeSpeed={2}
+        baseRadius={2}
+        rangeRadius={3}
+        className="flex items-center justify-center min-h-screen"
+      >
+        <div className="container-custom mx-auto px-4 text-center">
+          <div>
           <h1 className="font-poppins font-bold text-5xl md:text-7xl lg:text-8xl text-brand-tertiary mb-6 text-shadow">
             LUCAS COELHO
           </h1>
@@ -92,8 +95,9 @@ const HeroSection = () => {
               <ExternalLink className="w-7 h-7 text-white drop-shadow-md" />
             </a>
           </div>
+          </div>
         </div>
-      </div>
+      </Vortex>
     </section>
   );
 };
