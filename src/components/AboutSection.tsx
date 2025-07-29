@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import LightningBackground from './LightningBackground';
+import { BackgroundBeams } from './ui/background-beams';
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,8 +24,8 @@ const AboutSection = () => {
 
   return (
     <section ref={sectionRef} id="about" className="section-padding bg-black relative overflow-hidden">
-      {/* Lightning Background */}
-      <LightningBackground />
+      {/* Background Beams */}
+      <BackgroundBeams />
       
       <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
