@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react';
 import { Monitor, Zap, Palette, TrendingUp, Code, Users } from 'lucide-react';
 
@@ -36,7 +37,7 @@ const skillCategories: SkillCategory[] = [
   {
     title: "Desenvolvimento Front-end",
     icon: Code,
-    skills: ["HTML", "CSS", "JavaScript"],
+    skills: ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS", "Node.js", "Vite"],
     color: "from-brand-dark to-brand-secondary"
   },
   {
