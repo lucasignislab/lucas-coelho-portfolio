@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { Building2, Calendar } from 'lucide-react';
 import { Timeline } from '@/components/ui/timeline';
@@ -110,16 +109,6 @@ const ExperienceSection = () => {
 
   return (
     <section ref={sectionRef} id="experience" className="section-padding relative overflow-hidden" style={{ backgroundColor: '#18181b' }}>
-      {/* Background image - tecnologia/automação */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80"
-          alt="Background tecnologia e automação"
-          className="w-full h-full object-cover opacity-30"
-          loading="lazy"
-        />
-        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(24, 24, 27, 0.8)' }} />
-      </div>
       <div className="container-custom relative z-10">
         <h2 className={`font-poppins font-bold text-4xl md:text-5xl text-center bg-gradient-to-r from-brand-accent via-brand-tertiary to-brand-secondary bg-clip-text text-transparent mb-16 ${
           isVisible ? 'animate-fade-in' : 'opacity-0'
