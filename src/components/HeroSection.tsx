@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ChevronDown, Mail, Phone, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import VortexBackground from './VortexBackground';
 
 const HeroSection = () => {
   const [displayedText, setDisplayedText] = useState('');
@@ -32,16 +33,11 @@ const HeroSection = () => {
       id="hero" 
       className="min-h-screen flex items-center justify-center relative overflow-hidden bg-brand-black"
     >
-      {/* Imagem de monitor como background */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80"
-          alt="Monitor de computador"
-          className="w-full h-full object-cover opacity-40"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-black/70" />
-      </div>
+      {/* Vortex Background */}
+      <VortexBackground />
+      
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-black/30 via-transparent to-brand-black/50 z-5" />
 
       <div className="container-custom mx-auto px-4 text-center relative z-10">
         <div>
