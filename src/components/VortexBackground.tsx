@@ -32,12 +32,25 @@ const VortexBackground = () => {
       positions[i] = (Math.random() - 0.5) * 30;
     }
 
+    // Create circular texture for particles
+    const canvas = document.createElement('canvas');
+    canvas.width = 32;
+    canvas.height = 32;
+    const context = canvas.getContext('2d')!;
+    context.beginPath();
+    context.arc(16, 16, 16, 0, Math.PI * 2);
+    context.fillStyle = '#ffffff';
+    context.fill();
+    
+    const circleTexture = new THREE.CanvasTexture(canvas);
+
     particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     const particleMaterial = new THREE.PointsMaterial({
       color: 0x8754FF,
       size: 0.08,
       transparent: true,
-      opacity: 0.9
+      opacity: 0.9,
+      map: circleTexture
     });
 
     const particles = new THREE.Points(particleGeometry, particleMaterial);
