@@ -191,6 +191,57 @@ All colors MUST be HSL.
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
+  /* Glow Border Effect - Cursor-like effect */
+  .glow-border {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .glow-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    background: conic-gradient(
+      from calc(var(--angle, 0deg) - 45deg) at 50% 50%,
+      transparent,
+      hsl(var(--accent)) 50%,
+      transparent
+    );
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask-composite: xor;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .glow-border:hover::before {
+    opacity: 1;
+  }
+
+  .glow-border::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      200px circle at var(--x, 50%) var(--y, 50%),
+      hsla(var(--accent), 0.4) 0%,
+      transparent 50%
+    );
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    mix-blend-mode: plus-lighter;
+    z-index: -1;
+  }
+
+  .glow-border:hover::after {
+    opacity: 1;
+  }
+
   .glow-effect {
     box-shadow: 0 0 20px rgba(135, 84, 255, 0.3);
   }
