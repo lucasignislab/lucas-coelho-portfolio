@@ -50,6 +50,7 @@ const skillCategories: SkillCategory[] = [
 const SkillsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -68,6 +69,15 @@ const SkillsSection = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   return (
     <section ref={sectionRef} id="skills" className="section-padding bg-brand-black">
       <div className="container-custom">
@@ -80,13 +90,41 @@ const SkillsSection = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => {
             const IconComponent = category.icon;
+            const cardRef = useRef<HTMLDivElement>(null);
+            
+            const handleMouseMove = (e: React.MouseEvent) => {
+              if (!cardRef.current) return;
+              
+              const rect = cardRef.current.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              const y = e.clientY - rect.top;
+              
+              cardRef.current.style.setProperty('--mouse-x', `${x}px`);
+              cardRef.current.style.setProperty('--mouse-y', `${y}px`);
+            };
+            
             return (
               <div
+                ref={cardRef}
                 key={index}
-                className={`glass-card p-6 hover-lift ${
+                className={`glass-card p-6 hover-lift relative overflow-hidden group ${
                   isVisible ? 'animate-scale-in animation-delay-' + (index * 200) : 'opacity-0'
                 }`}
+                onMouseMove={handleMouseMove}
+                style={{
+                  '--mouse-x': '0px',
+                  '--mouse-y': '0px',
+                } as React.CSSProperties}
               >
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  <div 
+                    className="absolute w-96 h-96 -translate-x-1/2 -translate-y-1/2 bg-gradient-radial from-brand-accent/30 via-brand-secondary/20 to-transparent rounded-full blur-xl"
+                    style={{
+                      left: 'var(--mouse-x)',
+                      top: 'var(--mouse-y)',
+                    }}
+                  />
+                </div>
                 <div className={`w-16 h-16 rounded-xl bg-gradient-to-r from-brand-dark to-brand-accent flex items-center justify-center mb-6 shadow-lg`}>
                   <IconComponent className="w-8 h-8 text-white drop-shadow-md" />
                 </div>
