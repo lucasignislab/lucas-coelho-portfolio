@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import LightningBackground from './LightningBackground';
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -22,8 +23,11 @@ const AboutSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="about" className="section-padding bg-brand-dark">
-      <div className="container-custom">
+    <section ref={sectionRef} id="about" className="section-padding bg-black relative overflow-hidden">
+      {/* Lightning Background */}
+      <LightningBackground />
+      
+      <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className={`space-y-6 ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
             <h2 className="font-poppins font-bold text-4xl md:text-5xl bg-gradient-to-r from-brand-accent via-brand-tertiary to-brand-secondary bg-clip-text text-transparent mb-8">
