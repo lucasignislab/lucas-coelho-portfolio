@@ -76,7 +76,7 @@ const PortfolioSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="portfolio" className="section-padding bg-brand-dark">
+    <section ref={sectionRef} id="portfolio" className="section-padding" style={{ backgroundColor: '#18181b' }}>
       <div className="container-custom">
         <h2 className={`font-poppins font-bold text-4xl md:text-5xl text-center bg-gradient-to-r from-brand-accent via-brand-tertiary to-brand-secondary bg-clip-text text-transparent mb-8 ${
           isVisible ? 'animate-fade-in' : 'opacity-0'
