@@ -25,19 +25,19 @@ const VortexBackground = () => {
 
     // Create floating particles
     const particleGeometry = new THREE.BufferGeometry();
-    const particleCount = 1000;
+    const particleCount = 3000;
     const positions = new Float32Array(particleCount * 3);
 
     for (let i = 0; i < particleCount * 3; i++) {
-      positions[i] = (Math.random() - 0.5) * 20;
+      positions[i] = (Math.random() - 0.5) * 30;
     }
 
     particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     const particleMaterial = new THREE.PointsMaterial({
       color: 0x8754FF,
-      size: 0.02,
+      size: 0.08,
       transparent: true,
-      opacity: 0.8
+      opacity: 0.9
     });
 
     const particles = new THREE.Points(particleGeometry, particleMaterial);
@@ -58,18 +58,18 @@ const VortexBackground = () => {
       for (let i = 0; i < particleCount; i++) {
         const i3 = i * 3;
         
-        // Gentle floating movement
-        particlePositions[i3] += Math.sin(time + i * 0.01) * 0.002;
-        particlePositions[i3 + 1] += Math.cos(time + i * 0.015) * 0.002;
-        particlePositions[i3 + 2] += Math.sin(time + i * 0.02) * 0.001;
+        // Faster floating movement
+        particlePositions[i3] += Math.sin(time + i * 0.01) * 0.008;
+        particlePositions[i3 + 1] += Math.cos(time + i * 0.015) * 0.008;
+        particlePositions[i3 + 2] += Math.sin(time + i * 0.02) * 0.006;
         
         // Reset particles that go too far
-        if (particlePositions[i3] > 10) particlePositions[i3] = -10;
-        if (particlePositions[i3] < -10) particlePositions[i3] = 10;
-        if (particlePositions[i3 + 1] > 10) particlePositions[i3 + 1] = -10;
-        if (particlePositions[i3 + 1] < -10) particlePositions[i3 + 1] = 10;
-        if (particlePositions[i3 + 2] > 10) particlePositions[i3 + 2] = -10;
-        if (particlePositions[i3 + 2] < -10) particlePositions[i3 + 2] = 10;
+        if (particlePositions[i3] > 15) particlePositions[i3] = -15;
+        if (particlePositions[i3] < -15) particlePositions[i3] = 15;
+        if (particlePositions[i3 + 1] > 15) particlePositions[i3 + 1] = -15;
+        if (particlePositions[i3 + 1] < -15) particlePositions[i3 + 1] = 15;
+        if (particlePositions[i3 + 2] > 15) particlePositions[i3 + 2] = -15;
+        if (particlePositions[i3 + 2] < -15) particlePositions[i3 + 2] = 15;
       }
       particles.geometry.attributes.position.needsUpdate = true;
 
