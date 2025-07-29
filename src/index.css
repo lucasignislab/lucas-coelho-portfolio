@@ -201,11 +201,12 @@ All colors MUST be HSL.
     content: '';
     position: absolute;
     inset: 0;
-    padding: 1px;
+    padding: 2px;
     background: conic-gradient(
       from calc(var(--angle, 0deg) - 45deg) at 50% 50%,
       transparent,
-      hsl(var(--accent)) 70%,
+      hsl(var(--accent)) 90%,
+      hsl(var(--accent)) 100%,
       transparent
     );
     border-radius: inherit;
@@ -226,10 +227,11 @@ All colors MUST be HSL.
     position: absolute;
     inset: 0;
     background: radial-gradient(
-      250px circle at var(--x, 50%) var(--y, 50%),
-      hsla(var(--accent), 0.7) 0%,
-      hsla(var(--accent), 0.3) 30%,
-      transparent 60%
+      350px circle at var(--x, 50%) var(--y, 50%),
+      hsla(var(--accent), 1) 0%,
+      hsla(var(--accent), 0.8) 20%,
+      hsla(var(--accent), 0.4) 40%,
+      transparent 70%
     );
     border-radius: inherit;
     opacity: 0;
