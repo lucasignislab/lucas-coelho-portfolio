@@ -36,10 +36,10 @@ const HeroSection = () => {
       <Vortex
         backgroundColor="#000000"
         baseHue={260}
-        particleCount={1000}
-        rangeSpeed={2}
-        baseRadius={2}
-        rangeRadius={3}
+        particleCount={300}
+        rangeSpeed={1}
+        baseRadius={1}
+        rangeRadius={1.5}
         className="flex items-center justify-center min-h-screen"
       >
         <div className="container-custom mx-auto px-4 text-center">
@@ -53,7 +53,7 @@ const HeroSection = () => {
               <span className="animate-pulse">|</span>
             </p>
           </div>
-          <p className="font-inter text-lg md:text-xl text-brand-secondary mb-12 max-w-2xl mx-auto">
+          <p className="font-inter text-xl md:text-2xl text-white mb-12 max-w-2xl mx-auto font-semibold drop-shadow-lg shadow-black">
             Transformando ideias em experiências digitais impactantes e eficientes
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
