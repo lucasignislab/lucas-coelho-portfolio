@@ -1,5 +1,7 @@
+
 import { useEffect, useRef, useState } from 'react';
 import { Building2, Calendar } from 'lucide-react';
+import { Timeline } from '@/components/ui/timeline';
 
 interface Experience {
   title: string;
@@ -78,6 +80,34 @@ const ExperienceSection = () => {
     return () => observer.disconnect();
   }, []);
 
+  const timelineData = experiences.map((exp) => ({
+    title: exp.period,
+    content: (
+      <div className="glass-card p-6 hover-lift mb-8">
+        <span className="inline-block px-7 py-3 bg-gradient-to-r from-brand-accent to-brand-secondary text-white rounded-full text-lg font-bold mb-3">
+          {exp.title}
+        </span>
+        <h4 className="font-semibold text-lg text-brand-tertiary mb-2">
+          {exp.company}
+        </h4>
+        <div className="flex items-center text-brand-secondary mb-2">
+          <Calendar className="w-4 h-4 mr-2" />
+          <span className="text-sm">{exp.period}</span>
+        </div>
+        <p className="text-sm text-brand-secondary/80 mb-4">{exp.location}</p>
+        
+        <ul className="space-y-2">
+          {exp.description.map((desc, descIndex) => (
+            <li key={descIndex} className="text-brand-tertiary text-sm leading-relaxed flex items-start">
+              <span className="w-2 h-2 bg-brand-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              {desc}
+            </li>
+          ))}
+        </ul>
+      </div>
+    ),
+  }));
+
   return (
     <section ref={sectionRef} id="experience" className="section-padding bg-brand-dark relative overflow-hidden">
       {/* Background image - tecnologia/automação */}
@@ -97,51 +127,8 @@ const ExperienceSection = () => {
           EXPERIÊNCIA PROFISSIONAL
         </h2>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className={`absolute left-4 md:left-1/2 transform md:-translate-x-0.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-accent to-brand-secondary ${isVisible ? 'animate-slide-in-down animation-delay-200' : 'opacity-0'}`}></div>
-
-          <div className="space-y-12">
-            {experiences.map((exp, index) => (
-              <div
-                key={index}
-                className={`relative flex flex-col md:flex-row items-start md:items-center ${
-                  index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                } ${isVisible ? `animate-slide-in-down animation-delay-${index * 200 + 400}` : 'opacity-0'}`}
-              >
-                {/* Timeline dot */}
-                <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 bg-gradient-to-r from-brand-accent to-brand-secondary rounded-full border-4 border-brand-dark shadow-lg flex items-center justify-center">
-                  <Building2 className="w-4 h-4 text-white" />
-                </div>
-
-                {/* Content */}
-                <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
-                  <div className="glass-card p-6 hover-lift">
-                    <span className="inline-block px-7 py-3 bg-gradient-to-r from-brand-accent to-brand-secondary text-white rounded-full text-lg font-bold mb-3">
-                      {exp.title}
-                    </span>
-                    <h4 className="font-semibold text-lg text-brand-tertiary mb-2">
-                      {exp.company}
-                    </h4>
-                    <div className="flex items-center text-brand-secondary mb-2">
-                      <Calendar className="w-4 h-4 mr-2" />
-                      <span className="text-sm">{exp.period}</span>
-                    </div>
-                    <p className="text-sm text-brand-secondary/80 mb-4">{exp.location}</p>
-                    
-                    <ul className="space-y-2">
-                      {exp.description.map((desc, descIndex) => (
-                        <li key={descIndex} className="text-brand-tertiary text-sm leading-relaxed flex items-start">
-                          <span className="w-2 h-2 bg-brand-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                          {desc}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className={`${isVisible ? 'animate-slide-in-down animation-delay-400' : 'opacity-0'}`}>
+          <Timeline data={timelineData} />
         </div>
       </div>
     </section>
