@@ -55,7 +55,7 @@ const AboutSection = () => {
                 <div className="aspect-square rounded-full bg-gradient-to-br from-brand-accent to-brand-secondary p-2">
                   <div className="w-full h-full rounded-full overflow-hidden">
                     <img
-                      src="/lovable-uploads/80f55b94-865f-42bc-90b8-22b3bde13504.png"
+                      src="/lovable-uploads/eu2.png"
                       alt="Lucas Coelho - Web Designer"
                       className="w-full h-full object-cover rounded-full"
                     />

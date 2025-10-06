@@ -67,7 +67,7 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				// Nova paleta de cores
-				'brand-black': '#000000',
+				'brand-black': '#0D0812',
 				'brand-dark': '#3A4143',
 				'brand-secondary': '#C0C5C7',
 				'brand-accent': '#8754FF',
