@@ -5,7 +5,7 @@ import { Vortex } from './ui/vortex';
 
 const HeroSection = () => {
   const [displayedText, setDisplayedText] = useState('');
-  const fullText = 'Web Designer | Especialista em Automação (n8n, Make) | UX/UI';
+  const fullText = 'UX/UI Designer | Web Designer | Gestor de Automações N8N';
 
   useEffect(() => {
     let i = 0;
