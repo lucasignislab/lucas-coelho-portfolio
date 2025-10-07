@@ -86,13 +86,13 @@ const SkillsSection = () => {
   };
 
   return (
-    <section ref={sectionRef} id="skills" className="section-padding bg-brand-black">
-      <div className="container-custom">
-        <h2 className={`font-poppins font-bold text-4xl md:text-5xl text-center bg-gradient-to-r from-brand-accent via-brand-tertiary to-brand-secondary bg-clip-text text-transparent mb-16 ${
-          isVisible ? 'animate-fade-in' : 'opacity-0'
-        }`}>
-          HABILIDADES TÉCNICAS E FERRAMENTAS
-        </h2>
+      <section ref={sectionRef} id="skills" className="section-padding relative w-full py-20">
+        <div className="container-custom">
+          <h2 className={`font-poppins font-bold text-4xl md:text-5xl text-center bg-gradient-to-r from-brand-accent via-brand-tertiary to-brand-secondary bg-clip-text text-transparent mb-16 ${
+            isVisible ? 'animate-fade-in' : 'opacity-0'
+          }`}>
+            HABILIDADES TÉCNICAS E FERRAMENTAS
+          </h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => {
@@ -128,8 +128,8 @@ const SkillsSection = () => {
             );
           })}
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
   );
 };
 
