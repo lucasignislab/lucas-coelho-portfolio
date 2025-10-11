@@ -76,31 +76,15 @@ const HeroSection = () => {
           <div className="flex justify-center space-x-8">
             <a
               href="mailto:lucascoelho.cps@gmail.com"
-              className="w-20 h-20 flex items-center justify-center hover:scale-110 transition-all duration-300 overflow-hidden"
+              className="w-20 h-20 flex items-center justify-center rounded-xl bg-gradient-to-r from-brand-dark to-brand-accent shadow-lg hover:scale-110 transition-all duration-300"
             >
-              <video 
-                className="w-full h-full object-cover" 
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-              >
-                <source src="/lovable-uploads/mailbox2.mp4" type="video/mp4" />
-              </video>
+              <Mail className="w-10 h-10 text-white" />
             </a>
             <a
               href="tel:+5519992492409"
-              className="w-20 h-20 flex items-center justify-center hover:scale-110 transition-all duration-300 overflow-hidden"
+              className="w-20 h-20 flex items-center justify-center rounded-xl bg-gradient-to-r from-brand-dark to-brand-accent shadow-lg hover:scale-110 transition-all duration-300"
             >
-              <video 
-                className="w-full h-full object-cover" 
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-              >
-                <source src="/lovable-uploads/phone.mp4" type="video/mp4" />
-              </video>
+              <Phone className="w-10 h-10 text-white" />
             </a>
           </div>
           </div>
