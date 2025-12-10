@@ -10,6 +10,7 @@ interface Project {
   description: string;
   category: string;
   image: string;
+  liveUrl?: string;
 }
 
 const projects: Project[] = [
@@ -18,7 +19,8 @@ const projects: Project[] = [
     title: "AERO – Planejamento na Velocidade do Pensamento",
     description: "Como projetei e desenvolvi um ecossistema de gestão de projetos keyboard-first focado em eliminar a fricção entre a ideia e a execução.",
     category: "Product Design",
-    image: "/lovable-uploads/aero-project-cover.png"
+    image: "/lovable-uploads/aero-project-cover.png",
+    liveUrl: "https://aero-projectmanager.netlify.app/"
   },
   {
     id: "sistema-automacao-crm",
@@ -112,9 +114,20 @@ const PortfolioSection = () => {
                     >
                       <Eye className="w-5 h-5 text-brand-dark" />
                     </Link>
-                    <button className="p-2 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200 shadow-md">
-                      <ExternalLink className="w-5 h-5 text-brand-dark" />
-                    </button>
+                    {mainProject.liveUrl ? (
+                      <a
+                        href={mainProject.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200 shadow-md"
+                      >
+                        <ExternalLink className="w-5 h-5 text-brand-dark" />
+                      </a>
+                    ) : (
+                      <button className="p-2 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200 shadow-md">
+                        <ExternalLink className="w-5 h-5 text-brand-dark" />
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
@@ -153,9 +166,20 @@ const PortfolioSection = () => {
                     >
                       <Eye className="w-5 h-5 text-brand-dark" />
                     </Link>
-                    <button className="p-2 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200 shadow-md">
-                      <ExternalLink className="w-5 h-5 text-brand-dark" />
-                    </button>
+                    {project.liveUrl ? (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200 shadow-md"
+                      >
+                        <ExternalLink className="w-5 h-5 text-brand-dark" />
+                      </a>
+                    ) : (
+                      <button className="p-2 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200 shadow-md">
+                        <ExternalLink className="w-5 h-5 text-brand-dark" />
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
