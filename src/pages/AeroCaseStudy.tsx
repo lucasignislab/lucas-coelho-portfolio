@@ -1,8 +1,10 @@
 
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
 import {
     ArrowRight,
+    ArrowLeft,
     Layers,
     Zap,
     Command,
@@ -123,12 +125,15 @@ const AeroCaseStudy: React.FC = () => {
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="pointer-events-auto backdrop-blur-md bg-aero-surface/80 border border-white/10 px-4 py-2 rounded-full flex items-center gap-2"
                     >
-                        <div className="w-3 h-3 bg-aero-brand rounded-full animate-pulse" />
-                        <span className="font-mono text-sm font-bold tracking-tight">AERO.SYS</span>
+                        <Link
+                            to="/#portfolio"
+                            className="pointer-events-auto backdrop-blur-md bg-aero-surface/80 hover:bg-aero-surface border border-white/10 px-4 py-2 rounded-full flex items-center gap-2 text-aero-text transition-colors"
+                        >
+                            <ArrowLeft size={14} />
+                            <span className="font-mono text-sm font-bold tracking-tight">Voltar ao Portfólio</span>
+                        </Link>
                     </motion.div>
-
                     <motion.button
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -146,9 +151,7 @@ const AeroCaseStudy: React.FC = () => {
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-aero-brand/20 blur-[120px] rounded-full pointer-events-none opacity-50" />
 
                 <div className="max-w-5xl mx-auto text-center relative z-10">
-                    <FadeIn>
-                        <Badge>Case Study 2024</Badge>
-                    </FadeIn>
+
 
                     <FadeIn delay={0.1}>
                         <h1 className="text-5xl md:text-8xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
@@ -177,16 +180,7 @@ const AeroCaseStudy: React.FC = () => {
                     </FadeIn>
                 </div>
 
-                {/* Scroll Hint */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1, duration: 1 }}
-                    className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-aero-muted/50"
-                >
-                    <span className="text-xs uppercase tracking-widest">Scroll to explore</span>
-                    <div className="w-px h-12 bg-gradient-to-b from-aero-muted/50 to-transparent" />
-                </motion.div>
+
             </section>
 
             {/* The Challenge */}
@@ -606,18 +600,16 @@ const AeroCaseStudy: React.FC = () => {
                             <p className="text-lg md:text-xl font-medium mb-8">
                                 "O AERO é a prova de que ferramentas de trabalho não precisam ser chatas ou lentas."
                             </p>
-                            <button className="bg-white text-black hover:bg-gray-200 px-8 py-3 rounded-full font-bold transition-all transform hover:scale-105 active:scale-95">
+                            <Link to="/#portfolio" className="bg-white text-black hover:bg-gray-200 px-8 py-3 rounded-full font-bold transition-all transform hover:scale-105 active:scale-95 inline-block">
                                 Ver próximo projeto
-                            </button>
+                            </Link>
                         </div>
                     </FadeIn>
                 </div>
             </Section>
 
             {/* Footer */}
-            <footer className="py-12 border-t border-white/5 text-center text-aero-muted text-sm">
-                <p>© 2024 Design Portfolio. Built with React & Tailwind.</p>
-            </footer>
+
 
             {/* Command Menu Modal Overlay (Functional Mockup) */}
             {isCommandMenuOpen && (
