@@ -1,0 +1,17 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "experience": "Experience",
+        "skills": "Skills",
+        "portfolio": "Portfolio",
+        "contact": "Contact"
+    },
+    "hero": {
+        "role": "UX/UI Designer | Web Designer | N8N Automation Manager",
+        "greeting": "LUCAS COELHO",
+        "description": "Transforming ideas into impactful and efficient digital experiences",
+        "cta_portfolio": "View Portfolio",
+        "cta_contact": "Get in Touch"
+    }
+}

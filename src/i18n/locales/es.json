@@ -1,0 +1,17 @@
+{
+    "nav": {
+        "home": "Inicio",
+        "about": "Sobre Mí",
+        "experience": "Experiencia",
+        "skills": "Habilidades",
+        "portfolio": "Portafolio",
+        "contact": "Contacto"
+    },
+    "hero": {
+        "role": "Diseñador UX/UI | Diseñador Web | Gestor de Automatización N8N",
+        "greeting": "LUCAS COELHO",
+        "description": "Transformando ideas en experiencias digitales impactantes y eficientes",
+        "cta_portfolio": "Ver Portafolio",
+        "cta_contact": "Contactar"
+    }
+}
