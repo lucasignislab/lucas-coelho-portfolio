@@ -18,7 +18,7 @@ const projects: Project[] = [
     title: "AERO – Planejamento na Velocidade do Pensamento",
     description: "Como projetei e desenvolvi um ecossistema de gestão de projetos keyboard-first focado em eliminar a fricção entre a ideia e a execução.",
     category: "Product Design",
-    image: "/lovable-uploads/ea7e1a49-11a9-4e1b-968c-0396456d8957.png"
+    image: "/lovable-uploads/aero-project-cover.png"
   },
   {
     id: "sistema-automacao-crm",
@@ -78,28 +78,24 @@ const PortfolioSection = () => {
   return (
     <section ref={sectionRef} id="portfolio" className="section-padding" style={{ backgroundColor: '#18181b' }}>
       <div className="container-custom">
-        <h2 className={`font-poppins font-bold text-4xl md:text-5xl text-center bg-gradient-to-r from-brand-accent via-brand-tertiary to-brand-secondary bg-clip-text text-transparent mb-8 ${
-          isVisible ? 'animate-fade-in' : 'opacity-0'
-        }`}>
+        <h2 className={`font-poppins font-bold text-4xl md:text-5xl text-center bg-gradient-to-r from-brand-accent via-brand-tertiary to-brand-secondary bg-clip-text text-transparent mb-8 ${isVisible ? 'animate-fade-in' : 'opacity-0'
+          }`}>
           PORTFÓLIO DE TRABALHOS
         </h2>
 
-        <p className={`text-center text-brand-tertiary text-lg mb-12 max-w-2xl mx-auto ${
-          isVisible ? 'animate-fade-in animation-delay-200' : 'opacity-0'
-        }`}>
+        <p className={`text-center text-brand-tertiary text-lg mb-12 max-w-2xl mx-auto ${isVisible ? 'animate-fade-in animation-delay-200' : 'opacity-0'
+          }`}>
           Conheça alguns dos projetos que desenvolvi, sempre buscando inovação e resultados excepcionais
         </p>
 
         {/* Projects Grid */}
-        <div className={`grid md:grid-cols-3 md:grid-rows-2 gap-8 mb-12 ${
-          isVisible ? 'animate-fade-in animation-delay-400' : 'opacity-0'
-        }`}>
+        <div className={`grid md:grid-cols-3 md:grid-rows-2 gap-8 mb-12 ${isVisible ? 'animate-fade-in animation-delay-400' : 'opacity-0'
+          }`}>
           {mainProject && (
             <div
               key={mainProject.id}
-              className={`group relative glass-card hover-lift transition-all duration-300 rounded-2xl shadow-2xl border border-white/20 md:col-span-2 md:row-span-2 ${
-                isVisible ? 'animate-scale-in animation-delay-600' : 'opacity-0'
-              }`}
+              className={`group relative glass-card hover-lift transition-all duration-300 rounded-2xl shadow-2xl border border-white/20 md:col-span-2 md:row-span-2 ${isVisible ? 'animate-scale-in animation-delay-600' : 'opacity-0'
+                }`}
               style={{ boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)' }}
             >
               <div className="relative overflow-hidden rounded-2xl h-[80%]">
@@ -139,9 +135,8 @@ const PortfolioSection = () => {
           {otherProjects.map((project, index) => (
             <div
               key={project.id}
-              className={`group relative glass-card hover-lift transition-all duration-300 rounded-2xl shadow-2xl border border-white/20 ${
-                isVisible ? 'animate-scale-in animation-delay-' + ((index + 1) * 100 + 600) : 'opacity-0'
-              }`}
+              className={`group relative glass-card hover-lift transition-all duration-300 rounded-2xl shadow-2xl border border-white/20 ${isVisible ? 'animate-scale-in animation-delay-' + ((index + 1) * 100 + 600) : 'opacity-0'
+                }`}
               style={{ boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)' }}
             >
               <div className="relative overflow-hidden rounded-2xl">
