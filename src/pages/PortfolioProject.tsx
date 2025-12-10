@@ -1,3 +1,4 @@
+import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ExternalLink, Calendar, Tag, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -15,7 +16,9 @@ interface ProjectData {
   client: string;
   date: string;
   duration: string;
-  challenge: string;
+  challenge: React.ReactNode;
+  challengeTitle?: string;
+  solutionTitle?: string;
   solution: string;
   results: string[];
   gallery: string[];
@@ -34,7 +37,29 @@ const projectsData: Record<string, ProjectData> = {
     client: "Agência Ignis Lab",
     date: "Novembro 2025",
     duration: "2 semanas",
-    challenge: "Criar uma apresentação única da agência, com foco na apresentação das soluções digitais.",
+    challengeTitle: "O Desafio (The Challenge)",
+    challenge: (
+      <>
+        <p className="mb-4">
+          <strong className="text-brand-tertiary">"Por que o mundo precisa de mais um gerenciador de projetos?"</strong>
+        </p>
+        <p className="mb-4">
+          Essa foi a pergunta que guiou o início do AERO. Como Product Designer e Desenvolvedor, notei um padrão frustrante nas ferramentas de mercado: elas são lentas, inchadas e exigem muitos cliques para ações simples. Para equipes de alta performance, cada segundo de carregamento e cada troca de contexto (mouse vs. teclado) é uma quebra no "Estado de Fluxo" (Flow State).
+        </p>
+        <p className="mb-4">
+          <strong className="text-brand-tertiary">Minha Missão:</strong> Criar não apenas uma ferramenta, mas um "Sistema Operacional" para o trabalho, onde a interface desaparece e resta apenas a execução.
+        </p>
+        <ul className="list-disc list-inside space-y-2 mt-4 text-brand-secondary">
+          <li>
+            <strong className="text-brand-tertiary">Minha Atuação:</strong> End-to-End (Product Strategy, UX Research, UI Design, Full Stack Development).
+          </li>
+          <li>
+            <strong className="text-brand-tertiary">Tempo de Projeto:</strong> 2 meses
+          </li>
+        </ul>
+      </>
+    ),
+    solutionTitle: "Imersão e Descoberta (Discovery)",
     solution: "Um design limpo e moderno, com seções estratégicamente posicionadas para guiar o usuário através dos serviços oferecidos pela Agência Ignis Lab.",
     results: [
       "Aumento de 85% na visita do site",
@@ -263,16 +288,16 @@ const PortfolioProject = () => {
         <section className="py-16 bg-brand-black">
           <div className="container-custom">
             <div className="grid lg:grid-cols-3 gap-12">
-              <div className="lg:col-span-2 space-y-12">
+              <div className="lg:col-span-3 space-y-12">
                 {/* Challenge */}
                 <div>
-                  <h2 className="font-poppins font-bold text-2xl text-brand-tertiary mb-4">Desafio</h2>
-                  <p className="text-brand-secondary leading-relaxed">{project.challenge}</p>
+                  <h2 className="font-poppins font-bold text-2xl text-brand-tertiary mb-4">{project.challengeTitle || "Desafio"}</h2>
+                  <div className="text-brand-secondary leading-relaxed">{project.challenge}</div>
                 </div>
 
                 {/* Solution */}
                 <div>
-                  <h2 className="font-poppins font-bold text-2xl text-brand-tertiary mb-4">Solução</h2>
+                  <h2 className="font-poppins font-bold text-2xl text-brand-tertiary mb-4">{project.solutionTitle || "Solução"}</h2>
                   <p className="text-brand-secondary leading-relaxed">{project.solution}</p>
                 </div>
 
@@ -327,55 +352,7 @@ const PortfolioProject = () => {
               </div>
 
               {/* Sidebar */}
-              <div className="space-y-8">
-                {/* Project Info */}
-                <div className="bg-brand-dark/50 backdrop-blur-sm rounded-xl p-6 border border-brand-secondary/20">
-                  <h3 className="font-poppins font-bold text-xl text-brand-tertiary mb-4">Informações do Projeto</h3>
-                  <div className="space-y-4">
-                    <div>
-                      <p className="text-sm text-brand-secondary mb-1">Duração</p>
-                      <p className="text-brand-tertiary font-medium">{project.duration}</p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-brand-secondary mb-1">Categoria</p>
-                      <span className="inline-block px-3 py-1 bg-brand-accent/20 text-brand-accent rounded-full text-sm">
-                        {project.category}
-                      </span>
-                    </div>
-                  </div>
-                </div>
 
-                {/* Technologies */}
-                <div className="bg-brand-dark/50 backdrop-blur-sm rounded-xl p-6 border border-brand-secondary/20">
-                  <h3 className="font-poppins font-bold text-xl text-brand-tertiary mb-4">Tecnologias Utilizadas</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 bg-brand-secondary/20 text-brand-secondary rounded-full text-sm"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* CTA */}
-                <div className="bg-gradient-to-r from-brand-accent/20 to-brand-secondary/20 rounded-xl p-6 border border-brand-accent/30">
-                  <h3 className="font-poppins font-bold text-lg text-brand-tertiary mb-3">
-                    Gostou do projeto?
-                  </h3>
-                  <p className="text-brand-secondary text-sm mb-4">
-                    Vamos conversar sobre como posso ajudar seu negócio.
-                  </p>
-                  <Button
-                    asChild
-                    className="w-full bg-gradient-to-r from-brand-accent to-brand-secondary hover:from-brand-secondary hover:to-brand-accent"
-                  >
-                    <Link to="/#contact">Entrar em Contato</Link>
-                  </Button>
-                </div>
-              </div>
             </div>
           </div>
         </section>

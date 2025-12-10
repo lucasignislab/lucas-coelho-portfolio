@@ -72,6 +72,16 @@ export default {
 				'brand-secondary': '#C0C5C7',
 				'brand-accent': '#8754FF',
 				'brand-tertiary': '#E5D7C4',
+
+				// Aero Case Study Colors
+				aero: {
+					bg: '#101115',
+					surface: '#24262F',
+					text: '#f5f5f5',
+					muted: '#9CA3AF',
+					brand: '#388cfa',
+					danger: '#911756',
+				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

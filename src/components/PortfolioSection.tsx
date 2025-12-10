@@ -107,7 +107,7 @@ const PortfolioSection = () => {
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="flex space-x-4">
                     <Link
-                      to={`/portfolio/${mainProject.id}`}
+                      to={`/portfolio/aero-case-study`}
                       className="p-2 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200 shadow-md"
                     >
                       <Eye className="w-5 h-5 text-brand-dark" />
