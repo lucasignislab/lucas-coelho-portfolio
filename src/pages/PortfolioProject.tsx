@@ -25,9 +25,9 @@ interface ProjectData {
 const projectsData: Record<string, ProjectData> = {
   "website-ignis-lab": {
     id: "website-ignis-lab",
-    title: "Website - Agência Ignis Lab",
-    description: "Design e desenvolvimento do site para a Agência Ignis Lab",
-    category: "Web Design",
+    title: "AERO – Planejamento na Velocidade do Pensamento",
+    description: "Como projetei e desenvolvi um ecossistema de gestão de projetos keyboard-first focado em eliminar a fricção entre a ideia e a execução.",
+    category: "Product Design",
     image: "/lovable-uploads/ea7e1a49-11a9-4e1b-968c-0396456d8957.png",
     fullDescription: "Desenvolvimento de um site moderno e altamente otimizado para uma agência especializada em web design e automações. O processo incluiu pesquisa detalhada de usuário, análise competitiva, construção de wireframes, design visual impactante e a implementação técnica, garantindo uma presença digital que atrai e converte.",
     technologies: ["Figma", "React", "TypeScript", "Tailwind CSS", "Vite"],
@@ -195,7 +195,7 @@ const PortfolioProject = () => {
   return (
     <div className="min-h-screen bg-brand-black">
       <Header />
-      
+
       <main className="pt-20">
         {/* Hero Section */}
         <section className="py-16 bg-brand-dark">
@@ -207,7 +207,7 @@ const PortfolioProject = () => {
               <ArrowLeft className="w-4 h-4 mr-2" />
               Voltar ao Portfólio
             </Link>
-            
+
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <span className="inline-block px-4 py-2 bg-brand-accent/20 text-brand-accent rounded-full text-sm font-medium mb-4">
@@ -219,7 +219,7 @@ const PortfolioProject = () => {
                 <p className="text-brand-tertiary text-lg leading-relaxed mb-8">
                   {project.fullDescription}
                 </p>
-                
+
                 <div className="grid grid-cols-2 gap-6 mb-8">
                   <div className="flex items-center space-x-3">
                     <User className="w-5 h-5 text-brand-accent" />
@@ -236,7 +236,7 @@ const PortfolioProject = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <Button
                   asChild
                   className="bg-gradient-to-r from-brand-accent to-brand-secondary hover:from-brand-secondary hover:to-brand-accent"
@@ -247,7 +247,7 @@ const PortfolioProject = () => {
                   </a>
                 </Button>
               </div>
-              
+
               <div className="relative">
                 <img
                   src={project.image}
@@ -269,13 +269,13 @@ const PortfolioProject = () => {
                   <h2 className="font-poppins font-bold text-2xl text-brand-tertiary mb-4">Desafio</h2>
                   <p className="text-brand-secondary leading-relaxed">{project.challenge}</p>
                 </div>
-                
+
                 {/* Solution */}
                 <div>
                   <h2 className="font-poppins font-bold text-2xl text-brand-tertiary mb-4">Solução</h2>
                   <p className="text-brand-secondary leading-relaxed">{project.solution}</p>
                 </div>
-                
+
                 {/* Results */}
                 <div>
                   <h2 className="font-poppins font-bold text-2xl text-brand-tertiary mb-4">Resultados</h2>
@@ -288,7 +288,7 @@ const PortfolioProject = () => {
                     ))}
                   </ul>
                 </div>
-                
+
                 {/* Gallery - Bento Grid */}
                 <div>
                   <h2 className="font-poppins font-bold text-2xl text-brand-tertiary mb-6">Galeria do Projeto</h2>
@@ -302,7 +302,7 @@ const PortfolioProject = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-brand-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                    
+
                     {/* Segunda imagem - canto superior direito */}
                     <div className="col-span-2 row-span-1 relative overflow-hidden rounded-xl bg-brand-dark/30 border border-brand-secondary/20 hover-lift">
                       <img
@@ -312,7 +312,7 @@ const PortfolioProject = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-brand-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                    
+
                     {/* Terceira imagem - canto inferior direito */}
                     <div className="col-span-2 row-span-1 relative overflow-hidden rounded-xl bg-brand-dark/30 border border-brand-secondary/20 hover-lift">
                       <img
@@ -325,7 +325,7 @@ const PortfolioProject = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* Sidebar */}
               <div className="space-y-8">
                 {/* Project Info */}
@@ -344,7 +344,7 @@ const PortfolioProject = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Technologies */}
                 <div className="bg-brand-dark/50 backdrop-blur-sm rounded-xl p-6 border border-brand-secondary/20">
                   <h3 className="font-poppins font-bold text-xl text-brand-tertiary mb-4">Tecnologias Utilizadas</h3>
@@ -359,7 +359,7 @@ const PortfolioProject = () => {
                     ))}
                   </div>
                 </div>
-                
+
                 {/* CTA */}
                 <div className="bg-gradient-to-r from-brand-accent/20 to-brand-secondary/20 rounded-xl p-6 border border-brand-accent/30">
                   <h3 className="font-poppins font-bold text-lg text-brand-tertiary mb-3">
@@ -380,7 +380,7 @@ const PortfolioProject = () => {
           </div>
         </section>
       </main>
-      
+
       <Footer />
     </div>
   );

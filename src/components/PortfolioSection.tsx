@@ -15,9 +15,9 @@ interface Project {
 const projects: Project[] = [
   {
     id: "website-ignis-lab",
-    title: "Site - Agência Ignis Lab",
-    description: "Design e desenvolvimento do site para a Agência Ignis Lab",
-    category: "Web Design",
+    title: "AERO – Planejamento na Velocidade do Pensamento",
+    description: "Como projetei e desenvolvi um ecossistema de gestão de projetos keyboard-first focado em eliminar a fricção entre a ideia e a execução.",
+    category: "Product Design",
     image: "/lovable-uploads/ea7e1a49-11a9-4e1b-968c-0396456d8957.png"
   },
   {
