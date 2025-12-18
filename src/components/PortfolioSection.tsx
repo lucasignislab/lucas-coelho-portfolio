@@ -20,7 +20,7 @@ const projects: Project[] = [
     description: "Como projetei e desenvolvi um ecossistema de gestão de projetos keyboard-first focado em eliminar a fricção entre a ideia e a execução.",
     category: "Product Design",
     image: "/lovable-uploads/aero-project-cover.png",
-    liveUrl: "https://aero-projectmanager.netlify.app/"
+    liveUrl: "https://aeroprojectmanager.netlify.app"
   },
   {
     id: "sistema-automacao-crm",

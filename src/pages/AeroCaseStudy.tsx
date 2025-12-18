@@ -134,14 +134,7 @@ const AeroCaseStudy: React.FC = () => {
                             <span className="font-mono text-sm font-bold tracking-tight">Voltar ao Portfólio</span>
                         </Link>
                     </motion.div>
-                    <motion.button
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="pointer-events-auto backdrop-blur-md bg-white/5 hover:bg-white/10 border border-white/10 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center gap-2"
-                    >
-                        Download PRD <ArrowRight size={14} />
-                    </motion.button>
+
                 </div>
             </header>
 
