@@ -91,16 +91,16 @@ const PortfolioSection = () => {
         </p>
 
         {/* Projects Grid */}
-        <div className={`grid md:grid-cols-3 md:grid-rows-2 gap-8 mb-12 ${isVisible ? 'animate-fade-in animation-delay-400' : 'opacity-0'
+        <div className={`flex justify-center ${isVisible ? 'animate-fade-in animation-delay-400' : 'opacity-0'
           }`}>
           {mainProject && (
             <div
               key={mainProject.id}
-              className={`group relative glass-card hover-lift transition-all duration-300 rounded-2xl shadow-2xl border border-white/20 md:col-span-2 md:row-span-2 ${isVisible ? 'animate-scale-in animation-delay-600' : 'opacity-0'
+              className={`group relative glass-card hover-lift transition-all duration-300 rounded-2xl shadow-2xl border border-white/20 max-w-4xl w-full ${isVisible ? 'animate-scale-in animation-delay-600' : 'opacity-0'
                 }`}
               style={{ boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)' }}
             >
-              <div className="relative overflow-hidden rounded-2xl h-[80%]">
+              <div className="relative overflow-hidden rounded-2xl h-[400px] md:h-[500px]">
                 <img
                   src={mainProject.image}
                   alt={mainProject.title}
@@ -132,71 +132,19 @@ const PortfolioSection = () => {
                 </div>
               </div>
 
-              <div className="p-6">
+              <div className="p-6 md:p-8">
                 <span className="inline-block px-3 py-1 bg-gradient-to-r from-brand-accent to-brand-secondary text-white rounded-full text-sm font-medium mb-3">
                   {mainProject.category}
                 </span>
-                <h3 className="font-poppins font-bold text-xl text-brand-tertiary mb-2">
+                <h3 className="font-poppins font-bold text-2xl md:text-3xl text-brand-tertiary mb-3">
                   {mainProject.title}
                 </h3>
-                <p className="text-brand-secondary text-sm leading-relaxed">
+                <p className="text-brand-secondary text-base md:text-lg leading-relaxed">
                   {mainProject.description}
                 </p>
               </div>
             </div>
           )}
-          {otherProjects.map((project, index) => (
-            <div
-              key={project.id}
-              className={`group relative glass-card hover-lift transition-all duration-300 rounded-2xl shadow-2xl border border-white/20 ${isVisible ? 'animate-scale-in animation-delay-' + ((index + 1) * 100 + 600) : 'opacity-0'
-                }`}
-              style={{ boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)' }}
-            >
-              <div className="relative overflow-hidden rounded-2xl">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 border border-white/30 rounded-xl shadow-md"
-                />
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="flex space-x-4">
-                    <Link
-                      to={`/portfolio/${project.id}`}
-                      className="p-2 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200 shadow-md"
-                    >
-                      <Eye className="w-5 h-5 text-brand-dark" />
-                    </Link>
-                    {project.liveUrl ? (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200 shadow-md"
-                      >
-                        <ExternalLink className="w-5 h-5 text-brand-dark" />
-                      </a>
-                    ) : (
-                      <button className="p-2 bg-brand-tertiary rounded-full hover:bg-brand-tertiary/80 transition-colors duration-200 shadow-md">
-                        <ExternalLink className="w-5 h-5 text-brand-dark" />
-                      </button>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <span className="inline-block px-3 py-1 bg-gradient-to-r from-brand-accent to-brand-secondary text-white rounded-full text-sm font-medium mb-3">
-                  {project.category}
-                </span>
-                <h3 className="font-poppins font-bold text-xl text-brand-tertiary mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-brand-secondary text-sm leading-relaxed">
-                  {project.description}
-                </p>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </section>
