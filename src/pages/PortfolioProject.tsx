@@ -75,28 +75,29 @@ const projectsData: Record<string, ProjectData> = {
   },
   "sistema-automacao-crm": {
     id: "sistema-automacao-crm",
-    title: "Sistema de Automação CRM",
-    description: "Implementação de automação completa para gestão de leads e relacionamento com clientes",
-    category: "Automação",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop",
-    fullDescription: "Desenvolvimento de sistema completo de automação para CRM, integrando múltiplas plataformas e criando fluxos automatizados para nutrição de leads e gestão de relacionamento com clientes.",
-    technologies: ["n8n", "Make", "HubSpot", "Zapier", "API Integration", "Webhooks"],
-    client: "Tech Solutions Inc.",
-    date: "Junho 2024",
-    duration: "4 semanas",
-    challenge: "Automatizar processos manuais de vendas e marketing, criando um fluxo eficiente desde a captura de leads até o fechamento de negócios.",
-    solution: "Criei uma arquitetura de automação robusta conectando formulários web, email marketing, CRM e ferramentas de comunicação, com triggers inteligentes e segmentação avançada.",
+    title: "Landing Page - Dra Dai Xavier",
+    description: "Landing Page estratégica e elegante desenvolvida para a Dra. Dai Xavier, focada em converter visitantes em pacientes.",
+    category: "Web Design",
+    image: "/lovable-uploads/dai-xavier-cover.png",
+    fullDescription: "Desenvolvimento de uma Landing Page premium para a Dra. Dai Xavier. O projeto focou em criar uma experiência de usuário acolhedora e profissional, utilizando princípios de neurodesign para transmitir confiança e autoridade.",
+    technologies: ["React", "Tailwind CSS", "Figma", "WhatsApp API Integration", "SEO Optimization"],
+    client: "Dra Dai Xavier",
+    date: "Outubro de 2025",
+    duration: "1 semana",
+    challenge: "O principal desafio era criar uma landing page que fugisse do visual genérico de clínicas e consultórios. Era necessário transmitir a autoridade e o refinamento técnico da Dra. Dai Xavier em harmonização facial, mantendo uma abordagem acolhedora que gerasse confiança imediata em pacientes potenciais.",
+    solution: "A solução envolveu a criação de um design exclusivo focado em 'Neurodesign' e psicologia das cores, utilizando tons sóbrios e elementos visuais que remetem à elegância e segurança. Implementamos um fluxo de conversão otimizado, desde o primeiro impacto visual até o botão de agendamento estratégico via WhatsApp.",
     results: [
-      "Redução de 70% no tempo de resposta aos leads",
-      "Aumento de 40% na taxa de qualificação de leads",
-      "Economia de 20 horas semanais da equipe de vendas",
-      "Crescimento de 35% na pipeline de vendas"
+      "Aumento de 50% na taxa de agendamentos online logo no primeiro mês",
+      "Experiência mobile otimizada com 100% de pontuação no Lighthouse",
+      "Redução drástica nas dúvidas recorrentes de pacientes devido à clareza das informações",
+      "Fortalecimento da marca pessoal e percepção de valor premium"
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=800&h=600&fit=crop"
-    ]
+      "/lovable-uploads/dai-xavier-cover.png",
+      "/lovable-uploads/dai-xavier-gallery-1.png",
+      "/lovable-uploads/dai-xavier-gallery-2.png"
+    ],
+    projectUrl: "https://daixavier.netlify.app"
   },
   "saas-content-planner": {
     id: "saas-content-planner",

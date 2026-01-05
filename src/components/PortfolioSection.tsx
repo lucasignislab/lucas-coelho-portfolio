@@ -24,10 +24,11 @@ const projects: Project[] = [
   },
   {
     id: "sistema-automacao-crm",
-    title: "Sistema de Automação CRM",
-    description: "Implementação de automação completa para gestão de leads e relacionamento com clientes",
-    category: "Automação",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop"
+    title: "Landing Page - Dra Dai Xavier",
+    description: "Landing Page estratégica e elegante desenvolvida para a Dra. Dai Xavier, focada em converter visitantes em pacientes.",
+    category: "Web Design",
+    image: "/lovable-uploads/dai-xavier-cover.png",
+    liveUrl: "https://daixavier.netlify.app"
   },
   {
     id: "saas-content-planner",
