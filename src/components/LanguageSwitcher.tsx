@@ -1,6 +1,6 @@
 
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Check } from 'lucide-react';
 
 const flags = {
@@ -38,21 +38,42 @@ const flags = {
 const LanguageSwitcher = () => {
     const { i18n } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
+    const containerRef = useRef<HTMLDivElement>(null);
 
     const changeLanguage = (lng: string) => {
         i18n.changeLanguage(lng);
         setIsOpen(false);
     };
 
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+                setIsOpen(false);
+            }
+        };
+
+        if (isOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isOpen]);
+
     const currentFlag = flags[i18n.language as keyof typeof flags] || flags['pt'];
 
     return (
         <div
+            ref={containerRef}
             className="relative ml-4 z-50"
-            onMouseEnter={() => setIsOpen(true)}
-            onMouseLeave={() => setIsOpen(false)}
         >
-            <button className="flex items-center justify-center p-2 rounded-lg hover:bg-white/10 transition-colors">
+            <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="flex items-center justify-center p-2 rounded-lg hover:bg-white/10 transition-colors cursor-pointer"
+                aria-haspopup="true"
+                aria-expanded={isOpen}
+            >
                 {currentFlag}
             </button>
 
@@ -68,7 +89,7 @@ const LanguageSwitcher = () => {
                             <button
                                 key={lang.code}
                                 onClick={() => changeLanguage(lang.code)}
-                                className={`w-full px-4 py-2 flex items-center gap-3 hover:bg-white/5 transition-colors ${i18n.language === lang.code ? 'text-brand-accent' : 'text-brand-text'
+                                className={`w-full px-4 py-2 flex items-center gap-3 hover:bg-white/5 transition-colors cursor-pointer ${i18n.language === lang.code ? 'text-brand-accent' : 'text-brand-text'
                                     }`}
                             >
                                 <div className="w-5">{lang.flag}</div>
