@@ -1,47 +1,41 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Monitor, Zap, Palette, TrendingUp, Code, Users } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
-interface SkillCategory {
-  title: string;
-  icon: any;
-  skills: string[];
-  color: string;
-}
-
-const skillCategories: SkillCategory[] = [
+const skillCategories = [
   {
-    title: "Web Design & UX/UI",
+    key: "uxui",
     icon: Monitor,
     skills: ["Figma", "Adobe XD", "WordPress (Elementor)", "Web Design Responsivo", "Wireframes", "Prototipagem", "Design System", "UI Design", "UX Research"],
     color: "from-brand-accent to-brand-secondary"
   },
   {
-    title: "Automação & IA",
+    key: "automation",
     icon: Zap,
     skills: ["n8n", "Make (antigo Integromat)", "Desenvolvimento de Chatbots", "Inteligência Artificial", "Gestão de Automação", "Otimização de Processos"],
     color: "from-brand-dark to-brand-accent"
   },
   {
-    title: "Design Gráfico & Motion",
+    key: "graphic",
     icon: Palette,
     skills: ["Adobe Photoshop", "Adobe Illustrator", "Adobe After Effects", "Adobe Premiere Pro", "Motion Design", "Edição de Vídeos"],
     color: "from-brand-secondary to-brand-dark"
   },
   {
-    title: "Marketing Digital",
+    key: "marketing",
     icon: TrendingUp,
     skills: ["SEO (Otimização para Mecanismos de Busca)", "Marketing de Conteúdo", "Marketing de Mídias Sociais", "Analytics"],
     color: "from-brand-accent to-brand-tertiary"
   },
   {
-    title: "Desenvolvimento Front-end",
+    key: "frontend",
     icon: Code,
     skills: ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS", "Node.js", "Vite"],
     color: "from-brand-dark to-brand-secondary"
   },
   {
-    title: "Metodologias",
+    key: "methodology",
     icon: Users,
     skills: ["Gestão Ágil Scrum", "Design Thinking", "Lean UX"],
     color: "from-brand-secondary to-brand-accent"
@@ -49,6 +43,7 @@ const skillCategories: SkillCategory[] = [
 ];
 
 const SkillsSection = () => {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -74,10 +69,10 @@ const SkillsSection = () => {
     const rect = card.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width) * 100;
     const y = ((e.clientY - rect.top) / rect.height) * 100;
-    
+
     card.style.setProperty('--x', `${x}%`);
     card.style.setProperty('--y', `${y}%`);
-    
+
     // Calculate angle for the conic gradient
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
@@ -86,24 +81,22 @@ const SkillsSection = () => {
   };
 
   return (
-      <section ref={sectionRef} id="skills" className="section-padding relative w-full py-20">
-        <div className="container-custom">
-          <h2 className={`font-poppins font-bold text-4xl md:text-5xl text-center bg-gradient-to-r from-brand-accent via-brand-tertiary to-brand-secondary bg-clip-text text-transparent mb-16 ${
-            isVisible ? 'animate-fade-in' : 'opacity-0'
+    <section ref={sectionRef} id="skills" className="section-padding relative w-full py-20">
+      <div className="container-custom">
+        <h2 className={`font-poppins font-bold text-4xl md:text-5xl text-center bg-gradient-to-r from-brand-accent via-brand-tertiary to-brand-secondary bg-clip-text text-transparent mb-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'
           }`}>
-            HABILIDADES TÉCNICAS E FERRAMENTAS
-          </h2>
+          {t('skills.title')}
+        </h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => {
             const IconComponent = category.icon;
-            
+
             return (
               <div
                 key={index}
-                className={`glass-card glow-border p-6 hover-lift ${
-                  isVisible ? 'animate-scale-in animation-delay-' + (index * 200) : 'opacity-0'
-                }`}
+                className={`glass-card glow-border p-6 hover-lift ${isVisible ? 'animate-scale-in animation-delay-' + (index * 200) : 'opacity-0'
+                  }`}
                 onMouseMove={handleMouseMove}
               >
                 <div className={`w-16 h-16 rounded-xl bg-gradient-to-r from-brand-dark to-brand-accent flex items-center justify-center mb-6 shadow-lg`}>
@@ -111,7 +104,7 @@ const SkillsSection = () => {
                 </div>
 
                 <h3 className="font-poppins font-bold text-xl text-brand-tertiary mb-4">
-                  {category.title}
+                  {t(`skills.categories.${category.key}`)}
                 </h3>
 
                 <div className="flex flex-wrap gap-2">
@@ -128,8 +121,8 @@ const SkillsSection = () => {
             );
           })}
         </div>
-        </div>
-      </section>
+      </div>
+    </section>
   );
 };
 

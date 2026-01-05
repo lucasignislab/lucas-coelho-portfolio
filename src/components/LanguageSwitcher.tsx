@@ -61,7 +61,9 @@ const LanguageSwitcher = () => {
         };
     }, [isOpen]);
 
-    const currentFlag = flags[i18n.language as keyof typeof flags] || flags['pt'];
+    const getShortLang = (lng: string) => lng.split('-')[0].toLowerCase();
+    const currentLang = getShortLang(i18n.language);
+    const currentFlag = flags[currentLang as keyof typeof flags] || flags['pt'];
 
     return (
         <div
@@ -89,12 +91,12 @@ const LanguageSwitcher = () => {
                             <button
                                 key={lang.code}
                                 onClick={() => changeLanguage(lang.code)}
-                                className={`w-full px-4 py-2 flex items-center gap-3 hover:bg-white/5 transition-colors cursor-pointer ${i18n.language === lang.code ? 'text-brand-accent' : 'text-brand-text'
+                                className={`w-full px-4 py-2 flex items-center gap-3 hover:bg-white/5 transition-colors cursor-pointer ${currentLang === lang.code ? 'text-brand-accent' : 'text-brand-text'
                                     }`}
                             >
                                 <div className="w-5">{lang.flag}</div>
                                 <span className="text-sm font-medium">{lang.label}</span>
-                                {i18n.language === lang.code && <Check size={14} className="ml-auto" />}
+                                {currentLang === lang.code && <Check size={14} className="ml-auto" />}
                             </button>
                         ))}
                     </div>

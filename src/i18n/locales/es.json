@@ -8,10 +8,28 @@
         "contact": "Contacto"
     },
     "hero": {
-        "role": "Diseñador UX/UI | Diseñador Web | Gestor de Automatización N8N",
+        "role": "Diseñador UX/UI | Diseñador Web | Product Designer",
         "greeting": "LUCAS COELHO",
         "description": "Transformando ideas en experiencias digitales impactantes y eficientes",
         "cta_portfolio": "Ver Portafolio",
         "cta_contact": "Contactar"
+    },
+    "common": {
+        "back_to_home": "Volver al Inicio",
+        "back_to_portfolio": "Volver al Portafolio",
+        "project_not_found": "Proyecto no encontrado",
+        "view_online": "Ver Proyecto Online",
+        "date": "Fecha",
+        "challenge": "El Desafío",
+        "solution": "La Solución",
+        "results": "Resultados",
+        "gallery": "Galería"
+    },
+    "footer": {
+        "description": "Diseñador Web especialista en automatización, UX/UI y optimización de procesos digitales. Transformando ideas en experiencias digitales impactantes.",
+        "nav_title": "Navegación",
+        "contact_title": "Contacto",
+        "copyright": "© {{year}} Lucas Coelho. Todos los derechos reservados.",
+        "made_with": "Desarrollado con pasión, tecnología y café."
     }
 }

@@ -4,68 +4,23 @@ import { ArrowLeft, ExternalLink, Calendar, Tag, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { useTranslation, Trans } from 'react-i18next';
 
-interface ProjectData {
+interface ProjectStaticData {
   id: string;
-  title: string;
-  description: string;
-  category: string;
+  key: string;
   image: string;
-  fullDescription: string;
   technologies: string[];
-  client: string;
-  date: string;
-  duration: string;
-  challenge: React.ReactNode;
-  challengeTitle?: string;
-  solutionTitle?: string;
-  solution: string;
-  results: string[];
   gallery: string[];
   projectUrl?: string;
 }
 
-const projectsData: Record<string, ProjectData> = {
+const projectsStaticData: Record<string, ProjectStaticData> = {
   "website-ignis-lab": {
     id: "website-ignis-lab",
-    title: "AERO – Planejamento na Velocidade do Pensamento",
-    description: "Como projetei e desenvolvi um ecossistema de gestão de projetos keyboard-first focado em eliminar a fricção entre a ideia e a execução.",
-    category: "Product Design",
+    key: "aero",
     image: "/lovable-uploads/aero-project-cover.png",
-    fullDescription: "Desenvolvimento de um site moderno e altamente otimizado para uma agência especializada em web design e automações. O processo incluiu pesquisa detalhada de usuário, análise competitiva, construção de wireframes, design visual impactante e a implementação técnica, garantindo uma presença digital que atrai e converte.",
     technologies: ["Figma", "React", "TypeScript", "Tailwind CSS", "Vite"],
-    client: "Agência Ignis Lab",
-    date: "Novembro 2025",
-    duration: "2 semanas",
-    challengeTitle: "O Desafio (The Challenge)",
-    challenge: (
-      <>
-        <p className="mb-4">
-          <strong className="text-brand-tertiary">"Por que o mundo precisa de mais um gerenciador de projetos?"</strong>
-        </p>
-        <p className="mb-4">
-          Essa foi a pergunta que guiou o início do AERO. Como Product Designer e Desenvolvedor, notei um padrão frustrante nas ferramentas de mercado: elas são lentas, inchadas e exigem muitos cliques para ações simples. Para equipes de alta performance, cada segundo de carregamento e cada troca de contexto (mouse vs. teclado) é uma quebra no "Estado de Fluxo" (Flow State).
-        </p>
-        <p className="mb-4">
-          <strong className="text-brand-tertiary">Minha Missão:</strong> Criar não apenas uma ferramenta, mas um "Sistema Operacional" para o trabalho, onde a interface desaparece e resta apenas a execução.
-        </p>
-        <ul className="list-disc list-inside space-y-2 mt-4 text-brand-secondary">
-          <li>
-            <strong className="text-brand-tertiary">Minha Atuação:</strong> End-to-End (Product Strategy, UX Research, UI Design, Full Stack Development).
-          </li>
-          <li>
-            <strong className="text-brand-tertiary">Tempo de Projeto:</strong> 2 meses
-          </li>
-        </ul>
-      </>
-    ),
-    solutionTitle: "Imersão e Descoberta (Discovery)",
-    solution: "Um design limpo e moderno, com seções estratégicamente posicionadas para guiar o usuário através dos serviços oferecidos pela Agência Ignis Lab.",
-    results: [
-      "Aumento de 85% na visita do site",
-      "Aumento de 60% no tempo médio de permanência na página",
-      "Crescimento de 25% em serviços no primeiro mês"
-    ],
     gallery: [
       "/lovable-uploads/bb70c7b1-34a0-4b05-949e-ad3aad34069d.png",
       "/lovable-uploads/7707975d-161a-42b0-a77c-0f974ab20166.png",
@@ -75,23 +30,9 @@ const projectsData: Record<string, ProjectData> = {
   },
   "sistema-automacao-crm": {
     id: "sistema-automacao-crm",
-    title: "Landing Page - Dra Dai Xavier",
-    description: "Landing Page estratégica e elegante desenvolvida para a Dra. Dai Xavier, focada em converter visitantes em pacientes.",
-    category: "Web Design",
+    key: "dai",
     image: "/lovable-uploads/dai-xavier-cover.png",
-    fullDescription: "Desenvolvimento de uma Landing Page premium para a Dra. Dai Xavier. O projeto focou em criar uma experiência de usuário acolhedora e profissional, utilizando princípios de neurodesign para transmitir confiança e autoridade.",
     technologies: ["React", "Tailwind CSS", "Figma", "WhatsApp API Integration", "SEO Optimization"],
-    client: "Dra Dai Xavier",
-    date: "Outubro de 2025",
-    duration: "1 semana",
-    challenge: "O principal desafio era criar uma landing page que fugisse do visual genérico de clínicas e consultórios. Era necessário transmitir a autoridade e o refinamento técnico da Dra. Dai Xavier em harmonização facial, mantendo uma abordagem acolhedora que gerasse confiança imediata em pacientes potenciais.",
-    solution: "A solução envolveu a criação de um design exclusivo focado em 'Neurodesign' e psicologia das cores, utilizando tons sóbrios e elementos visuais que remetem à elegância e segurança. Implementamos um fluxo de conversão otimizado, desde o primeiro impacto visual até o botão de agendamento estratégico via WhatsApp.",
-    results: [
-      "Aumento de 50% na taxa de agendamentos online logo no primeiro mês",
-      "Experiência mobile otimizada com 100% de pontuação no Lighthouse",
-      "Redução drástica nas dúvidas recorrentes de pacientes devido à clareza das informações",
-      "Fortalecimento da marca pessoal e percepção de valor premium"
-    ],
     gallery: [
       "/lovable-uploads/dai-xavier-cover.png",
       "/lovable-uploads/dai-xavier-gallery-1.png",
@@ -101,98 +42,32 @@ const projectsData: Record<string, ProjectData> = {
   },
   "saas-content-planner": {
     id: "saas-content-planner",
-    title: "SaaS Content Planner",
-    description: "Design de interface e experiência do usuário para um SaaS Content Planner",
-    category: "UX/UI Design",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=600&fit=crop",
-    fullDescription: "Projeto completo de UX/UI para uma plataforma SaaS de planejamento de conteúdo, focada em ajudar criadores e empresas a organizar, planejar e agendar conteúdo para redes sociais de forma eficiente e estratégica.",
-    technologies: ["Figma", "Prototyping", "User Research", "Design Thinking", "Lean UX", "Design Sprint", "Scrum", "Miro", "Google Analytics", "Hotjar", "Plane"],
-    client: "Ignis Lab",
-    date: "Fevereiro 2025",
-    duration: "6 semanas",
-    challenge: "Criar uma interface intuitiva para planejamento de conteúdo que fosse acessível para usuários com diferentes níveis de experiência em marketing digital.",
-    solution: "Desenvolvi um sistema de design consistente com calendário visual, drag-and-drop, templates pré-definidos e dashboard de analytics integrado para facilitar o workflow de criação de conteúdo.",
-    results: [
-      "Aumento de 90% na produtividade dos usuários",
-      "Redução de 60% no tempo de planejamento de conteúdo",
-      "Crescimento de 75% no engajamento da plataforma",
-      "Melhoria de 45% na taxa de conversão de trial para pago"
-    ],
+    key: "nova_era",
+    image: "/lovable-uploads/nova-era-cover.png",
+    technologies: ["React", "Tailwind CSS", "Vite", "SEO Optimization"],
     gallery: [
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800&h=600&fit=crop"
-    ]
+      "/lovable-uploads/nova-era-cover.png",
+      "/lovable-uploads/nova-era-gallery-1.png",
+      "/lovable-uploads/nova-era-gallery-2.png"
+    ],
+    projectUrl: "https://novaeratransportesvinhedo.com.br"
   },
   "chatbot-inteligente": {
     id: "chatbot-inteligente",
-    title: "Chatbot Inteligente",
-    description: "Desenvolvimento de chatbot com IA para atendimento automatizado 24/7",
-    category: "IA & Chatbots",
+    key: "chatbot",
     image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1200&h=600&fit=crop",
-    fullDescription: "Criação de chatbot inteligente com processamento de linguagem natural para automatizar o atendimento ao cliente, capaz de resolver 80% das dúvidas comuns e encaminhar casos complexos para humanos.",
-    technologies: ["DialogFlow", "OpenAI API", "Node.js", "Webhook", "Natural Language Processing", "Machine Learning"],
-    client: "E-commerce Platform",
-    date: "Setembro 2024",
-    duration: "5 semanas",
-    challenge: "Desenvolver um assistente virtual capaz de entender contexto e fornecer respostas precisas, mantendo um tom de voz consistente com a marca.",
-    solution: "Implementei um sistema híbrido combinando regras pré-definidas com IA generativa, treinado com dados específicos da empresa e integrado aos sistemas existentes.",
-    results: [
-      "Redução de 60% no volume de tickets de suporte",
-      "Disponibilidade 24/7 de atendimento",
-      "Tempo médio de resposta de 2 segundos",
-      "Satisfação do cliente de 92% nas interações"
-    ],
+    technologies: ["DialogFlow", "OpenAI API", "Node.js", "Webhook", "NLP", "ML"],
     gallery: [
       "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=600&fit=crop",
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
       "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop"
     ]
   },
-  "identidade-visual-corporativa": {
-    id: "identidade-visual-corporativa",
-    title: "Identidade Visual Corporativa",
-    description: "Criação completa de identidade visual para startup de tecnologia",
-    category: "Design Gráfico",
-    image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1200&h=600&fit=crop",
-    fullDescription: "Desenvolvimento completo de identidade visual corporativa, incluindo logotipo, paleta de cores, tipografia, papelaria e manual de marca para startup de tecnologia.",
-    technologies: ["Adobe Illustrator", "Adobe Photoshop", "Adobe InDesign", "Figma", "Brand Strategy"],
-    client: "TechStart Innovation",
-    date: "Julho 2024",
-    duration: "4 semanas",
-    challenge: "Criar uma identidade visual que transmitisse inovação e confiabilidade, diferenciando a empresa em um mercado competitivo.",
-    solution: "Desenvolvi uma identidade moderna e versátil, com elementos que remetem à tecnologia mas mantêm a acessibilidade e profissionalismo.",
-    results: [
-      "Aumento de 50% no reconhecimento da marca",
-      "Melhoria de 40% na percepção de profissionalismo",
-      "Crescimento de 30% em leads qualificados",
-      "Implementação consistente em todos os pontos de contato"
-    ],
-    gallery: [
-      "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=600&fit=crop"
-    ]
-  },
   "dashboard-analytics": {
     id: "dashboard-analytics",
-    title: "Dashboard Analytics",
-    description: "Interface de dashboard para análise de dados e métricas de performance",
-    category: "Web Design",
+    key: "dashboard",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop",
-    fullDescription: "Design e desenvolvimento de dashboard interativo para visualização de dados complexos, permitindo análise em tempo real de métricas de negócio e KPIs importantes.",
-    technologies: ["React", "D3.js", "Chart.js", "Figma", "Data Visualization", "Responsive Design"],
-    client: "Analytics Corp",
-    date: "Outubro 2024",
-    duration: "5 semanas",
-    challenge: "Transformar dados complexos em visualizações intuitivas que facilitassem a tomada de decisões estratégicas.",
-    solution: "Criei um sistema de dashboard modular com diferentes tipos de gráficos, filtros avançados e drill-down capabilities para análise detalhada.",
-    results: [
-      "Redução de 70% no tempo de análise de dados",
-      "Aumento de 85% na utilização de dados para decisões",
-      "Melhoria de 60% na identificação de trends",
-      "Interface 100% responsiva para acesso mobile"
-    ],
+    technologies: ["React", "D3.js", "Chart.js", "Figma", "Data Vis", "Responsive Design"],
     gallery: [
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
@@ -203,20 +78,23 @@ const projectsData: Record<string, ProjectData> = {
 
 const PortfolioProject = () => {
   const { id } = useParams<{ id: string }>();
-  const project = id ? projectsData[id] : null;
+  const { t } = useTranslation();
+  const staticData = id ? projectsStaticData[id] : null;
 
-  if (!project) {
+  if (!staticData) {
     return (
       <div className="min-h-screen bg-brand-black flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-brand-tertiary mb-4">Projeto não encontrado</h1>
+          <h1 className="text-2xl font-bold text-brand-tertiary mb-4">{t('common.project_not_found', 'Projeto não encontrado')}</h1>
           <Link to="/" className="text-brand-accent hover:text-brand-secondary">
-            Voltar ao início
+            {t('common.back_to_home', 'Voltar ao início')}
           </Link>
         </div>
       </div>
     );
   }
+
+  const projectKey = `portfolio.projects.${staticData.key}`;
 
   return (
     <div className="min-h-screen bg-brand-black">
@@ -231,34 +109,34 @@ const PortfolioProject = () => {
               className="inline-flex items-center text-brand-accent hover:text-brand-secondary mb-8 transition-colors duration-200"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Voltar ao Portfólio
+              {t('common.back_to_portfolio', 'Voltar ao Portfólio')}
             </Link>
 
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <span className="inline-block px-4 py-2 bg-brand-accent/20 text-brand-accent rounded-full text-sm font-medium mb-4">
-                  {project.category}
+                  {t(`${projectKey}.category`)}
                 </span>
                 <h1 className="font-poppins font-bold text-4xl md:text-5xl bg-gradient-to-r from-brand-accent via-brand-tertiary to-brand-secondary bg-clip-text text-transparent mb-6">
-                  {project.title}
+                  {t(`${projectKey}.title`)}
                 </h1>
                 <p className="text-brand-tertiary text-lg leading-relaxed mb-8">
-                  {project.fullDescription}
+                  {t(`${projectKey}.fullDescription`)}
                 </p>
 
                 <div className="grid grid-cols-2 gap-6 mb-8">
                   <div className="flex items-center space-x-3">
                     <User className="w-5 h-5 text-brand-accent" />
                     <div>
-                      <p className="text-sm text-brand-secondary">Cliente</p>
-                      <p className="text-brand-tertiary font-medium">{project.client}</p>
+                      <p className="text-sm text-brand-secondary">{t('contact.form.client', 'Cliente')}</p>
+                      <p className="text-brand-tertiary font-medium">{t(`${projectKey}.client`)}</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Calendar className="w-5 h-5 text-brand-accent" />
                     <div>
-                      <p className="text-sm text-brand-secondary">Data</p>
-                      <p className="text-brand-tertiary font-medium">{project.date}</p>
+                      <p className="text-sm text-brand-secondary">{t('common.date', 'Data')}</p>
+                      <p className="text-brand-tertiary font-medium">{t(`${projectKey}.date`)}</p>
                     </div>
                   </div>
                 </div>
@@ -267,8 +145,8 @@ const PortfolioProject = () => {
                   asChild
                   className="bg-gradient-to-r from-brand-accent to-brand-secondary hover:from-brand-secondary hover:to-brand-accent"
                 >
-                  <a href={project.projectUrl || "#"} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2">
-                    <span>Ver Projeto Online</span>
+                  <a href={staticData.projectUrl || "#"} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2">
+                    <span>{t('common.view_online', 'Ver Projeto Online')}</span>
                     <ExternalLink className="w-4 h-4" />
                   </a>
                 </Button>
@@ -276,8 +154,8 @@ const PortfolioProject = () => {
 
               <div className="relative">
                 <img
-                  src={project.image}
-                  alt={project.title}
+                  src={staticData.image}
+                  alt={t(`${projectKey}.title`)}
                   className="w-full rounded-xl shadow-2xl"
                 />
               </div>
@@ -292,21 +170,23 @@ const PortfolioProject = () => {
               <div className="lg:col-span-3 space-y-12">
                 {/* Challenge */}
                 <div>
-                  <h2 className="font-poppins font-bold text-2xl text-brand-tertiary mb-4">{project.challengeTitle || "Desafio"}</h2>
-                  <div className="text-brand-secondary leading-relaxed">{project.challenge}</div>
+                  <h2 className="font-poppins font-bold text-2xl text-brand-tertiary mb-4">{t(`${projectKey}.challengeTitle`, t('common.challenge', 'Desafio'))}</h2>
+                  <div className="text-brand-secondary leading-relaxed">
+                    <p>{t(`${projectKey}.challenge`)}</p>
+                  </div>
                 </div>
 
                 {/* Solution */}
                 <div>
-                  <h2 className="font-poppins font-bold text-2xl text-brand-tertiary mb-4">{project.solutionTitle || "Solução"}</h2>
-                  <p className="text-brand-secondary leading-relaxed">{project.solution}</p>
+                  <h2 className="font-poppins font-bold text-2xl text-brand-tertiary mb-4">{t(`${projectKey}.solutionTitle`, t('common.solution', 'Solução'))}</h2>
+                  <p className="text-brand-secondary leading-relaxed">{t(`${projectKey}.solution`)}</p>
                 </div>
 
                 {/* Results */}
                 <div>
-                  <h2 className="font-poppins font-bold text-2xl text-brand-tertiary mb-4">Resultados</h2>
+                  <h2 className="font-poppins font-bold text-2xl text-brand-tertiary mb-4">{t('common.results', 'Resultados')}</h2>
                   <ul className="space-y-3">
-                    {project.results.map((result, index) => (
+                    {(t(`${projectKey}.results`, { returnObjects: true }) as string[]).map((result, index) => (
                       <li key={index} className="flex items-start space-x-3">
                         <div className="w-2 h-2 bg-brand-accent rounded-full mt-2 flex-shrink-0"></div>
                         <span className="text-brand-secondary">{result}</span>
@@ -317,13 +197,13 @@ const PortfolioProject = () => {
 
                 {/* Gallery - Bento Grid */}
                 <div>
-                  <h2 className="font-poppins font-bold text-2xl text-brand-tertiary mb-6">Galeria do Projeto</h2>
+                  <h2 className="font-poppins font-bold text-2xl text-brand-tertiary mb-6">{t('common.gallery', 'Galeria do Projeto')}</h2>
                   <div className="grid grid-cols-4 grid-rows-2 gap-4 h-[400px] md:h-[500px]">
                     {/* Primeira imagem - ocupa 2 colunas */}
                     <div className="col-span-2 row-span-2 relative overflow-hidden rounded-xl bg-brand-dark/30 border border-brand-secondary/20 hover-lift">
                       <img
-                        src={project.gallery[0]}
-                        alt={`${project.title} - Imagem 1`}
+                        src={staticData.gallery[0] || staticData.image}
+                        alt={`${t(`${projectKey}.title`)} - 1`}
                         className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-brand-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
@@ -332,8 +212,8 @@ const PortfolioProject = () => {
                     {/* Segunda imagem - canto superior direito */}
                     <div className="col-span-2 row-span-1 relative overflow-hidden rounded-xl bg-brand-dark/30 border border-brand-secondary/20 hover-lift">
                       <img
-                        src={project.gallery[1]}
-                        alt={`${project.title} - Imagem 2`}
+                        src={staticData.gallery[1] || staticData.image}
+                        alt={`${t(`${projectKey}.title`)} - 2`}
                         className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-brand-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
@@ -342,8 +222,8 @@ const PortfolioProject = () => {
                     {/* Terceira imagem - canto inferior direito */}
                     <div className="col-span-2 row-span-1 relative overflow-hidden rounded-xl bg-brand-dark/30 border border-brand-secondary/20 hover-lift">
                       <img
-                        src={project.gallery[2]}
-                        alt={`${project.title} - Imagem 3`}
+                        src={staticData.gallery[2] || staticData.image}
+                        alt={`${t(`${projectKey}.title`)} - 3`}
                         className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-brand-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
@@ -351,9 +231,6 @@ const PortfolioProject = () => {
                   </div>
                 </div>
               </div>
-
-              {/* Sidebar */}
-
             </div>
           </div>
         </section>

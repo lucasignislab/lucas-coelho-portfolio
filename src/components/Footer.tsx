@@ -1,7 +1,9 @@
 
 import { Mail, Phone, ExternalLink } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   const scrollToSection = (href: string) => {
@@ -12,12 +14,12 @@ const Footer = () => {
   };
 
   const navItems = [
-    { label: 'Início', href: '#hero' },
-    { label: 'Sobre', href: '#about' },
-    { label: 'Experiência', href: '#experience' },
-    { label: 'Habilidades', href: '#skills' },
-    { label: 'Portfólio', href: '#portfolio' },
-    { label: 'Contato', href: '#contact' },
+    { label: t('nav.home'), href: '#hero' },
+    { label: t('nav.about'), href: '#about' },
+    { label: t('nav.experience'), href: '#experience' },
+    { label: t('nav.skills'), href: '#skills' },
+    { label: t('nav.portfolio'), href: '#portfolio' },
+    { label: t('nav.contact'), href: '#contact' },
   ];
 
   return (
@@ -30,8 +32,7 @@ const Footer = () => {
               Lucas Coelho
             </h3>
             <p className="text-gray-300 leading-relaxed">
-              Web Designer especialista em automação, UX/UI e otimização de processos digitais. 
-              Transformando ideias em experiências digitais impactantes.
+              {t('footer.description')}
             </p>
             <div className="flex space-x-4">
               <a
@@ -59,7 +60,7 @@ const Footer = () => {
 
           {/* Navigation */}
           <div className="space-y-4">
-            <h4 className="font-space font-semibold text-lg">Navegação</h4>
+            <h4 className="font-space font-semibold text-lg">{t('footer.nav_title')}</h4>
             <ul className="space-y-2">
               {navItems.map((item) => (
                 <li key={item.label}>
@@ -76,10 +77,10 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h4 className="font-space font-semibold text-lg">Contato</h4>
+            <h4 className="font-space font-semibold text-lg">{t('footer.contact_title')}</h4>
             <div className="space-y-2 text-gray-300">
               <p>
-                <a 
+                <a
                   href="mailto:lucascoelho.cps@gmail.com"
                   className="hover:text-white transition-colors duration-200"
                 >
@@ -87,22 +88,23 @@ const Footer = () => {
                 </a>
               </p>
               <p>
-                <a 
+                <a
                   href="tel:+5519992492409"
                   className="hover:text-white transition-colors duration-200"
                 >
                   +55 19 99249-2409
                 </a>
               </p>
-              <p>Campinas, São Paulo, Brasil</p>
+              <p>{t('contact.info.location_value')}</p>
             </div>
           </div>
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
           <p>
-            © {currentYear} Lucas Coelho. Todos os direitos reservados. 
-            Desenvolvido com paixão, tecnologia e café.
+            {t('footer.copyright', { year: currentYear })}
+            <br />
+            {t('footer.made_with')}
           </p>
         </div>
       </div>

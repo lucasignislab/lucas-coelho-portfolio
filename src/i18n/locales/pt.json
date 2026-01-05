@@ -7,11 +7,311 @@
         "portfolio": "Portfólio",
         "contact": "Contato"
     },
+    "experience": {
+        "title": "EXPERIÊNCIA PROFISSIONAL",
+        "items": {
+            "ignis": {
+                "role": "Web Designer e Gestor de Automações",
+                "company": "Agência Ignis Lab",
+                "period": "Nov de 2024 - Atual",
+                "location": "Remoto",
+                "desc": [
+                    "Desenvolvimento e otimização de interfaces e experiências digitais, com foco em UI/UX Design, utilizando Figma, Webflow, Framer e Lovable.dev para criar sites e landing pages de alta conversão.",
+                    "Implementação e gestão de soluções de automação de processos com ferramentas como n8n e Make, e desenvolvimento de chatbots com Inteligência Artificial, resultando na otimização do atendimento ao cliente e fluxos de trabalho.",
+                    "Aplicação de estratégias de Otimização para Mecanismos de Busca (SEO) para aumentar a visibilidade e o tráfego orgânico dos projetos web.",
+                    "Colaboração em equipe multidisciplinar para entregar soluções web completas, integrando design, funcionalidade e automação alinhados aos objetivos de negócio."
+                ]
+            },
+            "creis": {
+                "role": "Web Designer & Especialista em Automação",
+                "company": "Creis Consultoria",
+                "period": "Mai de 2024 – Set de 2024",
+                "location": "Campinas, SP",
+                "desc": [
+                    "Desenvolvimento e otimização de interfaces e experiências digitais, com foco em UI/UX Design, utilizando Figma e WordPress (Elementor) para criar landing pages de alta conversão.",
+                    "Implementação e gestão de soluções de automação de processos com ferramentas como n8n e Make, e desenvolvimento de chatbots com Inteligência Artificial, resultando na otimização do atendimento ao cliente e fluxos de trabalho.",
+                    "Aplicação de estratégias de Otimização para Mecanismos de Busca (SEO) para aumentar a visibilidade e o tráfego orgânico dos projetos web.",
+                    "Colaboração em equipe multidisciplinar para entregar soluções web completas, integrando design, funcionalidade e automação alinhados aos objetivos de negócio."
+                ]
+            },
+            "full_cycle": {
+                "role": "Designer",
+                "company": "Full Cycle",
+                "period": "Maio de 2022 – Julho de 2023",
+                "location": "Campinas, SP",
+                "desc": [
+                    "Atuação como Designer Gráfico e Motion Designer, desenvolvendo artes para redes sociais e edição de vídeos para diversas campanhas.",
+                    "Colaboração em projetos de UX/UI Design, contribuindo para a criação de interfaces mais intuitivas e com melhor experiência do usuário.",
+                    "Utilização de softwares como Adobe Photoshop, After Effects e Figma na criação e edição de peças visuais."
+                ]
+            },
+            "freelancer": {
+                "role": "Designer Freelancer",
+                "company": "Freelancer",
+                "period": "Janeiro de 2015 – Março de 2022",
+                "location": "Remoto",
+                "desc": [
+                    "Gestão de portfólio de clientes, desenvolvendo projetos de design gráfico e motion design, incluindo ilustrações e edição de vídeos para redes sociais.",
+                    "Garantia da qualidade e satisfação do cliente, gerenciando projetos desde o briefing inicial até a entrega final."
+                ]
+            }
+        }
+    },
+    "skills": {
+        "title": "HABILIDADES TÉCNICAS E FERRAMENTAS",
+        "categories": {
+            "uxui": "Web Design & UX/UI",
+            "automation": "Automação & IA",
+            "graphic": "Design Gráfico & Motion",
+            "marketing": "Marketing Digital",
+            "frontend": "Desenvolvimento Front-end",
+            "methodology": "Metodologias"
+        }
+    },
+    "portfolio": {
+        "title": "PORTFÓLIO DE TRABALHOS",
+        "description": "Conheça alguns dos projetos que desenvolvi, sempre buscando inovação e resultados excepcionais",
+        "categories": {
+            "all": "Todos",
+            "web": "Web Design",
+            "product": "Product Design",
+            "ai": "IA & Chatbots"
+        },
+        "projects": {
+            "aero": {
+                "title": "AERO – Planejamento na Velocidade do Pensamento",
+                "description": "Como projetei e desenvolvi um ecossistema de gestão de projetos keyboard-first focado em eliminar a fricção entre a ideia e a execução.",
+                "category": "Product Design",
+                "fullDescription": "Desenvolvimento de um site moderno e altamente otimizado para uma agência especializada em web design e automações. O processo incluiu pesquisa detalhada de usuário, análise competitiva, construção de wireframes, design visual impactante e a implementação técnica, garantindo uma presença digital que atrai e converte.",
+                "client": "Agência Ignis Lab",
+                "date": "Novembro 2025",
+                "duration": "2 semanas",
+                "challengeTitle": "O Desafio (The Challenge)",
+                "challenge": "O principal desafio era criar não apenas uma ferramenta, mas um 'Sistema Operacional' para o trabalho, onde a interface desaparece e resta apenas a execução.",
+                "solutionTitle": "Imersão e Descoberta (Discovery)",
+                "solution": "Um design limpo e moderno, com seções estratégicamente posicionadas para guiar o usuário através dos serviços oferecidos pela Agência Ignis Lab.",
+                "results": [
+                    "Aumento de 85% na visita do site",
+                    "Aumento de 60% no tempo médio de permanência na página",
+                    "Crescimento de 25% em serviços no primeiro mês"
+                ]
+            },
+            "dai": {
+                "title": "Landing Page - Dra Dai Xavier",
+                "description": "Landing Page estratégica e elegante desenvolvida para a Dra. Dai Xavier, focada em converter visitantes em pacientes.",
+                "category": "Web Design",
+                "fullDescription": "Desenvolvimento de uma Landing Page premium para a Dra. Dai Xavier. O projeto focou em criar uma experiência de usuário acolhedora e profissional, utilizando princípios de neurodesign para transmitir confiança e autoridade.",
+                "client": "Dra Dai Xavier",
+                "date": "Outubro de 2025",
+                "duration": "1 semana",
+                "challenge": "O principal desafio era criar uma landing page que fugisse do visual genérico de clínicas e consultórios. Era necessário transmitir a autoridade e o refinamento técnico da Dra. Dai Xavier em harmonização facial, mantendo uma abordagem acolhedora que gerasse confiança imediata em pacientes potenciais.",
+                "solution": "A solução envolveu a criação de um design exclusivo focado em 'Neurodesign' e psicologia das cores, utilizando tons sóbrios e elementos visuais que remetem à elegância e segurança. Implementamos um fluxo de conversão otimizado, desde o primeiro impacto visual até o botão de agendamento estratégico via WhatsApp.",
+                "results": [
+                    "Aumento de 50% na taxa de agendamentos online logo no primeiro mês",
+                    "Experiência mobile otimizada com 100% de pontuação no Lighthouse",
+                    "Redução drástica nas dúvidas recorrentes de pacientes devido à clareza das informações",
+                    "Fortalecimento da marca pessoal e percepção de valor premium"
+                ]
+            },
+            "nova_era": {
+                "title": "Nova Era Transportes",
+                "description": "Website institucional estratégico para a Nova Era Transportes, focada em logística e fretamento.",
+                "category": "Web Design",
+                "fullDescription": "Desenvolvimento de um website moderno e funcional para a Nova Era Transportes. O foco foi apresentar os serviços de fretamento e logística de forma clara, facilitando o contato para orçamentos e destacando a frota e a experiência da empresa.",
+                "client": "Nova Era Transportes",
+                "date": "Agosto de 2025",
+                "duration": "2 semanas",
+                "challenge": "O principal desafio era digitalizar uma empresa com quase 30 anos de tradição, criando uma ponte entre sua história sólida e as expectativas do mercado corporativo moderno. Era necessário transmitir segurança, pontualidade e robustez, facilitando o fluxo de orçamentos para grandes empresas e eventos.",
+                "solution": "Desenvolvi uma plataforma focada em usabilidade e performance, com uma arquitetura de informação que destaca os diferenciais da frota e a capilaridade dos serviços. Implementamos um funil de conversão direto para o WhatsApp e formulários personalizados, além de uma estratégia visual que utiliza cinza e magenta para transmitir inovação no setor de transportes.",
+                "results": [
+                    "Aumento significativo na conversão de leads corporativos através do site",
+                    "Redução no tempo médio de resposta para orçamentos de fretamento",
+                    "Interface otimizada para dispositivos móveis (100% de responsividade)",
+                    "Melhoria no rankeamento orgânico para termos de logística na região de Vinhedo"
+                ]
+            },
+            "chatbot": {
+                "title": "Chatbot Inteligente",
+                "description": "Desenvolvimento de chatbot com IA para atendimento automatizado 24/7",
+                "category": "IA & Chatbots"
+            },
+            "dashboard": {
+                "title": "Dashboard Analytics",
+                "description": "Interface de dashboard para análise de dados e métricas de performance",
+                "category": "Web Design"
+            }
+        }
+    },
+    "contact": {
+        "title": "ENTRE EM CONTATO",
+        "description": "Vamos conversar sobre seu próximo projeto? Estou sempre aberto para discutir ideias inovadoras e criar soluções incríveis juntos!",
+        "info": {
+            "email": "Email",
+            "phone": "Telefone",
+            "location": "Localização",
+            "location_value": "Campinas, São Paulo, Brasil"
+        },
+        "card_title": "Vamos criar algo incrível?",
+        "card_desc": "Seja para um projeto de web design, automação de processos, ou desenvolvimento de chatbots com IA, estou pronto para transformar suas ideias em realidade digital.",
+        "form": {
+            "name": "Nome",
+            "name_placeholder": "Seu nome",
+            "email": "Email",
+            "email_placeholder": "seu@email.com",
+            "subject": "Assunto",
+            "subject_placeholder": "Assunto da mensagem",
+            "message": "Mensagem",
+            "message_placeholder": "Conte-me mais sobre seu projeto...",
+            "submit": "Enviar Mensagem",
+            "submitting": "Enviando...",
+            "success_title": "Mensagem enviada!",
+            "success_desc": "Obrigado pelo contato. Retornarei em breve!"
+        }
+    },
+    "common": {
+        "back_to_home": "Voltar ao início",
+        "back_to_portfolio": "Voltar ao Portfólio",
+        "project_not_found": "Projeto não encontrado",
+        "view_online": "Ver Projeto Online",
+        "date": "Data",
+        "challenge": "Desafio",
+        "solution": "Solução",
+        "results": "Resultados",
+        "gallery": "Galeria do Projeto"
+    },
     "hero": {
-        "role": "UX/UI Designer | Web Designer | Gestor de Automações N8N",
+        "role": "UX/UI Designer | Web Designer | Product Designer",
         "greeting": "LUCAS COELHO",
         "description": "Transformando ideias em experiências digitais impactantes e eficientes",
         "cta_portfolio": "Ver Portfólio",
         "cta_contact": "Entrar em Contato"
+    },
+    "about": {
+        "title": "SOBRE MIM",
+        "p1": "Olá! Sou <1>Lucas</1>, um Web Designer apaixonado por transformar ideias em experiências digitais impactantes e eficientes. Com graduação em <1>Design Gráfico</1>, pós-graduação em <1>Design UX/UI</1> e um <1>MBA em Marketing Digital</1>, minha expertise se estende à Gestão de Automações e Desenvolvimento de Chatbots com Inteligência Artificial, com proficiência em plataformas líderes como n8n e Make.",
+        "p2": "Minha missão é criar soluções web que não apenas encantam visualmente, mas que também otimizam processos, geram resultados tangíveis e potencializam a eficiência das empresas. Mergulho de cabeça em cada projeto, da concepção de interfaces intuitivas (UI) à otimização para mecanismos de busca (SEO), sempre buscando a inovação e as últimas tendências do mercado para entregar soluções robustas e funcionais.",
+        "p3": "Estou sempre aberto para trocar ideias, discutir projetos emocionantes e, quem sabe, criar algo incrível juntos!"
+    },
+    "footer": {
+        "description": "Web Designer especialista em automação, UX/UI e otimização de processos digitais. Transformando ideias em experiências digitais impactantes.",
+        "nav_title": "Navegação",
+        "contact_title": "Contato",
+        "copyright": "© {{year}} Lucas Coelho. Todos os direitos reservados.",
+        "made_with": "Desenvolvido com paixão, tecnologia e café."
+    },
+    "aero_case_study": {
+        "hero": {
+            "title": "Planejamento na Velocidade do Pensamento",
+            "subtitle": "Como projetei e desenvolvi um ecossistema de gestão de projetos <1>keyboard-first</1> focado em eliminar a fricção entre a ideia e a execução.",
+            "role": "Product Designer & Full Stack Dev",
+            "duration": "2 Meses de Desenvolvimento"
+        },
+        "challenge": {
+            "title": "O Desafio",
+            "quote": "\"Por que o mundo precisa de mais um gerenciador de projetos?\"",
+            "p1": "Essa foi a pergunta que guiou o início do AERO. Notei um padrão frustrante nas ferramentas de mercado: elas são lentas, inchadas e exigem muitos cliques para ações simples.",
+            "p2": "Para equipes de alta performance, cada segundo de carregamento e cada troca de contexto (mouse vs. teclado) é uma quebra no \"Estado de Fluxo\".",
+            "mission_title": "Minha Missão",
+            "mission_desc": "Criar não apenas uma ferramenta, mas um \"Sistema Operacional\" para o trabalho, onde a interface desaparece e resta apenas a execução.",
+            "stats": {
+                "months": "Meses de Projeto",
+                "roles": "Papéis Atuados",
+                "end_to_end": "Atuação End-to-End"
+            }
+        },
+        "discovery": {
+            "title": "Imersão e Descoberta",
+            "desc": "Para definir o produto, mapeei as necessidades das duas personas críticas em times de software, identificando seus modelos mentais e dores latentes.",
+            "personas": {
+                "odair": {
+                    "name": "Odair",
+                    "role": "O Desenvolvedor \"Hacker\"",
+                    "pain_label": "Dor",
+                    "pain": "Odeia tirar a mão do teclado. Sente que formulários visuais são lentos.",
+                    "need_label": "Necessidade",
+                    "need": "Velocidade instantânea (<100ms), atalhos globais e modo escuro."
+                },
+                "mariana": {
+                    "name": "Mariana",
+                    "role": "A Gerente de Produto (PM)",
+                    "pain_label": "Dor",
+                    "pain": "Perde o contexto macro ao mergulhar nos detalhes de uma tarefa.",
+                    "need_label": "Necessidade",
+                    "need": "Visão sistêmica (Kanban) sem perder a capacidade de documentar especificações complexas."
+                }
+            },
+            "principles": [
+                {
+                    "title": "Fricção Zero",
+                    "desc": "Ideia -> Registro < 1s"
+                },
+                {
+                    "title": "Densidade Útil",
+                    "desc": "Informação > Espaço em branco"
+                },
+                {
+                    "title": "Keyboard-First",
+                    "desc": "Mouse é secundário"
+                }
+            ]
+        },
+        "solution": {
+            "badge": "The Blueprint",
+            "title": "Solução de Design & UX",
+            "command_menu": {
+                "title": "Command Menu",
+                "desc": "O desafio era unir gestão de tarefas (estruturada) com documentação (livre). Criei uma navegação onde o menu atua como um \"teletransporte\". O usuário não navega hierarquicamente; ele salta diretamente para onde precisa.",
+                "try_pressing": "Tente pressionar:",
+                "placeholder": "Digite um comando ou pesquise...",
+                "esc": "ESC",
+                "create_issue": "Criar Nova Tarefa",
+                "go_to_board": "Ir para o Quadro",
+                "suggestions": "Sugestões"
+            },
+            "context_dilemma": {
+                "title": "O Dilema do Contexto",
+                "problem_title": "Problema (Página Nova)",
+                "problem_desc": "Ao clicar em um card, ir para uma nova página fazia o usuário perder a noção do \"todo\" (o Sprint).",
+                "solution_title": "Solução (Drawer Lateral)",
+                "solution_desc": "Implementei um Drawer. O PM pode ler a spec à direita enquanto ainda visualiza o gargalo da coluna \"In Progress\" à esquerda."
+            },
+            "visual_semantics": {
+                "title": "Semântica Visual",
+                "surface": "Superfície",
+                "background": "Fundo",
+                "action": "Ação / Marca",
+                "destructive": "Destrutivo",
+                "desc": "Ferramentas coloridas demais competem pela atenção. No AERO, a cor é usada apenas para sinalização. Isso reduz a carga cognitiva, permitindo que o cérebro ignore o que é estrutura e foque no conteúdo."
+            }
+        },
+        "engineering": {
+            "badge": "High Fidelity",
+            "title": "Engenharia & Implementação",
+            "desc": "Como \"Product Engineer\", não parei no protótipo. Levei o AERO para a produção usando uma stack moderna.",
+            "tech_stack": "Tech Stack",
+            "bubble_menu": {
+                "title": "Desafio: Bubble Menu",
+                "desc": "Implementar o menu flutuante no editor de texto. Calculei coordenadas relativas à seleção de texto do usuário para renderizar o menu contextualmente.",
+                "code_comment": "// Calculando a posição do bubble menu"
+            },
+            "a11y": {
+                "title": "Acessibilidade (A11y)",
+                "desc": "Garanti Focus Rings visíveis e contraste WCAG AAA (Ratio 13.6:1) para texto (#f5f5f5 sobre #1D1F26).",
+                "contrast_ratio": "Ratio de Contraste"
+            }
+        },
+        "results": {
+            "title": "Resultados e Aprendizados",
+            "doc": {
+                "title": "Documentação é Vida",
+                "desc": "Criar o PRD e o Design System antes de codar economizou semanas de refatoração. A clareza do \"o que construir\" permitiu que o \"como construir\" fluísse."
+            },
+            "simplicity": {
+                "title": "Complexidade do Simples",
+                "desc": "Fazer um input de texto parecer \"simples\" e \"mágico\" exige uma engenharia complexa de <1>states</1> e <1>events</1> por trás. A simplicidade é a sofisticação final."
+            },
+            "quote": "O AERO é a prova de que ferramentas de trabalho não precisam ser chatas ou lentas.",
+            "next_project": "Ver próximo projeto"
+        }
     }
 }

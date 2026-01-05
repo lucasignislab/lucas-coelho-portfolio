@@ -8,10 +8,28 @@
         "contact": "Kontakt"
     },
     "hero": {
-        "role": "UX/UI Designer | Webdesigner | N8N Automatisierungsmanager",
+        "role": "UX/UI Designer | Webdesigner | Product Designer",
         "greeting": "LUCAS COELHO",
         "description": "Verwandlung von Ideen in wirkungsvolle und effiziente digitale Erlebnisse",
         "cta_portfolio": "Portfolio Ansehen",
         "cta_contact": "Kontaktieren"
+    },
+    "common": {
+        "back_to_home": "Zurück zur Startseite",
+        "back_to_portfolio": "Zurück zum Portfolio",
+        "project_not_found": "Projekt nicht gefunden",
+        "view_online": "Projekt Online ansehen",
+        "date": "Datum",
+        "challenge": "Die Herausforderung",
+        "solution": "Die Lösung",
+        "results": "Ergebnisse",
+        "gallery": "Galerie"
+    },
+    "footer": {
+        "description": "Webdesigner-Spezialist für Automatisierung, UX/UI und digitale Prozessoptimierung. Ideen in wirkungsvolle digitale Erlebnisse verwandeln.",
+        "nav_title": "Navigation",
+        "contact_title": "Kontakt",
+        "copyright": "© {{year}} Lucas Coelho. Alle Rechte vorbehalten.",
+        "made_with": "Entwickelt mit Leidenschaft, Technologie und Kaffee."
     }
 }

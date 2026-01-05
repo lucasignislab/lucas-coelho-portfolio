@@ -14,6 +14,8 @@ i18n
     .init({
         debug: true,
         fallbackLng: 'pt',
+        supportedLngs: ['pt', 'en', 'es', 'de'],
+        load: 'languageOnly',
         resources: {
             pt: { translation: pt },
             en: { translation: en },
@@ -22,6 +24,10 @@ i18n
         },
         interpolation: {
             escapeValue: false, // not needed for react as it escapes by default
+        },
+        detection: {
+            order: ['localStorage', 'navigator'],
+            caches: ['localStorage'],
         }
     });
 

@@ -19,8 +19,11 @@ import {
     Palette,
     Eye,
     Menu,
-    X
+    X,
+    Search,
+    Plus
 } from 'lucide-react';
+import { useTranslation, Trans } from 'react-i18next';
 
 // --- Reusable Components ---
 
@@ -89,6 +92,7 @@ const WindowFrame: React.FC<{ children: React.ReactNode; title?: string }> = ({ 
 // --- Main App Component ---
 
 const AeroCaseStudy: React.FC = () => {
+    const { t } = useTranslation();
     const { scrollYProgress } = useScroll();
     const scaleX = useSpring(scrollYProgress, {
         stiffness: 100,
@@ -131,7 +135,7 @@ const AeroCaseStudy: React.FC = () => {
                             className="pointer-events-auto backdrop-blur-md bg-aero-surface/80 hover:bg-aero-surface border border-white/10 px-4 py-2 rounded-full flex items-center gap-2 text-aero-text transition-colors"
                         >
                             <ArrowLeft size={14} />
-                            <span className="font-mono text-sm font-bold tracking-tight">Voltar ao Portfólio</span>
+                            <span className="font-mono text-sm font-bold tracking-tight">{t('common.back_to_portfolio', 'Voltar ao Portfólio')}</span>
                         </Link>
                     </motion.div>
 
@@ -148,14 +152,18 @@ const AeroCaseStudy: React.FC = () => {
 
                     <FadeIn delay={0.1}>
                         <h1 className="text-5xl md:text-8xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
-                            Planejamento na<br />
-                            Velocidade do Pensamento
+                            <Trans i18nKey="aero_case_study.hero.title">
+                                Planejamento na<br />
+                                Velocidade do Pensamento
+                            </Trans>
                         </h1>
                     </FadeIn>
 
                     <FadeIn delay={0.2}>
                         <p className="text-xl md:text-2xl text-aero-muted max-w-2xl mx-auto leading-relaxed mb-10">
-                            Como projetei e desenvolvi um ecossistema de gestão de projetos <span className="text-aero-text font-medium">keyboard-first</span> focado em eliminar a fricção entre a ideia e a execução.
+                            <Trans i18nKey="aero_case_study.hero.subtitle">
+                                Como projetei e desenvolvi um ecossistema de gestão de projetos <span className="text-aero-text font-medium">keyboard-first</span> focado em eliminar a fricção entre a ideia e a execução.
+                            </Trans>
                         </p>
                     </FadeIn>
 
@@ -163,11 +171,11 @@ const AeroCaseStudy: React.FC = () => {
                         <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-sm font-mono text-aero-muted">
                             <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-lg border border-white/5">
                                 <User size={16} />
-                                <span>Product Designer & Full Stack Dev</span>
+                                <span>{t('aero_case_study.hero.role')}</span>
                             </div>
                             <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-lg border border-white/5">
                                 <Keyboard size={16} />
-                                <span>2 Meses de Desenvolvimento</span>
+                                <span>{t('aero_case_study.hero.duration')}</span>
                             </div>
                         </div>
                     </FadeIn>
@@ -180,27 +188,24 @@ const AeroCaseStudy: React.FC = () => {
             <Section className="relative">
                 <div className="grid md:grid-cols-2 gap-16 items-center">
                     <FadeIn direction='right'>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6">O Desafio</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6">{t('aero_case_study.challenge.title')}</h2>
                         <div className="space-y-6 text-lg text-aero-muted">
                             <p>
-                                <strong className="text-white">"Por que o mundo precisa de mais um gerenciador de projetos?"</strong>
+                                <strong className="text-white">{t('aero_case_study.challenge.quote')}</strong>
                             </p>
                             <p>
-                                Essa foi a pergunta que guiou o início do AERO. Notei um padrão frustrante nas ferramentas de mercado:
-                                elas são lentas, inchadas e exigem muitos cliques para ações simples.
+                                {t('aero_case_study.challenge.p1')}
                             </p>
                             <p>
-                                Para equipes de alta performance, cada segundo de carregamento e cada troca de contexto (mouse vs. teclado)
-                                é uma quebra no "Estado de Fluxo".
+                                {t('aero_case_study.challenge.p2')}
                             </p>
 
                             <div className="pt-6">
                                 <h3 className="text-white font-semibold mb-2 flex items-center gap-2">
-                                    <Zap className="text-yellow-400" size={20} /> Minha Missão
+                                    <Zap className="text-yellow-400" size={20} /> {t('aero_case_study.challenge.mission_title')}
                                 </h3>
                                 <p className="pl-7 border-l-2 border-white/10">
-                                    Criar não apenas uma ferramenta, mas um "Sistema Operacional" para o trabalho,
-                                    onde a interface desaparece e resta apenas a execução.
+                                    {t('aero_case_study.challenge.mission_desc')}
                                 </p>
                             </div>
                         </div>
@@ -212,14 +217,14 @@ const AeroCaseStudy: React.FC = () => {
                             <div className="relative z-10 grid grid-cols-2 gap-6">
                                 <div className="space-y-2">
                                     <div className="text-4xl font-bold text-white">2</div>
-                                    <div className="text-sm text-aero-muted font-mono">Meses de Projeto</div>
+                                    <div className="text-sm text-aero-muted font-mono">{t('aero_case_study.challenge.stats.months')}</div>
                                 </div>
                                 <div className="space-y-2">
                                     <div className="text-4xl font-bold text-white">4</div>
-                                    <div className="text-sm text-aero-muted font-mono">Papéis Atuados</div>
+                                    <div className="text-sm text-aero-muted font-mono">{t('aero_case_study.challenge.stats.roles')}</div>
                                 </div>
                                 <div className="col-span-2 pt-6 border-t border-white/5">
-                                    <div className="text-sm text-aero-muted mb-2 font-mono uppercase tracking-wider">Atuação End-to-End</div>
+                                    <div className="text-sm text-aero-muted mb-2 font-mono uppercase tracking-wider">{t('aero_case_study.challenge.stats.end_to_end')}</div>
                                     <div className="flex flex-wrap gap-2">
                                         {['Product Strategy', 'UX Research', 'UI Design', 'React/Tailwind'].map(skill => (
                                             <span key={skill} className="px-3 py-1 bg-white/5 rounded-full text-xs text-white border border-white/10">
@@ -238,10 +243,9 @@ const AeroCaseStudy: React.FC = () => {
             <Section className="bg-gradient-to-b from-transparent to-aero-surface/30 rounded-3xl">
                 <FadeIn>
                     <div className="text-center max-w-3xl mx-auto mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Imersão e Descoberta</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('aero_case_study.discovery.title')}</h2>
                         <p className="text-aero-muted">
-                            Para definir o produto, mapeei as necessidades das duas personas críticas em times de software,
-                            identificando seus modelos mentais e dores latentes.
+                            {t('aero_case_study.discovery.desc')}
                         </p>
                     </div>
                 </FadeIn>
@@ -253,18 +257,18 @@ const AeroCaseStudy: React.FC = () => {
                             <div className="flex items-center gap-4 mb-6">
                                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-blue-600 flex items-center justify-center text-xl font-bold">O</div>
                                 <div>
-                                    <h3 className="text-xl font-bold">Odair</h3>
-                                    <p className="text-sm text-aero-muted font-mono">O Desenvolvedor "Hacker"</p>
+                                    <h3 className="text-xl font-bold">{t('aero_case_study.discovery.personas.odair.name')}</h3>
+                                    <p className="text-sm text-aero-muted font-mono">{t('aero_case_study.discovery.personas.odair.role')}</p>
                                 </div>
                             </div>
                             <ul className="space-y-4">
                                 <li className="flex gap-3">
                                     <div className="mt-1 p-1 bg-red-500/10 rounded text-red-400"><X size={14} /></div>
-                                    <p className="text-sm text-aero-muted"><span className="text-white font-medium">Dor:</span> Odeia tirar a mão do teclado. Sente que formulários visuais são lentos.</p>
+                                    <p className="text-sm text-aero-muted"><span className="text-white font-medium">{t('aero_case_study.discovery.personas.odair.pain_label')}:</span> {t('aero_case_study.discovery.personas.odair.pain')}</p>
                                 </li>
                                 <li className="flex gap-3">
                                     <div className="mt-1 p-1 bg-green-500/10 rounded text-green-400"><CheckCircle size={14} /></div>
-                                    <p className="text-sm text-aero-muted"><span className="text-white font-medium">Necessidade:</span> Velocidade instantânea (&lt;100ms), atalhos globais e modo escuro.</p>
+                                    <p className="text-sm text-aero-muted"><span className="text-white font-medium">{t('aero_case_study.discovery.personas.odair.need_label')}:</span> {t('aero_case_study.discovery.personas.odair.need')}</p>
                                 </li>
                             </ul>
                         </div>
@@ -276,18 +280,18 @@ const AeroCaseStudy: React.FC = () => {
                             <div className="flex items-center gap-4 mb-6">
                                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-orange-400 flex items-center justify-center text-xl font-bold">M</div>
                                 <div>
-                                    <h3 className="text-xl font-bold">Mariana</h3>
-                                    <p className="text-sm text-aero-muted font-mono">A Gerente de Produto (PM)</p>
+                                    <h3 className="text-xl font-bold">{t('aero_case_study.discovery.personas.mariana.name')}</h3>
+                                    <p className="text-sm text-aero-muted font-mono">{t('aero_case_study.discovery.personas.mariana.role')}</p>
                                 </div>
                             </div>
                             <ul className="space-y-4">
                                 <li className="flex gap-3">
                                     <div className="mt-1 p-1 bg-red-500/10 rounded text-red-400"><X size={14} /></div>
-                                    <p className="text-sm text-aero-muted"><span className="text-white font-medium">Dor:</span> Perde o contexto macro ao mergulhar nos detalhes de uma tarefa.</p>
+                                    <p className="text-sm text-aero-muted"><span className="text-white font-medium">{t('aero_case_study.discovery.personas.mariana.pain_label')}:</span> {t('aero_case_study.discovery.personas.mariana.pain')}</p>
                                 </li>
                                 <li className="flex gap-3">
                                     <div className="mt-1 p-1 bg-green-500/10 rounded text-green-400"><CheckCircle size={14} /></div>
-                                    <p className="text-sm text-aero-muted"><span className="text-white font-medium">Necessidade:</span> Visão sistêmica (Kanban) sem perder a capacidade de documentar especificações complexas.</p>
+                                    <p className="text-sm text-aero-muted"><span className="text-white font-medium">{t('aero_case_study.discovery.personas.mariana.need_label')}:</span> {t('aero_case_study.discovery.personas.mariana.need')}</p>
                                 </li>
                             </ul>
                         </div>
@@ -296,11 +300,7 @@ const AeroCaseStudy: React.FC = () => {
 
                 <FadeIn delay={0.3}>
                     <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                        {[
-                            { title: 'Fricção Zero', desc: 'Ideia -> Registro < 1s' },
-                            { title: 'Densidade Útil', desc: 'Informação > Espaço em branco' },
-                            { title: 'Keyboard-First', desc: 'Mouse é secundário' }
-                        ].map((principle, idx) => (
+                        {(t('aero_case_study.discovery.principles', { returnObjects: true }) as Array<{ title: string, desc: string }>).map((principle, idx) => (
                             <div key={idx} className="p-6 rounded-xl bg-white/5 border border-white/5">
                                 <h4 className="font-bold text-lg text-white mb-2">{principle.title}</h4>
                                 <p className="text-sm text-aero-muted font-mono">{principle.desc}</p>
@@ -312,83 +312,117 @@ const AeroCaseStudy: React.FC = () => {
 
             {/* Solution / UX */}
             <Section>
-                <div className="mb-16">
-                    <Badge color="purple">The Blueprint</Badge>
-                    <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-6">Solução de Design & UX</h2>
-                </div>
+                <FadeIn>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-aero-brand/10 border border-aero-brand/20 text-aero-brand text-xs font-mono mb-6">
+                        <Terminal size={14} />
+                        {t('aero_case_study.solution.badge')}
+                    </div>
+                    <h2 className="text-3xl md:text-5xl font-bold mb-12">{t('aero_case_study.solution.title')}</h2>
+                </FadeIn>
 
-                {/* Command Menu Feature */}
-                <div className="grid lg:grid-cols-12 gap-12 items-center mb-24">
-                    <div className="lg:col-span-5 order-2 lg:order-1">
-                        <FadeIn>
-                            <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                                <Command className="text-aero-brand" /> Command Menu
+                <div className="grid md:grid-cols-2 gap-12">
+                    {/* Command Menu */}
+                    <FadeIn direction='right' delay={0.1}>
+                        <div className="space-y-6">
+                            <h3 className="text-2xl font-bold flex items-center gap-3">
+                                <Search className="text-aero-brand" size={24} />
+                                {t('aero_case_study.solution.command_menu.title')}
                             </h3>
-                            <p className="text-aero-muted mb-6">
-                                O desafio era unir gestão de tarefas (estruturada) com documentação (livre).
-                                Criei uma navegação onde o menu atua como um "teletransporte".
-                                O usuário não navega hierarquicamente; ele salta diretamente para onde precisa.
+                            <p className="text-aero-muted text-lg leading-relaxed">
+                                {t('aero_case_study.solution.command_menu.desc')}
                             </p>
                             <div className="flex items-center gap-4 text-sm text-aero-muted bg-aero-surface p-4 rounded-lg border border-white/5">
-                                <span>Try pressing:</span>
+                                <span>{t('aero_case_study.solution.command_menu.try_pressing')}:</span>
                                 <div className="flex gap-1">
                                     <Kbd>Cmd</Kbd> + <Kbd>K</Kbd>
                                 </div>
                             </div>
-                        </FadeIn>
-                    </div>
-                    <div className="lg:col-span-7 order-1 lg:order-2">
-                        <FadeIn delay={0.2} direction="right">
-                            <WindowFrame title="AERO - Global Search">
-                                <div className="aspect-[4/3] bg-[#0A0B0E] p-8 flex items-center justify-center relative">
-                                    {/* Abstract Command Menu UI */}
-                                    <motion.div
-                                        initial={{ scale: 0.9, opacity: 0 }}
-                                        whileInView={{ scale: 1, opacity: 1 }}
-                                        className="w-full max-w-md bg-aero-surface border border-white/20 rounded-xl shadow-2xl overflow-hidden"
-                                    >
-                                        <div className="p-4 border-b border-white/10 flex items-center gap-3">
-                                            <Command size={18} className="text-aero-muted" />
-                                            <span className="text-aero-muted">Type a command or search...</span>
-                                            <span className="ml-auto text-xs bg-white/10 px-2 py-1 rounded text-aero-muted">ESC</span>
+                        </div>
+                    </FadeIn>
+                    <FadeIn delay={0.2} direction="left">
+                        <WindowFrame title="AERO - Global Search">
+                            <div className="aspect-[4/3] bg-[#0A0B0E] p-8 flex items-center justify-center relative">
+                                {/* Abstract Command Menu UI */}
+                                <motion.div
+                                    initial={{ scale: 0.9, opacity: 0 }}
+                                    whileInView={{ scale: 1, opacity: 1 }}
+                                    className="w-full max-w-md bg-aero-surface border border-white/20 rounded-xl shadow-2xl overflow-hidden"
+                                >
+                                    <div className="flex items-center justify-between mb-2">
+                                        <div className="text-[10px] text-aero-muted font-mono uppercase tracking-widest">{t('aero_case_study.solution.command_menu.try_pressing')}</div>
+                                        <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-[10px] font-mono border border-white/10">{t('aero_case_study.solution.command_menu.esc')}</kbd>
+                                    </div>
+                                    <div className="px-3 py-2 rounded bg-white/5 border border-white/10 text-xs text-white/40 mb-3 flex items-center justify-between">
+                                        {t('aero_case_study.solution.command_menu.placeholder')}
+                                        <div className="flex gap-1">
+                                            <kbd className="px-1 py-0.5 rounded bg-white/5 border border-white/10 text-[8px] font-mono">⌘ K</kbd>
                                         </div>
-                                        <div className="p-2 space-y-1">
-                                            <div className="flex items-center gap-3 p-3 bg-aero-brand/10 text-aero-brand rounded-lg border border-aero-brand/20">
-                                                <Zap size={16} />
-                                                <span className="font-medium">Create New Issue</span>
-                                                <span className="ml-auto text-xs font-mono opacity-70">C</span>
+                                    </div>
+                                    <div className="space-y-1">
+                                        <div className="text-[8px] text-aero-muted font-mono mb-2 uppercase tracking-widest">{t('aero_case_study.solution.command_menu.suggestions')}</div>
+                                        {[
+                                            { icon: Plus, label: t('aero_case_study.solution.command_menu.create_issue'), key: 'N' },
+                                            { icon: Layout, label: t('aero_case_study.solution.command_menu.go_to_board'), key: 'B' }
+                                        ].map((item, idx) => (
+                                            <div key={idx} className="flex items-center justify-between px-2 py-1.5 rounded bg-aero-brand/10 border border-aero-brand/20">
+                                                <div className="flex items-center gap-2">
+                                                    <item.icon size={10} className="text-aero-brand" />
+                                                    <span className="text-[10px] text-white/80">{item.label}</span>
+                                                </div>
+                                                <kbd className="px-1 py-0.5 rounded bg-black/20 text-[6px] font-mono text-aero-brand">{item.key}</kbd>
                                             </div>
-                                            <div className="flex items-center gap-3 p-3 text-aero-muted hover:bg-white/5 rounded-lg">
-                                                <Layout size={16} />
-                                                <span>Go to Board</span>
-                                                <span className="ml-auto text-xs font-mono opacity-70">G B</span>
-                                            </div>
-                                        </div>
-                                    </motion.div>
-                                </div>
-                            </WindowFrame>
-                        </FadeIn>
-                    </div>
+                                        ))}
+                                    </div>
+                                </motion.div>
+                            </div>
+                        </WindowFrame>
+                    </FadeIn>
                 </div>
 
                 {/* Design Decisions: Drawer vs Page */}
                 <div className="grid lg:grid-cols-2 gap-12 mb-24">
-                    <FadeIn>
-                        <div className="space-y-6">
-                            <h3 className="text-2xl font-bold">O Dilema do Contexto</h3>
-                            <div className="flex gap-4 p-4 bg-red-500/5 border border-red-500/10 rounded-lg">
-                                <Maximize2 className="text-red-400 shrink-0" />
-                                <div>
-                                    <h4 className="font-bold text-red-200 text-sm mb-1">Problema (Página Nova)</h4>
-                                    <p className="text-xs text-red-200/70">Ao clicar em um card, ir para uma nova página fazia o usuário perder a noção do "todo" (o Sprint).</p>
+                    <FadeIn direction='right' delay={0.2}>
+                        <div className="space-y-8">
+                            <div>
+                                <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                                    <Layers className="text-aero-brand" size={24} />
+                                    {t('aero_case_study.solution.context_dilemma.title')}
+                                </h3>
+                                <div className="grid grid-cols-1 gap-4">
+                                    <div className="p-4 rounded-xl bg-red-500/5 border border-red-500/10">
+                                        <div className="text-xs font-mono text-red-400 mb-1 uppercase tracking-wider">{t('aero_case_study.solution.context_dilemma.problem_title')}</div>
+                                        <p className="text-sm text-aero-muted">{t('aero_case_study.solution.context_dilemma.problem_desc')}</p>
+                                    </div>
+                                    <div className="p-4 rounded-xl bg-green-500/5 border border-green-500/10">
+                                        <div className="text-xs font-mono text-green-400 mb-1 uppercase tracking-wider">{t('aero_case_study.solution.context_dilemma.solution_title')}</div>
+                                        <p className="text-sm text-aero-muted">{t('aero_case_study.solution.context_dilemma.solution_desc')}</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="flex gap-4 p-4 bg-green-500/5 border border-green-500/10 rounded-lg">
-                                <Layout className="text-green-400 shrink-0" />
-                                <div>
-                                    <h4 className="font-bold text-green-200 text-sm mb-1">Solução (Drawer Lateral)</h4>
-                                    <p className="text-xs text-green-200/70">Implementei um Drawer. O PM pode ler a spec à direita enquanto ainda visualiza o gargalo da coluna "In Progress" à esquerda.</p>
+
+                            <div className="p-8 rounded-2xl bg-[#0A0B0E] border border-white/5">
+                                <h3 className="text-xl font-bold mb-6">{t('aero_case_study.solution.visual_semantics.title')}</h3>
+                                <div className="flex flex-wrap gap-4 mb-8">
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-4 h-4 rounded bg-aero-surface border border-white/10"></div>
+                                        <span className="text-xs text-aero-muted">{t('aero_case_study.solution.visual_semantics.surface')}</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-4 h-4 rounded bg-aero-bg border border-white/10"></div>
+                                        <span className="text-xs text-aero-muted">{t('aero_case_study.solution.visual_semantics.background')}</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-4 h-4 rounded bg-aero-brand"></div>
+                                        <span className="text-xs text-aero-muted">{t('aero_case_study.solution.visual_semantics.action')}</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-4 h-4 rounded bg-red-500"></div>
+                                        <span className="text-xs text-aero-muted">{t('aero_case_study.solution.visual_semantics.destructive')}</span>
+                                    </div>
                                 </div>
+                                <p className="text-sm text-aero-muted leading-relaxed italic">
+                                    {t('aero_case_study.solution.visual_semantics.desc')}
+                                </p>
                             </div>
                         </div>
                     </FadeIn>
@@ -427,49 +461,22 @@ const AeroCaseStudy: React.FC = () => {
                         </div>
                     </FadeIn>
                 </div>
-
-                {/* Color Palette */}
-                <FadeIn>
-                    <h3 className="text-2xl font-bold mb-6 flex items-center gap-2"><Palette size={20} /> Semântica Visual</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <div className="p-6 rounded-xl bg-aero-surface border border-white/10 flex flex-col justify-between h-32">
-                            <span className="text-xs font-mono text-aero-muted">Surface</span>
-                            <span className="font-mono">#24262F</span>
-                        </div>
-                        <div className="p-6 rounded-xl bg-[#101115] border border-white/10 flex flex-col justify-between h-32">
-                            <span className="text-xs font-mono text-aero-muted">Background</span>
-                            <span className="font-mono">#101115</span>
-                        </div>
-                        <div className="p-6 rounded-xl bg-[#388cfa] flex flex-col justify-between h-32 text-white">
-                            <span className="text-xs font-mono opacity-80">Action / Brand</span>
-                            <span className="font-mono">#388cfa</span>
-                        </div>
-                        <div className="p-6 rounded-xl bg-[#911756] flex flex-col justify-between h-32 text-white">
-                            <span className="text-xs font-mono opacity-80">Destructive</span>
-                            <span className="font-mono">#911756</span>
-                        </div>
-                    </div>
-                    <p className="mt-4 text-sm text-aero-muted max-w-2xl">
-                        Ferramentas coloridas demais competem pela atenção. No AERO, a cor é usada apenas para sinalização.
-                        Isso reduz a carga cognitiva, permitindo que o cérebro ignore o que é estrutura e foque no conteúdo.
-                    </p>
-                </FadeIn>
             </Section>
 
             {/* Engineering */}
             <Section className="bg-[#050505] border-y border-white/5">
                 <div className="grid lg:grid-cols-2 gap-16">
-                    <FadeIn>
-                        <Badge color="blue">High Fidelity</Badge>
-                        <h2 className="text-3xl font-bold mt-4 mb-6">Engenharia & Implementação</h2>
+                    <FadeIn direction='right'>
+                        <Badge color="blue">{t('aero_case_study.engineering.badge')}</Badge>
+                        <h2 className="text-3xl font-bold mt-4 mb-6">{t('aero_case_study.engineering.title')}</h2>
                         <p className="text-aero-muted mb-8">
-                            Como "Product Engineer", não parei no protótipo. Levei o AERO para a produção usando uma stack moderna.
+                            {t('aero_case_study.engineering.desc')}
                         </p>
 
                         <div className="space-y-8">
                             <div>
                                 <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
-                                    <Terminal size={18} /> Tech Stack
+                                    <Terminal size={18} /> {t('aero_case_study.engineering.tech_stack.title')}
                                 </h4>
                                 <div className="flex flex-wrap gap-2">
                                     {['React 18', 'TypeScript', 'Tailwind CSS', 'Tiptap', 'Framer Motion'].map(tech => (
@@ -482,15 +489,14 @@ const AeroCaseStudy: React.FC = () => {
 
                             <div>
                                 <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
-                                    <Code size={18} /> Desafio: Bubble Menu
+                                    <Code size={18} /> {t('aero_case_study.engineering.bubble_menu.title')}
                                 </h4>
                                 <p className="text-sm text-aero-muted mb-4">
-                                    Implementar o menu flutuante no editor de texto. Calculei coordenadas relativas
-                                    à seleção de texto do usuário para renderizar o menu contextualmente.
+                                    {t('aero_case_study.engineering.bubble_menu.desc')}
                                 </p>
                                 {/* Simulated Code Block */}
                                 <div className="bg-[#101115] p-4 rounded-lg border border-white/5 font-mono text-xs overflow-x-auto">
-                                    <div className="text-gray-500">// Calculating bubble menu position</div>
+                                    <div className="text-gray-500">{t('aero_case_study.engineering.bubble_menu.code_comment')}</div>
                                     <div className="text-purple-400">const</div> <div className="text-blue-300 inline">getBubblePos</div> = (selection) <span className="text-purple-400">=&gt;</span> {'{'}
                                     <div className="pl-4">
                                         <span className="text-purple-400">const</span> {'{'} from, to {'}'} = selection;
@@ -513,10 +519,10 @@ const AeroCaseStudy: React.FC = () => {
 
                             <div>
                                 <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
-                                    <Eye size={18} /> Acessibilidade (A11y)
+                                    <Eye size={18} /> {t('aero_case_study.engineering.a11y.title')}
                                 </h4>
                                 <p className="text-sm text-aero-muted">
-                                    Garanti Focus Rings visíveis e contraste WCAG AAA (Ratio 13.6:1) para texto (`#f5f5f5` sobre `#1D1F26`).
+                                    {t('aero_case_study.engineering.a11y.desc')}
                                 </p>
                             </div>
                         </div>
@@ -553,7 +559,7 @@ const AeroCaseStudy: React.FC = () => {
 
                             <div className="p-6 bg-[#1A1C24] rounded-xl border border-white/5 flex items-center justify-between">
                                 <div>
-                                    <div className="text-xs text-aero-muted uppercase tracking-wider mb-1">Contrast Ratio</div>
+                                    <div className="text-xs text-aero-muted uppercase tracking-wider mb-1">{t('aero_case_study.engineering.a11y.contrast_ratio')}</div>
                                     <div className="text-2xl font-bold font-mono text-green-400">13.6 : 1</div>
                                     <div className="text-xs text-green-400/70">WCAG AAA Pass</div>
                                 </div>
@@ -566,39 +572,52 @@ const AeroCaseStudy: React.FC = () => {
 
             {/* Results */}
             <Section className="mb-20">
-                <div className="max-w-4xl mx-auto">
-                    <FadeIn>
-                        <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center">Resultados e Aprendizados</h2>
+                <FadeIn>
+                    <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center">{t('aero_case_study.results.title')}</h2>
+                </FadeIn>
 
-                        <div className="grid md:grid-cols-2 gap-8 mb-16">
-                            <div className="bg-aero-surface p-8 rounded-2xl border border-white/5 hover:border-white/10 transition-all">
-                                <div className="text-4xl mb-4">📄</div>
-                                <h3 className="text-xl font-bold mb-3">Documentação é Vida</h3>
-                                <p className="text-aero-muted text-sm leading-relaxed">
-                                    Criar o PRD e o Design System antes de codar economizou semanas de refatoração.
-                                    A clareza do "o que construir" permitiu que o "como construir" fluísse.
-                                </p>
-                            </div>
-                            <div className="bg-aero-surface p-8 rounded-2xl border border-white/5 hover:border-white/10 transition-all">
-                                <div className="text-4xl mb-4">🪄</div>
-                                <h3 className="text-xl font-bold mb-3">Complexidade do Simples</h3>
-                                <p className="text-aero-muted text-sm leading-relaxed">
-                                    Fazer um input de texto parecer "simples" e "mágico" exige uma engenharia complexa de
-                                    <i>states</i> e <i>events</i> por trás. A simplicidade é a sofisticação final.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="text-center p-12 bg-gradient-to-r from-aero-brand/10 to-purple-500/10 rounded-3xl border border-white/10">
-                            <p className="text-lg md:text-xl font-medium mb-8">
-                                "O AERO é a prova de que ferramentas de trabalho não precisam ser chatas ou lentas."
+                <div className="grid md:grid-cols-2 gap-8 mb-16">
+                    <FadeIn delay={0.1}>
+                        <div className="p-8 rounded-2xl bg-white/5 border border-white/5 h-full">
+                            <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                                <CheckCircle className="text-green-400" size={20} />
+                                {t('aero_case_study.results.doc.title')}
+                            </h3>
+                            <p className="text-aero-muted leading-relaxed">
+                                {t('aero_case_study.results.doc.desc')}
                             </p>
-                            <Link to="/#portfolio" className="bg-white text-black hover:bg-gray-200 px-8 py-3 rounded-full font-bold transition-all transform hover:scale-105 active:scale-95 inline-block">
-                                Ver próximo projeto
-                            </Link>
+                        </div>
+                    </FadeIn>
+
+                    <FadeIn delay={0.2}>
+                        <div className="p-8 rounded-2xl bg-white/5 border border-white/5 h-full">
+                            <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                                <Zap className="text-yellow-400" size={20} />
+                                {t('aero_case_study.results.simplicity.title')}
+                            </h3>
+                            <p className="text-aero-muted leading-relaxed">
+                                <Trans i18nKey="aero_case_study.results.simplicity.desc">
+                                    Fazer um input de texto parecer "simples" e "mágico" exige uma engenharia complexa de <span className="text-white font-mono">states</span> e <span className="text-white font-mono">events</span> por trás. A simplicidade é a sofisticação final.
+                                </Trans>
+                            </p>
                         </div>
                     </FadeIn>
                 </div>
+
+                <FadeIn delay={0.3}>
+                    <div className="text-center p-12 rounded-3xl bg-gradient-to-br from-aero-brand/20 to-blue-600/20 border border-aero-brand/20">
+                        <p className="text-2xl md:text-4xl font-bold italic mb-8 max-w-2xl mx-auto tracking-tight">
+                            "{t('aero_case_study.results.quote')}"
+                        </p>
+                        <Link
+                            to="/#portfolio"
+                            className="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-aero-brand hover:text-white transition-all duration-300 inline-flex items-center gap-2 group"
+                        >
+                            {t('aero_case_study.results.next_project')}
+                            <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                    </div>
+                </FadeIn>
             </Section>
 
             {/* Footer */}

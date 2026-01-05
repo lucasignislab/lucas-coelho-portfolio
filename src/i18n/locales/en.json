@@ -7,11 +7,311 @@
         "portfolio": "Portfolio",
         "contact": "Contact"
     },
+    "experience": {
+        "title": "PROFESSIONAL EXPERIENCE",
+        "items": {
+            "ignis": {
+                "role": "Web Designer and Automation Manager",
+                "company": "Agência Ignis Lab",
+                "period": "Nov 2024 - Present",
+                "location": "Remote",
+                "desc": [
+                    "Development and optimization of digital interfaces and experiences, focusing on UI/UX Design, using Figma, Webflow, Framer, and Lovable.dev to create high-conversion websites and landing pages.",
+                    "Implementation and management of process automation solutions with tools like n8n and Make, and development of AI chatbots, resulting in optimized customer service and workflows.",
+                    "Application of Search Engine Optimization (SEO) strategies to increase visibility and organic traffic for web projects.",
+                    "Collaboration in multidisciplinary teams to deliver complete web solutions, integrating design, functionality, and automation aligned with business objectives."
+                ]
+            },
+            "creis": {
+                "role": "Web Designer & Automation Specialist",
+                "company": "Creis Consultoria",
+                "period": "May 2024 – Sep 2024",
+                "location": "Campinas, Brazil",
+                "desc": [
+                    "Development and optimization of digital interfaces and experiences, focusing on UI/UX Design, using Figma and WordPress (Elementor) to create high-conversion landing pages.",
+                    "Implementation and management of process automation solutions with tools like n8n and Make, and development of AI chatbots, resulting in optimized customer service and workflows.",
+                    "Application of Search Engine Optimization (SEO) strategies to increase visibility and organic traffic for web projects.",
+                    "Collaboration in multidisciplinary teams to deliver complete web solutions, integrating design, functionality, and automation aligned with business objectives."
+                ]
+            },
+            "full_cycle": {
+                "role": "Designer",
+                "company": "Full Cycle",
+                "period": "May 2022 – July 2023",
+                "location": "Campinas, Brazil",
+                "desc": [
+                    "Acting as a Graphic and Motion Designer, developing social media arts and video editing for various campaigns.",
+                    "Collaboration in UX/UI Design projects, contributing to the creation of more intuitive interfaces and better user experiences.",
+                    "Utilization of software like Adobe Photoshop, After Effects, and Figma in creating and editing visual pieces."
+                ]
+            },
+            "freelancer": {
+                "role": "Freelance Designer",
+                "company": "Freelancer",
+                "period": "January 2015 – March 2022",
+                "location": "Remote",
+                "desc": [
+                    "Customer portfolio management, developing graphic design and motion design projects, including illustrations and social media video editing.",
+                    "Guaranteeing client quality and satisfaction, managing projects from the initial briefing to the final delivery."
+                ]
+            }
+        }
+    },
+    "skills": {
+        "title": "TECHNICAL SKILLS AND TOOLS",
+        "categories": {
+            "uxui": "Web Design & UX/UI",
+            "automation": "Automation & AI",
+            "graphic": "Graphic Design & Motion",
+            "marketing": "Digital Marketing",
+            "frontend": "Front-end Development",
+            "methodology": "Methodologies"
+        }
+    },
+    "portfolio": {
+        "title": "WORK PORTFOLIO",
+        "description": "Discover some of the projects I've developed, always seeking innovation and exceptional results",
+        "categories": {
+            "all": "All",
+            "web": "Web Design",
+            "product": "Product Design",
+            "ai": "AI & Chatbots"
+        },
+        "projects": {
+            "aero": {
+                "title": "AERO – Planning at the Speed of Thought",
+                "description": "How I designed and developed a keyboard-first project management ecosystem focused on eliminating friction between idea and execution.",
+                "category": "Product Design",
+                "fullDescription": "Development of a modern and highly optimized website for an agency specialized in web design and automation. The process included detailed user research, competitive analysis, wireframe construction, impactful visual design, and technical implementation, ensuring a digital presence that attracts and converts.",
+                "client": "Agência Ignis Lab",
+                "date": "November 2025",
+                "duration": "2 weeks",
+                "challengeTitle": "The Challenge",
+                "challenge": "The main challenge was to create not just a tool, but an 'Operating System' for work, where the interface disappears and only execution remains.",
+                "solutionTitle": "Discovery and Immersion",
+                "solution": "A clean and modern design, with strategically positioned sections to guide the user through the services offered by Agência Ignis Lab.",
+                "results": [
+                    "85% increase in website visits",
+                    "60% increase in average time on page",
+                    "25% growth in services in the first month"
+                ]
+            },
+            "dai": {
+                "title": "Landing Page - Dra Dai Xavier",
+                "description": "Strategic and elegant Landing Page developed for Dr. Dai Xavier, focused on converting visitors into patients.",
+                "category": "Web Design",
+                "fullDescription": "Development of a premium Landing Page for Dr. Dai Xavier. The project focused on creating a welcoming and professional user experience, using neurodesign principles to convey trust and authority.",
+                "client": "Dr. Dai Xavier",
+                "date": "October 2025",
+                "duration": "1 week",
+                "challenge": "The main challenge was to create a landing page that broke away from the generic look of clinics and offices. It was necessary to convey Dr. Dai Xavier's technical authority and refinement in facial harmonization, while maintaining a welcoming approach that generated immediate trust in potential patients.",
+                "solution": "The solution involved creating a unique design focused on 'Neurodesign' and color psychology, using sober tones and visual elements that evoke elegance and security. We implemented an optimized conversion flow, from the first visual impact to the strategic scheduling button via WhatsApp.",
+                "results": [
+                    "50% increase in online scheduling rate within the first month",
+                    "Optimized mobile experience with 100% Lighthouse score",
+                    "Drastic reduction in recurring patient doubts due to clear information",
+                    "Strengthening of personal brand and perception of premium value"
+                ]
+            },
+            "nova_era": {
+                "title": "Nova Era Transportes",
+                "description": "Strategic institutional website for Nova Era Transportes, focused on logistics and freight.",
+                "category": "Web Design",
+                "fullDescription": "Development of a modern and functional website for Nova Era Transportes. The focus was to present logistics and freight services clearly, facilitating contact for quotes and highlighting the fleet and company experience.",
+                "client": "Nova Era Transportes",
+                "date": "August 2025",
+                "duration": "2 weeks",
+                "challenge": "The main challenge was to digitize a company with nearly 30 years of tradition, creating a bridge between its solid history and the expectations of the modern corporate market. It was necessary to convey safety, punctuality, and robustness, facilitating the flow of quotes for large companies and events.",
+                "solution": "I developed a platform focused on usability and performance, with an information architecture that highlights fleet differentials and service capillarity. We implemented a direct conversion funnel to WhatsApp and personalized forms, in addition to a visual strategy that uses gray and magenta to convey innovation in the transport sector.",
+                "results": [
+                    "Significant increase in corporate lead conversion through the site",
+                    "Reduction in average response time for freight quotes",
+                    "Interface optimized for mobile devices (100% responsiveness)",
+                    "Improved organic ranking for logistics terms in the Vinhedo region"
+                ]
+            },
+            "chatbot": {
+                "title": "Intelligent Chatbot",
+                "description": "AI chatbot development for 24/7 automated customer service",
+                "category": "AI & Chatbots"
+            },
+            "dashboard": {
+                "title": "Dashboard Analytics",
+                "description": "Dashboard interface for data analysis and performance metrics",
+                "category": "Web Design"
+            }
+        }
+    },
+    "contact": {
+        "title": "GET IN TOUCH",
+        "description": "Let's talk about your next project? I'm always open to discussing innovative ideas and creating amazing solutions together!",
+        "info": {
+            "email": "Email",
+            "phone": "Phone",
+            "location": "Location",
+            "location_value": "Campinas, Brazil"
+        },
+        "card_title": "Let's create something amazing?",
+        "card_desc": "Whether for a web design project, process automation, or AI chatbot development, I'm ready to turn your ideas into digital reality.",
+        "form": {
+            "name": "Name",
+            "name_placeholder": "Your name",
+            "email": "Email",
+            "email_placeholder": "your@email.com",
+            "subject": "Subject",
+            "subject_placeholder": "Message subject",
+            "message": "Message",
+            "message_placeholder": "Tell me more about your project...",
+            "submit": "Send Message",
+            "submitting": "Sending...",
+            "success_title": "Message sent!",
+            "success_desc": "Thanks for reaching out. I'll get back to you soon!"
+        }
+    },
+    "common": {
+        "back_to_home": "Back to Home",
+        "back_to_portfolio": "Back to Portfolio",
+        "project_not_found": "Project not found",
+        "view_online": "View Project Online",
+        "date": "Date",
+        "challenge": "Challenge",
+        "solution": "Solution",
+        "results": "Results",
+        "gallery": "Project Gallery"
+    },
     "hero": {
-        "role": "UX/UI Designer | Web Designer | N8N Automation Manager",
+        "role": "UX/UI Designer | Web Designer | Product Designer",
         "greeting": "LUCAS COELHO",
         "description": "Transforming ideas into impactful and efficient digital experiences",
         "cta_portfolio": "View Portfolio",
         "cta_contact": "Get in Touch"
+    },
+    "about": {
+        "title": "ABOUT ME",
+        "p1": "Hi! I'm <1>Lucas</1>, a Web Designer passionate about transforming ideas into impactful and efficient digital experiences. With a degree in <1>Graphic Design</1>, post-graduate studies in <1>UX/UI Design</1>, and an <1>MBA in Digital Marketing</1>, my expertise extends to Automation Management and AI Chatbot development, with proficiency in leading platforms like n8n and Make.",
+        "p2": "My mission is to create web solutions that not only look stunning but also optimize processes, generate tangible results, and boost business efficiency. I dive deep into every project, from conceiving intuitive interfaces (UI) to Search Engine Optimization (SEO), always seeking innovation and the latest market trends to deliver robust and functional solutions.",
+        "p3": "I'm always open to exchange ideas, discuss exciting projects, and maybe create something amazing together!"
+    },
+    "footer": {
+        "description": "Web Designer specialist in automation, UX/UI and digital process optimization. Transforming ideas into impactful digital experiences.",
+        "nav_title": "Navigation",
+        "contact_title": "Contact",
+        "copyright": "© {{year}} Lucas Coelho. All rights reserved.",
+        "made_with": "Developed with passion, technology and coffee."
+    },
+    "aero_case_study": {
+        "hero": {
+            "title": "Planning at the Speed of Thought",
+            "subtitle": "How I designed and developed a <1>keyboard-first</1> project management ecosystem focused on eliminating friction between idea and execution.",
+            "role": "Product Designer & Full Stack Dev",
+            "duration": "2 Months of Development"
+        },
+        "challenge": {
+            "title": "The Challenge",
+            "quote": "\"Why does the world need another project manager?\"",
+            "p1": "This was the question that guided the start of AERO. I noticed a frustrating pattern in market tools: they are slow, bloated, and require many clicks for simple actions.",
+            "p2": "For high-performance teams, every second of loading and every context switch (mouse vs. keyboard) is a break in the \"Flow State\".",
+            "mission_title": "My Mission",
+            "mission_desc": "To create not just a tool, but an \"Operating System\" for work, where the interface disappears and only execution remains.",
+            "stats": {
+                "months": "Months of Project",
+                "roles": "Roles Acted",
+                "end_to_end": "End-to-End Execution"
+            }
+        },
+        "discovery": {
+            "title": "Discovery and Immersion",
+            "desc": "To define the product, I mapped the needs of two critical personas in software teams, identifying their mental models and latent pains.",
+            "personas": {
+                "odair": {
+                    "name": "Odair",
+                    "role": "The \"Hacker\" Developer",
+                    "pain_label": "Pain",
+                    "pain": "Hates taking hands off the keyboard. Feels that visual forms are slow.",
+                    "need_label": "Need",
+                    "need": "Instant speed (<100ms), global shortcuts, and dark mode."
+                },
+                "mariana": {
+                    "name": "Mariana",
+                    "role": "The Product Manager (PM)",
+                    "pain_label": "Pain",
+                    "pain": "Loses macro context when diving into task details.",
+                    "need_label": "Need",
+                    "need": "Systemic vision (Kanban) without losing the ability to document complex specs."
+                }
+            },
+            "principles": [
+                {
+                    "title": "Zero Friction",
+                    "desc": "Idea -> Entry < 1s"
+                },
+                {
+                    "title": "Useful Density",
+                    "desc": "Information > Whitespace"
+                },
+                {
+                    "title": "Keyboard-First",
+                    "desc": "Mouse is secondary"
+                }
+            ]
+        },
+        "solution": {
+            "badge": "The Blueprint",
+            "title": "Design & UX Solution",
+            "command_menu": {
+                "title": "Command Menu",
+                "desc": "The challenge was to combine task management (structured) with documentation (freeform). I created a navigation where the menu acts as a \"teleportation\" tool. The user doesn't navigate hierarchically; they jump directly to where they need to be.",
+                "try_pressing": "Try pressing:",
+                "placeholder": "Type a command or search...",
+                "esc": "ESC",
+                "create_issue": "Create New Issue",
+                "go_to_board": "Go to Board",
+                "suggestions": "Suggestions"
+            },
+            "context_dilemma": {
+                "title": "The Context Dilemma",
+                "problem_title": "Problem (New Page)",
+                "problem_desc": "When clicking a card, going to a new page made the user lose track of the \"whole\" (the Sprint).",
+                "solution_title": "Solution (Side Drawer)",
+                "solution_desc": "I implemented a Drawer. The PM can read the spec on the right while still visualising the bottleneck in the \"In Progress\" column on the left."
+            },
+            "visual_semantics": {
+                "title": "Visual Semantics",
+                "surface": "Surface",
+                "background": "Background",
+                "action": "Action / Brand",
+                "destructive": "Destructive",
+                "desc": "Tools that are too colorful compete for attention. In AERO, color is used only for signaling. This reduces cognitive load, allowing the brain to ignore structure and focus on content."
+            }
+        },
+        "engineering": {
+            "badge": "High Fidelity",
+            "title": "Engineering & Implementation",
+            "desc": "As a \"Product Engineer\", I didn't stop at the prototype. I took AERO to production using a modern stack.",
+            "tech_stack": "Tech Stack",
+            "bubble_menu": {
+                "title": "Challenge: Bubble Menu",
+                "desc": "Implementing the floating menu in the text editor. I calculated coordinates relative to the user's text selection to render the menu contextually.",
+                "code_comment": "// Calculating bubble menu position"
+            },
+            "a11y": {
+                "title": "Accessibility (A11y)",
+                "desc": "I ensured visible Focus Rings and WCAG AAA contrast (Ratio 13.6:1) for text (#f5f5f5 over #1D1F26).",
+                "contrast_ratio": "Contrast Ratio"
+            }
+        },
+        "results": {
+            "title": "Results and Learnings",
+            "doc": {
+                "title": "Documentation is Life",
+                "desc": "Creating the PRD and Design System before coding saved weeks of refactoring. Clarity on \"what to build\" allowed \"how to build\" to flow."
+            },
+            "simplicity": {
+                "title": "Complexity of Simple",
+                "desc": "Making a text input seem \"simple\" and \"magical\" requires complex engineering of <1>states</1> and <1>events</1> behind the scenes. Simplicity is the ultimate sophistication."
+            },
+            "quote": "AERO is proof that work tools don't have to be boring or slow.",
+            "next_project": "View next project"
+        }
     }
 }
