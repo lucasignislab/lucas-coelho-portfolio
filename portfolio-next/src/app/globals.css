@@ -1,0 +1,173 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-figtree);
+  --font-heading: var(--font-sora);
+  --font-mono: var(--font-geist-mono);
+
+  /* Brand colors */
+  --color-void: #191E23;
+  --color-slate: #5A838F;
+  --color-parchment: #F0EDDC;
+  --color-terracotta: #C6A498;
+  --color-ember: #E85C2D;
+
+  /* Semantic colors */
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Radius */
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* ============================================
+   DARK THEME — Portfolio Lucas Coelho
+   Base escura sofisticada com acentos quentes
+   ============================================ */
+
+:root {
+  --background: #0e1114;
+  --foreground: #F0EDDC;
+  --card: #191E23;
+  --card-foreground: #F0EDDC;
+  --popover: #191E23;
+  --popover-foreground: #F0EDDC;
+  --primary: #E85C2D;
+  --primary-foreground: #F0EDDC;
+  --secondary: #5A838F;
+  --secondary-foreground: #F0EDDC;
+  --muted: #1f252b;
+  --muted-foreground: #5A838F;
+  --accent: #C6A498;
+  --accent-foreground: #191E23;
+  --destructive: #dc2626;
+  --border: rgba(90, 131, 143, 0.15);
+  --input: rgba(90, 131, 143, 0.15);
+  --ring: #E85C2D;
+  --radius: 0.625rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: auto; /* Lenis handles smooth scroll */
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-figtree), system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sora), system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  /* Selection color */
+  ::selection {
+    background: rgba(232, 92, 45, 0.3);
+    color: #F0EDDC;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #191E23;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #5A838F;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #C6A498;
+  }
+}
+
+/* ============================================
+   ANIMATIONS & UTILITIES
+   ============================================ */
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-parchment via-terracotta to-ember bg-clip-text text-transparent;
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(circle at center, var(--tw-gradient-stops));
+  }
+
+  .text-gradient-subtle {
+    @apply bg-gradient-to-r from-parchment/90 to-terracotta/80 bg-clip-text text-transparent;
+  }
+
+  .glass-card {
+    background: rgba(25, 30, 35, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(90, 131, 143, 0.12);
+  }
+
+  .glass-card-strong {
+    background: rgba(25, 30, 35, 0.85);
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(90, 131, 143, 0.15);
+  }
+
+  .noise-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+  }
+
+  .section-padding {
+    @apply py-24 px-4 md:px-8 lg:px-16 xl:px-24;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto w-full;
+  }
+
+  .animate-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .animate-fade-in {
+    opacity: 0;
+  }
+}

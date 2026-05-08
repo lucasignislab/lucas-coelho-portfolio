@@ -1,0 +1,97 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "process": "Process",
+    "portfolio": "Portfolio",
+    "services": "Services",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Lucas Coelho",
+    "role": "UX/UI Designer & Web Designer",
+    "description": "Transforming ideas into impactful digital experiences through strategic design and immersive interfaces.",
+    "cta_portfolio": "View Portfolio",
+    "cta_contact": "Let's Talk",
+    "scroll": "Scroll to explore"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Manifesto",
+    "p1": "I'm Lucas, a designer passionate about creating digital experiences that connect people and brands. With a degree in Graphic Design, a postgraduate degree in UX/UI, and an MBA in Digital Marketing, I develop solutions that unite aesthetics, strategy, and usability.",
+    "p2": "I believe that good design goes beyond appearance — it's about solving real problems, creating emotional connections, and delivering measurable results. Every project is an opportunity to transform visions into digital reality.",
+    "p3": "Shall we create something extraordinary together?",
+    "stats_years": "Years of Experience",
+    "stats_projects": "Projects Delivered",
+    "stats_clients": "Clients Served"
+  },
+  "process": {
+    "title": "My Process",
+    "subtitle": "How I work",
+    "steps": {
+      "discovery": {
+        "title": "Discovery",
+        "desc": "Deep immersion into the business, audience, and goals. Research, interviews, and competitive analysis to build solid foundations."
+      },
+      "strategy": {
+        "title": "Strategy",
+        "desc": "Definition of information architecture, user flows, and wireframes. Every decision is guided by data and purpose."
+      },
+      "design": {
+        "title": "Design",
+        "desc": "Visual creation with obsessive attention to detail. Interfaces that delight, communicate, and convert."
+      },
+      "delivery": {
+        "title": "Delivery",
+        "desc": "Complete handoff with documentation, interactive prototyping, and implementation support."
+      }
+    }
+  },
+  "portfolio": {
+    "title": "Selected Projects",
+    "description": "A curation of works that represent my design vision — where strategy, aesthetics, and functionality meet.",
+    "view_case": "View Case",
+    "view_live": "View Live"
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "What I can do for you",
+    "items": {
+      "uxresearch": {
+        "title": "UX Research",
+        "desc": "Qualitative and quantitative research to understand users, map pain points, and identify value opportunities."
+      },
+      "uidesign": {
+        "title": "UI Design",
+        "desc": "Sophisticated and consistent visual interfaces, focused on hierarchy, typography, and scalable design systems."
+      },
+      "webdesign": {
+        "title": "Web Design",
+        "desc": "High-conversion websites and landing pages that balance impeccable aesthetics with performance and SEO."
+      },
+      "designsystems": {
+        "title": "Design Systems",
+        "desc": "Component libraries, tokens, and guidelines that ensure consistency and speed in development."
+      }
+    }
+  },
+  "experience": {
+    "title": "Professional Experience"
+  },
+  "contact": {
+    "title": "Let's Talk?",
+    "description": "Have a project in mind? I want to hear about it. Let's transform your vision into reality.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Message sent! I'll get back to you soon."
+    }
+  },
+  "footer": {
+    "copyright": "© {year} Lucas Coelho. All rights reserved.",
+    "back_to_top": "Back to top"
+  }
+}

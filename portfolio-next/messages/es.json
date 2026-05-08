@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre",
+    "process": "Proceso",
+    "portfolio": "Portafolio",
+    "services": "Servicios",
+    "experience": "Experiencia",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "Lucas Coelho",
+    "role": "UX/UI Designer & Web Designer",
+    "description": "Transformando ideas en experiencias digitales impactantes a través de diseño estratégico e interfaces inmersivas.",
+    "cta_portfolio": "Ver Portafolio",
+    "cta_contact": "Hablemos",
+    "scroll": "Scroll para explorar"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "subtitle": "Manifiesto",
+    "p1": "Soy Lucas, diseñador apasionado por crear experiencias digitales que conectan personas y marcas.",
+    "p2": "Creo que el buen diseño va más allá de la apariencia — se trata de resolver problemas reales.",
+    "p3": "¿Creamos algo extraordinario juntos?",
+    "stats_years": "Años de Experiencia",
+    "stats_projects": "Proyectos Entregados",
+    "stats_clients": "Clientes Atendidos"
+  },
+  "process": {
+    "title": "Mi Proceso",
+    "subtitle": "Cómo trabajo",
+    "steps": {
+      "discovery": { "title": "Discovery", "desc": "Inmersión profunda en el negocio, audiencia y objetivos." },
+      "strategy": { "title": "Estrategia", "desc": "Definición de arquitectura de información y wireframes." },
+      "design": { "title": "Diseño", "desc": "Creación visual con atención obsesiva a los detalles." },
+      "delivery": { "title": "Delivery", "desc": "Handoff completo con documentación y prototipado." }
+    }
+  },
+  "portfolio": {
+    "title": "Proyectos Seleccionados",
+    "description": "Una curaduría de trabajos que representan mi visión de diseño.",
+    "view_case": "Ver Case",
+    "view_live": "Ver Online"
+  },
+  "services": {
+    "title": "Servicios",
+    "subtitle": "Lo que puedo hacer por ti",
+    "items": {
+      "uxresearch": { "title": "UX Research", "desc": "Investigación cualitativa y cuantitativa para entender usuarios." },
+      "uidesign": { "title": "UI Design", "desc": "Interfaces visuales sofisticadas y consistentes." },
+      "webdesign": { "title": "Web Design", "desc": "Sitios y landing pages de alta conversión." },
+      "designsystems": { "title": "Design Systems", "desc": "Bibliotecas de componentes y guidelines." }
+    }
+  },
+  "experience": { "title": "Experiencia Profesional" },
+  "contact": {
+    "title": "¿Hablamos?",
+    "description": "¿Tienes un proyecto en mente? Quiero escucharlo.",
+    "form": { "name": "Nombre", "email": "Email", "message": "Mensaje", "submit": "Enviar Mensaje", "success": "¡Mensaje enviado! Responderé pronto." }
+  },
+  "footer": { "copyright": "© {year} Lucas Coelho. Todos los derechos reservados.", "back_to_top": "Volver arriba" }
+}

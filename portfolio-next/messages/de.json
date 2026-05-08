@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über",
+    "process": "Prozess",
+    "portfolio": "Portfolio",
+    "services": "Dienstleistungen",
+    "experience": "Erfahrung",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "greeting": "Lucas Coelho",
+    "role": "UX/UI Designer & Web Designer",
+    "description": "Ideen in eindrucksvolle digitale Erlebnisse verwandeln durch strategisches Design und immersive Interfaces.",
+    "cta_portfolio": "Portfolio ansehen",
+    "cta_contact": "Lassen Sie uns sprechen",
+    "scroll": "Scrollen zum Entdecken"
+  },
+  "about": {
+    "title": "Über Mich",
+    "subtitle": "Manifest",
+    "p1": "Ich bin Lucas, ein Designer mit Leidenschaft für digitale Erlebnisse, die Menschen und Marken verbinden.",
+    "p2": "Ich glaube, dass gutes Design über das Aussehen hinausgeht — es geht darum, echte Probleme zu lösen.",
+    "p3": "Lassen Sie uns gemeinsam etwas Außergewöhnliches schaffen?",
+    "stats_years": "Jahre Erfahrung",
+    "stats_projects": "Abgeschlossene Projekte",
+    "stats_clients": "Betreute Kunden"
+  },
+  "process": {
+    "title": "Mein Prozess",
+    "subtitle": "Wie ich arbeite",
+    "steps": {
+      "discovery": { "title": "Discovery", "desc": "Tiefe Immersion in Geschäft, Zielgruppe und Ziele." },
+      "strategy": { "title": "Strategie", "desc": "Definition von Informationsarchitektur und Wireframes." },
+      "design": { "title": "Design", "desc": "Visuelle Gestaltung mit obsessiver Liebe zum Detail." },
+      "delivery": { "title": "Delivery", "desc": "Vollständiger Handoff mit Dokumentation und Prototyping." }
+    }
+  },
+  "portfolio": {
+    "title": "Ausgewählte Projekte",
+    "description": "Eine Kuratierung von Arbeiten, die meine Designvision repräsentieren.",
+    "view_case": "Case ansehen",
+    "view_live": "Online ansehen"
+  },
+  "services": {
+    "title": "Dienstleistungen",
+    "subtitle": "Was ich für Sie tun kann",
+    "items": {
+      "uxresearch": { "title": "UX Research", "desc": "Qualitative und quantitative Forschung zur Nutzerverständnis." },
+      "uidesign": { "title": "UI Design", "desc": "Anspruchsvolle und konsistente visuelle Interfaces." },
+      "webdesign": { "title": "Web Design", "desc": "High-Converting Websites und Landing Pages." },
+      "designsystems": { "title": "Design Systems", "desc": "Komponentenbibliotheken und Guidelines." }
+    }
+  },
+  "experience": { "title": "Berufserfahrung" },
+  "contact": {
+    "title": "Lassen Sie uns sprechen?",
+    "description": "Haben Sie ein Projekt im Kopf? Ich möchte davon hören.",
+    "form": { "name": "Name", "email": "E-Mail", "message": "Nachricht", "submit": "Nachricht senden", "success": "Nachricht gesendet! Ich melde mich bald." }
+  },
+  "footer": { "copyright": "© {year} Lucas Coelho. Alle Rechte vorbehalten.", "back_to_top": "Zurück nach oben" }
+}
