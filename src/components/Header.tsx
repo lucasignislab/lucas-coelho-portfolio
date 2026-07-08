@@ -1,96 +1,68 @@
+import { useTilt } from "@/hooks/use-tilt";
+import { navItems } from "@/data/site";
+import { Logo } from "@/components/Logo";
 
+/**
+ * Header fixo scalzo-style:
+ *  - Esquerda: "— Lucas Coelho" baseline
+ *  - Centro: Logo SVG (triângulo isóscele) com VanillaTilt
+ *  - Direita: nav items + botão magnético "Email me"
+ */
+export function Header() {
+	const logoRef = useTilt<HTMLAnchorElement>({ max: 12, speed: 400, scale: 1.05 });
 
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import LanguageSwitcher from './LanguageSwitcher';
-import { useTranslation } from 'react-i18next';
+	return (
+		<header className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-20 py-5 flex items-center justify-between mix-blend-difference pointer-events-none">
+			{/* Left: baseline */}
+			<a
+				href="#top"
+				className="link-underline font-mono text-xs uppercase tracking-[0.2em] text-bone pointer-events-auto"
+			>
+				— Lucas Coelho
+			</a>
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const { t } = useTranslation();
+			{/* Center: Logo */}
+			<a
+				ref={logoRef}
+				href="#top"
+				aria-label="Topo"
+				className="pointer-events-auto absolute left-1/2 -translate-x-1/2 will-change-transform"
+			>
+				<Logo ariaLabel="Topo" />
+			</a>
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+			{/* Right: nav */}
+			<nav className="flex items-center gap-6 md:gap-10 pointer-events-auto">
+				<ul className="hidden md:flex items-center gap-8">
+					{navItems.map((item) => {
+						// "Work" ganha o sobrescrito de anos de experiencia
+						// (2017 -> 2026 = 09), scalzo-style.
+						const isWork = item.href === "#work";
+						return (
+							<li key={item.href}>
+								<a
+									href={item.href}
+									className="font-mono text-xs uppercase tracking-[0.2em] text-bone link-underline"
+								>
+									{item.label}
+									{isWork && (
+										<sup className="ml-0.5 text-[0.6em] font-normal opacity-80">
+											09
+										</sup>
+									)}
+								</a>
+							</li>
+						);
+					})}
+				</ul>
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navItems = [
-    { label: t('nav.home'), href: '#hero' },
-    { label: t('nav.about'), href: '#about' },
-    { label: t('nav.experience'), href: '#experience' },
-    { label: t('nav.skills'), href: '#skills' },
-    { label: t('nav.portfolio'), href: '#portfolio' },
-    { label: t('nav.contact'), href: '#contact' },
-  ];
-
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
-    }
-  };
-
-  return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-brand-black/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
-      }`}>
-      <nav className="container-custom mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          <div className="font-poppins font-bold text-xl bg-gradient-to-r from-brand-accent via-brand-tertiary to-brand-secondary bg-clip-text text-transparent">
-            Lucas Coelho
-          </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => scrollToSection(item.href)}
-                className="font-medium text-brand-tertiary hover:text-brand-accent transition-colors duration-200 relative group"
-              >
-                {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-accent transition-all duration-300 group-hover:w-full"></span>
-              </button>
-            ))}
-            <LanguageSwitcher />
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="flex items-center gap-4 md:hidden">
-            <LanguageSwitcher />
-            <button
-              className="p-2 text-brand-tertiary"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-brand-black shadow-lg border-t border-brand-secondary">
-            <div className="py-4">
-              {navItems.map((item) => (
-                <button
-                  key={item.label}
-                  onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-4 py-3 font-medium text-brand-tertiary hover:text-brand-accent hover:bg-brand-secondary/20 transition-colors duration-200"
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-      </nav>
-    </header>
-  );
-};
-
-export default Header;
+				<a
+					href="mailto:lucascoelho.cps@gmail.com"
+					className="magnetic inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-bone/40 text-bone font-mono text-xs uppercase tracking-[0.2em] hover:border-ember hover:text-ember transition-colors duration-500"
+				>
+					Email me
+				</a>
+			</nav>
+		</header>
+	);
+}

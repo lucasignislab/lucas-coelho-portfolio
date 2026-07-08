@@ -1,115 +1,130 @@
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { useLocalTime } from "@/hooks/use-local-time";
+import { useTilt } from "@/hooks/use-tilt";
+import { socials } from "@/data/site";
+import { Logo } from "@/components/Logo";
 
-import { Mail, Phone, ExternalLink } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+/**
+ * Footer scalzo:
+ *  - Headline: "Vamos criar algo incrivel juntos" (italic serif massivo)
+ *  - Location
+ *  - Email CTA magnetico
+ *  - Local time (live)
+ *  - Socials + logo + copyright
+ */
+export function Footer() {
+	const titleRef = useRef<HTMLHeadingElement | null>(null);
+	const ctaRef = useTilt<HTMLAnchorElement>({ max: 8, speed: 400, scale: 1.03 });
+	const time = useLocalTime();
 
-const Footer = () => {
-  const { t } = useTranslation();
-  const currentYear = new Date().getFullYear();
+	useEffect(() => {
+		if (!titleRef.current) return;
+		const chars = titleRef.current.querySelectorAll<HTMLElement>(".ft-char");
+		if (!chars.length) {
+			const text = titleRef.current.textContent ?? "";
+			titleRef.current.innerHTML = "";
+			text.split("").forEach((c) => {
+				const wrap = document.createElement("span");
+				wrap.style.display = "inline-block";
+				wrap.style.overflow = "hidden";
+				wrap.style.lineHeight = "inherit";
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+				const inner = document.createElement("span");
+				inner.className = "ft-char";
+				inner.style.display = "inline-block";
+				inner.style.willChange = "transform, opacity";
+				inner.textContent = c === " " ? "\u00A0" : c;
 
-  const navItems = [
-    { label: t('nav.home'), href: '#hero' },
-    { label: t('nav.about'), href: '#about' },
-    { label: t('nav.experience'), href: '#experience' },
-    { label: t('nav.skills'), href: '#skills' },
-    { label: t('nav.portfolio'), href: '#portfolio' },
-    { label: t('nav.contact'), href: '#contact' },
-  ];
+				wrap.appendChild(inner);
+				titleRef.current!.appendChild(wrap);
+			});
+		}
+		const updated = titleRef.current.querySelectorAll<HTMLElement>(".ft-char");
+		gsap.fromTo(
+			updated,
+			{ yPercent: 100, opacity: 0 },
+			{
+				yPercent: 0,
+				opacity: 1,
+				duration: 1,
+				stagger: 0.025,
+				ease: "power4.out",
+				scrollTrigger: {
+					trigger: titleRef.current,
+					start: "top 85%",
+					toggleActions: "play none none none",
+				},
+			}
+		);
+	}, []);
 
-  return (
-    <footer className="bg-gray-900 text-white">
-      <div className="container-custom py-12">
-        <div className="grid md:grid-cols-3 gap-8">
-          {/* Brand Section */}
-          <div className="space-y-4">
-            <h3 className="font-space font-bold text-2xl text-gradient">
-              Lucas Coelho
-            </h3>
-            <p className="text-gray-300 leading-relaxed">
-              {t('footer.description')}
-            </p>
-            <div className="flex space-x-4">
-              <a
-                href="mailto:lucascoelho.cps@gmail.com"
-                className="p-2 bg-gray-800 rounded-full hover:bg-brand-blue transition-colors duration-300"
-              >
-                <Mail className="w-5 h-5" />
-              </a>
-              <a
-                href="tel:+5519992492409"
-                className="p-2 bg-gray-800 rounded-full hover:bg-brand-purple transition-colors duration-300"
-              >
-                <Phone className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.behance.net/lucascoelho30"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-gray-800 rounded-full hover:bg-brand-indigo transition-colors duration-300"
-              >
-                <ExternalLink className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
+	return (
+		<footer id="contact" className="section flex flex-col gap-12 md:gap-20">
+			{/* Title */}
+			<h2
+				ref={titleRef}
+				className="font-display italic font-light text-huge text-bone leading-[0.95] text-balance max-w-7xl"
+			>
+				Vamos criar algo incrivel juntos.
+			</h2>
 
-          {/* Navigation */}
-          <div className="space-y-4">
-            <h4 className="font-space font-semibold text-lg">{t('footer.nav_title')}</h4>
-            <ul className="space-y-2">
-              {navItems.map((item) => (
-                <li key={item.label}>
-                  <button
-                    onClick={() => scrollToSection(item.href)}
-                    className="text-gray-300 hover:text-white transition-colors duration-200"
-                  >
-                    {item.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
+			{/* Location + Email CTA */}
+			<div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+				<p className="font-mono text-xs uppercase tracking-[0.2em] text-ash">
+					Baseado no Brasil — trabalhando remoto no mundo todo
+				</p>
 
-          {/* Contact Info */}
-          <div className="space-y-4">
-            <h4 className="font-space font-semibold text-lg">{t('footer.contact_title')}</h4>
-            <div className="space-y-2 text-gray-300">
-              <p>
-                <a
-                  href="mailto:lucascoelho.cps@gmail.com"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  lucascoelho.cps@gmail.com
-                </a>
-              </p>
-              <p>
-                <a
-                  href="tel:+5519992492409"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  +55 19 99249-2409
-                </a>
-              </p>
-              <p>{t('contact.info.location_value')}</p>
-            </div>
-          </div>
-        </div>
+				<a
+					ref={ctaRef}
+					href="mailto:lucascoelho.cps@gmail.com"
+					data-cursor-hover
+					className="group inline-flex items-center gap-3 text-2xl md:text-4xl font-display text-bone hover:text-ember transition-colors duration-500 will-change-transform"
+				>
+					<span className="font-display italic">→</span>
+					<span className="link-underline">Envie um e-mail</span>
+				</a>
+			</div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>
-            {t('footer.copyright', { year: currentYear })}
-            <br />
-            {t('footer.made_with')}
-          </p>
-        </div>
-      </div>
-    </footer>
-  );
-};
+			{/* Local time */}
+			<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pt-8 border-t border-bone/10">
+				<div className="flex items-baseline gap-3 font-mono text-sm uppercase tracking-[0.2em] text-ash">
+					<span>local time ►</span>
+					<span className="text-bone font-medium text-2xl tracking-tight font-display">
+						{time.h}
+						<span className="animate-pulse-slow">:</span>
+						{time.m}{" "}
+						<span className="text-ash text-sm ml-1">{time.ampm}</span>
+					</span>
+				</div>
 
-export default Footer;
+				{/* Socials */}
+				<ul className="flex flex-wrap items-center gap-x-8 gap-y-2">
+					{socials.map((s) => (
+						<li key={s.name}>
+							<a
+								href={s.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								data-cursor-hover
+								className="font-mono text-xs uppercase tracking-[0.2em] text-bone link-underline"
+							>
+								{s.name}
+							</a>
+						</li>
+					))}
+				</ul>
+			</div>
+
+			{/* Bottom: logo + copyright */}
+			<div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-bone/10">
+				<Logo ariaLabel="Lucas Coelho" />
+
+				<p className="font-mono text-xs uppercase tracking-[0.2em] text-ash text-right">
+					<span className="block">© {new Date().getFullYear()} Lucas Coelho.</span>
+					<span className="block">Feito com amor por mim.</span>
+				</p>
+			</div>
+		</footer>
+	);
+}
