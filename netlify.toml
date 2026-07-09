@@ -1,0 +1,28 @@
+[build]
+  # Build command: roda `vite build` (definido no package.json)
+  command = "npm run build"
+  # Diretório de saída padrão do Vite
+  publish = "dist"
+
+[build.environment]
+  # Versão do Node compatível com Vite 6 / React 18
+  NODE_VERSION = "20"
+
+# SPA fallback — qualquer rota que não exista serve o index.html
+# (importante para futuras rotas como /work/:slug etc.)
+[[redirects]]
+  from = "/*"
+  to   = "/index.html"
+  status = 200
+
+# Headers de cache para assets com hash (immutable)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Sem cache no index.html (sempre fresh deploy)
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-cache"
