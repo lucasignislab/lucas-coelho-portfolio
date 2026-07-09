@@ -4,6 +4,74 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 /**
+ * Divide o conteúdo textual de um elemento em chars/words
+ * usando a estrutura Wrap/Inner com clip seguro para descendentes.
+ *
+ * Por que padding-bottom + margin-bottom -0.22em no `inner`:
+ *   - line-height editorial é 0.85-0.95 (bem apertado).
+ *   - Sem o padding, o overflow:hidden do `inner` come os descendentes
+ *     de letras como 'g', 'p', 'q', 'y' (causa dos bugs grotescos
+ *     de texto cortado).
+ *   - O padding empurra a area visivel para baixo e o margin negativo
+ *     compensa exatamente o mesmo valor, mantendo o line-height visual.
+ *   - O `wrap` nao tem overflow:hidden para o `inner` poder crescer
+ *     verticalmente sem cortar os descendentes.
+ *
+ * Estrutura final por token:
+ *   <el> (parent, sem mexer no display)
+ *     <wrap>  (display:inline-block, line-height:inherit)
+ *       <inner .split-char|.split-word|ft-char> (display:inline-block, overflow:hidden,
+ *                                                line-height:inherit, padding-bottom:0.22em,
+ *                                                margin-bottom:-0.22em)
+ *         TEXT
+ *       </inner>
+ *     </wrap>
+ *   </el>
+ */
+export function splitChars(
+	el: HTMLElement,
+	options: { className?: string; mode?: "chars" | "words" } = {}
+): HTMLElement[] {
+	const { className = "split-char", mode = "chars" } = options;
+	const text = el.textContent ?? "";
+	const tokens: string[] =
+		mode === "words"
+			? text.split(/(\s+)/) // mantém espaços
+			: Array.from(text);
+
+	el.innerHTML = "";
+
+	const created: HTMLElement[] = [];
+	tokens.forEach((token) => {
+		if (mode === "words" && /^\s+$/.test(token)) {
+			el.appendChild(document.createTextNode(token));
+			return;
+		}
+
+		const wrap = document.createElement("span");
+		wrap.style.display = "inline-block";
+		wrap.style.lineHeight = "inherit";
+
+		const inner = document.createElement("span");
+		inner.className = className;
+		inner.style.display = "inline-block";
+		inner.style.overflow = "hidden";
+		inner.style.lineHeight = "inherit";
+		inner.style.paddingBottom = "0.22em";
+		inner.style.marginBottom = "-0.22em";
+		inner.style.willChange = "transform, opacity";
+		inner.textContent =
+			mode === "words" ? token : token === " " ? "\u00A0" : token;
+
+		wrap.appendChild(inner);
+		el.appendChild(wrap);
+		created.push(inner);
+	});
+
+	return created;
+}
+
+/**
  * Reveal por char (split text) — DNA scalzo
  * Cada char/word sobe e aparece com stagger
  */
@@ -101,6 +169,36 @@ export function revealStagger(
 			ease: "power3.out",
 			scrollTrigger: {
 				trigger: container,
+				start,
+				toggleActions: "play none none none",
+			},
+		}
+	);
+}
+
+/**
+ * Reveal char-by-char ao entrar no viewport (com ScrollTrigger)
+ */
+export function revealCharsOnScroll(
+	chars: HTMLElement[] | NodeListOf<HTMLElement>,
+	options: { stagger?: number; duration?: number; delay?: number; start?: string } = {}
+) {
+	const arr = Array.from(chars);
+	if (!arr.length) return;
+	const { stagger = 0.025, duration = 1, delay = 0, start = "top 85%" } = options;
+
+	gsap.fromTo(
+		arr,
+		{ yPercent: 100, opacity: 0 },
+		{
+			yPercent: 0,
+			opacity: 1,
+			duration,
+			stagger,
+			delay,
+			ease: "power4.out",
+			scrollTrigger: {
+				trigger: arr[0]?.closest("h2, h1, p") ?? arr[0],
 				start,
 				toggleActions: "play none none none",
 			},

@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
 import { useLocalTime } from "@/hooks/use-local-time";
 import { useTilt } from "@/hooks/use-tilt";
 import { socials } from "@/data/site";
+import { revealCharsOnScroll, splitChars } from "@/lib/animations";
 
 /**
  * Footer scalzo:
@@ -11,60 +11,51 @@ import { socials } from "@/data/site";
  *  - Email CTA magnetico
  *  - Local time (live)
  *  - Socials + monograma + copyright (logo/ícone removido)
+ *
+ * Defesas contra o "bug grotesco de texto cortado":
+ *  1. O split usa `splitChars`, que aplica o truque do
+ *     `padding-bottom + margin-bottom -0.22em` no `inner` para que
+ *     o `overflow:hidden` NAO corte os descendentes ('g','p','q','y','j').
+ *  2. O h2 tem line-height folgado (1.15) + padding-bottom (0.4em)
+ *     para acomodar fontes serif com descendentes altos.
+ *  3. `overflow-visible` em h2 + footer para nenhum pai cortar nada.
+ *  4. Por seguranca, o split roda dentro do useEffect com setTimeout
+ *     duplo para garantir que o DOM ja foi medido.
  */
-
 export function Footer() {
 	const titleRef = useRef<HTMLHeadingElement | null>(null);
 	const ctaRef = useTilt<HTMLAnchorElement>({ max: 8, speed: 400, scale: 1.03 });
 	const time = useLocalTime();
 
 	useEffect(() => {
-		if (!titleRef.current) return;
-		const chars = titleRef.current.querySelectorAll<HTMLElement>(".ft-char");
-		if (!chars.length) {
-			const text = titleRef.current.textContent ?? "";
-			titleRef.current.innerHTML = "";
-			text.split("").forEach((c) => {
-				const wrap = document.createElement("span");
-				wrap.style.display = "inline-block";
-				wrap.style.overflow = "hidden";
-				wrap.style.lineHeight = "inherit";
+		const el = titleRef.current;
+		if (!el) return;
 
-				const inner = document.createElement("span");
-				inner.className = "ft-char";
-				inner.style.display = "inline-block";
-				inner.style.willChange = "transform, opacity";
-				inner.textContent = c === " " ? "\u00A0" : c;
+		// Splita em chars com clip seguro para descendentes.
+		const chars = splitChars(el, { className: "ft-char", mode: "chars" });
 
-				wrap.appendChild(inner);
-				titleRef.current!.appendChild(wrap);
-			});
-		}
-		const updated = titleRef.current.querySelectorAll<HTMLElement>(".ft-char");
-		gsap.fromTo(
-			updated,
-			{ yPercent: 100, opacity: 0 },
-			{
-				yPercent: 0,
-				opacity: 1,
-				duration: 1,
-				stagger: 0.025,
-				ease: "power4.out",
-				scrollTrigger: {
-					trigger: titleRef.current,
-					start: "top 85%",
-					toggleActions: "play none none none",
-				},
-			}
-		);
+		// Reveal on scroll (stagger suave, scalzo-style).
+		revealCharsOnScroll(chars, {
+			stagger: 0.025,
+			duration: 1,
+		});
 	}, []);
 
 	return (
-		<footer id="contact" className="section flex flex-col gap-12 md:gap-20">
-			{/* Title */}
+		<footer
+			id="contact"
+			className="section flex flex-col gap-12 md:gap-20"
+			style={{ overflow: "visible" }}
+		>
+			{/* Title — line-height e pb generosos para descendentes */}
 			<h2
 				ref={titleRef}
-				className="font-display italic font-light text-huge text-bone leading-[0.95] text-balance max-w-7xl"
+				className="font-display italic font-light text-bone text-balance max-w-[90rem]"
+				style={{
+					lineHeight: 1.15, fontSize: 'clamp(2rem, 5vw, 4rem)',
+					paddingBottom: "0.4em",
+					overflow: "visible",
+				}}
 			>
 				Vamos criar algo incrivel juntos.
 			</h2>
@@ -123,7 +114,6 @@ export function Footer() {
 				</span>
 
 				<p className="font-mono text-xs uppercase tracking-[0.2em] text-ash text-right">
-
 					<span className="block">© {new Date().getFullYear()} Lucas Coelho.</span>
 					<span className="block">Feito com amor por mim.</span>
 				</p>

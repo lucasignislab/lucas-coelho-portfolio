@@ -29,7 +29,7 @@ export default {
 				'blush': '#F2C8CC',      // subtle accent
 			},
 			fontFamily: {
-				display: ['"Fraunces"', 'Georgia', 'serif'],
+				display: ['"Instrument Serif"', 'Georgia', 'serif'],
 				sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
 				mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
 			},
