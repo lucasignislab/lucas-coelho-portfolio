@@ -52,6 +52,6 @@ export const projects: Project[] = [
 		type: "Portal / Education",
 		year: "2024",
 		url: "https://hub.ratoeiraadsoficial.com.br",
-		image: "/lovable-uploads/7707975d-161a-42b0-a77c-0f974ab20166.png",
+		image: "/lovable-uploads/ratoeirahub.png",
 	},
 ];
