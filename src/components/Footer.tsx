@@ -3,7 +3,6 @@ import { gsap } from "gsap";
 import { useLocalTime } from "@/hooks/use-local-time";
 import { useTilt } from "@/hooks/use-tilt";
 import { socials } from "@/data/site";
-import { Logo } from "@/components/Logo";
 
 /**
  * Footer scalzo:
@@ -11,8 +10,9 @@ import { Logo } from "@/components/Logo";
  *  - Location
  *  - Email CTA magnetico
  *  - Local time (live)
- *  - Socials + logo + copyright
+ *  - Socials + monograma + copyright (logo/ícone removido)
  */
+
 export function Footer() {
 	const titleRef = useRef<HTMLHeadingElement | null>(null);
 	const ctaRef = useTilt<HTMLAnchorElement>({ max: 8, speed: 400, scale: 1.03 });
@@ -116,11 +116,14 @@ export function Footer() {
 				</ul>
 			</div>
 
-			{/* Bottom: logo + copyright */}
+			{/* Bottom: monograma + copyright (sem logo) */}
 			<div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-bone/10">
-				<Logo ariaLabel="Lucas Coelho" />
+				<span className="font-mono text-xs uppercase tracking-[0.2em] text-bone">
+					LC
+				</span>
 
 				<p className="font-mono text-xs uppercase tracking-[0.2em] text-ash text-right">
+
 					<span className="block">© {new Date().getFullYear()} Lucas Coelho.</span>
 					<span className="block">Feito com amor por mim.</span>
 				</p>

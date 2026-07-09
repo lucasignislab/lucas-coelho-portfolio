@@ -1,17 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useLoading } from "@/hooks/use-loading";
-import { Logo } from "@/components/Logo";
 
 /**
- * Tela de loading com progresso 0-100% + logo SVG.
+ * Tela de loading com progresso 0-100% nas laterais.
  * DNA do scalzodesign.be.
+ * (Logo central removido a pedido do usuário.)
  *
  * Fallbacks de seguranca:
  *  - Safety timeout no useLoading garante que isLoading vira false
  *  - CSS transition faz o slide-up mesmo se GSAP falhar
  *  - Apos slide, seta display:none e libera o scroll
  */
+
 export function Loading() {
 	const { isLoading, progress } = useLoading(1800);
 	const screenRef = useRef<HTMLDivElement | null>(null);
@@ -68,10 +69,8 @@ export function Loading() {
 				<span>{String(progress).padStart(2, "0")}</span>%
 			</p>
 
-			{/* Center: Logo */}
-			<Logo />
-
 			{/* Right: % */}
+
 			<p className="font-mono text-sm uppercase tracking-[0.2em] text-bone">
 				<span>{String(progress).padStart(2, "0")}</span>%
 			</p>

@@ -1,16 +1,12 @@
-import { useTilt } from "@/hooks/use-tilt";
 import { navItems } from "@/data/site";
-import { Logo } from "@/components/Logo";
 
 /**
  * Header fixo scalzo-style:
  *  - Esquerda: "— Lucas Coelho" baseline
- *  - Centro: Logo SVG (triângulo isóscele) com VanillaTilt
  *  - Direita: nav items + botão magnético "Email me"
+ *  (Logo/ícone removido a pedido do usuário)
  */
 export function Header() {
-	const logoRef = useTilt<HTMLAnchorElement>({ max: 12, speed: 400, scale: 1.05 });
-
 	return (
 		<header className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-20 py-5 flex items-center justify-between mix-blend-difference pointer-events-none">
 			{/* Left: baseline */}
@@ -19,16 +15,6 @@ export function Header() {
 				className="link-underline font-mono text-xs uppercase tracking-[0.2em] text-bone pointer-events-auto"
 			>
 				— Lucas Coelho
-			</a>
-
-			{/* Center: Logo */}
-			<a
-				ref={logoRef}
-				href="#top"
-				aria-label="Topo"
-				className="pointer-events-auto absolute left-1/2 -translate-x-1/2 will-change-transform"
-			>
-				<Logo ariaLabel="Topo" />
 			</a>
 
 			{/* Right: nav */}
