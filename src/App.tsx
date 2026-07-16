@@ -11,6 +11,7 @@ import { Skills } from "@/components/Skills";
 import { SelectedWork } from "@/components/SelectedWork";
 import { Footer } from "@/components/Footer";
 import { AeroCaseStudy } from "@/components/AeroCaseStudy";
+import { FitsYouCaseStudy } from "@/components/FitsYouCaseStudy";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,6 +66,14 @@ function App() {
 		return (
 			<ErrorBoundary>
 				<AeroCaseStudy />
+			</ErrorBoundary>
+		);
+	}
+
+	if (pathname === "/projetos/fits-you") {
+		return (
+			<ErrorBoundary>
+				<FitsYouCaseStudy />
 			</ErrorBoundary>
 		);
 	}

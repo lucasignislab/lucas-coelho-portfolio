@@ -30,6 +30,7 @@ export const projects: Project[] = [
 		type: "Website / Cross Training & Pilates",
 		year: "2024",
 		url: "https://fitsyou.com.br",
+		caseUrl: "/projetos/fits-you",
 		image: "/lovable-uploads/fitsyou.webp",
 		description:
 			"Site institucional criado para apresentar o estúdio, suas modalidades de cross training e Pilates, estrutura, horários e formas de contato.",
