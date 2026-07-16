@@ -13,7 +13,6 @@ export function useLoading(delay: number = 1800, safetyMs: number = 500) {
 	useEffect(() => {
 		const start = performance.now();
 		let raf: number;
-		let safetyTimer: ReturnType<typeof setTimeout>;
 
 		const finish = () => setIsLoading(false);
 
@@ -30,7 +29,7 @@ export function useLoading(delay: number = 1800, safetyMs: number = 500) {
 		raf = requestAnimationFrame(tick);
 
 		// Safety fallback: garante que sai do loading apos delay + safety
-		safetyTimer = setTimeout(finish, delay + safetyMs);
+		const safetyTimer = setTimeout(finish, delay + safetyMs);
 
 		return () => {
 			cancelAnimationFrame(raf);

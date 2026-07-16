@@ -1,9 +1,9 @@
-import { navItems } from "@/data/site";
+import { contactEmail, navItems } from "@/data/site";
 
 /**
  * Header fixo scalzo-style:
  *  - Esquerda: "— Lucas Coelho" baseline
- *  - Direita: nav items + botão magnético "Email me"
+ *  - Direita: navegação + botão de contato
  *  (Logo/ícone removido a pedido do usuário)
  */
 export function Header() {
@@ -20,33 +20,24 @@ export function Header() {
 			{/* Right: nav */}
 			<nav className="flex items-center gap-6 md:gap-10 pointer-events-auto">
 				<ul className="hidden md:flex items-center gap-8">
-					{navItems.map((item) => {
-						// "Work" ganha o sobrescrito de anos de experiencia
-						// (2017 -> 2026 = 09), scalzo-style.
-						const isWork = item.href === "#work";
-						return (
-							<li key={item.href}>
-								<a
-									href={item.href}
-									className="font-mono text-xs uppercase tracking-[0.2em] text-bone link-underline"
-								>
-									{item.label}
-									{isWork && (
-										<sup className="ml-0.5 text-[0.6em] font-normal opacity-80">
-											09
-										</sup>
-									)}
-								</a>
-							</li>
-						);
-					})}
+					{navItems.map((item) => (
+						<li key={item.href}>
+							<a
+								href={item.href}
+								className="font-mono text-xs uppercase tracking-[0.2em] text-bone link-underline"
+							>
+								{item.label}
+							</a>
+						</li>
+					))}
 				</ul>
 
 				<a
-					href="mailto:lucascoelho.cps@gmail.com"
+					href={`mailto:${contactEmail}`}
 					className="magnetic inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-bone/40 text-bone font-mono text-xs uppercase tracking-[0.2em] hover:border-ember hover:text-ember transition-colors duration-500"
 				>
-					Email me
+					<span className="hidden md:inline">Vamos conversar</span>
+					<span className="md:hidden">Contato</span>
 				</a>
 			</nav>
 		</header>

@@ -1,0 +1,14 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#212121"/>
+  <path d="M0 1H1200" stroke="#F4F1ED" stroke-opacity=".12"/>
+  <path d="M0 629H1200" stroke="#F4F1ED" stroke-opacity=".12"/>
+  <circle cx="1072" cy="110" r="238" stroke="#E28868" stroke-opacity=".35"/>
+  <circle cx="1072" cy="110" r="171" stroke="#F4F1ED" stroke-opacity=".1"/>
+  <path d="M930 0V630" stroke="#F4F1ED" stroke-opacity=".08"/>
+  <text x="72" y="78" fill="#827F7E" font-family="Arial, sans-serif" font-size="18" letter-spacing="4">CAMPINAS · BRASIL</text>
+  <text x="72" y="275" fill="#F4F1ED" font-family="Georgia, serif" font-size="112" font-style="italic">Lucas Coelho</text>
+  <text x="72" y="385" fill="#F4F1ED" font-family="Arial, sans-serif" font-size="88" font-weight="600" letter-spacing="-5">Designer Digital</text>
+  <text x="76" y="468" fill="#F4F1ED" fill-opacity=".72" font-family="Arial, sans-serif" font-size="24">Marcas, sites e experiências digitais com clareza e personalidade.</text>
+  <rect x="72" y="542" width="16" height="16" rx="8" fill="#E28868"/>
+  <text x="104" y="557" fill="#827F7E" font-family="Arial, sans-serif" font-size="16" letter-spacing="3">LUCASCOELHOUX.SITE</text>
+</svg>

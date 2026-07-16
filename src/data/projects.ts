@@ -6,6 +6,7 @@ export interface Project {
 	year: string;
 	url: string;
 	image: string;
+	description: string;
 }
 
 export const projects: Project[] = [
@@ -16,7 +17,9 @@ export const projects: Project[] = [
 		type: "Dashboard / SaaS",
 		year: "2024",
 		url: "https://aeroprojectmanager.netlify.app/dashboard",
-		image: "/lovable-uploads/aero-project-cover.png",
+		image: "/lovable-uploads/aero-project-cover.webp",
+		description:
+			"Concepção de marca, direção visual e interface para uma plataforma de gestão de projetos.",
 	},
 	{
 		id: "nova-era",
@@ -25,7 +28,9 @@ export const projects: Project[] = [
 		type: "Institucional / Logistics",
 		year: "2024",
 		url: "https://novaeratransportesvinhedo.com.br",
-		image: "/lovable-uploads/nova-era-cover.png",
+		image: "/lovable-uploads/nova-era-cover.webp",
+		description:
+			"Site institucional criado para apresentar os serviços da transportadora com clareza e fortalecer sua presença nas buscas.",
 	},
 	{
 		id: "fitsyou",
@@ -34,7 +39,9 @@ export const projects: Project[] = [
 		type: "Landing Page / Fitness",
 		year: "2024",
 		url: "https://fitsyou.com.br",
-		image: "/lovable-uploads/fitsyou.png",
+		image: "/lovable-uploads/fitsyou.webp",
+		description:
+			"Landing page para comunicar a proposta do estúdio e conduzir potenciais clientes até a próxima ação.",
 	},
 	{
 		id: "pogne",
@@ -43,7 +50,9 @@ export const projects: Project[] = [
 		type: "High-ticket / Marketing",
 		year: "2024",
 		url: "https://pogne.ratoeiraadsoficial.com.br",
-		image: "/lovable-uploads/pogne.png",
+		image: "/lovable-uploads/pogne.webp",
+		description:
+			"Experiência de campanha para organizar uma oferta de alto valor em uma narrativa direta e orientada à conversão.",
 	},
 	{
 		id: "hub",
@@ -52,6 +61,8 @@ export const projects: Project[] = [
 		type: "Portal / Education",
 		year: "2024",
 		url: "https://hub.ratoeiraadsoficial.com.br",
-		image: "/lovable-uploads/ratoeirahub.png",
+		image: "/lovable-uploads/ratoeirahub.webp",
+		description:
+			"Portal de conteúdo desenhado para tornar materiais, aulas e recursos mais fáceis de encontrar e consumir.",
 	},
 ];

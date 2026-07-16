@@ -6,22 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#212121" />
 
-    <title>Lucas Coelho — Digital Designer</title>
-    <meta name="title" content="Lucas Coelho — Digital Designer" />
-    <meta name="description" content="Freelance digital designer baseado no Brasil. Crio marcas e experiências digitais atraentes para a web. Membro internacional do júri de design." />
+    <title>Lucas Coelho — Designer Digital</title>
+    <meta name="title" content="Lucas Coelho — Designer Digital" />
+    <meta name="description" content="Designer digital baseado em Campinas, Brasil. Crio marcas, sites e experiências digitais que unem clareza, personalidade e conversão." />
     <meta name="author" content="Lucas Coelho" />
+    <link rel="canonical" href="https://lucascoelhoux.site/" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://lucascoelhoux.site/" />
-    <meta property="og:title" content="Lucas Coelho — Digital Designer" />
-    <meta property="og:description" content="Freelance digital designer baseado no Brasil. Crio marcas e experiências digitais atraentes para a web." />
-    <meta property="og:image" content="/og.jpg" />
+    <meta property="og:title" content="Lucas Coelho — Designer Digital" />
+    <meta property="og:description" content="Marcas, sites e experiências digitais com clareza, personalidade e foco na próxima ação." />
+    <meta property="og:image" content="https://lucascoelhoux.site/og-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Lucas Coelho — Designer Digital" />
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://lucascoelhoux.site/" />
-    <meta property="twitter:title" content="Lucas Coelho — Digital Designer" />
-    <meta property="twitter:description" content="Freelance digital designer baseado no Brasil. Crio marcas e experiências digitais atraentes para a web." />
-    <meta property="twitter:image" content="/og.jpg" />
+    <meta property="twitter:title" content="Lucas Coelho — Designer Digital" />
+    <meta property="twitter:description" content="Marcas, sites e experiências digitais com clareza, personalidade e foco na próxima ação." />
+    <meta property="twitter:image" content="https://lucascoelhoux.site/og-card.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Lucas Coelho",
+        "url": "https://lucascoelhoux.site/",
+        "jobTitle": "Designer Digital",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Campinas",
+          "addressRegion": "SP",
+          "addressCountry": "BR"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/lucasignislab/",
+          "https://www.behance.net/lucascoelhoux",
+          "https://github.com/lucasignislab"
+        ]
+      }
+    </script>
 
     <!-- Google Fonts: Instrument Serif (display) + Inter (sans) + JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,6 +58,14 @@
   </head>
   <body>
     <div id="root"></div>
+    <form name="contato" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="company" />
+      <input type="text" name="projectType" />
+      <input type="text" name="budget" />
+      <textarea name="message"></textarea>
+    </form>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -3,7 +3,7 @@ import { revealOnScroll, parallaxImage } from "@/lib/animations";
 
 /**
  * About — DNA scalzo:
- *  - Eyebrow "About ►"
+ *  - Eyebrow "Sobre ►"
  *  - Texto justificado uppercase (NAO split! senao quebra o text-align: justify)
  *  - Portrait com parallax on scroll
  *
@@ -27,17 +27,17 @@ export function About() {
 	return (
 		<section id="about" className="section flex flex-col gap-12">
 			{/* Eyebrow */}
-			<p className="eyebrow">About ►</p>
+			<p className="eyebrow">Sobre ►</p>
 
 			{/* Big justified text — paragrafo continuo, sem split */}
 			<p
 				ref={textRef}
 				className="text-block text-xl md:text-2xl lg:text-3xl leading-[1.4] text-bone/90 max-w-7xl"
 			>
-				Apaixonado por arte & design, ajudo empresas e marcas ao redor do
-				mundo a criar soluções digitais únicas e memoráveis. Mantenho as
-				<br />
-				coisas simples, criando experiências limpas e emocionantes.
+				Desde 2017, ajudo empresas e marcas a transformar ideias complexas em
+				experiências digitais claras e memoráveis. Aproximo estratégia,
+				identidade e interface para criar trabalhos que comunicam valor e
+				facilitam a próxima decisão.
 			</p>
 
 			{/* Portrait com parallax on scroll */}
@@ -46,8 +46,10 @@ export function About() {
 				className="image-reveal mt-12 w-full md:w-1/2 aspect-[3/4] rounded-sm overflow-hidden"
 			>
 				<img
-					src="/lovable-uploads/eu2.png"
-					alt="Lucas Coelho"
+					src="/lovable-uploads/eu2.webp"
+					alt="Retrato de Lucas Coelho, designer digital"
+					width="1024"
+					height="1024"
 					className="w-full h-full object-cover scale-110"
 					loading="lazy"
 					onError={(e) => {

@@ -20,6 +20,7 @@ export function useTilt<T extends HTMLElement = HTMLElement>(options: TiltOption
 	useEffect(() => {
 		const el = ref.current;
 		if (!el) return;
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 		VanillaTilt.init(el, {
 			max: 8,
 			speed: 600,

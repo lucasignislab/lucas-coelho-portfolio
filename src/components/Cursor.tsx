@@ -11,13 +11,14 @@ import { useEffect, useRef, useState } from "react";
 export function Cursor() {
 	const cursorRef = useRef<HTMLDivElement | null>(null);
 	const [hidden, setHidden] = useState(true);
-	const [hover, setHover] = useState(false);
+	const hoverRef = useRef(false);
 
 	useEffect(() => {
 		try {
 			// Esconde em touch ou se matchMedia nao existir
 			if (typeof window === "undefined" || !window.matchMedia) return;
 			if (window.matchMedia("(pointer: coarse)").matches) return;
+			if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
 			setHidden(false);
 			const el = cursorRef.current;
@@ -39,9 +40,9 @@ export function Cursor() {
 					if (
 						target?.closest("a, button, [data-cursor-hover], input, textarea, label")
 					) {
-						setHover(true);
+						hoverRef.current = true;
 					} else {
-						setHover(false);
+						hoverRef.current = false;
 					}
 				} catch {
 					/* noop */
@@ -54,7 +55,7 @@ export function Cursor() {
 				curX += (mouseX - curX) * 0.18;
 				curY += (mouseY - curY) * 0.18;
 				el.style.transform = `translate(${curX}px, ${curY}px) translate(-50%, -50%) scale(${
-					hover ? 2 : 1
+					hoverRef.current ? 2 : 1
 				})`;
 				raf = requestAnimationFrame(tick);
 			};
@@ -77,8 +78,6 @@ export function Cursor() {
 			console.warn("[Cursor] init failed:", err);
 			return undefined;
 		}
-		// hover intencionalmente fora das deps — NAO queremos re-init quando hover muda
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	if (hidden) return null;

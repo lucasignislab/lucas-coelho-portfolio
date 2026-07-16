@@ -2,17 +2,17 @@ import { useEffect, useRef } from "react";
 import { useSplitText } from "@/hooks/use-split-text";
 import { gsap } from "gsap";
 import { revealChars, revealOnScroll, revealStagger } from "@/lib/animations";
-import { socials } from "@/data/site";
+import { credibilityItems, socials } from "@/data/site";
 
 /**
  * Hero / Intro — DNA scalzodesign.be (rebuilt to match reference):
- *  - Topo esquerda  : eyebrow mono "Freelance" + "Based in Brasil"
+ *  - Topo esquerda  : disponibilidade + localização
  *  - Topo direita   : paragrafo justificado uppercase mono
  *  - Inferior       : Title com animacao simples (sem split-text:
  *                     o split-text cortava os descendentes do 'g'/'p'/'y'
  *                     mesmo com padding, por isso o titulo agora anima
  *                     linha-a-linha direto)
- *  - Rodape         : socials list centrada e bem espaçada
+ *  - Rodape         : CTAs, sinais de confiança e redes profissionais
  */
 export function Hero() {
 	const baseline1 = useSplitText<HTMLSpanElement>({ mode: "chars" });
@@ -23,6 +23,8 @@ export function Hero() {
 	const socialsRef = useRef<HTMLUListElement | null>(null);
 
 	useEffect(() => {
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
 		// Eyebrows animam por char (linhas curtas — stagger e o charme)
 		setTimeout(() => {
 			revealChars(baseline1.current, { stagger: 0.02, duration: 0.7 });
@@ -54,7 +56,7 @@ export function Hero() {
 		if (socialsRef.current) {
 			revealStagger(socialsRef.current, "li", { y: 20, stagger: 0.1, duration: 0.7 });
 		}
-	}, []);
+	}, [baseline1, baseline2]);
 
 	return (
 		<section id="top" className="section min-h-screen flex flex-col pt-32 md:pt-40 overflow-visible">
@@ -62,20 +64,18 @@ export function Hero() {
 			<div className="grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-10 items-start">
 				<div className="lg:col-span-4 flex flex-col gap-2">
 					<span ref={baseline1} className="eyebrow">
-						Freelance
+						Disponível para projetos
 					</span>
 					<span ref={baseline2} className="eyebrow">
-						Based in Brasil
+						Campinas, Brasil
 					</span>
 				</div>
 				<p
 					ref={leadRef}
 					className="lg:col-span-5 lg:col-start-8 font-mono text-[11px] md:text-xs leading-[1.6] text-bone/80 uppercase tracking-[0.05em] text-justify hyphens-auto indent-0"
 				>
-					Freelance digital designer baseado no Brasil (Campinas/SP) que ama
-					criar marcas e experiências digitais marcantes para a web. Atuando
-					como designer desde 2017 — apaixonado por interfaces que encantam,
-					comunicam e convertem.
+					Crio marcas e experiências digitais que tornam negócios mais claros,
+					desejáveis e preparados para converter.
 				</p>
 			</div>
 
@@ -92,30 +92,50 @@ export function Hero() {
 						ref={titleLine2Ref}
 						className="block font-sans not-italic font-medium tracking-ultratight mt-2 md:mt-4 text-bone/95"
 					>
-						Digital Designer
+						Designer Digital
 					</span>
 				</h1>
 			</div>
 
-			{/* Socials — centred horizontally, evenly spaced */}
-			<ul
-				ref={socialsRef}
-				className="mt-12 md:mt-16 flex flex-wrap items-center justify-center gap-x-10 md:gap-x-20 gap-y-3"
-			>
-				{socials.map((s) => (
-					<li key={s.name}>
-						<a
-							href={s.url}
-							target="_blank"
-							rel="noopener noreferrer"
-							data-cursor-hover
-							className="font-mono text-xs md:text-sm uppercase tracking-[0.2em] text-bone link-underline"
-						>
-							{s.name}
-						</a>
-					</li>
-				))}
-			</ul>
+			<div className="mt-12 md:mt-16 flex flex-col gap-10">
+				<div className="flex flex-wrap gap-3">
+					<a href="#work" className="btn-primary">
+						Ver projetos <span aria-hidden>↓</span>
+					</a>
+					<a href="#contact" className="btn-ghost">
+						Conversar sobre um projeto
+					</a>
+				</div>
+
+				<dl className="credibility-grid">
+					{credibilityItems.map((item) => (
+						<div key={item.value} className="credibility-item">
+							<dt>{item.label}</dt>
+							<dd>{item.value}</dd>
+						</div>
+					))}
+				</dl>
+
+				<ul
+					ref={socialsRef}
+					className="flex flex-wrap items-center gap-x-10 md:gap-x-16 gap-y-3"
+					aria-label="Redes profissionais"
+				>
+					{socials.map((s) => (
+						<li key={s.name}>
+							<a
+								href={s.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								data-cursor-hover
+								className="font-mono text-xs uppercase tracking-[0.2em] text-bone link-underline"
+							>
+								{s.name}
+							</a>
+						</li>
+					))}
+				</ul>
+			</div>
 		</section>
 	);
 }

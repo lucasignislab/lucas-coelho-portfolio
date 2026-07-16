@@ -3,8 +3,8 @@ import { gsap } from "gsap";
 import { projects } from "@/data/projects";
 
 /**
- * Selected Work — gallery grid editorial (Scalzo-inspired):
- *  - Header: "Selected" (italic serif) + "WORK" (bold sans, ultratight)
+ * Projetos selecionados — gallery grid editorial:
+ *  - Header em serif itálica + sans ultratight
  *    no mesmo tamanho do titulo da Hero (clamp 2.75rem–7.5rem)
  *  - 2-column grid of large project cards
  *  - Each card: image (top, rounded) + project info (bottom)
@@ -16,6 +16,7 @@ export function SelectedWork() {
 
 	useEffect(() => {
 		if (!sectionRef.current) return;
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 		const cards = sectionRef.current.querySelectorAll(".project-card");
 		gsap.fromTo(
 			cards,
@@ -41,10 +42,10 @@ export function SelectedWork() {
 			<div className="mb-16 md:mb-24 overflow-visible">
 				<h2 className="leading-[1.05] text-bone overflow-visible">
 					<span className="block font-display italic font-light text-[clamp(2.75rem,8.5vw,7.5rem)]">
-						Selected
+						Projetos
 					</span>
 					<span className="block font-sans not-italic font-medium tracking-ultratight text-[clamp(2.75rem,8.5vw,7.5rem)] mt-2 md:mt-4 text-bone/95">
-						WORK
+						SELECIONADOS
 					</span>
 				</h2>
 			</div>
@@ -52,19 +53,14 @@ export function SelectedWork() {
 			{/* Projects grid */}
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 md:gap-x-10 gap-y-16 md:gap-y-24">
 				{projects.map((p, i) => (
-					<a
-						key={p.id}
-						href={p.url}
-						target="_blank"
-						rel="noopener noreferrer"
-						data-cursor-hover
-						className="project-card group block"
-					>
+					<article key={p.id} className="project-card group block">
 						{/* Image */}
 						<div className="relative w-full aspect-[4/3] rounded-md overflow-hidden bg-smoke mb-6 flex items-center justify-center">
 							<img
 								src={p.image}
 								alt={p.name}
+								width="1024"
+								height="576"
 								className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"
 								loading="lazy"
 							/>
@@ -74,22 +70,33 @@ export function SelectedWork() {
 						<div className="border-t border-bone/15 pt-5">
 							<div className="flex items-baseline justify-between gap-4 mb-3">
 								<span className="font-mono text-[11px] uppercase tracking-[0.2em] text-ash">
-									Project /{String(i + 1).padStart(2, "0")}
+									Projeto /{String(i + 1).padStart(2, "0")} · {p.year}
 								</span>
 								<span className="font-mono text-[11px] uppercase tracking-[0.15em] text-ash text-right">
-									{p.subtitle}
+									{p.type}
+									<span className="block mt-1 text-bone/70">{p.subtitle}</span>
 								</span>
 							</div>
-							<div className="flex items-center justify-between gap-4">
+							<div className="flex items-start justify-between gap-4">
 								<h3 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[0.95] tracking-ultratight text-bone group-hover:text-ember transition-colors duration-500 min-w-0">
 									{p.name}
 								</h3>
-								<span className="font-display text-2xl md:text-3xl text-ember/70 transition-transform duration-500 group-hover:translate-x-2 flex-shrink-0">
-									→
-								</span>
 							</div>
+							<p className="mt-5 max-w-xl text-sm md:text-base leading-relaxed text-bone/70">
+								{p.description}
+							</p>
+							<a
+								href={p.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								data-cursor-hover
+								className="mt-6 inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.18em] text-bone link-underline"
+								aria-label={`Visitar ${p.name} (abre em uma nova aba)`}
+							>
+								Visitar projeto <span aria-hidden>↗</span>
+							</a>
 						</div>
-					</a>
+					</article>
 				))}
 			</div>
 		</section>

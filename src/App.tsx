@@ -3,7 +3,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { Cursor } from "@/components/Cursor";
-import { Loading } from "@/components/Loading";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
@@ -61,7 +60,6 @@ class ErrorBoundary extends Component<
 function App() {
 	return (
 		<ErrorBoundary>
-			<Loading />
 			<Cursor />
 			<SmoothScroll>
 				<Header />

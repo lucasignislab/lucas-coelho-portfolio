@@ -3,6 +3,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+function shouldReduceMotion() {
+	return (
+		typeof window !== "undefined" &&
+		window.matchMedia("(prefers-reduced-motion: reduce)").matches
+	);
+}
+
 /**
  * Divide o conteúdo textual de um elemento em chars/words
  * usando a estrutura Wrap/Inner com clip seguro para descendentes.
@@ -80,6 +87,7 @@ export function revealChars(
 	options: { stagger?: number; duration?: number; y?: number; delay?: number } = {}
 ) {
 	if (!container) return;
+	if (shouldReduceMotion()) return;
 	const { stagger = 0.02, duration = 0.8, y = 40, delay = 0 } = options;
 	const chars = container.querySelectorAll<HTMLElement>(".split-char");
 	if (!chars.length) return;
@@ -106,6 +114,7 @@ export function revealWords(
 	options: { stagger?: number; duration?: number; y?: number; delay?: number } = {}
 ) {
 	if (!container) return;
+	if (shouldReduceMotion()) return;
 	const { stagger = 0.04, duration = 1, y = 30, delay = 0 } = options;
 	const words = container.querySelectorAll<HTMLElement>(".split-word");
 	if (!words.length) return;
@@ -125,6 +134,7 @@ export function revealOnScroll(
 	options: { y?: number; duration?: number; delay?: number; start?: string } = {}
 ) {
 	if (!element) return;
+	if (shouldReduceMotion()) return;
 	const { y = 60, duration = 1, delay = 0, start = "top 80%" } = options;
 
 	gsap.fromTo(
@@ -154,6 +164,7 @@ export function revealStagger(
 	options: { y?: number; stagger?: number; duration?: number; start?: string } = {}
 ) {
 	if (!container) return;
+	if (shouldReduceMotion()) return;
 	const { y = 40, stagger = 0.1, duration = 0.8, start = "top 80%" } = options;
 	const items = container.querySelectorAll<HTMLElement>(selector);
 	if (!items.length) return;
@@ -185,6 +196,7 @@ export function revealCharsOnScroll(
 ) {
 	const arr = Array.from(chars);
 	if (!arr.length) return;
+	if (shouldReduceMotion()) return;
 	const { stagger = 0.025, duration = 1, delay = 0, start = "top 85%" } = options;
 
 	gsap.fromTo(
@@ -214,6 +226,7 @@ export function parallaxImage(
 	options: { strength?: number } = {}
 ) {
 	if (!container) return;
+	if (shouldReduceMotion()) return;
 	const { strength = 0.1 } = options;
 	const img = container.querySelector("img");
 	if (!img) return;
@@ -243,6 +256,7 @@ export function makeMagnetic(
 	strength: number = 0.3
 ) {
 	if (!el) return () => {};
+	if (shouldReduceMotion()) return () => {};
 
 	const onMove = (e: MouseEvent) => {
 		const rect = el.getBoundingClientRect();
