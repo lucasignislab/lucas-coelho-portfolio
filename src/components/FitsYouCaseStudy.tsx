@@ -130,17 +130,6 @@ export function FitsYouCaseStudy() {
 					});
 				});
 
-			gsap.to(".fits-hero-visual img", {
-				scrollTrigger: {
-					trigger: ".fits-case-hero",
-					start: "top top",
-					end: "bottom top",
-					scrub: true,
-				},
-				yPercent: 12,
-				scale: 1.08,
-				ease: "none",
-			});
 		}, root);
 
 		return () => context.revert();
