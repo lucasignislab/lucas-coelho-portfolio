@@ -1397,9 +1397,7 @@ html.lenis {
 }
 
 .work-heading {
-	display: grid;
-	align-items: end;
-	gap: 3rem;
+	display: block;
 	margin-bottom: clamp(5rem, 11vw, 10rem);
 }
 
@@ -1444,6 +1442,8 @@ html.lenis {
 
 .work-intro {
 	max-width: 31rem;
+	margin-top: clamp(2.5rem, 5vw, 4.5rem);
+	margin-left: auto;
 	font-size: clamp(1rem, 1.5vw, 1.25rem);
 	line-height: 1.65;
 	color: rgba(244, 241, 237, 0.62);
@@ -1666,12 +1666,6 @@ html.lenis {
 	transform: translateX(0);
 }
 
-@media (min-width: 900px) {
-	.work-heading {
-		grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.3fr);
-	}
-}
-
 @media (max-width: 899px) {
 	.project-card-1,
 	.project-card-2,
@@ -1688,7 +1682,7 @@ html.lenis {
 
 @media (max-width: 599px) {
 	.work-heading {
-		gap: 2rem;
+		margin-bottom: 5rem;
 	}
 
 	.work-heading h2 {
@@ -1698,6 +1692,11 @@ html.lenis {
 	.work-heading h2 > span,
 	.work-heading h2 > strong {
 		font-size: clamp(3.25rem, 15vw, 5rem);
+	}
+
+	.work-intro {
+		margin-top: 2.5rem;
+		margin-left: 0;
 	}
 
 	.project-media-wide,
