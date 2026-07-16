@@ -2,19 +2,13 @@ import { useEffect, useRef } from "react";
 import { revealOnScroll, parallaxImage } from "@/lib/animations";
 
 /**
- * About — DNA scalzo:
+ * Sobre — bloco editorial com largura de leitura controlada:
  *  - Eyebrow "Sobre ►"
- *  - Texto justificado uppercase (NAO split! senao quebra o text-align: justify)
+ *  - Dois parágrafos alinhados à esquerda, sem hifenização
  *  - Portrait com parallax on scroll
- *
- *  Por que nao usamos useSplitText aqui: a classe `.text-block` aplica
- *  text-align: justify + hyphens + uppercase, que precisa de fluxo de texto
- *  continuo. Splitar por chars/words cria atomos inline-block que o
- *  algoritmo de justify trata como palavras separadas, destruindo o layout.
- *  Usamos um fade-up do elemento inteiro, que casa com a estetica editorial.
  */
 export function About() {
-	const textRef = useRef<HTMLParagraphElement | null>(null);
+	const textRef = useRef<HTMLDivElement | null>(null);
 	const imageContainerRef = useRef<HTMLDivElement | null>(null);
 
 	useEffect(() => {
@@ -29,16 +23,16 @@ export function About() {
 			{/* Eyebrow */}
 			<p className="eyebrow">Sobre ►</p>
 
-			{/* Big justified text — paragrafo continuo, sem split */}
-			<p
-				ref={textRef}
-				className="text-block text-xl md:text-2xl lg:text-3xl leading-[1.4] text-bone/90 max-w-7xl"
-			>
-				Desde 2017, ajudo empresas e marcas a transformar ideias complexas em
-				experiências digitais claras e memoráveis. Aproximo estratégia,
-				identidade e interface para criar trabalhos que comunicam valor e
-				facilitam a próxima decisão.
-			</p>
+			<div ref={textRef} className="about-copy">
+				<p>
+					Desde 2017, ajudo empresas e marcas a transformar ideias complexas
+					em experiências digitais claras e memoráveis.
+				</p>
+				<p>
+					Aproximo estratégia, identidade e interface para criar trabalhos que
+					comunicam valor e facilitam a próxima decisão.
+				</p>
+			</div>
 
 			{/* Portrait com parallax on scroll */}
 			<div

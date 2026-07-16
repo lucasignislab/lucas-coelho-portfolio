@@ -217,15 +217,25 @@
 		color: #827F7E;
 	}
 
-	/* Text block */
-	.text-block {
+	/* About copy: readable line length without forced hyphenation */
+	.about-copy {
+		display: grid;
+		gap: 1.25rem;
+		max-width: 44ch;
 		font-family: 'Inter', system-ui, sans-serif;
-		text-transform: uppercase;
-		color: #F4F1ED;
-		text-align: justify;
-		hyphens: auto;
-		text-indent: 4ch;
-		line-height: 1.4;
+		font-size: clamp(1.5rem, 2.25vw, 2.75rem);
+		line-height: 1.35;
+		letter-spacing: -0.025em;
+		color: rgba(244, 241, 237, 0.9);
+		text-align: left;
+		text-wrap: pretty;
+		hyphens: none;
+		overflow-wrap: normal;
+		word-break: normal;
+	}
+
+	.about-copy p:last-child {
+		color: rgba(244, 241, 237, 0.68);
 	}
 
 	.credibility-grid {
