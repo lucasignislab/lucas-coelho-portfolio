@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { contactEmail } from "@/data/site";
 import { AeroHeroScene } from "@/components/AeroHeroScene";
 import { AeroInteractivePanel } from "@/components/AeroInteractivePanel";
+import { AeroDesignSystemPanel } from "@/components/AeroDesignSystemPanel";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -312,6 +313,10 @@ export function AeroCaseStudy() {
 					{panels.map((panel, index) => {
 						const interactiveKind =
 							interactivePanels[index as keyof typeof interactivePanels];
+
+						if (index === 6) {
+							return <AeroDesignSystemPanel key={panel.src} />;
+						}
 
 						if (interactiveKind) {
 							return (

@@ -1728,3 +1728,454 @@ html.lenis {
 		transform: none;
 	}
 }
+
+/* Aero design system — interactive specimen */
+.aero-design-system-panel {
+	position: relative;
+	overflow: hidden;
+	min-height: min(78vw, 68rem);
+	padding: clamp(2rem, 6.2vw, 5.5rem);
+	background:
+		radial-gradient(circle at 90% 8%, rgba(56, 140, 250, 0.13), transparent 28rem),
+		#0d0f13;
+	isolation: isolate;
+}
+
+.aero-ds-grid {
+	position: absolute;
+	z-index: -1;
+	inset: 0;
+	background:
+		linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+	background-size: 48px 48px;
+	mask-image: linear-gradient(to bottom, black, transparent 72%);
+}
+
+.aero-ds-heading {
+	display: grid;
+	align-items: end;
+	gap: 2rem;
+	margin-top: clamp(3.5rem, 6vw, 5.5rem);
+}
+
+.aero-ds-heading > div > p,
+.aero-ds-section-label {
+	font-family: 'JetBrains Mono', ui-monospace, monospace;
+	font-size: 0.625rem;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	color: #388cfa;
+}
+
+.aero-ds-heading h2 {
+	margin-top: 1.2rem;
+	font-size: clamp(2.7rem, 5.4vw, 5.2rem);
+	font-weight: 670;
+	letter-spacing: -0.055em;
+	line-height: 0.96;
+	text-wrap: balance;
+}
+
+.aero-ds-heading > p {
+	max-width: 32rem;
+	font-size: clamp(1rem, 1.5vw, 1.2rem);
+	line-height: 1.7;
+	color: #9296a3;
+	text-wrap: balance;
+}
+
+.aero-ds-palette {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: clamp(0.65rem, 1.2vw, 1rem);
+	margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.aero-ds-swatch {
+	position: relative;
+	display: flex;
+	overflow: hidden;
+	min-height: clamp(10rem, 17vw, 14.5rem);
+	flex-direction: column;
+	align-items: flex-start;
+	padding: clamp(1rem, 2vw, 1.5rem);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 1.15rem;
+	text-align: left;
+	color: #f5f5f5;
+	transform: translateY(0);
+	transition:
+		transform 350ms cubic-bezier(0.2, 0.8, 0.2, 1),
+		border-color 350ms ease,
+		box-shadow 350ms ease;
+}
+
+.aero-ds-dark {
+	background: #101115;
+}
+
+.aero-ds-surface {
+	background: #24262f;
+}
+
+.aero-ds-blue {
+	background: #388cfa;
+}
+
+.aero-ds-red {
+	background: #911756;
+}
+
+.aero-ds-swatch:hover,
+.aero-ds-swatch:focus-visible {
+	z-index: 2;
+	border-color: rgba(255, 255, 255, 0.42);
+	box-shadow: 0 1.5rem 3.5rem rgba(0, 0, 0, 0.32);
+	transform: translateY(-0.5rem);
+}
+
+.aero-ds-swatch > span {
+	font-family: 'JetBrains Mono', ui-monospace, monospace;
+	font-size: 0.5625rem;
+	text-transform: uppercase;
+	letter-spacing: 0.18em;
+	opacity: 0.72;
+}
+
+.aero-ds-swatch > strong {
+	margin-top: auto;
+	font-size: clamp(1.15rem, 2vw, 1.55rem);
+	font-weight: 650;
+	letter-spacing: -0.025em;
+}
+
+.aero-ds-swatch > small {
+	margin-top: 0.45rem;
+	font-size: 0.75rem;
+	opacity: 0.58;
+}
+
+.aero-ds-swatch > i {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	font-size: 1.15rem;
+	font-style: normal;
+	font-weight: 300;
+	opacity: 0;
+	transform: rotate(0deg);
+	transition: opacity 250ms ease, transform 350ms ease;
+}
+
+.aero-ds-swatch:hover > i,
+.aero-ds-swatch:focus-visible > i {
+	opacity: 0.75;
+	transform: rotate(90deg);
+}
+
+.aero-ds-showcase {
+	display: grid;
+	gap: 1rem;
+	margin-top: 1rem;
+}
+
+.aero-ds-type,
+.aero-ds-components {
+	padding: clamp(1.4rem, 3vw, 2.2rem);
+	border: 1px solid rgba(245, 245, 245, 0.1);
+	border-radius: 1.15rem;
+	background: rgba(28, 31, 39, 0.72);
+	backdrop-filter: blur(16px);
+}
+
+.aero-ds-section-label {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	color: #9296a3;
+}
+
+.aero-ds-section-label span:last-child {
+	opacity: 0.55;
+}
+
+.aero-ds-type-sample {
+	display: flex;
+	align-items: flex-end;
+	gap: clamp(1rem, 2.5vw, 2rem);
+	margin-top: 1.7rem;
+}
+
+.aero-ds-type-sample > span {
+	font-size: clamp(4.5rem, 9vw, 8rem);
+	font-weight: 680;
+	letter-spacing: -0.09em;
+	line-height: 0.72;
+	color: #f5f5f5;
+}
+
+.aero-ds-type-sample strong {
+	font-size: 1.1rem;
+}
+
+.aero-ds-type-sample p {
+	margin-top: 0.35rem;
+	font-size: 0.8rem;
+	color: #9296a3;
+}
+
+.aero-ds-mono-sample {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 0.6rem 1rem;
+	margin-top: 2rem;
+	padding-top: 1.1rem;
+	border-top: 1px solid rgba(245, 245, 245, 0.1);
+	font-family: 'JetBrains Mono', ui-monospace, monospace;
+	font-size: 0.5625rem;
+	letter-spacing: 0.15em;
+	color: #9296a3;
+}
+
+.aero-ds-state-tabs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	margin-top: 1.5rem;
+}
+
+.aero-ds-state-tabs button {
+	padding: 0.5rem 0.75rem;
+	border: 1px solid rgba(245, 245, 245, 0.1);
+	border-radius: 999px;
+	font-family: 'JetBrains Mono', ui-monospace, monospace;
+	font-size: 0.5rem;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	color: #9296a3;
+	transition: all 220ms ease;
+}
+
+.aero-ds-state-tabs button[aria-pressed="true"] {
+	border-color: #388cfa;
+	background: rgba(56, 140, 250, 0.14);
+	color: #7cb5ff;
+}
+
+.aero-ds-component-preview {
+	display: grid;
+	gap: 0.8rem;
+	margin-top: 1.25rem;
+	transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.aero-ds-status-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.aero-ds-status {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45rem;
+	padding: 0.5rem 0.75rem;
+	border: 1px solid;
+	border-radius: 999px;
+	font-family: 'JetBrains Mono', ui-monospace, monospace;
+	font-size: 0.5rem;
+	text-transform: uppercase;
+	letter-spacing: 0.13em;
+}
+
+.aero-ds-status i {
+	width: 0.35rem;
+	height: 0.35rem;
+	border-radius: 50%;
+	background: currentColor;
+}
+
+.aero-ds-status.progress {
+	border-color: rgba(139, 87, 255, 0.42);
+	color: #9c72ff;
+}
+
+.aero-ds-status.done {
+	border-color: rgba(73, 209, 146, 0.42);
+	color: #49d192;
+}
+
+.aero-ds-component-preview > button {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 2.9rem;
+	padding: 0.75rem 1rem;
+	border-radius: 0.6rem;
+	background: #388cfa;
+	font-size: 0.8rem;
+	font-weight: 650;
+	color: #fff;
+	transition: all 220ms ease;
+}
+
+.aero-ds-component-preview > button span {
+	font-family: 'JetBrains Mono', ui-monospace, monospace;
+	font-size: 0.55rem;
+	opacity: 0.7;
+}
+
+.aero-ds-component-preview label {
+	position: relative;
+	display: block;
+}
+
+.aero-ds-component-preview input {
+	width: 100%;
+	min-height: 2.9rem;
+	padding: 0.75rem 3.5rem 0.75rem 1rem;
+	border: 1px solid rgba(245, 245, 245, 0.1);
+	border-radius: 0.6rem;
+	background: #24262f;
+	font-size: 0.78rem;
+	color: #f5f5f5;
+	outline: none;
+	transition: border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.aero-ds-component-preview kbd {
+	position: absolute;
+	top: 50%;
+	right: 0.8rem;
+	padding: 0.22rem 0.38rem;
+	border: 1px solid rgba(245, 245, 245, 0.12);
+	border-radius: 0.3rem;
+	font-family: 'JetBrains Mono', ui-monospace, monospace;
+	font-size: 0.5rem;
+	color: #9296a3;
+	transform: translateY(-50%);
+}
+
+.aero-ds-component-preview.is-hover > button {
+	background: #237ced;
+	box-shadow: 0 0.7rem 1.8rem rgba(56, 140, 250, 0.22);
+	transform: translateY(-0.12rem);
+}
+
+.aero-ds-component-preview.is-focus > button,
+.aero-ds-component-preview.is-focus input {
+	border-color: #7cb5ff;
+	box-shadow: 0 0 0 3px rgba(56, 140, 250, 0.3);
+}
+
+.aero-ds-component-preview.is-disabled {
+	opacity: 0.42;
+	transform: scale(0.985);
+}
+
+.aero-ds-footer {
+	display: grid;
+	align-items: center;
+	gap: 2rem;
+	margin-top: 1rem;
+	padding: clamp(1.5rem, 3vw, 2.2rem);
+	border: 1px solid rgba(73, 209, 146, 0.18);
+	border-radius: 1.15rem;
+	background: rgba(73, 209, 146, 0.045);
+}
+
+.aero-ds-footer > div {
+	display: flex;
+	flex-direction: column;
+}
+
+.aero-ds-footer strong {
+	font-size: clamp(3rem, 6vw, 5.2rem);
+	letter-spacing: -0.06em;
+	line-height: 0.85;
+	color: #49d192;
+}
+
+.aero-ds-footer span {
+	margin-top: 0.8rem;
+	font-family: 'JetBrains Mono', ui-monospace, monospace;
+	font-size: 0.55rem;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	color: #9296a3;
+}
+
+.aero-ds-footer ul {
+	display: grid;
+	gap: 0.7rem;
+	font-size: clamp(0.85rem, 1.25vw, 1rem);
+	color: #c9ccd4;
+}
+
+.aero-ds-footer li {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.aero-ds-footer li::before {
+	width: 0.4rem;
+	height: 0.4rem;
+	border-radius: 50%;
+	background: #49d192;
+	box-shadow: 0 0 0.8rem rgba(73, 209, 146, 0.5);
+	content: "";
+}
+
+@media (min-width: 800px) {
+	.aero-ds-heading {
+		grid-template-columns: minmax(0, 1.4fr) minmax(18rem, 0.6fr);
+	}
+
+	.aero-ds-showcase {
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+	}
+
+	.aero-ds-footer {
+		grid-template-columns: minmax(14rem, 0.7fr) minmax(0, 1.3fr);
+	}
+}
+
+@media (max-width: 799px) {
+	.aero-design-system-panel {
+		min-height: auto;
+	}
+
+	.aero-ds-palette {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 499px) {
+	.aero-design-system-panel {
+		padding: 2rem 1.25rem;
+	}
+
+	.aero-ds-palette {
+		grid-template-columns: 1fr;
+	}
+
+	.aero-ds-swatch {
+		min-height: 10rem;
+	}
+
+	.aero-ds-section-label {
+		flex-direction: column;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.aero-ds-swatch,
+	.aero-ds-swatch:hover,
+	.aero-ds-swatch:focus-visible,
+	.aero-ds-component-preview {
+		transform: none;
+	}
+}
