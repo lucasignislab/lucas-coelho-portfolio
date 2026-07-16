@@ -14,8 +14,8 @@ export const credibilityItems = [
 export const contactEmail = "lucascoelho.cps@gmail.com";
 
 export const socials = [
-	{ name: "LinkedIn", url: "https://www.linkedin.com/in/lucasignislab/" },
-	{ name: "Behance", url: "https://www.behance.net/lucascoelhoux" },
+	{ name: "LinkedIn", url: "https://www.linkedin.com/in/lucascoelhodesigner/" },
+	{ name: "Behance", url: "https://www.behance.net/lucascoelho30" },
 	{ name: "GitHub", url: "https://github.com/lucasignislab" },
 ];
 
