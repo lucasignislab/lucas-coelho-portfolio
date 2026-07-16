@@ -15,7 +15,7 @@ export const projects: Project[] = [
 		name: "Aero Project Manager",
 		subtitle: "Branding — UI — Art Direction",
 		type: "Dashboard / SaaS",
-		year: "2024",
+		year: "2025",
 		url: "https://aeroprojectmanager.netlify.app/dashboard",
 		image: "/lovable-uploads/aero-project-cover.webp",
 		description:
