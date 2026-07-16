@@ -1,14 +1,14 @@
 import { contactEmail, navItems } from "@/data/site";
 
 /**
- * Header fixo scalzo-style:
+ * Header posicionado no topo e integrado ao fluxo de rolagem:
  *  - Esquerda: "— Lucas Coelho" baseline
  *  - Direita: navegação + botão de contato
  *  (Logo/ícone removido a pedido do usuário)
  */
 export function Header() {
 	return (
-		<header className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-20 py-5 flex items-center justify-between mix-blend-difference pointer-events-none">
+		<header className="absolute top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-20 py-5 flex items-center justify-between mix-blend-difference pointer-events-none">
 			{/* Left: baseline */}
 			<a
 				href="#top"
