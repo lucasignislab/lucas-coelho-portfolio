@@ -44,20 +44,6 @@ const projectData: Record<string, {
     ],
     liveUrl: "https://daixavier.netlify.app",
   },
-  "nova-era": {
-    title: "Nova Era Transportes",
-    subtitle: "Web Design & Institucional",
-    description: "Website institucional estratégico para empresa de logística e fretamento com quase 30 anos de tradição.",
-    challenge: "Digitalizar uma empresa tradicional, criando uma ponte entre sua história sólida e as expectativas do mercado corporativo moderno.",
-    solution: "Plataforma focada em usabilidade e performance, com arquitetura de informação que destaca diferenciais da frota e funil de conversão direto para WhatsApp.",
-    results: [
-      "Aumento significativo em leads corporativos",
-      "Redução no tempo de resposta para orçamentos",
-      "100% de responsividade em dispositivos móveis",
-      "Melhoria no rankeamento orgânico regional",
-    ],
-    liveUrl: "https://novaeratransportesvinhedo.com.br",
-  },
 };
 
 export default async function ProjectPage({ params }: ProjectPageProps) {

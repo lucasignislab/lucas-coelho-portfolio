@@ -24,17 +24,6 @@ export const projects: Project[] = [
 			"Concepção de marca, direção visual e interface para uma plataforma de gestão de projetos.",
 	},
 	{
-		id: "nova-era",
-		name: "Nova Era Transportes",
-		subtitle: "Web Design — SEO",
-		type: "Institucional / Logistics",
-		year: "2024",
-		url: "https://novaeratransportesvinhedo.com.br",
-		image: "/lovable-uploads/nova-era-cover.webp",
-		description:
-			"Site institucional criado para apresentar os serviços da transportadora com clareza e fortalecer sua presença nas buscas.",
-	},
-	{
 		id: "fitsyou",
 		name: "Fits You Studio",
 		subtitle: "Web Design — Conversion",

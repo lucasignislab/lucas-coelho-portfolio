@@ -17,13 +17,6 @@ const projects = [
     description: "Landing page premium para clínica de harmonização facial, focada em conversão e experiência do usuário.",
     gradient: "from-terracotta/20 to-terracotta/5",
   },
-  {
-    slug: "nova-era",
-    title: "Nova Era Transportes",
-    subtitle: "Web Design",
-    description: "Website institucional moderno para empresa de logística e fretamento com 30 anos de tradição.",
-    gradient: "from-slate/20 to-slate/5",
-  },
 ];
 
 export default function PortfolioPage() {

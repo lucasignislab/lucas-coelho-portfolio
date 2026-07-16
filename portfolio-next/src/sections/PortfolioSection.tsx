@@ -25,13 +25,6 @@ const projects = [
     description: "Landing page premium para clínica de harmonização facial.",
     year: "2025",
   },
-  {
-    id: "nova-era",
-    title: "Nova Era Transportes",
-    subtitle: "Web Design",
-    description: "Website institucional para empresa de logística.",
-    year: "2025",
-  },
 ];
 
 export function PortfolioSection() {
