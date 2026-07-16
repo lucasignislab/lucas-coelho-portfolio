@@ -26,13 +26,13 @@ export const projects: Project[] = [
 	{
 		id: "fitsyou",
 		name: "Fits You Studio",
-		subtitle: "Web Design — Conversion",
-		type: "Landing Page / Fitness",
+		subtitle: "Web Design — UX/UI",
+		type: "Website / Cross Training & Pilates",
 		year: "2024",
 		url: "https://fitsyou.com.br",
 		image: "/lovable-uploads/fitsyou.webp",
 		description:
-			"Landing page para comunicar a proposta do estúdio e conduzir potenciais clientes até a próxima ação.",
+			"Site institucional criado para apresentar o estúdio, suas modalidades de cross training e Pilates, estrutura, horários e formas de contato.",
 	},
 	{
 		id: "pogne",
