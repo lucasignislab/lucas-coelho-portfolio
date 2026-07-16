@@ -1,5 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { contactEmail } from "@/data/site";
+import { AeroHeroScene } from "@/components/AeroHeroScene";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const panels = [
 	{
@@ -45,6 +50,8 @@ const panels = [
 ];
 
 export function AeroCaseStudy() {
+	const caseRef = useRef<HTMLDivElement>(null);
+
 	useEffect(() => {
 		window.scrollTo(0, 0);
 
@@ -77,8 +84,115 @@ export function AeroCaseStudy() {
 		};
 	}, []);
 
+	useLayoutEffect(() => {
+		const root = caseRef.current;
+		if (!root) return;
+
+		const reducedMotion = window.matchMedia(
+			"(prefers-reduced-motion: reduce)"
+		).matches;
+		if (reducedMotion) return;
+
+		const context = gsap.context(() => {
+			const opening = gsap.timeline({ defaults: { ease: "power3.out" } });
+			opening
+				.from(".aero-case-header", { opacity: 0, y: -24, duration: 0.7 })
+				.from(
+					".aero-hero-reveal",
+					{ opacity: 0, yPercent: 110, duration: 1, stagger: 0.09 },
+					"-=0.35"
+				)
+				.from(
+					".aero-case-lead",
+					{ opacity: 0, y: 28, duration: 0.8 },
+					"-=0.55"
+				)
+				.from(
+					".aero-case-facts > div",
+					{ opacity: 0, y: 20, duration: 0.55, stagger: 0.07 },
+					"-=0.4"
+				)
+				.from(
+					".aero-case-actions > a",
+					{ opacity: 0, y: 18, duration: 0.55, stagger: 0.08 },
+					"-=0.35"
+				)
+				.from(
+					".aero-3d-scene",
+					{ opacity: 0, scale: 0.88, rotateY: -12, duration: 1.25 },
+					0.25
+				);
+
+			gsap.from(".aero-case-intro > *", {
+				scrollTrigger: {
+					trigger: ".aero-case-intro",
+					start: "top 78%",
+					once: true,
+				},
+				opacity: 0,
+				y: 55,
+				duration: 0.85,
+				stagger: 0.12,
+				ease: "power3.out",
+			});
+
+			gsap.utils.toArray<HTMLElement>(".aero-case-gallery figure").forEach(
+				(panel, index) => {
+					gsap.fromTo(
+						panel,
+						{
+							opacity: 0,
+							y: 95,
+							scale: 0.955,
+							rotateX: index % 2 === 0 ? 3.5 : -3.5,
+						},
+						{
+							scrollTrigger: {
+								trigger: panel,
+								start: "top 88%",
+								end: "top 42%",
+								scrub: 0.8,
+							},
+							opacity: 1,
+							y: 0,
+							scale: 1,
+							rotateX: 0,
+							ease: "none",
+						}
+					);
+
+					gsap.to(panel.querySelector("img"), {
+						scrollTrigger: {
+							trigger: panel,
+							start: "top bottom",
+							end: "bottom top",
+							scrub: true,
+						},
+						yPercent: index % 2 === 0 ? 2.5 : -2.5,
+						ease: "none",
+					});
+				}
+			);
+
+			gsap.from(".aero-case-closing > *", {
+				scrollTrigger: {
+					trigger: ".aero-case-closing",
+					start: "top 78%",
+					once: true,
+				},
+				opacity: 0,
+				y: 48,
+				duration: 0.8,
+				stagger: 0.1,
+				ease: "power3.out",
+			});
+		}, root);
+
+		return () => context.revert();
+	}, []);
+
 	return (
-		<div className="aero-case">
+		<div ref={caseRef} className="aero-case">
 			<header className="aero-case-header">
 				<a href="/#work" className="aero-case-back">
 					<span aria-hidden>←</span> Voltar aos projetos
@@ -88,16 +202,31 @@ export function AeroCaseStudy() {
 
 			<main>
 				<section className="aero-case-hero">
-					<p className="aero-case-eyebrow">Projeto autoral e solo · 2025</p>
-					<h1>
-						Aero
-						<span>Project Management SaaS</span>
-					</h1>
-					<p className="aero-case-lead">
-						Um estudo retrospectivo sobre a criação de um ecossistema de
-						gestão de projetos keyboard-first, desenhado para reduzir a
-						fricção entre ideia, documentação e execução.
-					</p>
+					<div className="aero-case-hero-grid">
+						<div className="aero-case-hero-copy">
+							<div className="aero-reveal-mask">
+								<p className="aero-case-eyebrow aero-hero-reveal">
+									Projeto autoral e solo · 2025
+								</p>
+							</div>
+							<h1>
+								<span className="aero-reveal-mask">
+									<strong className="aero-hero-reveal">Aero</strong>
+								</span>
+								<span className="aero-reveal-mask">
+									<em className="aero-hero-reveal">
+										Project Management SaaS
+									</em>
+								</span>
+							</h1>
+							<p className="aero-case-lead">
+								Um estudo retrospectivo sobre a criação de um ecossistema de
+								gestão de projetos keyboard-first, desenhado para reduzir a
+								fricção entre ideia, documentação e execução.
+							</p>
+						</div>
+						<AeroHeroScene />
+					</div>
 
 					<dl className="aero-case-facts">
 						<div>
@@ -131,6 +260,10 @@ export function AeroCaseStudy() {
 							Ler o case <span aria-hidden>↓</span>
 						</a>
 					</div>
+					<div className="aero-case-scroll" aria-hidden="true">
+						<span>Scroll to explore</span>
+						<i />
+					</div>
 				</section>
 
 				<section id="case" className="aero-case-intro" aria-labelledby="case-title">
@@ -149,6 +282,9 @@ export function AeroCaseStudy() {
 				<section className="aero-case-gallery" aria-label="Painéis do case Aero">
 					{panels.map((panel, index) => (
 						<figure key={panel.src}>
+							<span className="aero-panel-number" aria-hidden="true">
+								{String(index + 1).padStart(2, "0")}
+							</span>
 							<img
 								src={panel.src}
 								alt={panel.alt}

@@ -462,10 +462,14 @@ html.lenis {
 
 /* Aero case study */
 .aero-case {
+	overflow: clip;
 	min-height: 100vh;
 	background:
-		radial-gradient(circle at 88% 0%, rgba(56, 140, 250, 0.12), transparent 24rem),
+		radial-gradient(circle at 82% 4%, rgba(56, 140, 250, 0.18), transparent 30rem),
+		linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
 		#101115;
+	background-size: auto, 72px 72px, 72px 72px, auto;
 	color: #f5f5f5;
 }
 
@@ -512,7 +516,24 @@ html.lenis {
 }
 
 .aero-case-hero {
-	padding: clamp(5rem, 11vw, 10rem) 0 clamp(5rem, 9vw, 8rem);
+	position: relative;
+	padding: clamp(4.5rem, 9vw, 8rem) 0 clamp(5rem, 8vw, 7rem);
+}
+
+.aero-case-hero-grid {
+	display: grid;
+	align-items: center;
+	gap: 3rem;
+}
+
+.aero-case-hero-copy {
+	position: relative;
+	z-index: 2;
+}
+
+.aero-reveal-mask {
+	display: block;
+	overflow: hidden;
 }
 
 .aero-case-eyebrow,
@@ -527,17 +548,22 @@ html.lenis {
 .aero-case-hero h1 {
 	margin-top: 1.5rem;
 	font-family: 'Inter', system-ui, sans-serif;
-	font-size: clamp(4.5rem, 13vw, 11rem);
+	line-height: 1;
+}
+
+.aero-case-hero h1 strong {
+	display: block;
+	font-size: clamp(4.5rem, 12vw, 10rem);
 	font-weight: 700;
 	letter-spacing: -0.075em;
 	line-height: 0.8;
 }
 
-.aero-case-hero h1 span {
+.aero-case-hero h1 em {
 	display: block;
-	margin-top: 1.5rem;
+	padding-top: 1.5rem;
 	font-family: 'Instrument Serif', Georgia, serif;
-	font-size: clamp(2.25rem, 5vw, 5rem);
+	font-size: clamp(2.25rem, 4.5vw, 4.5rem);
 	font-style: italic;
 	font-weight: 400;
 	letter-spacing: -0.035em;
@@ -552,6 +578,96 @@ html.lenis {
 	line-height: 1.45;
 	color: rgba(245, 245, 245, 0.74);
 	text-wrap: balance;
+}
+
+.aero-3d-scene {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 1.05;
+	min-height: 22rem;
+	border: 1px solid rgba(112, 170, 255, 0.18);
+	background:
+		radial-gradient(circle at center, rgba(56, 140, 250, 0.13), transparent 56%),
+		rgba(5, 8, 13, 0.36);
+	box-shadow:
+		0 3rem 7rem rgba(0, 0, 0, 0.42),
+		inset 0 0 5rem rgba(56, 140, 250, 0.05);
+	transform-style: preserve-3d;
+}
+
+.aero-3d-scene::before,
+.aero-3d-scene::after {
+	position: absolute;
+	z-index: 2;
+	width: 0.55rem;
+	height: 0.55rem;
+	border-color: #388cfa;
+	content: "";
+	pointer-events: none;
+}
+
+.aero-3d-scene::before {
+	top: -1px;
+	left: -1px;
+	border-top: 1px solid;
+	border-left: 1px solid;
+}
+
+.aero-3d-scene::after {
+	right: -1px;
+	bottom: -1px;
+	border-right: 1px solid;
+	border-bottom: 1px solid;
+}
+
+.aero-3d-scene canvas {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.aero-3d-hud {
+	position: absolute;
+	z-index: 3;
+	right: 0.85rem;
+	left: 0.85rem;
+	display: flex;
+	justify-content: space-between;
+	font-family: 'JetBrains Mono', ui-monospace, monospace;
+	font-size: 0.5rem;
+	text-transform: uppercase;
+	letter-spacing: 0.16em;
+	color: rgba(195, 218, 255, 0.65);
+	pointer-events: none;
+}
+
+.aero-3d-hud-top {
+	top: 0.85rem;
+}
+
+.aero-3d-hud-bottom {
+	bottom: 0.85rem;
+}
+
+.aero-3d-signal {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+}
+
+.aero-3d-signal i {
+	width: 0.35rem;
+	height: 0.35rem;
+	border-radius: 50%;
+	background: #56e59a;
+	box-shadow: 0 0 0.65rem #56e59a;
+	animation: aero-signal 1.8s ease-in-out infinite;
+}
+
+@keyframes aero-signal {
+	50% {
+		opacity: 0.35;
+	}
 }
 
 .aero-case-facts {
@@ -590,6 +706,43 @@ html.lenis {
 	flex-wrap: wrap;
 	gap: 0.75rem;
 	margin-top: 2.5rem;
+}
+
+.aero-case-scroll {
+	display: flex;
+	align-items: center;
+	gap: 0.85rem;
+	margin-top: 3rem;
+	font-family: 'JetBrains Mono', ui-monospace, monospace;
+	font-size: 0.5625rem;
+	text-transform: uppercase;
+	letter-spacing: 0.18em;
+	color: #6d7180;
+}
+
+.aero-case-scroll i {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	width: 4rem;
+	height: 1px;
+	background: rgba(245, 245, 245, 0.15);
+}
+
+.aero-case-scroll i::after {
+	position: absolute;
+	inset: 0;
+	background: #388cfa;
+	content: "";
+	transform: translateX(-100%);
+	animation: aero-scroll-line 2.2s ease-in-out infinite;
+}
+
+@keyframes aero-scroll-line {
+	50%,
+	100% {
+		transform: translateX(100%);
+	}
 }
 
 .aero-case-primary,
@@ -658,20 +811,46 @@ html.lenis {
 
 .aero-case-gallery {
 	display: grid;
-	gap: 1.5rem;
+	gap: clamp(1.5rem, 4vw, 4.5rem);
 	width: min(100%, 1400px);
 	margin: 0 auto;
 	padding-bottom: clamp(5rem, 10vw, 9rem);
+	perspective: 1600px;
 }
 
 .aero-case-gallery figure {
+	position: relative;
 	overflow: hidden;
 	background: #08090b;
+	box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.32);
+	transform-origin: center center;
+	will-change: transform, opacity;
 }
 
 .aero-case-gallery img {
+	display: block;
 	width: 100%;
 	height: auto;
+	transform: scale(1.025);
+	will-change: transform;
+}
+
+.aero-panel-number {
+	position: absolute;
+	z-index: 2;
+	top: 1rem;
+	left: 1rem;
+	display: grid;
+	width: 2.2rem;
+	height: 2.2rem;
+	place-items: center;
+	border: 1px solid rgba(255, 255, 255, 0.17);
+	background: rgba(8, 9, 11, 0.64);
+	backdrop-filter: blur(12px);
+	font-family: 'JetBrains Mono', ui-monospace, monospace;
+	font-size: 0.5625rem;
+	letter-spacing: 0.12em;
+	color: rgba(255, 255, 255, 0.7);
 }
 
 .aero-case-closing {
@@ -718,6 +897,19 @@ html.lenis {
 }
 
 @media (min-width: 1100px) {
+	.aero-case-hero-grid {
+		grid-template-columns: minmax(0, 0.92fr) minmax(30rem, 1.08fr);
+		gap: clamp(2rem, 4vw, 5rem);
+	}
+
+	.aero-case-lead {
+		max-width: 43rem;
+	}
+
+	.aero-3d-scene {
+		margin-right: -8vw;
+	}
+
 	.aero-case-facts {
 		grid-template-columns: repeat(4, minmax(0, 1fr));
 	}
@@ -740,6 +932,10 @@ html.lenis {
 		gap: 0.5rem;
 	}
 
+	.aero-3d-scene {
+		min-height: 19rem;
+	}
+
 	.aero-case-primary,
 	.aero-case-secondary {
 		width: 100%;
@@ -748,5 +944,17 @@ html.lenis {
 	.aero-case-footer {
 		align-items: flex-start;
 		flex-direction: column;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.aero-3d-signal i,
+	.aero-case-scroll i::after {
+		animation: none;
+	}
+
+	.aero-case-gallery figure,
+	.aero-case-gallery img {
+		transform: none !important;
 	}
 }
