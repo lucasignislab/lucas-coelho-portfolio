@@ -1390,3 +1390,342 @@ html.lenis {
 		transform: scale(0.985);
 	}
 }
+
+/* Selected work — asymmetric editorial sequence */
+.work-section {
+	overflow: clip;
+}
+
+.work-heading {
+	display: grid;
+	align-items: end;
+	gap: 3rem;
+	margin-bottom: clamp(5rem, 11vw, 10rem);
+}
+
+.work-kicker {
+	display: flex;
+	justify-content: space-between;
+	gap: 2rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid rgba(244, 241, 237, 0.14);
+	font-family: 'JetBrains Mono', ui-monospace, monospace;
+	font-size: 0.625rem;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	color: #827f7e;
+}
+
+.work-heading h2 {
+	margin-top: clamp(2rem, 4vw, 3.5rem);
+	color: #f4f1ed;
+	line-height: 0.78;
+}
+
+.work-heading h2 > span,
+.work-heading h2 > strong {
+	display: block;
+	font-size: clamp(4rem, 11vw, 10.5rem);
+	letter-spacing: -0.07em;
+}
+
+.work-heading h2 > span {
+	font-family: 'Instrument Serif', Georgia, serif;
+	font-style: italic;
+	font-weight: 400;
+}
+
+.work-heading h2 > strong {
+	margin-top: 0.28em;
+	font-family: 'Inter', system-ui, sans-serif;
+	font-weight: 560;
+	text-transform: uppercase;
+}
+
+.work-intro {
+	max-width: 31rem;
+	font-size: clamp(1rem, 1.5vw, 1.25rem);
+	line-height: 1.65;
+	color: rgba(244, 241, 237, 0.62);
+	text-wrap: balance;
+}
+
+.projects-editorial {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(6rem, 12vw, 12rem);
+}
+
+.project-card {
+	position: relative;
+	width: 100%;
+}
+
+.project-card-1 {
+	width: 88%;
+}
+
+.project-card-2 {
+	width: 64%;
+	margin-left: auto;
+}
+
+.project-card-3 {
+	width: 60%;
+	margin-left: 7%;
+}
+
+.project-card-4 {
+	width: 79%;
+	margin-left: auto;
+}
+
+.project-link {
+	display: block;
+}
+
+.project-media {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	border-radius: 0.35rem;
+	background: #171717;
+	isolation: isolate;
+}
+
+.project-media-landscape {
+	aspect-ratio: 16 / 9;
+}
+
+.project-media-wide {
+	aspect-ratio: 2 / 1;
+}
+
+.project-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	transform: scale(1);
+	transition:
+		transform 1s cubic-bezier(0.2, 0.8, 0.2, 1),
+		filter 0.8s ease;
+	will-change: transform;
+}
+
+.project-shade {
+	position: absolute;
+	z-index: 1;
+	inset: 0;
+	background:
+		linear-gradient(to top, rgba(13, 13, 13, 0.5), transparent 45%),
+		linear-gradient(120deg, rgba(226, 136, 104, 0.08), transparent 40%);
+	opacity: 0.25;
+	transition: opacity 0.6s ease;
+	pointer-events: none;
+}
+
+.project-index {
+	position: absolute;
+	z-index: 2;
+	top: 1.25rem;
+	left: 1.25rem;
+	font-family: 'JetBrains Mono', ui-monospace, monospace;
+	font-size: 0.625rem;
+	letter-spacing: 0.2em;
+	color: rgba(255, 255, 255, 0.78);
+	text-shadow: 0 1px 1rem rgba(0, 0, 0, 0.6);
+}
+
+.project-open {
+	position: absolute;
+	z-index: 2;
+	top: 1rem;
+	right: 1rem;
+	display: grid;
+	width: clamp(3rem, 5vw, 4.6rem);
+	height: clamp(3rem, 5vw, 4.6rem);
+	place-items: center;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: 50%;
+	background: rgba(25, 25, 25, 0.25);
+	backdrop-filter: blur(12px);
+	font-size: clamp(1.1rem, 2vw, 1.6rem);
+	color: #fff;
+	opacity: 0;
+	transform: translate(-0.6rem, 0.6rem) scale(0.8);
+	transition:
+		opacity 0.45s ease,
+		transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+		background-color 0.35s ease;
+}
+
+.project-link:hover .project-image {
+	filter: saturate(1.08) contrast(1.03);
+	transform: scale(1.045);
+}
+
+.project-link:hover .project-shade {
+	opacity: 1;
+}
+
+.project-link:hover .project-open {
+	background: #e28868;
+	opacity: 1;
+	transform: translate(0, 0) scale(1);
+}
+
+.project-info {
+	padding-top: 1.4rem;
+	border-top: 1px solid rgba(244, 241, 237, 0.16);
+}
+
+.project-meta {
+	display: flex;
+	justify-content: space-between;
+	gap: 2rem;
+	font-family: 'JetBrains Mono', ui-monospace, monospace;
+	font-size: 0.625rem;
+	text-transform: uppercase;
+	letter-spacing: 0.17em;
+	color: #827f7e;
+}
+
+.project-title-row {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	align-items: end;
+	gap: 2rem;
+	margin-top: 1.25rem;
+}
+
+.project-title-row h3 {
+	font-family: 'Instrument Serif', Georgia, serif;
+	font-size: clamp(2.75rem, 5.8vw, 6.5rem);
+	font-weight: 400;
+	letter-spacing: -0.055em;
+	line-height: 0.87;
+	color: #f4f1ed;
+	transition: color 0.45s ease;
+}
+
+.project-title-row > span {
+	max-width: 16rem;
+	font-family: 'JetBrains Mono', ui-monospace, monospace;
+	font-size: 0.625rem;
+	text-align: right;
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+	line-height: 1.55;
+	color: rgba(244, 241, 237, 0.55);
+}
+
+.project-link:hover .project-title-row h3 {
+	color: #e28868;
+}
+
+.project-description {
+	max-width: 40rem;
+	margin-top: 1.6rem;
+	font-size: clamp(0.9rem, 1.25vw, 1rem);
+	line-height: 1.7;
+	color: rgba(244, 241, 237, 0.65);
+}
+
+.project-action {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.8rem;
+	margin-top: 1.6rem;
+	font-family: 'JetBrains Mono', ui-monospace, monospace;
+	font-size: 0.625rem;
+	text-transform: uppercase;
+	letter-spacing: 0.18em;
+	color: #f4f1ed;
+}
+
+.project-action i {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	width: 3.2rem;
+	height: 1px;
+	background: rgba(244, 241, 237, 0.25);
+}
+
+.project-action i::after {
+	position: absolute;
+	inset: 0;
+	background: #e28868;
+	content: "";
+	transform: translateX(-100%);
+	transition: transform 0.55s ease;
+}
+
+.project-link:hover .project-action i::after {
+	transform: translateX(0);
+}
+
+@media (min-width: 900px) {
+	.work-heading {
+		grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.3fr);
+	}
+}
+
+@media (max-width: 899px) {
+	.project-card-1,
+	.project-card-2,
+	.project-card-3,
+	.project-card-4 {
+		width: 100%;
+		margin-left: 0;
+	}
+
+	.project-title-row h3 {
+		font-size: clamp(2.75rem, 10vw, 5rem);
+	}
+}
+
+@media (max-width: 599px) {
+	.work-heading {
+		gap: 2rem;
+	}
+
+	.work-heading h2 {
+		line-height: 0.84;
+	}
+
+	.work-heading h2 > span,
+	.work-heading h2 > strong {
+		font-size: clamp(3.25rem, 15vw, 5rem);
+	}
+
+	.project-media-wide,
+	.project-media-landscape {
+		aspect-ratio: 16 / 10;
+	}
+
+	.project-title-row {
+		grid-template-columns: 1fr;
+		gap: 0.9rem;
+	}
+
+	.project-title-row > span {
+		max-width: none;
+		text-align: left;
+	}
+
+	.project-open {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.project-image,
+	.project-link:hover .project-image,
+	.project-open,
+	.project-link:hover .project-open {
+		transform: none;
+	}
+}
