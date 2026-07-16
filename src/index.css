@@ -2239,8 +2239,7 @@ html.lenis {
 }
 
 .fits-case-hero-grid {
-	display: grid;
-	gap: clamp(3rem, 6vw, 6rem);
+	display: block;
 }
 
 .fits-case-hero-copy {
@@ -2299,6 +2298,7 @@ html.lenis {
 	position: relative;
 	overflow: hidden;
 	aspect-ratio: 2868 / 1314;
+	margin-top: clamp(3.5rem, 6vw, 6rem);
 	border-radius: 0.25rem;
 	background: #080808;
 	clip-path: inset(0);
@@ -2895,13 +2895,8 @@ html.lenis {
 }
 
 @media (min-width: 1050px) {
-	.fits-case-hero-grid {
-		grid-template-columns: minmax(0, 0.75fr) minmax(34rem, 1.25fr);
-		align-items: center;
-	}
-
-	.fits-hero-visual {
-		margin-right: 0;
+	.fits-case-hero-copy > p {
+		margin-left: auto;
 	}
 
 	.fits-case-facts {
