@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { contactEmail } from "@/data/site";
 import { AeroHeroScene } from "@/components/AeroHeroScene";
+import { AeroInteractivePanel } from "@/components/AeroInteractivePanel";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,6 +49,13 @@ const panels = [
 		alt: "Encerramento do case Aero e endereço do produto publicado.",
 	},
 ];
+
+const interactivePanels = {
+	1: "challenge",
+	2: "principles",
+	3: "audiences",
+	8: "learnings",
+} as const;
 
 export function AeroCaseStudy() {
 	const caseRef = useRef<HTMLDivElement>(null);
@@ -136,7 +144,7 @@ export function AeroCaseStudy() {
 				ease: "power3.out",
 			});
 
-			gsap.utils.toArray<HTMLElement>(".aero-case-gallery figure").forEach(
+			gsap.utils.toArray<HTMLElement>(".aero-gallery-item").forEach(
 				(panel, index) => {
 					gsap.fromTo(
 						panel,
@@ -161,18 +169,39 @@ export function AeroCaseStudy() {
 						}
 					);
 
-					gsap.to(panel.querySelector("img"), {
-						scrollTrigger: {
-							trigger: panel,
-							start: "top bottom",
-							end: "bottom top",
-							scrub: true,
-						},
-						yPercent: index % 2 === 0 ? 2.5 : -2.5,
-						ease: "none",
-					});
+					const image = panel.querySelector("img");
+					if (image) {
+						gsap.to(image, {
+							scrollTrigger: {
+								trigger: panel,
+								start: "top bottom",
+								end: "bottom top",
+								scrub: true,
+							},
+							yPercent: index % 2 === 0 ? 2.5 : -2.5,
+							ease: "none",
+						});
+					}
 				}
 			);
+
+			gsap.utils
+				.toArray<HTMLElement>(".aero-interactive-panel")
+				.forEach(panel => {
+					gsap.from(panel.querySelectorAll(".aero-micro-card"), {
+						scrollTrigger: {
+							trigger: panel,
+							start: "top 72%",
+							once: true,
+						},
+						opacity: 0,
+						y: 42,
+						scale: 0.96,
+						duration: 0.7,
+						stagger: 0.1,
+						ease: "power3.out",
+					});
+				});
 
 			gsap.from(".aero-case-closing > *", {
 				scrollTrigger: {
@@ -280,20 +309,34 @@ export function AeroCaseStudy() {
 				</section>
 
 				<section className="aero-case-gallery" aria-label="Painéis do case Aero">
-					{panels.map((panel, index) => (
-						<figure key={panel.src}>
-							<span className="aero-panel-number" aria-hidden="true">
-								{String(index + 1).padStart(2, "0")}
-							</span>
-							<img
-								src={panel.src}
-								alt={panel.alt}
-								width="1400"
-								height="940"
-								loading={index === 0 ? "eager" : "lazy"}
-							/>
-						</figure>
-					))}
+					{panels.map((panel, index) => {
+						const interactiveKind =
+							interactivePanels[index as keyof typeof interactivePanels];
+
+						if (interactiveKind) {
+							return (
+								<AeroInteractivePanel
+									key={panel.src}
+									kind={interactiveKind}
+								/>
+							);
+						}
+
+						return (
+							<figure key={panel.src} className="aero-gallery-item">
+								<span className="aero-panel-number" aria-hidden="true">
+									{String(index + 1).padStart(2, "0")}
+								</span>
+								<img
+									src={panel.src}
+									alt={panel.alt}
+									width="1400"
+									height="940"
+									loading={index === 0 ? "eager" : "lazy"}
+								/>
+							</figure>
+						);
+					})}
 				</section>
 
 				<section className="aero-case-closing">
