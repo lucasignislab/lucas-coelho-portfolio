@@ -36,6 +36,15 @@ const contentRoutes = [
 	"Contato",
 ];
 
+const marqueeWords = [
+	"Strength",
+	"Control",
+	"Mobility",
+	"Community",
+	"Strength",
+	"Control",
+];
+
 export function FitsYouCaseStudy() {
 	const pageRef = useRef<HTMLDivElement>(null);
 
@@ -219,10 +228,17 @@ export function FitsYouCaseStudy() {
 				</section>
 
 				<div className="fits-marquee" aria-hidden="true">
-					<div>
-						<span>Strength</span><i /><span>Control</span><i />
-						<span>Mobility</span><i /><span>Community</span><i />
-						<span>Strength</span><i /><span>Control</span><i />
+					<div className="fits-marquee-track">
+						{[0, 1].map(group => (
+							<div className="fits-marquee-group" key={group}>
+								{marqueeWords.map((word, index) => (
+									<span className="fits-marquee-item" key={`${word}-${index}`}>
+										<strong>{word}</strong>
+										<i />
+									</span>
+								))}
+							</div>
+						))}
 					</div>
 				</div>
 

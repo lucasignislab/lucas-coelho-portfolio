@@ -2427,22 +2427,39 @@ html.lenis {
 	color: #fff;
 }
 
-.fits-marquee > div {
+.fits-marquee-track {
 	display: flex;
 	width: max-content;
 	align-items: center;
 	gap: 2rem;
 	animation: fits-marquee 20s linear infinite;
+	will-change: transform;
 }
 
-.fits-marquee span {
+.fits-marquee-group {
+	display: flex;
+	flex: none;
+	align-items: center;
+	gap: 2rem;
+}
+
+.fits-marquee-item {
+	display: inline-flex;
+	flex: none;
+	align-items: center;
+	gap: 2rem;
+}
+
+.fits-marquee-item strong {
 	font-size: clamp(1.4rem, 3vw, 2.5rem);
 	font-weight: 750;
 	text-transform: uppercase;
 	letter-spacing: -0.045em;
 }
 
-.fits-marquee i {
+.fits-marquee-item i {
+	display: block;
+	flex: none;
 	width: 0.5rem;
 	height: 0.5rem;
 	border: 1px solid #fff;
@@ -2451,7 +2468,7 @@ html.lenis {
 
 @keyframes fits-marquee {
 	to {
-		transform: translateX(-50%);
+		transform: translateX(calc(-50% - 1rem));
 	}
 }
 
@@ -2945,7 +2962,7 @@ html.lenis {
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.fits-marquee > div {
+	.fits-marquee-track {
 		animation: none;
 	}
 
