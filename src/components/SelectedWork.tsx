@@ -52,52 +52,64 @@ export function SelectedWork() {
 
 			{/* Projects grid */}
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 md:gap-x-10 gap-y-16 md:gap-y-24">
-				{projects.map((p, i) => (
-					<article key={p.id} className="project-card group block">
-						{/* Image */}
-						<div className="relative w-full aspect-[4/3] rounded-md overflow-hidden bg-smoke mb-6 flex items-center justify-center">
-							<img
-								src={p.image}
-								alt={p.name}
-								width="1024"
-								height="576"
-								className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-								loading="lazy"
-							/>
-						</div>
+				{projects.map((p, i) => {
+					const href = p.caseUrl ?? p.url;
+					const isInternal = Boolean(p.caseUrl);
 
-						{/* Project info */}
-						<div className="border-t border-bone/15 pt-5">
-							<div className="flex items-baseline justify-between gap-4 mb-3">
-								<span className="font-mono text-[11px] uppercase tracking-[0.2em] text-ash">
-									Projeto /{String(i + 1).padStart(2, "0")} · {p.year}
-								</span>
-								<span className="font-mono text-[11px] uppercase tracking-[0.15em] text-ash text-right">
-									{p.type}
-									<span className="block mt-1 text-bone/70">{p.subtitle}</span>
-								</span>
-							</div>
-							<div className="flex items-start justify-between gap-4">
-								<h3 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[0.95] tracking-ultratight text-bone group-hover:text-ember transition-colors duration-500 min-w-0">
-									{p.name}
-								</h3>
-							</div>
-							<p className="mt-5 max-w-xl text-sm md:text-base leading-relaxed text-bone/70">
-								{p.description}
-							</p>
+					return (
+						<article key={p.id} className="project-card group block">
 							<a
-								href={p.url}
-								target="_blank"
-								rel="noopener noreferrer"
+								href={href}
+								target={isInternal ? undefined : "_blank"}
+								rel={isInternal ? undefined : "noopener noreferrer"}
 								data-cursor-hover
-								className="mt-6 inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.18em] text-bone link-underline"
-								aria-label={`Visitar ${p.name} (abre em uma nova aba)`}
+								aria-label={`${isInternal ? "Ler case" : "Visitar"} ${p.name}${
+									isInternal ? "" : " (abre em uma nova aba)"
+								}`}
+								className="block"
 							>
-								Visitar projeto <span aria-hidden>↗</span>
+								{/* Image */}
+								<div className="relative w-full aspect-[4/3] rounded-md overflow-hidden bg-smoke mb-6 flex items-center justify-center">
+									<img
+										src={p.image}
+										alt={p.name}
+										width="1024"
+										height="576"
+										className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+										loading="lazy"
+									/>
+								</div>
+
+								{/* Project info */}
+								<div className="border-t border-bone/15 pt-5">
+									<div className="flex items-baseline justify-between gap-4 mb-3">
+										<span className="font-mono text-[11px] uppercase tracking-[0.2em] text-ash">
+											Projeto /{String(i + 1).padStart(2, "0")} · {p.year}
+										</span>
+										<span className="font-mono text-[11px] uppercase tracking-[0.15em] text-ash text-right">
+											{p.type}
+											<span className="block mt-1 text-bone/70">
+												{p.subtitle}
+											</span>
+										</span>
+									</div>
+									<div className="flex items-start justify-between gap-4">
+										<h3 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[0.95] tracking-ultratight text-bone group-hover:text-ember transition-colors duration-500 min-w-0">
+											{p.name}
+										</h3>
+									</div>
+									<p className="mt-5 max-w-xl text-sm md:text-base leading-relaxed text-bone/70">
+										{p.description}
+									</p>
+									<span className="mt-6 inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.18em] text-bone link-underline">
+										{isInternal ? "Ler case completo" : "Visitar projeto"}{" "}
+										<span aria-hidden>{isInternal ? "→" : "↗"}</span>
+									</span>
+								</div>
 							</a>
-						</div>
-					</article>
-				))}
+						</article>
+					);
+				})}
 			</div>
 		</section>
 	);

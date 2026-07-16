@@ -10,6 +10,7 @@ import { About } from "@/components/About";
 import { Skills } from "@/components/Skills";
 import { SelectedWork } from "@/components/SelectedWork";
 import { Footer } from "@/components/Footer";
+import { AeroCaseStudy } from "@/components/AeroCaseStudy";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,6 +59,16 @@ class ErrorBoundary extends Component<
 }
 
 function App() {
+	const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
+
+	if (pathname === "/projetos/aero") {
+		return (
+			<ErrorBoundary>
+				<AeroCaseStudy />
+			</ErrorBoundary>
+		);
+	}
+
 	return (
 		<ErrorBoundary>
 			<Cursor />

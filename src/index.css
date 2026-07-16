@@ -459,3 +459,294 @@ html.lenis {
 		transition-duration: 0.01ms !important;
 	}
 }
+
+/* Aero case study */
+.aero-case {
+	min-height: 100vh;
+	background:
+		radial-gradient(circle at 88% 0%, rgba(56, 140, 250, 0.12), transparent 24rem),
+		#101115;
+	color: #f5f5f5;
+}
+
+.aero-case-header,
+.aero-case-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	width: min(100% - 3rem, 1400px);
+	margin: 0 auto;
+	padding: 1.5rem 0;
+	border-bottom: 1px solid rgba(245, 245, 245, 0.1);
+	font-family: 'JetBrains Mono', ui-monospace, monospace;
+	font-size: 0.6875rem;
+	text-transform: uppercase;
+	letter-spacing: 0.16em;
+	color: #9296a3;
+}
+
+.aero-case-footer {
+	padding: 2rem 0;
+	border-top: 1px solid rgba(245, 245, 245, 0.1);
+	border-bottom: 0;
+}
+
+.aero-case-back {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.75rem;
+	color: #f5f5f5;
+	transition: color 0.2s ease;
+}
+
+.aero-case-back:hover {
+	color: #388cfa;
+}
+
+.aero-case-hero,
+.aero-case-intro,
+.aero-case-closing {
+	width: min(100% - 3rem, 1400px);
+	margin: 0 auto;
+}
+
+.aero-case-hero {
+	padding: clamp(5rem, 11vw, 10rem) 0 clamp(5rem, 9vw, 8rem);
+}
+
+.aero-case-eyebrow,
+.aero-case-intro > p:first-child {
+	font-family: 'JetBrains Mono', ui-monospace, monospace;
+	font-size: 0.6875rem;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	color: #388cfa;
+}
+
+.aero-case-hero h1 {
+	margin-top: 1.5rem;
+	font-family: 'Inter', system-ui, sans-serif;
+	font-size: clamp(4.5rem, 13vw, 11rem);
+	font-weight: 700;
+	letter-spacing: -0.075em;
+	line-height: 0.8;
+}
+
+.aero-case-hero h1 span {
+	display: block;
+	margin-top: 1.5rem;
+	font-family: 'Instrument Serif', Georgia, serif;
+	font-size: clamp(2.25rem, 5vw, 5rem);
+	font-style: italic;
+	font-weight: 400;
+	letter-spacing: -0.035em;
+	line-height: 1;
+	color: rgba(245, 245, 245, 0.72);
+}
+
+.aero-case-lead {
+	max-width: 52rem;
+	margin-top: 3rem;
+	font-size: clamp(1.25rem, 2.1vw, 2rem);
+	line-height: 1.45;
+	color: rgba(245, 245, 245, 0.74);
+	text-wrap: balance;
+}
+
+.aero-case-facts {
+	display: grid;
+	grid-template-columns: repeat(1, minmax(0, 1fr));
+	margin-top: 4rem;
+	border-top: 1px solid rgba(245, 245, 245, 0.12);
+	border-bottom: 1px solid rgba(245, 245, 245, 0.12);
+}
+
+.aero-case-facts > div {
+	padding: 1.25rem 0;
+}
+
+.aero-case-facts > div + div {
+	border-top: 1px solid rgba(245, 245, 245, 0.12);
+}
+
+.aero-case-facts dt {
+	font-family: 'JetBrains Mono', ui-monospace, monospace;
+	font-size: 0.625rem;
+	text-transform: uppercase;
+	letter-spacing: 0.18em;
+	color: #9296a3;
+}
+
+.aero-case-facts dd {
+	margin-top: 0.65rem;
+	font-size: 0.9375rem;
+	line-height: 1.5;
+	color: #f5f5f5;
+}
+
+.aero-case-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin-top: 2.5rem;
+}
+
+.aero-case-primary,
+.aero-case-secondary {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.75rem;
+	min-height: 3.25rem;
+	padding: 0.85rem 1.35rem;
+	border-radius: 9999px;
+	font-family: 'JetBrains Mono', ui-monospace, monospace;
+	font-size: 0.6875rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	transition:
+		background-color 0.2s ease,
+		border-color 0.2s ease,
+		color 0.2s ease;
+}
+
+.aero-case-primary {
+	background: #388cfa;
+	color: #fff;
+}
+
+.aero-case-primary:hover {
+	background: #2179e9;
+}
+
+.aero-case-secondary {
+	border: 1px solid rgba(245, 245, 245, 0.2);
+	color: #f5f5f5;
+}
+
+.aero-case-secondary:hover {
+	border-color: #388cfa;
+	color: #388cfa;
+}
+
+.aero-case-intro {
+	display: grid;
+	gap: 1.5rem;
+	padding: clamp(4rem, 8vw, 7rem) 0;
+	border-top: 1px solid rgba(245, 245, 245, 0.1);
+}
+
+.aero-case-intro h2,
+.aero-case-closing h2 {
+	max-width: 60rem;
+	font-size: clamp(2.25rem, 5vw, 5rem);
+	font-weight: 650;
+	letter-spacing: -0.05em;
+	line-height: 1;
+	text-wrap: balance;
+}
+
+.aero-case-intro > p:last-child,
+.aero-case-closing > p {
+	max-width: 48rem;
+	font-size: 1.0625rem;
+	line-height: 1.7;
+	color: #9296a3;
+}
+
+.aero-case-gallery {
+	display: grid;
+	gap: 1.5rem;
+	width: min(100%, 1400px);
+	margin: 0 auto;
+	padding-bottom: clamp(5rem, 10vw, 9rem);
+}
+
+.aero-case-gallery figure {
+	overflow: hidden;
+	background: #08090b;
+}
+
+.aero-case-gallery img {
+	width: 100%;
+	height: auto;
+}
+
+.aero-case-closing {
+	padding: clamp(5rem, 10vw, 9rem) 0;
+	border-top: 1px solid rgba(245, 245, 245, 0.1);
+}
+
+.aero-case-closing h2 {
+	margin-top: 1.5rem;
+}
+
+.aero-case-closing > p {
+	margin-top: 1.5rem;
+}
+
+@media (min-width: 700px) {
+	.aero-case-facts {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.aero-case-facts > div {
+		padding: 1.5rem;
+	}
+
+	.aero-case-facts > div + div {
+		border-top: 0;
+	}
+
+	.aero-case-facts > div:nth-child(even) {
+		border-left: 1px solid rgba(245, 245, 245, 0.12);
+	}
+
+	.aero-case-facts > div:nth-child(n + 3) {
+		border-top: 1px solid rgba(245, 245, 245, 0.12);
+	}
+
+	.aero-case-intro {
+		grid-template-columns: 0.7fr 2fr;
+	}
+
+	.aero-case-intro > p:last-child {
+		grid-column: 2;
+	}
+}
+
+@media (min-width: 1100px) {
+	.aero-case-facts {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	.aero-case-facts > div:nth-child(n + 3) {
+		border-top: 0;
+	}
+
+	.aero-case-facts > div + div {
+		border-left: 1px solid rgba(245, 245, 245, 0.12);
+	}
+}
+
+@media (max-width: 699px) {
+	.aero-case-index {
+		display: none;
+	}
+
+	.aero-case-gallery {
+		gap: 0.5rem;
+	}
+
+	.aero-case-primary,
+	.aero-case-secondary {
+		width: 100%;
+	}
+
+	.aero-case-footer {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+}

@@ -5,6 +5,7 @@ export interface Project {
 	type: string;
 	year: string;
 	url: string;
+	caseUrl?: string;
 	image: string;
 	description: string;
 }
@@ -17,6 +18,7 @@ export const projects: Project[] = [
 		type: "Dashboard / SaaS",
 		year: "2025",
 		url: "https://aeroprojectmanager.netlify.app/dashboard",
+		caseUrl: "/projetos/aero",
 		image: "/lovable-uploads/aero-project-cover.webp",
 		description:
 			"Concepção de marca, direção visual e interface para uma plataforma de gestão de projetos.",
