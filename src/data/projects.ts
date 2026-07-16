@@ -57,12 +57,12 @@ export const projects: Project[] = [
 	{
 		id: "hub",
 		name: "Hub Ratoeira",
-		subtitle: "Web Design — Member Area",
-		type: "Portal / Education",
+		subtitle: "Web Design — UX/UI",
+		type: "Institucional / Adtech",
 		year: "2024",
 		url: "https://hub.ratoeiraadsoficial.com.br",
 		image: "/lovable-uploads/ratoeirahub.webp",
 		description:
-			"Portal de conteúdo desenhado para tornar materiais, aulas e recursos mais fáceis de encontrar e consumir.",
+			"Site institucional criado para apresentar o ecossistema Ratoeira Hub — soluções de rastreamento, criação de páginas e atendimento com IA para anunciantes e empresas.",
 	},
 ];
