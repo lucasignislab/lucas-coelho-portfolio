@@ -2,19 +2,26 @@ import { contactEmail, navItems } from "@/data/site";
 
 /**
  * Header posicionado no topo e integrado ao fluxo de rolagem:
- *  - Esquerda: "— Lucas Coelho" baseline
+ *  - Esquerda: símbolo "L," + assinatura Lucas Coelho
  *  - Direita: navegação + botão de contato
- *  (Logo/ícone removido a pedido do usuário)
  */
 export function Header() {
 	return (
 		<header className="absolute top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-20 py-5 flex items-center justify-between mix-blend-difference pointer-events-none">
-			{/* Left: baseline */}
+			{/* Left: brand signature */}
 			<a
 				href="#top"
-				className="link-underline font-mono text-xs uppercase tracking-[0.2em] text-bone pointer-events-auto"
+				aria-label="Lucas Coelho — voltar ao início"
+				className="group inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-bone pointer-events-auto"
 			>
-				— Lucas Coelho
+				<img
+					src="/favicon-32.png?v=2"
+					alt=""
+					width="32"
+					height="32"
+					className="h-7 w-7 shrink-0 rounded-[0.3rem] transition-transform duration-500 ease-out group-hover:-rotate-6 group-hover:scale-105"
+				/>
+				<span className="link-underline">Lucas Coelho</span>
 			</a>
 
 			{/* Right: nav */}
