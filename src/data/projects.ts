@@ -53,6 +53,7 @@ export const projects: Project[] = [
 		type: "Institucional / Adtech",
 		year: "2024",
 		url: "https://hub.ratoeiraadsoficial.com.br",
+		caseUrl: "/projetos/ratoeira-hub",
 		image: "/lovable-uploads/ratoeirahub.webp",
 		description:
 			"Site institucional criado para apresentar o ecossistema Ratoeira Hub — soluções de rastreamento, criação de páginas e atendimento com IA para anunciantes e empresas.",

@@ -12,6 +12,7 @@ import { SelectedWork } from "@/components/SelectedWork";
 import { Footer } from "@/components/Footer";
 import { AeroCaseStudy } from "@/components/AeroCaseStudy";
 import { FitsYouCaseStudy } from "@/components/FitsYouCaseStudy";
+import { RatoeiraHubCaseStudy } from "@/components/RatoeiraHubCaseStudy";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -74,6 +75,14 @@ function App() {
 		return (
 			<ErrorBoundary>
 				<FitsYouCaseStudy />
+			</ErrorBoundary>
+		);
+	}
+
+	if (pathname === "/projetos/ratoeira-hub") {
+		return (
+			<ErrorBoundary>
+				<RatoeiraHubCaseStudy />
 			</ErrorBoundary>
 		);
 	}
