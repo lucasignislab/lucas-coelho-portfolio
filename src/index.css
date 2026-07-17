@@ -3412,3 +3412,184 @@ html.lenis {
 	.hub-integration-card,
 	.hub-integration-card:hover { transform: none; }
 }
+
+/* Pogne × Ratoeira Ads case */
+.pogne-case {
+	--pogne-yellow: #f5b800;
+	--pogne-ink: #0b0b0d;
+	--pogne-paper: #f4f2f2;
+	--pogne-muted: #777476;
+	min-height: 100vh;
+	overflow: hidden;
+	background: var(--pogne-paper);
+	color: var(--pogne-ink);
+	font-family: 'Inter', sans-serif;
+}
+
+.pogne-case-header,
+.pogne-case main,
+.pogne-case-footer { width: min(100% - 2rem, 1500px); margin-inline: auto; }
+
+.pogne-case-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1.15rem 0;
+	border-bottom: 1px solid rgba(11, 11, 13, 0.16);
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 0.58rem;
+	font-weight: 650;
+	text-transform: uppercase;
+	letter-spacing: 0.13em;
+}
+
+.pogne-case-header a { display: inline-flex; align-items: center; gap: 0.75rem; transition: color 200ms ease; }
+.pogne-case-header a:hover { color: #a77d00; }
+
+.pogne-case-hero { padding: clamp(3rem, 7vw, 7rem) 0 clamp(5rem, 10vw, 8rem); }
+.pogne-case-hero-copy { position: relative; z-index: 2; max-width: 79rem; }
+.pogne-case-eyebrow,
+.pogne-section-index { font-family: 'JetBrains Mono', monospace; font-size: clamp(0.55rem, 0.85vw, 0.72rem); font-weight: 650; text-transform: uppercase; letter-spacing: 0.16em; }
+.pogne-case-eyebrow { color: #a77d00; }
+.pogne-case-hero h1 { margin-top: clamp(2rem, 4vw, 3.5rem); font-size: clamp(4.7rem, 15vw, 13rem); letter-spacing: -0.095em; line-height: 0.7; }
+.pogne-case-hero h1 span { display: block; }
+.pogne-case-hero h1 strong,
+.pogne-case-hero h1 em { display: block; font-style: normal; }
+.pogne-case-hero h1 em { margin-left: clamp(2rem, 15vw, 14rem); color: #c49100; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.07em; }
+.pogne-reveal-mask { overflow: hidden; }
+.pogne-hero-intro { max-width: 48rem; margin: clamp(2.5rem, 6vw, 5rem) 0 0 auto; font-size: clamp(1.15rem, 2vw, 1.8rem); line-height: 1.45; letter-spacing: -0.025em; }
+
+.pogne-hero-visual {
+	position: relative;
+	margin-top: clamp(3rem, 7vw, 6rem);
+	padding: clamp(0.45rem, 1vw, 0.8rem);
+	border: 1px solid rgba(11, 11, 13, 0.18);
+	border-radius: 1.2rem;
+	background: #fff;
+	box-shadow: 0 2.5rem 5rem rgba(53, 43, 20, 0.15);
+}
+.pogne-hero-visual img { display: block; width: 100%; height: auto; border-radius: 0.75rem; }
+.pogne-hero-signal { position: absolute; right: clamp(1rem, 3vw, 3rem); bottom: clamp(1rem, 3vw, 3rem); display: flex; align-items: center; gap: 2rem; min-width: min(18rem, 70%); padding: 1rem 1.2rem; border-radius: 99rem; background: var(--pogne-yellow); font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; box-shadow: 0 1.2rem 3rem rgba(11, 11, 13, 0.2); }
+.pogne-hero-signal strong { margin-left: auto; font-size: 1.2rem; transition: transform 200ms ease; }
+.pogne-hero-signal:hover strong { transform: translateX(0.3rem); }
+
+.pogne-case-facts { display: grid; margin-top: clamp(2.5rem, 5vw, 4.5rem); border-top: 1px solid rgba(11, 11, 13, 0.18); border-bottom: 1px solid rgba(11, 11, 13, 0.18); }
+.pogne-case-facts > div { display: grid; gap: 0.6rem; padding: 1.25rem 0; }
+.pogne-case-facts > div + div { border-top: 1px solid rgba(11, 11, 13, 0.18); }
+.pogne-case-facts dt { font-family: 'JetBrains Mono', monospace; font-size: 0.54rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--pogne-muted); }
+.pogne-case-facts dd { font-size: clamp(0.85rem, 1vw, 1rem); font-weight: 650; }
+.pogne-case-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 2rem; }
+.pogne-primary-button,
+.pogne-secondary-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 2.5rem; min-height: 3.4rem; padding: 0.85rem 1.2rem; border: 1px solid var(--pogne-ink); border-radius: 99rem; font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; transition: transform 220ms ease, background 220ms ease, color 220ms ease; }
+.pogne-primary-button { background: var(--pogne-yellow); }
+.pogne-secondary-button { background: transparent; }
+.pogne-primary-button:hover,
+.pogne-secondary-button:hover { transform: translateY(-0.2rem); background: var(--pogne-ink); color: var(--pogne-paper); }
+
+.pogne-context,
+.pogne-message,
+.pogne-funnel,
+.pogne-system,
+.pogne-closing { padding: clamp(5rem, 11vw, 10rem) 0; border-top: 1px solid rgba(11, 11, 13, 0.16); }
+.pogne-context { display: grid; gap: 2.5rem; }
+.pogne-context h2,
+.pogne-section-heading h2,
+.pogne-closing h2 { max-width: 65rem; font-size: clamp(2.8rem, 7.6vw, 7.4rem); line-height: 0.9; letter-spacing: -0.07em; }
+.pogne-context p,
+.pogne-section-heading > p,
+.pogne-closing > p { max-width: 44rem; margin-top: 2rem; font-size: clamp(1.05rem, 1.6vw, 1.35rem); line-height: 1.58; color: #5f5c5d; }
+.pogne-section-index { color: #987300; }
+.pogne-section-heading { display: grid; gap: 2rem; }
+.pogne-section-heading > p { margin-top: 0; }
+
+.pogne-message-grid { display: grid; gap: 0.8rem; margin-top: clamp(3.5rem, 7vw, 6rem); }
+.pogne-message-card { position: relative; display: flex; flex-direction: column; min-height: clamp(25rem, 42vw, 34rem); padding: clamp(1.5rem, 3vw, 2.3rem); overflow: hidden; border: 1px solid rgba(11, 11, 13, 0.16); border-radius: 0.8rem; background: #ebe8e8; transition: transform 300ms cubic-bezier(.2,.8,.2,1), box-shadow 300ms ease, background 300ms ease; }
+.pogne-message-card:nth-child(2),
+.pogne-message-card:nth-child(4) { background: var(--pogne-yellow); }
+.pogne-message-card:hover { z-index: 2; transform: translateY(-0.55rem) rotate(-0.5deg); box-shadow: 0 1.6rem 3.5rem rgba(11, 11, 13, 0.15); }
+.pogne-message-card > div { display: flex; align-items: center; justify-content: space-between; }
+.pogne-message-card > div span { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; font-weight: 700; }
+.pogne-message-card > div i { padding: 0.45rem 0.7rem; border: 1px solid currentColor; border-radius: 99rem; font-family: 'JetBrains Mono', monospace; font-size: 0.48rem; font-style: normal; text-transform: uppercase; letter-spacing: 0.12em; }
+.pogne-message-card h3 { max-width: 29rem; margin-top: auto; font-size: clamp(2rem, 4vw, 3.6rem); line-height: 0.95; letter-spacing: -0.055em; }
+.pogne-message-card p { max-width: 29rem; margin-top: 1.5rem; font-size: 0.95rem; line-height: 1.55; color: #5d595a; }
+.pogne-message-card:nth-child(2) p,
+.pogne-message-card:nth-child(4) p { color: rgba(11, 11, 13, 0.72); }
+.pogne-message-card > strong { position: absolute; right: 1.2rem; bottom: 0.5rem; color: rgba(11, 11, 13, 0.08); font-size: 8rem; line-height: 1; transition: color 250ms ease, transform 250ms ease; }
+.pogne-message-card:hover > strong { color: rgba(11, 11, 13, 0.2); transform: translate(0.2rem, -0.2rem); }
+
+.pogne-funnel-board { display: grid; gap: 1rem; margin-top: clamp(3.5rem, 7vw, 6rem); padding: clamp(0.6rem, 1.2vw, 1rem); border-radius: 1rem; background: var(--pogne-ink); color: var(--pogne-paper); }
+.pogne-funnel-copy { display: flex; flex-direction: column; align-items: stretch; justify-content: center; min-height: 34rem; padding: clamp(1.5rem, 4vw, 3.5rem); }
+.pogne-funnel-copy > span { align-self: flex-start; padding: 0.5rem 0.75rem; border-radius: 99rem; background: rgba(245, 184, 0, 0.16); color: var(--pogne-yellow); font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.13em; }
+.pogne-funnel-copy > strong { font-size: clamp(2.2rem, 5vw, 4.7rem); line-height: 0.85; letter-spacing: -0.07em; transition: color 220ms ease, transform 220ms ease; }
+.pogne-funnel-copy > strong:hover { color: var(--pogne-yellow); transform: translateX(0.5rem); }
+.pogne-funnel-copy > i { margin: 0.4rem 0; color: var(--pogne-yellow); font-size: 1rem; font-style: normal; }
+.pogne-funnel-copy button { display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-top: 1.5rem; padding: 1rem 1.2rem; border-radius: 99rem; background: var(--pogne-yellow); color: var(--pogne-ink); font-size: 0.68rem; font-weight: 850; letter-spacing: 0.08em; }
+.pogne-funnel-copy button b { font-size: 1.1rem; }
+.pogne-funnel-screen { align-self: center; overflow: hidden; border-radius: 0.7rem; background: #fff; }
+.pogne-browser-bar { display: flex; align-items: center; gap: 0.35rem; padding: 0.75rem; border-bottom: 1px solid #d6d3d3; background: #e9e7e7; }
+.pogne-browser-bar span { width: 0.45rem; height: 0.45rem; border-radius: 50%; background: #aaa; }
+.pogne-browser-bar span:first-child { background: var(--pogne-yellow); }
+.pogne-browser-bar em { margin-left: 0.45rem; color: #777; font-family: 'JetBrains Mono', monospace; font-size: 0.44rem; font-style: normal; }
+.pogne-funnel-screen img { display: block; width: 100%; aspect-ratio: 1.55 / 1; object-fit: cover; object-position: left center; }
+
+.pogne-system-grid { display: grid; gap: 1rem; margin-top: clamp(3.5rem, 7vw, 6rem); }
+.pogne-type-specimen,
+.pogne-color-specimen { min-height: clamp(30rem, 50vw, 42rem); overflow: hidden; border: 1px solid rgba(11, 11, 13, 0.16); border-radius: 0.8rem; }
+.pogne-type-specimen { display: flex; flex-direction: column; padding: clamp(1.5rem, 4vw, 3rem); background: var(--pogne-ink); color: var(--pogne-paper); }
+.pogne-type-specimen > span,
+.pogne-color-specimen span { font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.14em; }
+.pogne-type-specimen > strong { margin-top: auto; color: var(--pogne-yellow); font-size: clamp(3.6rem, 8vw, 7rem); line-height: 0.74; letter-spacing: -0.09em; }
+.pogne-type-specimen > em { margin-top: 1.2rem; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 800; line-height: 0.85; letter-spacing: -0.07em; }
+.pogne-type-specimen > p { max-width: 29rem; margin-top: auto; padding-top: 2rem; color: #aaa6a7; font-size: 0.9rem; line-height: 1.55; }
+.pogne-color-specimen { display: grid; }
+.pogne-color-specimen > div { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(1.4rem, 3vw, 2.2rem); }
+.pogne-color-specimen strong { font-size: clamp(1.5rem, 3vw, 2.5rem); letter-spacing: -0.04em; }
+.pogne-yellow { background: var(--pogne-yellow); }
+.pogne-ink { background: var(--pogne-ink); color: var(--pogne-paper); }
+.pogne-paper { background: var(--pogne-paper); }
+
+.pogne-closing { padding-bottom: clamp(7rem, 14vw, 13rem); }
+.pogne-closing h2 { margin-top: 1.7rem; }
+.pogne-case-footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.4rem 0; border-top: 1px solid rgba(11, 11, 13, 0.16); font-family: 'JetBrains Mono', monospace; font-size: 0.52rem; text-transform: uppercase; letter-spacing: 0.12em; }
+
+@media (min-width: 700px) {
+	.pogne-case-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.pogne-case-facts > div { padding: 1.3rem; }
+	.pogne-case-facts > div + div { border-top: 0; border-left: 1px solid rgba(11, 11, 13, 0.18); }
+	.pogne-case-facts > div:nth-child(3) { border-left: 0; }
+	.pogne-case-facts > div:nth-child(n + 3) { border-top: 1px solid rgba(11, 11, 13, 0.18); }
+	.pogne-context { grid-template-columns: minmax(9rem, 0.4fr) minmax(0, 1.6fr); }
+	.pogne-message-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.pogne-system-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.pogne-color-specimen { grid-template-rows: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1050px) {
+	.pogne-case-facts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+	.pogne-case-facts > div:nth-child(3) { border-left: 1px solid rgba(11, 11, 13, 0.18); }
+	.pogne-case-facts > div:nth-child(n + 3) { border-top: 0; }
+	.pogne-section-heading { grid-template-columns: minmax(10rem, 0.36fr) minmax(0, 1.15fr) minmax(15rem, 0.48fr); align-items: start; }
+	.pogne-message-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+	.pogne-message-card { min-height: 32rem; }
+	.pogne-funnel-board { grid-template-columns: minmax(19rem, 0.65fr) minmax(0, 1.35fr); }
+}
+
+@media (max-width: 699px) {
+	.pogne-case-header > span { display: none; }
+	.pogne-case-hero h1 em { margin-left: 1rem; }
+	.pogne-case-actions,
+	.pogne-primary-button,
+	.pogne-secondary-button { width: 100%; }
+	.pogne-hero-signal { display: none; }
+	.pogne-message-card { min-height: 24rem; }
+	.pogne-case-footer { align-items: flex-start; flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.pogne-message-card,
+	.pogne-message-card:hover,
+	.pogne-primary-button,
+	.pogne-primary-button:hover,
+	.pogne-secondary-button,
+	.pogne-secondary-button:hover { transform: none; }
+}

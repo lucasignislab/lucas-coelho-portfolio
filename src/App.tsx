@@ -13,6 +13,7 @@ import { Footer } from "@/components/Footer";
 import { AeroCaseStudy } from "@/components/AeroCaseStudy";
 import { FitsYouCaseStudy } from "@/components/FitsYouCaseStudy";
 import { RatoeiraHubCaseStudy } from "@/components/RatoeiraHubCaseStudy";
+import { PogneCaseStudy } from "@/components/PogneCaseStudy";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -83,6 +84,14 @@ function App() {
 		return (
 			<ErrorBoundary>
 				<RatoeiraHubCaseStudy />
+			</ErrorBoundary>
+		);
+	}
+
+	if (pathname === "/projetos/pogne") {
+		return (
+			<ErrorBoundary>
+				<PogneCaseStudy />
 			</ErrorBoundary>
 		);
 	}

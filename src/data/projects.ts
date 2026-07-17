@@ -42,6 +42,7 @@ export const projects: Project[] = [
 		type: "High-ticket / Marketing",
 		year: "2024",
 		url: "https://pogne.ratoeiraadsoficial.com.br",
+		caseUrl: "/projetos/pogne",
 		image: "/lovable-uploads/pogne.webp",
 		description:
 			"Experiência de campanha para organizar uma oferta de alto valor em uma narrativa direta e orientada à conversão.",
