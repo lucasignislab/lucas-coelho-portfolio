@@ -26,9 +26,9 @@ const ecosystem = [
 		index: "03",
 		name: "Ratoeira Hub",
 		description:
-			"Atendimento com IA integrado a canais como WhatsApp e Instagram.",
+			"Tracking server-side, proteção contra cliques fraudulentos e landing pages para Google Ads e Meta Ads, em tempo real.",
 		image: "/cases/ratoeira-hub/hub-icon.webp",
-		label: "Connect · respond · support",
+		label: "Track · protect · convert",
 	},
 ];
 
@@ -56,7 +56,7 @@ export function RatoeiraHubCaseStudy() {
 		document.title = "Ratoeira Hub — Web Design Case Study | Lucas Coelho";
 		if (description) {
 			description.content =
-				"Case de web design e UX/UI para apresentar o ecossistema Ratoeira Hub: rastreamento, páginas e atendimento com inteligência artificial.";
+				"Case de web design e UX/UI para o ecossistema Ratoeira Hub: tracking server-side, proteção contra cliques fraudulentos e landing pages.";
 		}
 		if (canonical) {
 			canonical.href = "https://lucascoelhoux.site/projetos/ratoeira-hub";
@@ -165,7 +165,7 @@ export function RatoeiraHubCaseStudy() {
 					<dl className="hub-case-facts">
 						<div><dt>Projeto</dt><dd>Site institucional</dd></div>
 						<div><dt>Papel</dt><dd>Web Design · UX/UI · Estrutura de conteúdo</dd></div>
-						<div><dt>Segmento</dt><dd>Adtech · Martech · Inteligência artificial</dd></div>
+						<div><dt>Segmento</dt><dd>Adtech · Martech · Performance</dd></div>
 						<div><dt>Escopo</dt><dd>Ecossistema · Produtos · Integrações</dd></div>
 					</dl>
 
@@ -182,9 +182,10 @@ export function RatoeiraHubCaseStudy() {
 					<div>
 						<h2 className="hub-section-reveal">Quando os produtos se conectam, a comunicação também precisa se conectar.</h2>
 						<p className="hub-section-reveal">
-							A marca reúne rastreamento para mídia, criação de páginas e atendimento
-							com IA. A oportunidade de design foi apresentar essas frentes como partes
-							de uma mesma operação, sem apagar a função específica de cada produto.
+							A marca reúne tracking server-side, proteção contra cliques fraudulentos
+							e criação de landing pages. A oportunidade de design foi apresentar essas
+							frentes como partes de uma mesma operação, sem apagar a função específica
+							de cada produto.
 						</p>
 					</div>
 				</section>

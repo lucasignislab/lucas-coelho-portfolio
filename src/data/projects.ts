@@ -57,6 +57,6 @@ export const projects: Project[] = [
 		caseUrl: "/projetos/ratoeira-hub",
 		image: "/lovable-uploads/ratoeirahub.webp",
 		description:
-			"Site institucional criado para apresentar o ecossistema Ratoeira Hub — soluções de rastreamento, criação de páginas e atendimento com IA para anunciantes e empresas.",
+			"Site institucional para apresentar um ecossistema de tracking server-side, proteção antifraude e landing pages para anunciantes.",
 	},
 ];
