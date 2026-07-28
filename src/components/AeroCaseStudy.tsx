@@ -63,34 +63,6 @@ export function AeroCaseStudy() {
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
-
-		const previousTitle = document.title;
-		const description = document.querySelector<HTMLMetaElement>(
-			'meta[name="description"]'
-		);
-		const canonical =
-			document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-		const previousDescription = description?.content;
-		const previousCanonical = canonical?.href;
-
-		document.title = "Aero — Product Design Case Study | Lucas Coelho";
-		if (description) {
-			description.content =
-				"Case autoral e solo de product design: estratégia, UX/UI, prototipação e desenvolvimento do Aero, um SaaS de gestão de projetos keyboard-first.";
-		}
-		if (canonical) {
-			canonical.href = "https://lucascoelhoux.site/projetos/aero";
-		}
-
-		return () => {
-			document.title = previousTitle;
-			if (description && previousDescription) {
-				description.content = previousDescription;
-			}
-			if (canonical && previousCanonical) {
-				canonical.href = previousCanonical;
-			}
-		};
 	}, []);
 
 	useLayoutEffect(() => {
