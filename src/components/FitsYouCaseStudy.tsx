@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { contactEmail } from "@/data/site";
+import { CaseQuickRead } from "@/components/CaseQuickRead";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -50,34 +51,6 @@ export function FitsYouCaseStudy() {
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
-
-		const previousTitle = document.title;
-		const description = document.querySelector<HTMLMetaElement>(
-			'meta[name="description"]'
-		);
-		const canonical =
-			document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-		const previousDescription = description?.content;
-		const previousCanonical = canonical?.href;
-
-		document.title = "Fits You — Web Design Case Study | Lucas Coelho";
-		if (description) {
-			description.content =
-				"Case de web design e UX/UI do Fits You, site institucional para um studio de cross training e Pilates em Barão Geraldo, Campinas.";
-		}
-		if (canonical) {
-			canonical.href = "https://lucascoelhoux.site/projetos/fits-you";
-		}
-
-		return () => {
-			document.title = previousTitle;
-			if (description && previousDescription) {
-				description.content = previousDescription;
-			}
-			if (canonical && previousCanonical) {
-				canonical.href = previousCanonical;
-			}
-		};
 	}, []);
 
 	useLayoutEffect(() => {
@@ -221,11 +194,38 @@ export function FitsYouCaseStudy() {
 						>
 							Explorar site ao vivo <span aria-hidden>↗</span>
 						</a>
-						<a href="#fits-case-content" className="fits-secondary-button">
-							Ler o case <span aria-hidden>↓</span>
+						<a href="#fits-summary" className="fits-secondary-button">
+							Ver resumo <span aria-hidden>↓</span>
 						</a>
 					</div>
 				</section>
+
+				<CaseQuickRead
+					id="fits-summary"
+					intro="Uma experiência institucional que organiza modalidades de intensidades diferentes sem fragmentar a percepção do studio."
+					items={[
+						{
+							label: "Desafio",
+							value:
+								"Apresentar cross training, Pilates e recuperação sob uma única marca, preservando a personalidade de cada prática.",
+						},
+						{
+							label: "Decisão central",
+							value:
+								"Construir uma arquitetura de conteúdo comum e diferenciar as modalidades por ritmo, imagem e mensagem.",
+						},
+						{
+							label: "Entrega observável",
+							value:
+								"Site institucional publicado com modalidades, equipe, horários, localização e contato organizados em uma jornada única.",
+						},
+						{
+							label: "Escopo declarado",
+							value:
+								"Web design, UX/UI e estrutura de conteúdo para um studio local em Barão Geraldo, Campinas.",
+						},
+					]}
+				/>
 
 				<div className="fits-marquee" aria-hidden="true">
 					<div className="fits-marquee-track">

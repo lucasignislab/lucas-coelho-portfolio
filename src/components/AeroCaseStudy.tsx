@@ -5,6 +5,7 @@ import { contactEmail } from "@/data/site";
 import { AeroHeroScene } from "@/components/AeroHeroScene";
 import { AeroInteractivePanel } from "@/components/AeroInteractivePanel";
 import { AeroDesignSystemPanel } from "@/components/AeroDesignSystemPanel";
+import { CaseQuickRead } from "@/components/CaseQuickRead";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -63,34 +64,6 @@ export function AeroCaseStudy() {
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
-
-		const previousTitle = document.title;
-		const description = document.querySelector<HTMLMetaElement>(
-			'meta[name="description"]'
-		);
-		const canonical =
-			document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-		const previousDescription = description?.content;
-		const previousCanonical = canonical?.href;
-
-		document.title = "Aero — Product Design Case Study | Lucas Coelho";
-		if (description) {
-			description.content =
-				"Case autoral e solo de product design: estratégia, UX/UI, prototipação e desenvolvimento do Aero, um SaaS de gestão de projetos keyboard-first.";
-		}
-		if (canonical) {
-			canonical.href = "https://lucascoelhoux.site/projetos/aero";
-		}
-
-		return () => {
-			document.title = previousTitle;
-			if (description && previousDescription) {
-				description.content = previousDescription;
-			}
-			if (canonical && previousCanonical) {
-				canonical.href = previousCanonical;
-			}
-		};
 	}, []);
 
 	useLayoutEffect(() => {
@@ -286,8 +259,8 @@ export function AeroCaseStudy() {
 						>
 							Explorar produto ao vivo <span aria-hidden>↗</span>
 						</a>
-						<a href="#case" className="aero-case-secondary">
-							Ler o case <span aria-hidden>↓</span>
+						<a href="#aero-summary" className="aero-case-secondary">
+							Ver resumo <span aria-hidden>↓</span>
 						</a>
 					</div>
 					<div className="aero-case-scroll" aria-hidden="true">
@@ -295,6 +268,33 @@ export function AeroCaseStudy() {
 						<i />
 					</div>
 				</section>
+
+				<CaseQuickRead
+					id="aero-summary"
+					intro="Um produto autoral e funcional, reconstruído como estudo retrospectivo para tornar explícitas as decisões que orientaram sua criação."
+					items={[
+						{
+							label: "Desafio",
+							value:
+								"Reduzir cliques, troca de contexto e excesso visual na gestão cotidiana de projetos.",
+						},
+						{
+							label: "Decisão central",
+							value:
+								"Combinar command menu, edição em drawer e densidade visual controlada em uma experiência keyboard-first.",
+						},
+						{
+							label: "Entrega observável",
+							value:
+								"Produto publicado em React, TypeScript, Tailwind e Tiptap, disponível para exploração.",
+						},
+						{
+							label: "Limite declarado",
+							value:
+								"Projeto solo e autoral, sem pesquisa formal; hipóteses e aprendizados foram organizados retrospectivamente.",
+						},
+					]}
+				/>
 
 				<section id="case" className="aero-case-intro" aria-labelledby="case-title">
 					<p>Retrospective product case study</p>

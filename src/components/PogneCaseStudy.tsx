@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { contactEmail } from "@/data/site";
+import { CaseQuickRead } from "@/components/CaseQuickRead";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,24 +38,6 @@ export function PogneCaseStudy() {
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
-		const previousTitle = document.title;
-		const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
-		const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-		const previousDescription = description?.content;
-		const previousCanonical = canonical?.href;
-
-		document.title = "Pogne × Ratoeira Ads — Conversion Design Case | Lucas Coelho";
-		if (description) {
-			description.content =
-				"Case de web design e conversion design para a parceria entre Método PNG e Ratoeira Ads.";
-		}
-		if (canonical) canonical.href = "https://lucascoelhoux.site/projetos/pogne";
-
-		return () => {
-			document.title = previousTitle;
-			if (description && previousDescription) description.content = previousDescription;
-			if (canonical && previousCanonical) canonical.href = previousCanonical;
-		};
 	}, []);
 
 	useLayoutEffect(() => {
@@ -127,9 +110,36 @@ export function PogneCaseStudy() {
 
 					<div className="pogne-case-actions">
 						<a href="https://pogne.ratoeiraadsoficial.com.br" target="_blank" rel="noopener noreferrer" className="pogne-primary-button">Explorar site ao vivo <span aria-hidden>↗</span></a>
-						<a href="#pogne-case-content" className="pogne-secondary-button">Ler o case <span aria-hidden>↓</span></a>
+						<a href="#pogne-summary" className="pogne-secondary-button">Ver resumo <span aria-hidden>↓</span></a>
 					</div>
 				</section>
+
+				<CaseQuickRead
+					id="pogne-summary"
+					intro="Uma landing page de parceria que traduz uma oferta técnica em uma sequência direta de pertencimento, promessa, mecanismo e ação."
+					items={[
+						{
+							label: "Desafio",
+							value:
+								"Unir duas marcas e explicar proteção de orçamento e rastreamento sem transformar a página em documentação técnica.",
+						},
+						{
+							label: "Decisão central",
+							value:
+								"Apresentar primeiro o público e a promessa, depois o mecanismo, deixando o CTA como consequência da leitura.",
+						},
+						{
+							label: "Entrega observável",
+							value:
+								"Landing page publicada com uma oferta exclusiva, argumento sequencial e um próximo passo dominante.",
+						},
+						{
+							label: "Escopo declarado",
+							value:
+								"Web design, UX/UI e organização do funil para uma parceria voltada aos alunos do Método PNG.",
+						},
+					]}
+				/>
 
 				<section id="pogne-case-content" className="pogne-context pogne-scroll-section">
 					<div className="pogne-section-index pogne-reveal">01 / Contexto</div>

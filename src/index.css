@@ -312,6 +312,82 @@
 		gap: 1.5rem;
 	}
 
+	.contact-form-shell {
+		position: relative;
+	}
+
+	.contact-anchor {
+		position: absolute;
+		top: -6rem;
+		left: 0;
+		width: 1px;
+		height: 1px;
+		pointer-events: none;
+	}
+
+	.contact-intent {
+		grid-column: 1 / -1;
+		margin: 0 0 1rem;
+		padding: 0;
+		border: 0;
+	}
+
+	.contact-intent legend {
+		margin-bottom: 0.75rem;
+		font-family: 'JetBrains Mono', ui-monospace, monospace;
+		font-size: 0.6875rem;
+		text-transform: uppercase;
+		letter-spacing: 0.16em;
+		color: #827F7E;
+	}
+
+	.contact-intent > div {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 0.75rem;
+	}
+
+	.contact-intent label {
+		position: relative;
+		display: flex;
+		align-items: center;
+		min-height: 3.5rem;
+		padding: 0.85rem 1rem;
+		border: 1px solid rgba(244, 241, 237, 0.22);
+		border-radius: 9999px;
+		color: rgba(244, 241, 237, 0.72);
+		font-size: 0.8125rem;
+		line-height: 1.35;
+		cursor: pointer;
+		transition: border-color 220ms ease, color 220ms ease, background-color 220ms ease;
+	}
+
+	.contact-intent label:hover {
+		border-color: rgba(226, 136, 104, 0.7);
+		color: #F4F1ED;
+	}
+
+	.contact-intent label[data-active="true"] {
+		border-color: #E28868;
+		background: rgba(226, 136, 104, 0.1);
+		color: #F4F1ED;
+	}
+
+	.contact-intent input {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		clip-path: inset(50%);
+		white-space: nowrap;
+	}
+
+	.contact-intent label:has(input:focus-visible) {
+		outline: 2px solid #E28868;
+		outline-offset: 4px;
+	}
+
 	.contact-field {
 		display: flex;
 		flex-direction: column;
@@ -394,6 +470,10 @@
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 
+		.contact-intent > div {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
 		.contact-field-full,
 		.contact-form-footer,
 		.contact-status {
@@ -429,6 +509,113 @@ html.lenis {
 }
 .lenis.lenis-smooth [data-lenis-prevent] {
 	overscroll-behavior: contain;
+}
+
+/* Shared executive summary — each case supplies its own accent tokens. */
+.case-quick-read {
+	--quick-accent: currentColor;
+	--quick-muted: currentColor;
+	--quick-border: currentColor;
+	width: min(100% - 3rem, 1400px);
+	margin: 0 auto;
+	padding: clamp(4.5rem, 9vw, 8rem) 0;
+	border-top: 1px solid var(--quick-border);
+	border-bottom: 1px solid var(--quick-border);
+}
+
+.case-quick-read-heading {
+	display: grid;
+	gap: 1.5rem;
+}
+
+.case-quick-read-heading > p,
+.case-quick-read dt {
+	font-family: 'JetBrains Mono', ui-monospace, monospace;
+	font-size: 0.625rem;
+	text-transform: uppercase;
+	letter-spacing: 0.16em;
+	color: var(--quick-accent);
+}
+
+.case-quick-read h2 {
+	max-width: 12ch;
+	font-family: 'Instrument Serif', Georgia, serif;
+	font-size: clamp(2.8rem, 7vw, 6.5rem);
+	font-weight: 400;
+	line-height: 0.92;
+	letter-spacing: -0.04em;
+	text-wrap: balance;
+}
+
+.case-quick-read-heading > div > p {
+	max-width: 52rem;
+	margin-top: 1.5rem;
+	font-size: clamp(1rem, 1.5vw, 1.25rem);
+	line-height: 1.65;
+	color: var(--quick-muted);
+}
+
+.case-quick-read-grid {
+	display: grid;
+	margin-top: clamp(3rem, 6vw, 5rem);
+	border-top: 1px solid var(--quick-border);
+}
+
+.case-quick-read-grid > div {
+	display: grid;
+	gap: 0.85rem;
+	padding: 1.5rem 0;
+	border-bottom: 1px solid var(--quick-border);
+}
+
+.case-quick-read dd {
+	max-width: 38rem;
+	font-size: 0.9375rem;
+	line-height: 1.65;
+}
+
+.aero-case .case-quick-read {
+	--quick-accent: #388cfa;
+	--quick-muted: #a9adba;
+	--quick-border: rgba(245, 245, 245, 0.12);
+}
+
+.fits-case .case-quick-read {
+	--quick-accent: #ff6666;
+	--quick-muted: rgba(245, 245, 247, 0.7);
+	--quick-border: rgba(245, 245, 247, 0.14);
+}
+
+.hub-case .case-quick-read {
+	--quick-accent: #ffb800;
+	--quick-muted: rgba(255, 255, 255, 0.68);
+	--quick-border: rgba(255, 255, 255, 0.12);
+}
+
+.pogne-case .case-quick-read {
+	--quick-accent: #876600;
+	--quick-muted: #5f5c5d;
+	--quick-border: rgba(11, 11, 13, 0.16);
+}
+
+@media (min-width: 768px) {
+	.case-quick-read-heading {
+		grid-template-columns: minmax(9rem, 0.4fr) minmax(0, 1.6fr);
+		gap: 2.5rem;
+	}
+
+	.case-quick-read-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.case-quick-read-grid > div {
+		padding: 1.75rem;
+	}
+
+	.case-quick-read-grid > div:nth-child(odd) {
+		padding-left: 0;
+		border-right: 1px solid var(--quick-border);
+	}
 }
 .lenis.lenis-stopped {
 	overflow: hidden;

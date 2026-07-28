@@ -102,8 +102,11 @@ export function Hero() {
 					<a href="#work" className="btn-primary">
 						Ver projetos <span aria-hidden>↓</span>
 					</a>
-					<a href="#contact" className="btn-ghost">
-						Conversar sobre um projeto
+					<a href="#contact-project" className="btn-ghost">
+						Contratar um projeto
+					</a>
+					<a href="#contact-opportunity" className="btn-ghost">
+						Oportunidade profissional
 					</a>
 				</div>
 

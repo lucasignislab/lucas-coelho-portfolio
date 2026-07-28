@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { contactEmail } from "@/data/site";
+import { CaseQuickRead } from "@/components/CaseQuickRead";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -44,31 +45,6 @@ export function RatoeiraHubCaseStudy() {
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
-		const previousTitle = document.title;
-		const description = document.querySelector<HTMLMetaElement>(
-			'meta[name="description"]'
-		);
-		const canonical =
-			document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-		const previousDescription = description?.content;
-		const previousCanonical = canonical?.href;
-
-		document.title = "Ratoeira Hub — Web Design Case Study | Lucas Coelho";
-		if (description) {
-			description.content =
-				"Case de web design e UX/UI para o ecossistema Ratoeira Hub: tracking server-side, proteção contra cliques fraudulentos e landing pages.";
-		}
-		if (canonical) {
-			canonical.href = "https://lucascoelhoux.site/projetos/ratoeira-hub";
-		}
-
-		return () => {
-			document.title = previousTitle;
-			if (description && previousDescription) {
-				description.content = previousDescription;
-			}
-			if (canonical && previousCanonical) canonical.href = previousCanonical;
-		};
 	}, []);
 
 	useLayoutEffect(() => {
@@ -173,9 +149,36 @@ export function RatoeiraHubCaseStudy() {
 						<a href="https://hub.ratoeiraadsoficial.com.br" target="_blank" rel="noopener noreferrer" className="hub-primary-button">
 							Explorar site ao vivo <span aria-hidden>↗</span>
 						</a>
-						<a href="#hub-case-content" className="hub-secondary-button">Ler o case <span aria-hidden>↓</span></a>
+						<a href="#hub-summary" className="hub-secondary-button">Ver resumo <span aria-hidden>↓</span></a>
 					</div>
 				</section>
+
+				<CaseQuickRead
+					id="hub-summary"
+					intro="Uma narrativa digital criada para transformar produtos, integrações e tecnologias de performance em um ecossistema legível."
+					items={[
+						{
+							label: "Desafio",
+							value:
+								"Explicar tracking, proteção contra fraude e landing pages sem apresentar as soluções como produtos desconectados.",
+						},
+						{
+							label: "Decisão central",
+							value:
+								"Organizar a comunicação como uma jornada operacional comum, mantendo clara a função específica de cada módulo.",
+						},
+						{
+							label: "Entrega observável",
+							value:
+								"Site institucional publicado com ecossistema, demonstração de produto e integrações apresentados em uma narrativa única.",
+						},
+						{
+							label: "Escopo declarado",
+							value:
+								"Web design, UX/UI e estrutura de conteúdo para uma operação de adtech e martech.",
+						},
+					]}
+				/>
 
 				<section id="hub-case-content" className="hub-case-context hub-scroll-section">
 					<div className="hub-section-index hub-section-reveal">01 / Contexto</div>

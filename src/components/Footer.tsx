@@ -4,10 +4,28 @@ import { useTilt } from "@/hooks/use-tilt";
 import { contactEmail, socials } from "@/data/site";
 import { revealCharsOnScroll, splitChars } from "@/lib/animations";
 
+type ContactIntent = "project" | "opportunity";
+
 function ContactForm() {
 	const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
 		"idle"
 	);
+	const [intent, setIntent] = useState<ContactIntent>("project");
+
+	useEffect(() => {
+		function syncIntentWithHash() {
+			if (window.location.hash === "#contact-opportunity") {
+				setIntent("opportunity");
+			}
+			if (window.location.hash === "#contact-project") {
+				setIntent("project");
+			}
+		}
+
+		syncIntentWithHash();
+		window.addEventListener("hashchange", syncIntentWithHash);
+		return () => window.removeEventListener("hashchange", syncIntentWithHash);
+	}, []);
 
 	async function handleSubmit(event: FormEvent<HTMLFormElement>) {
 		event.preventDefault();
@@ -43,11 +61,42 @@ function ContactForm() {
 			className="contact-form"
 		>
 			<input type="hidden" name="form-name" value="contato" />
+			<input
+				type="hidden"
+				name="intent"
+				value={intent === "project" ? "Novo projeto" : "Oportunidade profissional"}
+			/>
 			<p className="hidden">
 				<label>
 					Não preencha este campo: <input name="bot-field" />
 				</label>
 			</p>
+
+			<fieldset className="contact-intent">
+				<legend>Qual conversa faz sentido agora?</legend>
+				<div>
+					<label data-active={intent === "project"}>
+						<input
+							type="radio"
+							name="contactPath"
+							value="project"
+							checked={intent === "project"}
+							onChange={() => setIntent("project")}
+						/>
+						<span>Quero contratar um projeto</span>
+					</label>
+					<label data-active={intent === "opportunity"}>
+						<input
+							type="radio"
+							name="contactPath"
+							value="opportunity"
+							checked={intent === "opportunity"}
+							onChange={() => setIntent("opportunity")}
+						/>
+						<span>Quero falar sobre uma oportunidade</span>
+					</label>
+				</div>
+			</fieldset>
 
 			<div className="contact-field">
 				<label htmlFor="name">Nome</label>
@@ -75,33 +124,71 @@ function ContactForm() {
 				/>
 			</div>
 
-			<div className="contact-field">
-				<label htmlFor="projectType">Tipo de projeto</label>
-				<select id="projectType" name="projectType" defaultValue="" required>
-					<option value="" disabled>
-						Selecione uma opção
-					</option>
-					<option>Site institucional</option>
-					<option>Landing page</option>
-					<option>Produto digital / UX/UI</option>
-					<option>Identidade e direção digital</option>
-					<option>Outro</option>
-				</select>
-			</div>
+			{intent === "project" ? (
+				<>
+					<div className="contact-field">
+						<label htmlFor="projectType">Tipo de projeto</label>
+						<select id="projectType" name="projectType" defaultValue="" required>
+							<option value="" disabled>
+								Selecione uma opção
+							</option>
+							<option>Site institucional</option>
+							<option>Landing page</option>
+							<option>Produto digital / UX/UI</option>
+							<option>Identidade e direção digital</option>
+							<option>Outro</option>
+						</select>
+					</div>
 
-			<div className="contact-field">
-				<label htmlFor="budget">Faixa de investimento</label>
-				<select id="budget" name="budget" defaultValue="">
-					<option value="">Prefiro conversar primeiro</option>
-					<option>Até R$ 5 mil</option>
-					<option>R$ 5 mil – R$ 10 mil</option>
-					<option>R$ 10 mil – R$ 20 mil</option>
-					<option>Acima de R$ 20 mil</option>
-				</select>
-			</div>
+					<div className="contact-field">
+						<label htmlFor="budget">Faixa de investimento</label>
+						<select id="budget" name="budget" defaultValue="">
+							<option value="">Prefiro conversar primeiro</option>
+							<option>Até R$ 5 mil</option>
+							<option>R$ 5 mil – R$ 10 mil</option>
+							<option>R$ 10 mil – R$ 20 mil</option>
+							<option>Acima de R$ 20 mil</option>
+						</select>
+					</div>
+				</>
+			) : (
+				<>
+					<div className="contact-field">
+						<label htmlFor="opportunityType">Tipo de oportunidade</label>
+						<select
+							id="opportunityType"
+							name="opportunityType"
+							defaultValue=""
+							required
+						>
+							<option value="" disabled>
+								Selecione uma opção
+							</option>
+							<option>Vaga em produto ou design</option>
+							<option>Posição híbrida design e desenvolvimento</option>
+							<option>Colaboração profissional</option>
+							<option>Conversa exploratória</option>
+						</select>
+					</div>
+
+					<div className="contact-field">
+						<label htmlFor="workModel">Modelo de trabalho</label>
+						<select id="workModel" name="workModel" defaultValue="">
+							<option value="">Podemos definir em conversa</option>
+							<option>Remoto</option>
+							<option>Híbrido em Campinas ou região</option>
+							<option>Presencial em Campinas ou região</option>
+						</select>
+					</div>
+				</>
+			)}
 
 			<div className="contact-field contact-field-full">
-				<label htmlFor="message">Conte um pouco sobre o projeto</label>
+				<label htmlFor="message">
+					{intent === "project"
+						? "Conte um pouco sobre o projeto"
+						: "Conte um pouco sobre a oportunidade"}
+				</label>
 				<textarea id="message" name="message" rows={5} required />
 			</div>
 
@@ -114,7 +201,11 @@ function ContactForm() {
 					className="btn-primary"
 					disabled={status === "sending"}
 				>
-					{status === "sending" ? "Enviando…" : "Enviar mensagem"}
+					{status === "sending"
+						? "Enviando…"
+						: intent === "project"
+							? "Enviar proposta de conversa"
+							: "Enviar oportunidade"}
 				</button>
 			</div>
 
@@ -189,14 +280,14 @@ export function Footer() {
 					overflow: "visible",
 				}}
 			>
-				Vamos criar algo incrível juntos.
+				Qual é a próxima conversa?
 			</h2>
 
 			<div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
 				<div className="lg:col-span-4 flex flex-col gap-8">
 					<p className="font-mono text-xs uppercase tracking-[0.2em] text-ash">
-						Baseado no Brasil — trabalhando remotamente com clientes de
-						qualquer lugar
+						Projetos independentes e oportunidades profissionais têm o mesmo
+						espaço por aqui.
 					</p>
 
 					<a
@@ -209,7 +300,13 @@ export function Footer() {
 						<span className="link-underline">Prefere e-mail?</span>
 					</a>
 				</div>
-				<div className="lg:col-span-8">
+				<div className="lg:col-span-8 contact-form-shell">
+					<span id="contact-project" className="contact-anchor" aria-hidden="true" />
+					<span
+						id="contact-opportunity"
+						className="contact-anchor"
+						aria-hidden="true"
+					/>
 					<ContactForm />
 				</div>
 			</div>

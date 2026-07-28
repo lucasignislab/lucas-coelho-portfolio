@@ -1,4 +1,4 @@
-import { contactEmail, navItems } from "@/data/site";
+import { navItems } from "@/data/site";
 
 /**
  * Header posicionado no topo e integrado ao fluxo de rolagem:
@@ -21,11 +21,14 @@ export function Header() {
 					height="32"
 					className="h-8 w-8 md:h-9 md:w-9 shrink-0 rounded-[0.35rem] transition-transform duration-500 ease-out group-hover:-rotate-6 group-hover:scale-105"
 				/>
-				<span className="link-underline">Lucas Coelho</span>
+				<span className="hidden sm:inline link-underline">Lucas Coelho</span>
 			</a>
 
 			{/* Right: nav */}
-			<nav className="flex items-center gap-6 md:gap-10 pointer-events-auto">
+			<nav
+				className="flex items-center gap-5 md:gap-10 pointer-events-auto"
+				aria-label="Navegação principal"
+			>
 				<ul className="hidden md:flex items-center gap-8">
 					{navItems.map((item) => (
 						<li key={item.href}>
@@ -40,8 +43,15 @@ export function Header() {
 				</ul>
 
 				<a
-					href={`mailto:${contactEmail}`}
-					className="magnetic inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-bone/40 text-bone font-mono text-xs uppercase tracking-[0.2em] hover:border-ember hover:text-ember transition-colors duration-500"
+					href="#work"
+					className="md:hidden min-h-11 inline-flex items-center font-mono text-[0.68rem] uppercase tracking-[0.16em] text-bone link-underline"
+				>
+					Projetos
+				</a>
+
+				<a
+					href="#contact"
+					className="magnetic min-h-11 inline-flex items-center gap-2 px-4 md:px-5 py-2.5 rounded-full border border-bone/40 text-bone font-mono text-[0.68rem] md:text-xs uppercase tracking-[0.16em] md:tracking-[0.2em] hover:border-ember hover:text-ember transition-colors duration-500"
 				>
 					<span className="hidden md:inline">Vamos conversar</span>
 					<span className="md:hidden">Contato</span>
