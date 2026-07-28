@@ -1,8 +1,15 @@
-import { Component, type ErrorInfo, type ReactNode } from "react";
+import {
+	Component,
+	lazy,
+	Suspense,
+	type ErrorInfo,
+	type ReactNode,
+} from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { Cursor } from "@/components/Cursor";
+import { Seo } from "@/components/Seo";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
@@ -10,10 +17,27 @@ import { About } from "@/components/About";
 import { Skills } from "@/components/Skills";
 import { SelectedWork } from "@/components/SelectedWork";
 import { Footer } from "@/components/Footer";
-import { AeroCaseStudy } from "@/components/AeroCaseStudy";
-import { FitsYouCaseStudy } from "@/components/FitsYouCaseStudy";
-import { RatoeiraHubCaseStudy } from "@/components/RatoeiraHubCaseStudy";
-import { PogneCaseStudy } from "@/components/PogneCaseStudy";
+
+const AeroCaseStudy = lazy(() =>
+	import("@/components/AeroCaseStudy").then(module => ({
+		default: module.AeroCaseStudy,
+	}))
+);
+const FitsYouCaseStudy = lazy(() =>
+	import("@/components/FitsYouCaseStudy").then(module => ({
+		default: module.FitsYouCaseStudy,
+	}))
+);
+const RatoeiraHubCaseStudy = lazy(() =>
+	import("@/components/RatoeiraHubCaseStudy").then(module => ({
+		default: module.RatoeiraHubCaseStudy,
+	}))
+);
+const PogneCaseStudy = lazy(() =>
+	import("@/components/PogneCaseStudy").then(module => ({
+		default: module.PogneCaseStudy,
+	}))
+);
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,7 +91,10 @@ function App() {
 	if (pathname === "/projetos/aero") {
 		return (
 			<ErrorBoundary>
-				<AeroCaseStudy />
+				<Seo pathname={pathname} />
+				<Suspense fallback={null}>
+					<AeroCaseStudy />
+				</Suspense>
 			</ErrorBoundary>
 		);
 	}
@@ -75,7 +102,10 @@ function App() {
 	if (pathname === "/projetos/fits-you") {
 		return (
 			<ErrorBoundary>
-				<FitsYouCaseStudy />
+				<Seo pathname={pathname} />
+				<Suspense fallback={null}>
+					<FitsYouCaseStudy />
+				</Suspense>
 			</ErrorBoundary>
 		);
 	}
@@ -83,7 +113,10 @@ function App() {
 	if (pathname === "/projetos/ratoeira-hub") {
 		return (
 			<ErrorBoundary>
-				<RatoeiraHubCaseStudy />
+				<Seo pathname={pathname} />
+				<Suspense fallback={null}>
+					<RatoeiraHubCaseStudy />
+				</Suspense>
 			</ErrorBoundary>
 		);
 	}
@@ -91,13 +124,17 @@ function App() {
 	if (pathname === "/projetos/pogne") {
 		return (
 			<ErrorBoundary>
-				<PogneCaseStudy />
+				<Seo pathname={pathname} />
+				<Suspense fallback={null}>
+					<PogneCaseStudy />
+				</Suspense>
 			</ErrorBoundary>
 		);
 	}
 
 	return (
 		<ErrorBoundary>
+			<Seo pathname={pathname} />
 			<Cursor />
 			<SmoothScroll>
 				<Header />
