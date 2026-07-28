@@ -29,4 +29,5 @@ jobs:
         with:
           name: impeccable-codex
           path: package
+          include-hidden-files: true
           if-no-files-found: error
