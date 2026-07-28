@@ -37,24 +37,6 @@ export function PogneCaseStudy() {
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
-		const previousTitle = document.title;
-		const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
-		const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-		const previousDescription = description?.content;
-		const previousCanonical = canonical?.href;
-
-		document.title = "Pogne × Ratoeira Ads — Conversion Design Case | Lucas Coelho";
-		if (description) {
-			description.content =
-				"Case de web design e conversion design para a parceria entre Método PNG e Ratoeira Ads.";
-		}
-		if (canonical) canonical.href = "https://lucascoelhoux.site/projetos/pogne";
-
-		return () => {
-			document.title = previousTitle;
-			if (description && previousDescription) description.content = previousDescription;
-			if (canonical && previousCanonical) canonical.href = previousCanonical;
-		};
 	}, []);
 
 	useLayoutEffect(() => {
