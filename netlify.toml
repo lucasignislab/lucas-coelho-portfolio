@@ -8,13 +8,6 @@
   # Versão do Node compatível com Vite 6 / React 18
   NODE_VERSION = "20"
 
-# SPA fallback — qualquer rota que não exista serve o index.html
-# (importante para futuras rotas como /work/:slug etc.)
-[[redirects]]
-  from = "/*"
-  to   = "/index.html"
-  status = 200
-
 # Headers de cache para assets com hash (immutable)
 [[headers]]
   for = "/assets/*"
