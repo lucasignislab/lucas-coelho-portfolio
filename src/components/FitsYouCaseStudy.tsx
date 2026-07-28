@@ -50,34 +50,6 @@ export function FitsYouCaseStudy() {
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
-
-		const previousTitle = document.title;
-		const description = document.querySelector<HTMLMetaElement>(
-			'meta[name="description"]'
-		);
-		const canonical =
-			document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-		const previousDescription = description?.content;
-		const previousCanonical = canonical?.href;
-
-		document.title = "Fits You — Web Design Case Study | Lucas Coelho";
-		if (description) {
-			description.content =
-				"Case de web design e UX/UI do Fits You, site institucional para um studio de cross training e Pilates em Barão Geraldo, Campinas.";
-		}
-		if (canonical) {
-			canonical.href = "https://lucascoelhoux.site/projetos/fits-you";
-		}
-
-		return () => {
-			document.title = previousTitle;
-			if (description && previousDescription) {
-				description.content = previousDescription;
-			}
-			if (canonical && previousCanonical) {
-				canonical.href = previousCanonical;
-			}
-		};
 	}, []);
 
 	useLayoutEffect(() => {
