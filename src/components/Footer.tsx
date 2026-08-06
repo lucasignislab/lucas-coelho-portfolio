@@ -341,16 +341,24 @@ export function Footer() {
 				</ul>
 			</div>
 
-			{/* Bottom: monograma + copyright (sem logo) */}
+			{/* Bottom: monograma + informações legais */}
 			<div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-bone/10">
 				<span className="font-mono text-xs uppercase tracking-[0.2em] text-bone">
 					LC
 				</span>
 
-				<p className="font-mono text-xs uppercase tracking-[0.2em] text-ash text-right">
-					<span className="block">© {new Date().getFullYear()} Lucas Coelho.</span>
-					<span className="block">Feito com amor por mim.</span>
-				</p>
+				<div className="flex flex-col items-center md:items-end gap-2 font-mono text-xs uppercase tracking-[0.16em] text-ash md:text-right">
+					<a
+						href="/politica-de-privacidade"
+						className="text-bone link-underline"
+					>
+						Política de privacidade
+					</a>
+					<p>
+						<span className="block">© {new Date().getFullYear()} Lucas Coelho.</span>
+						<span className="block">Feito com amor por mim.</span>
+					</p>
+				</div>
 			</div>
 		</footer>
 	);

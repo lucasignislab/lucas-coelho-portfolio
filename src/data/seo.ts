@@ -92,6 +92,31 @@ export const seoPages: Record<string, SeoPage> = {
 			],
 		},
 	},
+	"/politica-de-privacidade": {
+		path: "/politica-de-privacidade",
+		title: "Política de Privacidade | Lucas Coelho",
+		description:
+			"Saiba quais dados são tratados neste portfólio, como são utilizados e como exercer seus direitos de privacidade.",
+		image: "/og-card.png",
+		imageAlt: "Política de Privacidade do portfólio de Lucas Coelho",
+		imageWidth: 1200,
+		imageHeight: 630,
+		ogType: "website",
+		schema: {
+			"@context": "https://schema.org",
+			"@type": "WebPage",
+			name: "Política de Privacidade",
+			url: `${SITE_URL}/politica-de-privacidade`,
+			description:
+				"Informações sobre tratamento de dados pessoais no portfólio de Lucas Coelho.",
+			inLanguage: "pt-BR",
+			isPartOf: {
+				"@type": "WebSite",
+				name: "Portfólio de Lucas Coelho",
+				url: `${SITE_URL}/`,
+			},
+		},
+	},
 	"/projetos/aero": {
 		path: "/projetos/aero",
 		title: "Aero — Case de Product Design | Lucas Coelho",

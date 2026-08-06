@@ -17,6 +17,7 @@ import { About } from "@/components/About";
 import { Skills } from "@/components/Skills";
 import { SelectedWork } from "@/components/SelectedWork";
 import { Footer } from "@/components/Footer";
+import { PrivacyPolicy } from "@/components/PrivacyPolicy";
 
 const AeroCaseStudy = lazy(() =>
 	import("@/components/AeroCaseStudy").then(module => ({
@@ -87,6 +88,16 @@ class ErrorBoundary extends Component<
 
 function App() {
 	const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
+
+	if (pathname === "/politica-de-privacidade") {
+		return (
+			<ErrorBoundary>
+				<Seo pathname={pathname} />
+				<Cursor />
+				<PrivacyPolicy />
+			</ErrorBoundary>
+		);
+	}
 
 	if (pathname === "/projetos/aero") {
 		return (
