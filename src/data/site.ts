@@ -23,5 +23,6 @@ export const navItems = [
 	{ label: "Projetos", href: "#work" },
 	{ label: "Sobre", href: "#about" },
 	{ label: "Serviços", href: "#skills" },
+	{ label: "Blog", href: "/blog/" },
 	{ label: "Contato", href: "#contact" },
 ];

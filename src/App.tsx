@@ -21,6 +21,24 @@ import { Footer } from "@/components/Footer";
 import { PrivacyPolicy } from "@/components/PrivacyPolicy";
 import { useGtagPageview } from "@/hooks/useGtagPageview";
 
+const lazyBlog: BlogComponents = {
+	Index: lazy(() =>
+		import("@/components/BlogIndex").then(module => ({
+			default: module.BlogIndex,
+		}))
+	),
+	Article: lazy(() =>
+		import("@/components/BlogArticle").then(module => ({
+			default: module.BlogArticle,
+		}))
+	),
+};
+
+export interface BlogComponents {
+	Index: ComponentType;
+	Article: ComponentType<{ slug: string }>;
+}
+
 export interface CaseComponents {
 	Aero: ComponentType;
 	FitsYou: ComponentType;
@@ -102,15 +120,41 @@ interface AppProps {
 	path?: string;
 	/** Componentes de case eager (SSR). No cliente, usa React.lazy. */
 	cases?: CaseComponents;
+	/** Componentes do blog eager (SSR). No cliente, usa React.lazy. */
+	blog?: BlogComponents;
 }
 
-function App({ path, cases }: AppProps) {
+function App({ path, cases, blog }: AppProps) {
 	const pathname = (
 		path ?? (typeof window !== "undefined" ? window.location.pathname : "/")
 	).replace(/\/+$/, "") || "/";
 	const Cases = cases ?? lazyCases;
+	const Blog = blog ?? lazyBlog;
 
 	useGtagPageview(pathname);
+
+	if (pathname === "/blog") {
+		return (
+			<ErrorBoundary>
+				<Seo pathname={pathname} />
+				<Suspense fallback={null}>
+					<Blog.Index />
+				</Suspense>
+			</ErrorBoundary>
+		);
+	}
+
+	if (pathname.startsWith("/blog/")) {
+		const slug = pathname.slice("/blog/".length);
+		return (
+			<ErrorBoundary>
+				<Seo pathname={pathname} />
+				<Suspense fallback={null}>
+					<Blog.Article slug={slug} />
+				</Suspense>
+			</ErrorBoundary>
+		);
+	}
 
 	if (pathname === "/politica-de-privacidade") {
 		return (

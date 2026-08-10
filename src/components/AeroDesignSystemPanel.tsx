@@ -1,29 +1,120 @@
 import { useState } from "react";
 
-const colorTokens = [
+interface ColorToken {
+	className: string;
+	hex: string;
+	role: string;
+}
+
+interface ColorGroup {
+	title: string;
+	subtitle: string;
+	tokens: readonly ColorToken[];
+}
+
+const colorGroups: readonly ColorGroup[] = [
 	{
-		name: "Background",
-		hex: "#101115",
-		usage: "Canvas principal",
-		tone: "dark",
+		title: "Marca e Estrutura",
+		subtitle: "7 tokens · superfícies e ação",
+		tokens: [
+			{
+				className: "bg-primary",
+				hex: "#24262F",
+				role: "Fundo principal da aplicação (Body)",
+			},
+			{
+				className: "bg-primary-10",
+				hex: "#1D1F26",
+				role: "Painéis (Sidebar), cards primários",
+			},
+			{
+				className: "bg-primary-20",
+				hex: "#17181D",
+				role: "Inputs, dropdowns",
+			},
+			{
+				className: "bg-primary-30",
+				hex: "#101115",
+				role: "Sombras profundas, bordas sutis",
+			},
+			{
+				className: "bg-brand",
+				hex: "#388CFA",
+				role: "Ação principal (links, botões primários)",
+			},
+			{
+				className: "bg-background",
+				hex: "#0E1015",
+				role: "Fundo alternativo profundo",
+			},
+			{
+				className: "bg-card",
+				hex: "#1A1C23",
+				role: "Superfícies elevadas",
+			},
+		],
 	},
 	{
-		name: "Surface",
-		hex: "#24262F",
-		usage: "Cards e painéis",
-		tone: "surface",
+		title: "Texto e Conteúdo — Neutral",
+		subtitle: "5 tokens · hierarquia de leitura",
+		tokens: [
+			{
+				className: "text-neutral",
+				hex: "#FFFFFF",
+				role: "Títulos, texto de alto contraste",
+			},
+			{
+				className: "text-neutral-10",
+				hex: "#F5F5F5",
+				role: "Texto do corpo principal",
+			},
+			{
+				className: "text-neutral-20",
+				hex: "#D4D4D4",
+				role: "Legendas, descrições secundárias",
+			},
+			{
+				className: "text-neutral-30",
+				hex: "#A3A3A3",
+				role: "Placeholders, ícones inativos",
+			},
+			{
+				className: "text-neutral-40",
+				hex: "#737373",
+				role: "Bordas desabilitadas",
+			},
+		],
 	},
 	{
-		name: "Action",
-		hex: "#388CFA",
-		usage: "Ações e foco",
-		tone: "blue",
-	},
-	{
-		name: "Destructive",
-		hex: "#911756",
-		usage: "Ações críticas",
-		tone: "red",
+		title: "Feedback e Status",
+		subtitle: "5 tokens · estados semânticos",
+		tokens: [
+			{
+				className: "bg-success",
+				hex: "#18821C",
+				role: "Concluído, seguro, positivo",
+			},
+			{
+				className: "bg-warning",
+				hex: "#A35A01",
+				role: "Atenção, pendente, cuidado",
+			},
+			{
+				className: "bg-danger",
+				hex: "#911756",
+				role: "Erro, falha, ação destrutiva",
+			},
+			{
+				className: "bg-info",
+				hex: "#008E8E",
+				role: "Informativo, neutro",
+			},
+			{
+				className: "bg-accent",
+				hex: "#535C91",
+				role: "Destaque secundário, badges, tags",
+			},
+		],
 	},
 ] as const;
 
@@ -65,25 +156,52 @@ export function AeroDesignSystemPanel() {
 					</h2>
 				</div>
 				<p>
-					Uma base neutra reduz competição visual. A cor aparece quando
-					comunica estado, hierarquia ou ação.
+					O sistema expandido fecha em 18 tokens de cor, 7 níveis
+					tipográficos, 8 passos de espaçamento e 9 componentes. A cor
+					aparece quando comunica estado, hierarquia ou ação — e cada
+					token nomeia um papel, não uma aparência.
 				</p>
 			</header>
 
-			<div className="aero-ds-palette" aria-label="Tokens de cor do Aero">
-				{colorTokens.map(token => (
-					<button
-						key={token.hex}
-						type="button"
-						className={`aero-ds-swatch aero-ds-${token.tone}`}
-						onClick={() => void copyToken(token.hex)}
-						aria-label={`Copiar cor ${token.name}, ${token.hex}`}
+			<div
+				className="aero-ds-token-groups"
+				aria-label="Tokens de cor do Aero"
+			>
+				{colorGroups.map(group => (
+					<section
+						key={group.title}
+						className="aero-ds-token-group"
+						aria-label={group.title}
 					>
-						<span>{token.name}</span>
-						<strong>{copiedToken === token.hex ? "Copiado" : token.hex}</strong>
-						<small>{token.usage}</small>
-						<i aria-hidden="true">+</i>
-					</button>
+						<div className="aero-ds-section-label">
+							<span>{group.title}</span>
+							<span>{group.subtitle}</span>
+						</div>
+						<div className="aero-ds-token-grid">
+							{group.tokens.map(token => (
+								<button
+									key={token.className}
+									type="button"
+									className="aero-ds-token-card"
+									onClick={() => void copyToken(token.hex)}
+									aria-label={`Copiar token ${token.className}, ${token.hex}`}
+								>
+									<i
+										className="aero-ds-token-chip"
+										style={{ backgroundColor: token.hex }}
+										aria-hidden="true"
+									/>
+									<span className="aero-ds-token-class">
+										{token.className}
+									</span>
+									<strong>
+										{copiedToken === token.hex ? "Copiado" : token.hex}
+									</strong>
+									<small>{token.role}</small>
+								</button>
+							))}
+						</div>
+					</section>
 				))}
 			</div>
 
@@ -91,7 +209,7 @@ export function AeroDesignSystemPanel() {
 				<section className="aero-ds-type" aria-labelledby="aero-type-title">
 					<div className="aero-ds-section-label">
 						<span id="aero-type-title">Tipografia</span>
-						<span>Hierarquia funcional</span>
+						<span>7 níveis · hierarquia funcional</span>
 					</div>
 					<div className="aero-ds-type-sample">
 						<span aria-hidden="true">Aa</span>
@@ -112,7 +230,7 @@ export function AeroDesignSystemPanel() {
 				>
 					<div className="aero-ds-section-label">
 						<span id="aero-components-title">Componentes</span>
-						<span>Estados observáveis</span>
+						<span>9 componentes · estados observáveis</span>
 					</div>
 
 					<div className="aero-ds-state-tabs" aria-label="Estado do componente">
@@ -167,6 +285,14 @@ export function AeroDesignSystemPanel() {
 					<li>Navegação por teclado</li>
 					<li>Hierarquia sem depender apenas de cor</li>
 				</ul>
+				<a
+					className="aero-ds-docs-link"
+					href="https://aeroprojectmanager.netlify.app/design-system"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Documentação viva do design system ↗
+				</a>
 			</footer>
 		</section>
 	);

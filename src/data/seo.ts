@@ -1,3 +1,5 @@
+import { articles, getReadingTime } from "./blog";
+
 export const SITE_URL = "https://lucascoelhoux.site";
 
 export interface SeoPage {
@@ -64,7 +66,68 @@ const caseSchema = (
 	},
 });
 
+const blogSchema = {
+	"@context": "https://schema.org",
+	"@type": "Blog",
+	"@id": `${SITE_URL}/blog/#blog`,
+	name: "Blog — Lucas Coelho",
+	description:
+		"Escritos sobre design, produto e código por Lucas Coelho, designer digital em Campinas.",
+	url: `${SITE_URL}/blog`,
+	inLanguage: "pt-BR",
+	author: person,
+	isPartOf: {
+		"@type": "WebSite",
+		name: "Portfólio de Lucas Coelho",
+		url: `${SITE_URL}/`,
+	},
+};
+
+const articleSeoPage = (article: (typeof articles)[number]): SeoPage => ({
+	path: `/blog/${article.slug}`,
+	title: `${article.title} | Blog Lucas Coelho`,
+	description: article.ogDescription,
+	image: article.coverImage,
+	imageAlt: article.coverImageAlt,
+	imageWidth: 1024,
+	imageHeight: 576,
+	ogType: "article",
+	schema: {
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		headline: article.title,
+		description: article.ogDescription,
+		url: `${SITE_URL}/blog/${article.slug}/`,
+		mainEntityOfPage: `${SITE_URL}/blog/${article.slug}/`,
+		image: `${SITE_URL}${article.coverImage}`,
+		datePublished: article.date,
+		dateModified: article.date,
+		inLanguage: "pt-BR",
+		keywords: article.tags,
+		wordCount: getReadingTime(article) * 200,
+		author: person,
+		isPartOf: { "@id": `${SITE_URL}/blog/#blog` },
+	},
+});
+
+const articleSeoPages: Record<string, SeoPage> = Object.fromEntries(
+	articles.map(article => [`/blog/${article.slug}`, articleSeoPage(article)])
+);
+
 export const seoPages: Record<string, SeoPage> = {
+	"/blog": {
+		path: "/blog",
+		title: "Blog — escritos sobre design, produto e código | Lucas Coelho",
+		description:
+			"Artigos de Lucas Coelho sobre design systems, product design, UX/UI e front-end: processo real, decisões e aprendizados de projetos digitais.",
+		image: "/og-card.png",
+		imageAlt: "Blog de Lucas Coelho — escritos sobre design, produto e código",
+		imageWidth: 1200,
+		imageHeight: 630,
+		ogType: "website",
+		schema: blogSchema,
+	},
+	...articleSeoPages,
 	"/": {
 		path: "/",
 		title: "Lucas Coelho — Designer Digital em Campinas",

@@ -348,6 +348,9 @@ export function Footer() {
 				</span>
 
 				<div className="flex flex-col items-center md:items-end gap-2 font-mono text-xs uppercase tracking-[0.16em] text-ash md:text-right">
+					<a href="/blog/" className="text-bone link-underline">
+						Blog
+					</a>
 					<a
 						href="/politica-de-privacidade"
 						className="text-bone link-underline"
