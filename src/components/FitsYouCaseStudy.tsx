@@ -132,7 +132,7 @@ export function FitsYouCaseStudy() {
 						<div className="fits-case-hero-copy">
 							<div className="fits-reveal-mask">
 								<p className="fits-case-eyebrow fits-hero-reveal">
-									Web Design · UX/UI · 2024
+									Case de Web Design · UX/UI · 2024
 								</p>
 							</div>
 							<h1>
@@ -141,14 +141,14 @@ export function FitsYouCaseStudy() {
 								</span>
 								<span className="fits-reveal-mask">
 									<em className="fits-hero-reveal">
-										Performance encontra cuidado.
+										Web Design para Studio de Pilates
 									</em>
 								</span>
 							</h1>
 							<p>
-								Um site institucional para apresentar um studio de cross
-								training e Pilates sem reduzir sua identidade a apenas
-								intensidade ou bem-estar.
+								Performance encontra cuidado: um site institucional para
+								apresentar um studio de cross training e Pilates sem reduzir
+								sua identidade a apenas intensidade ou bem-estar.
 							</p>
 						</div>
 

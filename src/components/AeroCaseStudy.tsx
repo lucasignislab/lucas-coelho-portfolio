@@ -209,7 +209,7 @@ export function AeroCaseStudy() {
 						<div className="aero-case-hero-copy">
 							<div className="aero-reveal-mask">
 								<p className="aero-case-eyebrow aero-hero-reveal">
-									Projeto autoral e solo · 2025
+									Case de Product Design · SaaS · Projeto autoral · 2025
 								</p>
 							</div>
 							<h1>
@@ -218,7 +218,7 @@ export function AeroCaseStudy() {
 								</span>
 								<span className="aero-reveal-mask">
 									<em className="aero-hero-reveal">
-										Project Management SaaS
+										Product Design para SaaS
 									</em>
 								</span>
 							</h1>

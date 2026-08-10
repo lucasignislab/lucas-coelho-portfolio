@@ -116,11 +116,11 @@ export function RatoeiraHubCaseStudy() {
 				<section className="hub-case-hero">
 					<div className="hub-case-hero-copy">
 						<div className="hub-reveal-mask">
-							<p className="hub-case-eyebrow hub-hero-reveal">Web Design · UX/UI · 2024</p>
+							<p className="hub-case-eyebrow hub-hero-reveal">Case de Web Design · Adtech · 2024</p>
 						</div>
 						<h1>
 							<span className="hub-reveal-mask"><strong className="hub-hero-reveal">Ratoeira</strong></span>
-							<span className="hub-reveal-mask"><em className="hub-hero-reveal">Hub</em></span>
+							<span className="hub-reveal-mask"><em className="hub-hero-reveal">Hub · Web Design para Adtech</em></span>
 						</h1>
 						<p>
 							Um site institucional desenhado para transformar diferentes produtos,

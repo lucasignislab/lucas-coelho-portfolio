@@ -86,10 +86,10 @@ export function PogneCaseStudy() {
 			<main>
 				<section className="pogne-case-hero">
 					<div className="pogne-case-hero-copy">
-						<p className="pogne-case-eyebrow">Landing page · Conversion design · 2024</p>
+						<p className="pogne-case-eyebrow">Case de Landing Page de Conversão · 2024</p>
 						<h1>
 							<span className="pogne-reveal-mask"><strong className="pogne-hero-line">Pogne</strong></span>
-							<span className="pogne-reveal-mask"><em className="pogne-hero-line">× RA Ads</em></span>
+							<span className="pogne-reveal-mask"><em className="pogne-hero-line">× RA Ads · Landing Page de Conversão</em></span>
 						</h1>
 						<p className="pogne-hero-intro">
 							Uma landing page de parceria desenhada para transformar uma oferta técnica em uma história direta sobre segurança, acesso e ação.

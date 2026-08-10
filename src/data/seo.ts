@@ -119,17 +119,17 @@ export const seoPages: Record<string, SeoPage> = {
 	},
 	"/projetos/aero": {
 		path: "/projetos/aero",
-		title: "Aero — Case de Product Design | Lucas Coelho",
+		title: "Case de Product Design para SaaS — Aero | Lucas Coelho",
 		description:
-			"Case autoral de product design do Aero: estratégia, UX/UI, prototipação e desenvolvimento de um SaaS de gestão de projetos keyboard-first.",
+			"Case de product design e UX/UI para SaaS de gestão de projetos keyboard-first: estratégia, prototipação e desenvolvimento do Aero.",
 		image: "/lovable-uploads/aero-project-cover.webp",
 		imageAlt: "Interface do Aero Project Manager",
 		imageWidth: 1024,
 		imageHeight: 576,
 		ogType: "article",
 		schema: caseSchema(
-			"Aero — Case de Product Design",
-			"Case autoral de product design do Aero, um SaaS de gestão de projetos keyboard-first.",
+			"Case de Product Design para SaaS — Aero",
+			"Case de product design e UX/UI do Aero, um SaaS de gestão de projetos keyboard-first.",
 			"/projetos/aero",
 			"/lovable-uploads/aero-project-cover.webp",
 			"2025",
@@ -138,16 +138,16 @@ export const seoPages: Record<string, SeoPage> = {
 	},
 	"/projetos/fits-you": {
 		path: "/projetos/fits-you",
-		title: "Fits You — Case de Web Design e UX/UI | Lucas Coelho",
+		title: "Case de Web Design e UX/UI para Studio de Pilates — Fits You",
 		description:
-			"Case de web design e UX/UI do Fits You, site institucional para um studio de cross training e Pilates em Barão Geraldo, Campinas.",
+			"Case de web design e UX/UI para o Fits You, studio de cross training e Pilates em Barão Geraldo, Campinas: site institucional completo.",
 		image: "/lovable-uploads/fitsyou.webp",
 		imageAlt: "Interface do site Fits You Studio",
 		imageWidth: 2868,
 		imageHeight: 1314,
 		ogType: "article",
 		schema: caseSchema(
-			"Fits You — Case de Web Design e UX/UI",
+			"Case de Web Design e UX/UI para Studio de Pilates — Fits You",
 			"Site institucional para um studio de cross training e Pilates em Barão Geraldo, Campinas.",
 			"/projetos/fits-you",
 			"/lovable-uploads/fitsyou.webp",
@@ -157,16 +157,16 @@ export const seoPages: Record<string, SeoPage> = {
 	},
 	"/projetos/ratoeira-hub": {
 		path: "/projetos/ratoeira-hub",
-		title: "Ratoeira Hub — Case de Web Design | Lucas Coelho",
+		title: "Case de Web Design para Adtech — Ratoeira Hub | Lucas Coelho",
 		description:
-			"Case de web design e UX/UI para o Ratoeira Hub: tracking server-side, proteção contra cliques fraudulentos e landing pages.",
+			"Case de web design e UX/UI para o Ratoeira Hub, adtech de tracking server-side, proteção contra cliques fraudulentos e landing pages.",
 		image: "/lovable-uploads/ratoeirahub.webp",
 		imageAlt: "Interface do site Ratoeira Hub",
 		imageWidth: 2832,
 		imageHeight: 1408,
 		ogType: "article",
 		schema: caseSchema(
-			"Ratoeira Hub — Case de Web Design",
+			"Case de Web Design para Adtech — Ratoeira Hub",
 			"Web design e UX/UI para um ecossistema de tracking server-side, proteção antifraude e landing pages.",
 			"/projetos/ratoeira-hub",
 			"/lovable-uploads/ratoeirahub.webp",
@@ -176,16 +176,16 @@ export const seoPages: Record<string, SeoPage> = {
 	},
 	"/projetos/pogne": {
 		path: "/projetos/pogne",
-		title: "Pogne × Ratoeira Ads — Case de Conversion Design",
+		title: "Case de Landing Page de Conversão — Pogne × Ratoeira Ads",
 		description:
-			"Case de web design e conversion design da campanha entre Método PNG e Ratoeira Ads, com narrativa direta e foco em conversão.",
+			"Case de landing page de conversão para a campanha Pogne × Ratoeira Ads (Método PNG), com narrativa direta e foco em CTA.",
 		image: "/lovable-uploads/pogne.webp",
 		imageAlt: "Landing page da campanha Pogne e Ratoeira Ads",
 		imageWidth: 2838,
 		imageHeight: 1410,
 		ogType: "article",
 		schema: caseSchema(
-			"Pogne × Ratoeira Ads — Case de Conversion Design",
+			"Case de Landing Page de Conversão — Pogne × Ratoeira Ads",
 			"Landing page de campanha com narrativa direta e foco em conversão para a parceria entre Método PNG e Ratoeira Ads.",
 			"/projetos/pogne",
 			"/lovable-uploads/pogne.webp",

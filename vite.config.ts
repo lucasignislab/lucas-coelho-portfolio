@@ -1,7 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { pathToFileURL } from "node:url";
 import { seoPages, SITE_URL, type SeoPage } from "./src/data/seo";
 
 function escapeHtml(value: string) {
@@ -13,7 +14,7 @@ function escapeHtml(value: string) {
 }
 
 function renderSeoHead(page: SeoPage) {
-	const canonicalUrl = `${SITE_URL}${page.path === "/" ? "/" : page.path}`;
+	const canonicalUrl = `${SITE_URL}${page.path === "/" ? "/" : `${page.path}/`}`;
 	const imageUrl = `${SITE_URL}${page.image}`;
 	const jsonLd = JSON.stringify(page.schema).replace(/</g, "\\u003c");
 
@@ -52,9 +53,55 @@ function staticSeoPages() {
 				"utf8"
 			);
 			const seoBlock = /<!-- SEO_HEAD_START -->[\s\S]*?<!-- SEO_HEAD_END -->/;
+			const rootDiv = '<div id="root"></div>';
+
+			// Pré-render SSR: gera um bundle server-side e renderiza cada rota
+			// para injetar o markup dentro de <div id="root">. Se falhar, cai
+			// para o comportamento anterior (somente head SEO).
+			let renderBody: ((routePath: string) => string) | null = null;
+			const ssrOutDir = path.resolve(__dirname, "dist-ssr");
+			try {
+				const { build } = await import("vite");
+				await build({
+					configFile: false,
+					root: __dirname,
+					logLevel: "silent",
+					plugins: [react()],
+					resolve: {
+						alias: { "@": path.resolve(__dirname, "./src") },
+					},
+					build: {
+						ssr: "src/entry-server.tsx",
+						outDir: ssrOutDir,
+						emptyOutDir: true,
+					},
+				});
+				const serverEntry = await import(
+					pathToFileURL(path.join(ssrOutDir, "entry-server.js")).href
+				);
+				if (typeof serverEntry.render === "function") {
+					renderBody = serverEntry.render as (routePath: string) => string;
+				}
+			} catch (error) {
+				console.warn(
+					"[static-seo-pages] SSR prerender falhou; gerando páginas apenas com head SEO.",
+					error
+				);
+			}
 
 			for (const page of Object.values(seoPages)) {
-				const html = rootHtml.replace(seoBlock, renderSeoHead(page));
+				let html = rootHtml.replace(seoBlock, renderSeoHead(page));
+				if (renderBody) {
+					try {
+						const bodyHtml = renderBody(page.path);
+						html = html.replace(rootDiv, `<div id="root">${bodyHtml}</div>`);
+					} catch (error) {
+						console.warn(
+							`[static-seo-pages] SSR falhou para ${page.path}; mantendo #root vazio.`,
+							error
+						);
+					}
+				}
 				const outputDirectory =
 					page.path === "/"
 						? distDirectory
@@ -62,6 +109,8 @@ function staticSeoPages() {
 				await mkdir(outputDirectory, { recursive: true });
 				await writeFile(path.join(outputDirectory, "index.html"), html);
 			}
+
+			await rm(ssrOutDir, { recursive: true, force: true });
 		},
 	};
 }

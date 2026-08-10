@@ -5,21 +5,30 @@ export function AeroHeroScene() {
 	const sceneRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		const canvas = canvasRef.current;
 		const container = sceneRef.current;
-		if (!canvas || !container) return;
+		if (!container) return;
 
-		const reducedMotion = window.matchMedia(
-			"(prefers-reduced-motion: reduce)"
-		).matches;
-		const mobile = window.matchMedia("(max-width: 760px)").matches;
-		let disposed = false;
-		let animationFrame = 0;
 		let cleanupScene = () => {};
+		let observer: IntersectionObserver | null = null;
 
-		async function buildScene() {
-			const THREE = await import("three");
-			if (disposed || !canvas || !container) return;
+		// Inicializa a cena 3D (dynamic import("three")) somente quando o
+		// hero entra na viewport, mantendo o three.module.js fora do
+		// critical path inicial.
+		const initScene = () => {
+			const canvas = canvasRef.current;
+			if (!canvas || !container) return () => {};
+
+			const reducedMotion = window.matchMedia(
+				"(prefers-reduced-motion: reduce)"
+			).matches;
+			const mobile = window.matchMedia("(max-width: 760px)").matches;
+			let disposed = false;
+			let animationFrame = 0;
+			let cleanup = () => {};
+
+			async function buildScene() {
+				const THREE = await import("three");
+				if (disposed || !canvas || !container) return;
 
 			const scene = new THREE.Scene();
 			const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
@@ -164,7 +173,7 @@ export function AeroHeroScene() {
 			};
 			render();
 
-			cleanupScene = () => {
+			cleanup = () => {
 				cancelAnimationFrame(animationFrame);
 				window.removeEventListener("resize", resize);
 				window.removeEventListener("pointermove", onPointerMove);
@@ -183,11 +192,33 @@ export function AeroHeroScene() {
 			};
 		}
 
-		void buildScene();
+			void buildScene();
+
+			return () => {
+				disposed = true;
+				cancelAnimationFrame(animationFrame);
+				cleanup();
+			};
+		};
+
+		if ("IntersectionObserver" in window) {
+			observer = new IntersectionObserver(
+				entries => {
+					if (entries.some(entry => entry.isIntersecting)) {
+						observer?.disconnect();
+						observer = null;
+						cleanupScene = initScene();
+					}
+				},
+				{ rootMargin: "200px" }
+			);
+			observer.observe(container);
+		} else {
+			cleanupScene = initScene();
+		}
 
 		return () => {
-			disposed = true;
-			cancelAnimationFrame(animationFrame);
+			observer?.disconnect();
 			cleanupScene();
 		};
 	}, []);

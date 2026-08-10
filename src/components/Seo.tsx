@@ -14,7 +14,7 @@ function setMeta(selector: string, attribute: "name" | "property", key: string, 
 export function Seo({ pathname }: { pathname: string }) {
 	useEffect(() => {
 		const page = getSeoPage(pathname);
-		const canonicalUrl = `${SITE_URL}${page.path === "/" ? "/" : page.path}`;
+		const canonicalUrl = `${SITE_URL}${page.path === "/" ? "/" : `${page.path}/`}`;
 		const imageUrl = `${SITE_URL}${page.image}`;
 
 		document.title = page.title;

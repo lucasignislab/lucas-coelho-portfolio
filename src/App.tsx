@@ -2,6 +2,7 @@ import {
 	Component,
 	lazy,
 	Suspense,
+	type ComponentType,
 	type ErrorInfo,
 	type ReactNode,
 } from "react";
@@ -18,27 +19,37 @@ import { Skills } from "@/components/Skills";
 import { SelectedWork } from "@/components/SelectedWork";
 import { Footer } from "@/components/Footer";
 import { PrivacyPolicy } from "@/components/PrivacyPolicy";
+import { useGtagPageview } from "@/hooks/useGtagPageview";
 
-const AeroCaseStudy = lazy(() =>
-	import("@/components/AeroCaseStudy").then(module => ({
-		default: module.AeroCaseStudy,
-	}))
-);
-const FitsYouCaseStudy = lazy(() =>
-	import("@/components/FitsYouCaseStudy").then(module => ({
-		default: module.FitsYouCaseStudy,
-	}))
-);
-const RatoeiraHubCaseStudy = lazy(() =>
-	import("@/components/RatoeiraHubCaseStudy").then(module => ({
-		default: module.RatoeiraHubCaseStudy,
-	}))
-);
-const PogneCaseStudy = lazy(() =>
-	import("@/components/PogneCaseStudy").then(module => ({
-		default: module.PogneCaseStudy,
-	}))
-);
+export interface CaseComponents {
+	Aero: ComponentType;
+	FitsYou: ComponentType;
+	RatoeiraHub: ComponentType;
+	Pogne: ComponentType;
+}
+
+const lazyCases: CaseComponents = {
+	Aero: lazy(() =>
+		import("@/components/AeroCaseStudy").then(module => ({
+			default: module.AeroCaseStudy,
+		}))
+	),
+	FitsYou: lazy(() =>
+		import("@/components/FitsYouCaseStudy").then(module => ({
+			default: module.FitsYouCaseStudy,
+		}))
+	),
+	RatoeiraHub: lazy(() =>
+		import("@/components/RatoeiraHubCaseStudy").then(module => ({
+			default: module.RatoeiraHubCaseStudy,
+		}))
+	),
+	Pogne: lazy(() =>
+		import("@/components/PogneCaseStudy").then(module => ({
+			default: module.PogneCaseStudy,
+		}))
+	),
+};
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -86,8 +97,20 @@ class ErrorBoundary extends Component<
 	}
 }
 
-function App() {
-	const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
+interface AppProps {
+	/** Caminho forçado (SSR). No cliente, usa window.location. */
+	path?: string;
+	/** Componentes de case eager (SSR). No cliente, usa React.lazy. */
+	cases?: CaseComponents;
+}
+
+function App({ path, cases }: AppProps) {
+	const pathname = (
+		path ?? (typeof window !== "undefined" ? window.location.pathname : "/")
+	).replace(/\/+$/, "") || "/";
+	const Cases = cases ?? lazyCases;
+
+	useGtagPageview(pathname);
 
 	if (pathname === "/politica-de-privacidade") {
 		return (
@@ -104,7 +127,7 @@ function App() {
 			<ErrorBoundary>
 				<Seo pathname={pathname} />
 				<Suspense fallback={null}>
-					<AeroCaseStudy />
+					<Cases.Aero />
 				</Suspense>
 			</ErrorBoundary>
 		);
@@ -115,7 +138,7 @@ function App() {
 			<ErrorBoundary>
 				<Seo pathname={pathname} />
 				<Suspense fallback={null}>
-					<FitsYouCaseStudy />
+					<Cases.FitsYou />
 				</Suspense>
 			</ErrorBoundary>
 		);
@@ -126,7 +149,7 @@ function App() {
 			<ErrorBoundary>
 				<Seo pathname={pathname} />
 				<Suspense fallback={null}>
-					<RatoeiraHubCaseStudy />
+					<Cases.RatoeiraHub />
 				</Suspense>
 			</ErrorBoundary>
 		);
@@ -137,7 +160,7 @@ function App() {
 			<ErrorBoundary>
 				<Seo pathname={pathname} />
 				<Suspense fallback={null}>
-					<PogneCaseStudy />
+					<Cases.Pogne />
 				</Suspense>
 			</ErrorBoundary>
 		);
