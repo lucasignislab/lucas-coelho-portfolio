@@ -972,6 +972,379 @@ export const articles: Article[] = [
 			},
 		],
 	},
+	{
+		slug: "sacred-modernism-design-system",
+		title: "Sacred Modernism: como traduzi tradição ancestral em um design system",
+		excerpt:
+			"Como projetar um design system para um terreiro de umbanda sem cair no clichê nem no frio corporativo: o Sacred Modernism do Orixá Design System — 77 tokens de cor derivados em OKLCH, 20 roles semânticos, tipografia Cormorant Garamond + Inter, Dark Glassmorphism com Efeito Vela, governança por status e acessibilidade AAA.",
+		date: "2026-08-13",
+		tags: ["Design System", "Identidade Visual", "UX/UI", "Tokens"],
+		coverImage: "/blog/sacred-modernism-design-system/documentacao-viva-orixa.png",
+		coverImageAlt:
+			"Topo da documentação viva do Orixá Design System, com o conceito Sacred Modernism, selo v0.2 e os números do sistema",
+		ogDescription:
+			"Sacred Modernism na prática: como traduzir tradição ancestral em design tokens — 77 tokens de cor em OKLCH, 20 roles semânticos, Cormorant Garamond + Inter, Dark Glassmorphism com Efeito Vela e uma documentação viva que não finge estar pronta.",
+		blocks: [
+			{
+				type: "paragraph",
+				content: [
+					"Todo designer conhece o brief que cabe numa página: público-alvo, tom de voz, concorrentes, entregáveis. E todo designer já recebeu aquele outro tipo de brief, o que não cabe em página nenhuma. O meu chegou mais ou menos assim: precisamos de um site para a T. U. Senhora do Rosário, um terreiro de umbanda. Tem que ser bonito, tem que ser sério, tem que parecer a gente. Parecer a gente, nesse contexto, carrega séculos. Carrega uma religião brasileira, genuinamente nossa, que foi perseguida, estigmatizada e representada de forma torta pela cultura dominante durante a maior parte da sua história. Carrega comunidade, acolhimento, ancestralidade. Como é que isso vira paleta de cor?",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"Eu sabia o que não fazer. Não fazer o site institucional cinza-azulado que qualquer gerador de template entrega em dez minutos, porque ele apagaria exatamente o que precisava ser comunicado. E não fazer a caricatura oposta: textura de palha, dourado em tudo, símbolo religioso decorando canto de tela, aquele visual de folder turístico que reduz uma tradição viva a cenografia. Entre a frieza corporativa e o kitsch tem um território estreito, e era ali que o design precisava morar. O problema é que território estreito não se navega no feeling; se navega com sistema.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"Tem uma assimetria nesse tipo de projeto que só percebi trabalhando nele: o mercado de design digital sabe muito bem como fazer site para fintech, para SaaS, para e-commerce, porque existem milhares de referências, de templates, de estudos de caso. Para um terreiro de umbanda, não existe referência nenhuma, ou melhor, as referências que existem são majoritariamente ruins, feitas sem orçamento, sem cuidado e frequentemente sem consultar a comunidade. O vazio de referência é ao mesmo tempo a dificuldade e a oportunidade: dificuldade porque não havia trilha batida, oportunidade porque qualquer trabalho sério ali já eleva o padrão do que existe. Eu decidi tratar o projeto com o mesmo rigor que trataria um produto de tecnologia, porque é isso que a comunidade merece, e rigor, no meu ofício, significa design system.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"Foi assim que nasceu o Orixá Design System, o sistema de design que estou construindo para o site do terreiro, e o conceito estético que o governa, batizado de Sacred Modernism. Este artigo não é um tutorial de design tokens — para isso eu já escrevi o ",
+					{ text: "guia de como estruturei um design system do zero", href: "/blog/design-system-do-zero/" },
+					", que segue valendo como leitura complementar. Este aqui é sobre outra coisa, mais rara de se ver discutida: como identidade, cultura e espiritualidade viram decisões concretas de token. Como “acolhimento ancestral” virou um hex específico, por que a documentação declara publicamente o que ainda não está decidido, e o que esse projeto me ensinou sobre desenhar com significado.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"Antes de entrar no sistema, um aviso de método: este não é um artigo sobre umbanda, tema que pertence à comunidade e não a mim. É um artigo sobre design, sobre o que acontece com o nosso ofício quando o cliente não é uma empresa e o produto não é um produto, mas a casa digital de uma comunidade de fé. As escolhas técnicas que vou descrever são as mesmas de qualquer design system sério. O que muda é o peso de cada uma delas, e é desse peso que eu quero falar.",
+				],
+			},
+			{
+				type: "image",
+				src: "/blog/sacred-modernism-design-system/documentacao-viva-orixa.png",
+				alt: "Cabeçalho da página de documentação viva do Orixá Design System, apresentando o conceito Sacred Modernism, o selo v0.2 e os números do sistema",
+				caption:
+					"A Documentação Viva (v0.2) do Orixá Design System, renderizada com os próprios tokens do projeto.",
+			},
+			{ type: "heading", level: 2, text: "O que é Sacred Modernism" },
+			{
+				type: "paragraph",
+				content: [
+					"Sacred Modernism é o nome que dei para a união de dois mundos que normalmente não se conversam em design digital: de um lado, materiais rústicos e o acolhimento ancestral; do outro, o minimalismo contemporâneo. Não é uma mistura dos dois, é uma tensão controlada entre eles. O rústico traz terra, fibra, papel, calor; o moderno traz precisão, contraste, espaço em branco, tipografia limpa. Se o rústico domina, vira artesanato desorganizado. Se o moderno domina, vira clínica. O sistema inteiro existe para segurar essa tensão no ponto certo, tela após tela, sem depender do meu bom gosto no dia.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"Na documentação, o conceito se apoia em dois pilares explícitos, e eu aprendi com o Aero que pilar de sistema tem que virar decisão concreta ou vira frase de parede. Aqui, cada pilar é um conjunto de tokens.",
+				],
+			},
+			{ type: "heading", level: 3, text: "Pilar um: o contraste tipográfico" },
+			{
+				type: "paragraph",
+				content: [
+					"O primeiro pilar é a tipografia de exibição serifada em alto contraste com uma geométrica de leitura. Os títulos falam em Cormorant Garamond, uma serifada de eixo humanista, traço fino e elegância antiga, o tipo de letra que parece impressa em papel bom. O corpo, os botões e a interface falam em Inter, geométrica, neutra, desenhada para tela. As duas famílias estão marcadas como APROVADAS no sistema, e a regra é rígida: Cormorant nunca desce para texto funcional, Inter nunca sobe para título de exibição. O sagrado e o utilitário têm vozes diferentes, e confundir as vozes é o primeiro passo para o kitsch. No total, a tipografia fecha em 4 pesos, 11 tamanhos de 12px a 80px, line-heights e letter-spacings próprios, e 7 composições tipográficas prontas, do Display de 80px em heading regular até o small semibold, cada uma com papel definido.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"Escolher a serifada foi a decisão mais longa do sistema inteiro. Uma serifada errada estraga tudo de duas maneiras opostas: se pende para o acadêmico, vira tese de doutorado; se pende para o ornamental, vira convite de casamento. A Cormorant Garamond ficou porque equilibra dignidade e silêncio: ela tem presença sem cerimônia, parece antiga sem parecer fantasiada de antiga. E a dupla com a Inter resolve o problema que toda identidade com alma enfrenta na web: como ter voz própria sem sacrificar a leitura funcional. Cada família faz o trabalho para o qual nasceu, e o contraste entre as duas, em vez de competição, é o próprio pilar do conceito.",
+				],
+			},
+			{ type: "heading", level: 3, text: "Pilar dois: Dark Glassmorphism e o Efeito Vela" },
+			{
+				type: "paragraph",
+				content: [
+					"O segundo pilar é o que eu chamo de Dark Glassmorphism: painéis escuros translúcidos com bordas ultra finas que se iluminam ao passar do mouse, um efeito batizado no sistema de Efeito Vela. A referência é literal e afetiva: uma vela acesa num ambiente escuro não ilumina o ambiente inteiro, ilumina o que está perto dela, com uma borda de luz quente. O mouse do visitante é a vela; onde ele passa, o painel responde com um brilho discreto. É um tom intimista de solenidade espiritual, e funciona porque é interação, não decoração: o visitante descobre o efeito usando o site, do mesmo jeito que se descobre um espaço sagrado caminhando por ele.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"Glassmorphism, diga-se de passagem, é um recurso com má reputação merecida: na maioria dos sites é um blur decorativo que sacrifica legibilidade e performance para fingir sofisticação. A versão escura do Orixá se defende disso de três formas. Primeiro, a translucidez é contida: os painéis são escuros o bastante para que o texto pertença sempre a um par aprovado na matriz de contraste. Segundo, o efeito tem papel narrativo, não ornamental: ele existe para simular a vela, e se essa história não fizesse sentido, o efeito não existiria. Terceiro, a borda iluminada responde ao mouse e ao foco de teclado, então o gesto visual também serve de affordance. Efeito que conta uma história, passa na acessibilidade e ajuda a navegação deixou de ser efeito; virou componente.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"Tecnicamente, o Efeito Vela nasce dos tokens: os painéis usam as superfícies escuras derivadas da família Warm Neutral, as bordas finas puxam os tons de Ancestral Gold em opacidade baixa, e o movimento obedece à escala de duração do sistema. Nada ali é estilo solto. Quando um efeito desses é feito fora do sistema, ele vira truque visual aplicado numa tela e esquecido nas outras; dentro do sistema, ele vira linguagem. Sacred Modernism, no fim, é isso: duas decisões de contraste, tipográfica e atmosférica, repetidas com disciplina até virarem identidade.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"Vale contar de onde veio o nome, porque nomear o conceito foi uma decisão de projeto, não um capricho. Enquanto o conceito não tinha nome, cada conversa sobre direção visual descambava para gosto pessoal: eu gosto, eu não gosto, será que não é escuro demais, será que não é simples demais. No dia em que Sacred Modernism passou a existir como termo, as conversas mudaram de objeto: a pergunta deixou de ser “você gosta?” e virou “isso está servindo ao conceito?”. O nome funciona como um princípio de design portátil, que qualquer pessoa envolvida no projeto consegue carregar na cabeça e aplicar a uma tela nova sem me consultar. Conceito sem nome é opinião; conceito nomeado é ferramenta de alinhamento.",
+				],
+			},
+			{ type: "heading", level: 2, text: "Tradução, não decoração" },
+			{
+				type: "paragraph",
+				content: [
+					"A pergunta que eu me fiz no início do projeto foi a pergunta errada: “quais cores combinam com umbanda?”. Pergunta errada porque trata cultura como paleta de inspiração, e paleta de inspiração é como nasce a caricatura. A pergunta certa era outra: quais materiais, luzes e atmosferas constituem a experiência real daquele espaço e daquela tradição, e como eles se traduzem em fundamentos de cor que sustentam uma interface? Tradução preserva estrutura e sentido; decoração copia superfície. Eu queria tradução.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"O resultado são as quatro famílias de fundação aprovadas do sistema, cada uma ancorada numa referência concreta. A Terracotta, com âncora no grade 600, #8B3A2A, é a família principal da marca: terra queimada, barro, o chão do terreiro, o calor do tijolo. É ela que carrega os CTAs primários, os estados ativos e o papel de PRIMARY·BRAND do sistema. A Ancestral Gold, âncora 500, #C9A227, é o dourado ancestral: o metal dos objetos rituais, o brilho da vela, usado como ACCENT·HIGHLIGHT para realces, ícones rituais e gradientes, sempre com parcimônia, porque brilho que está em todo lugar não ilumina nada. A Parchment, âncora 050, #FAF5EC, é o papel envelhecido, a superfície clara onde o conteúdo descansa, fundo de páginas e cards no papel de SURFACE·LIGHT. E a Warm Neutral, âncora 900, #2A2318, é a tinta: o marrom quase preto do texto, das divisórias, das molduras e do próprio glassmorphism escuro, no papel NEUTRAL·INK.",
+				],
+			},
+			{
+				type: "image",
+				src: "/blog/sacred-modernism-design-system/familias-de-cor-foundation.png",
+				alt: "Escalas de cor das famílias Terracotta e Ancestral Gold do Orixá Design System, cada uma com 11 grades do 050 ao 950 e a âncora marcada",
+				caption:
+					"Terracotta e Ancestral Gold: as famílias de marca, cada uma com 11 grades derivados matematicamente em OKLCH a partir da âncora.",
+			},
+			{
+				type: "paragraph",
+				content: [
+					"Repare que nenhuma dessas cores foi escolhida “porque é bonita”. Cada uma responde a uma pergunta de identidade: de que material é feita a memória desse lugar? E repare também o que a tradução ganhou ao virar sistema: a Terracotta não é um hex solto, é uma escala de 11 grades, do 050 ao 950, derivada matematicamente em OKLCH a partir da âncora, o que me dá terracota para fundo sutil, para hover, para texto sobre claro, para borda ativa, tudo harmonicamente parente. A cultura virou fundação, e a fundação virou ferramenta de trabalho. Esse é o caminho inteiro: sentido primeiro, matemática depois, e a matemática a serviço do sentido.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"Junto das quatro aprovadas vivem três famílias funcionais ainda marcadas como PROVISÓRIAS: Ember, âncora 600 #A33A2B, para erro e perigo; Sun, âncora 500 #C58A16, para aviso; e River, âncora 600 #2F6473, para informação. Elas fazem o trabalho de estado que toda interface precisa, mas ainda estão em validação de design, e o sistema diz isso abertamente, o que me leva à seção de governança mais adiante.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"O processo de derivação merece um parágrafo, porque é nele que a tradução vira engenharia. Cada família tem uma âncora, o grade que concentra a referência cultural, e os outros dez grades são calculados em OKLCH a partir dela, mantendo o matiz e ajustando luminosidade e croma de forma perceptualmente uniforme. Isso resolve dois problemas de uma vez. O primeiro é estético: os tons claros e escuros de cada família parecem parentes legítimos da âncora, não aproximações achadas no olho. O segundo é prático: quando a interface pede “um parchment um pouco mais escuro para o hover do card”, a resposta é um grade que já existe, já tem nome e já foi calculado, não um hex novo inventado na hora. A matemática não substitui a sensibilidade; ela conserva a sensibilidade que foi colocada na âncora e a espalha, sem distorção, pelos onze degraus.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"E tem o cuidado com o que ficou de fora. Em nenhum momento o sistema usa símbolo religioso como ornamento, fotografia de gira como textura ou qualquer elemento da prática como recurso gráfico gratuito. A identidade entra pela estrutura, pela matéria, pela luz e pela atmosfera, nunca pelo repertório iconográfico. Essa foi uma decisão consciente e conversada: representar uma tradição não é colar seus símbolos numa interface, é construir um ambiente digital que esteja à altura dela. A diferença entre homenagem e apropriação decorativa está exatamente aí, e um design system, quando bem feito, torna essa diferença reproduzível por qualquer pessoa que mantenha o site no futuro.",
+				],
+			},
+			{ type: "divider" },
+			{ type: "heading", level: 2, text: "A arquitetura em três camadas" },
+			{
+				type: "paragraph",
+				content: [
+					"Com a identidade traduzida em famílias de cor, veio a decisão estrutural que considero a mais importante do sistema: a separação em três camadas, fundação, semântica e componente, com uma regra de trânsito rígida entre elas. É a mesma lição que aprendi no ",
+					{ text: "Aero", href: "/projetos/aero/" },
+					", levada a um nível de formalidade maior, porque aqui o sistema precisava ser auditável por outras pessoas no futuro, não só por mim. No Aero, a disciplina era pessoal: eu conhecia os nomes, eu mantinha o contrato. Aqui o contrato precisa sobreviver à minha ausência, então ele foi escrito para estranhos: cada camada com seu arquivo fonte, cada referência explícita, cada regra de consumo declarada onde qualquer desenvolvedor novo encontra.",
+				],
+			},
+			{ type: "heading", level: 3, text: "Camada um: foundation" },
+			{
+				type: "paragraph",
+				content: [
+					"A camada de fundação são os 77 tokens de cor brutos: 7 famílias vezes 11 grades, do 050 ao 950, cada grade derivado matematicamente em OKLCH a partir da âncora da família, expostos como variáveis CSS --color-<família>-{grade} e versionados no arquivo design-system/foundation/color.json. OKLCH não é vaidade técnica: derivar grades em espaço perceptual significa que o salto do 400 para o 500 parece o mesmo salto em todas as famílias, o que mantém as sete escalas harmonicamente alinhadas entre si. A fundação não sabe para que serve. Ela é a matéria-prima, como tubos de tinta: terracota existe, dourado existe, e nenhum dos dois sabe se vai virar botão ou texto.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"Um detalhe de processo que fez diferença: as âncoras não foram escolhidas num seletor de cor, foram escolhidas em contexto. Eu testava cada candidata nas superfícies reais do site, no painel escuro do glassmorphism, no papel claro do parchment, ao lado da Cormorant em tamanho de Display, porque cor de marca não existe em abstrato, existe sobre fundo, ao lado de texto, sob luz de tela. A Terracotta #8B3A2A passou por várias irmãs mais saturadas e mais terrosas até encontrar o ponto em que funcionava como botão primário, como foco ativo e como assinatura de marca sem gritar em nenhum dos três papéis. A âncora certa é a que aguenta todos os empregos que a família vai ter, e isso só se descobre empregando-a.",
+				],
+			},
+			{ type: "heading", level: 3, text: "Camada dois: roles semânticos" },
+			{
+				type: "paragraph",
+				content: [
+					"A camada semântica é onde o significado acontece, e é a grande diferença deste sistema para o do Aero: aqui são 20 roles semânticos, versionados em design-system/semantic/color.light.json, e a regra é absoluta: componentes consomem apenas roles, nunca tokens de fundação diretamente. Um botão não conhece #8B3A2A; ele conhece action.primary.default. O role, por sua vez, referencia a fundação, algo como {color.base.parchment.050}. Os 20 roles se organizam em Background (canvas, subtle, inverse, brand), Surface, Text, Icon, Border (o focus usa ancestral-gold.600) e uma família generosa de Action, com 14 tokens cobrindo primary e secondary cruzados com default, hover, active e disabled. Tudo com variantes LIGHT e DARK.",
+				],
+			},
+			{
+				type: "image",
+				src: "/blog/sacred-modernism-design-system/color-roles-semanticos.png",
+				alt: "Seção de roles semânticos de cor do Orixá Design System: grupos Background, Surface, Text, Icon, Border e Action com seus tokens e referências às famílias de fundação",
+				caption:
+					"Os 20 roles semânticos: componentes só conhecem papéis; os papéis é que referenciam as famílias de fundação.",
+			},
+			{
+				type: "paragraph",
+				content: [
+					"Por que tanta cerimônia? Porque é essa camada que torna a identidade revisável. Se um dia a comunidade decidir que a Terracotta deve ser um pouco mais profunda, eu ajusto a âncora, a matemática OKLCH redistribui os 11 grades, os roles continuam apontando para os mesmos lugares e a interface inteira muda coerentemente, sem eu tocar em um único componente. A identidade visual vira um dado que pode evoluir, não uma tatuagem espalhada por centenas de arquivos. Num projeto comunitário, que vai sobreviver a mim e à minha disponibilidade, essa revisabilidade não é elegância; é dever de casa.",
+				],
+			},
+			{ type: "heading", level: 3, text: "Camada três: tokens de componente" },
+			{
+				type: "paragraph",
+				content: [
+					"A terceira camada desce ao detalhe do componente. O botão, por exemplo, declara button.radius apontando para {radius.200}, 8px, e border-width thin de 1px. O button.primary amarra seus estados: fundo #8B3A2A no default, #7F3627 no hover, #5E2317 no active, texto em parchment. O secondary é o dourado outlined, borda #C9A227. Quando cada estado de cada componente tem token nomeado, ninguém no futuro precisa adivinhar qual era o hover certo, e ninguém inventa um terceiro tom de terracota “só nessa tela”. As três camadas juntas formam um funil: a cultura entra em cima, vira fundação; a fundação vira papel; o papel vira pixel. E o pixel, chegando lá embaixo, ainda carrega a cultura do topo, porque cada camada só referencia a anterior.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"A mesma lógica de camadas governa movimento e profundidade. A escala de duração tem seis passos com nomes de intenção: instant (0ms), fast (150ms), moderate (250ms), slow (500ms, aprovada para o fade do hero), deliberate (700ms, aprovada) e ambient (1200ms), todos na mesma curva cubic-bezier(0.2, 0, 0, 1). Nomear durações por intenção muda a conversa: ninguém mais pergunta “quantos milissegundos?”, pergunta-se “esse momento é rápido ou deliberado?”, e uma transição deliberada num site desses tem significado, é o ritmo de quem não tem pressa porque o que está ali merece permanência. As sombras seguem a mesma filosofia, cinco tokens do none ao high mais o shadow.focus dourado, comunicando profundidade sem depender de bordas, para que a borda ultra fina do glassmorphism continue sendo um gesto deliberado e não o padrão de tudo.",
+				],
+			},
+			{ type: "heading", level: 2, text: "Status como governança: APROVADA e PROVISÓRIA" },
+			{
+				type: "paragraph",
+				content: [
+					"Design system adora fingir que está pronto. A página de documentação mostra a paleta fechada, os componentes polidos, e ninguém imagina que metade foi decidida na semana anterior e a outra metade está por decidir. Eu escolhi o caminho oposto no Orixá: cada token e cada família carrega um status explícito, APROVADA ou PROVISÓRIA, e o provisório significa exatamente o que diz, aguardando validação de design. As quatro famílias de identidade estão aprovadas. As três funcionais, Ember, Sun e River, estão provisórias. Na tipografia, as famílias estão aprovadas. Na motion, a escala inteira, de instant (0ms) a ambient (1200ms), passando por fast (150ms), moderate (250ms), slow (500ms) e deliberate (700ms), tudo em cubic-bezier(0.2, 0, 0, 1), tem status declarado item a item.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"Isso não é excesso de zelo; é honestidade como parte do sistema. Um design system é, antes de tudo, um documento de decisões, e um documento de decisões que esconde as indecisões mente para quem o usa. O status provisório protege o futuro: ele diz à próxima pessoa que tocar no projeto “esta cor de erro funciona, mas ainda não recebeu o selo de validação, então trate-a como hipótese”. Num projeto comunitário, feito entre uma gira e outra, com validação dependendo de conversa com pessoas que têm prioridades mais importantes que revisar tokens, essa clareza é a diferença entre um sistema que envelhece e um que apodrece. Documentar o que não está decidido é tão trabalho de design quanto decidir.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"Aprendi isso da forma mais barata possível, que é aprendendo com o erro dos outros: a maioria dos design systems que vejo abandonados não morreu por má qualidade técnica, morreu porque a documentação prometia um acabado que o sistema não tinha, e a primeira pessoa que confiou na promessa quebrou a cara. Quando o documento mente, cada usuário novo do sistema precisa redescobrir sozinho onde estão as armadilhas, e depois de dois ou três sustos ninguém mais confia no mapa. O status APROVADA/PROVISÓRIA é a vacina contra isso: ele preserva a coisa mais frágil que um sistema possui, que é a confiança de quem o usa de que a documentação diz a verdade.",
+				],
+			},
+			{
+				type: "quote",
+				text: "Um design system não é um catálogo do que foi decidido. É um mapa honesto do que está decidido, do que está em validação e do que ainda precisa de conversa.",
+			},
+			{ type: "heading", level: 2, text: "Acessibilidade como respeito" },
+			{
+				type: "paragraph",
+				content: [
+					"Tem um aspecto deste projeto que eu trato como central e raramente vejo tratado assim: a comunidade de um terreiro não é o público médio dos Dribbbles da vida. É uma comunidade intergeracional, com pessoas mais velhas, com variados níveis de familiaridade digital, acessando o site para saber horário de gira, ler sobre a história da casa, encontrar a área do filho. Um site bonito que essa comunidade não consegue ler é um fracasso de design com boa apresentação. Acessibilidade, aqui, não é conformidade técnica; é a forma concreta que o respeito toma na interface.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"Por isso o sistema tem uma Matriz de Contraste própria: os pares texto × fundo são validados contra a WCAG 2.1, com AA exigindo no mínimo 4.5:1 e AAA, 7:1, e somente pares aprovados em AA ou AAA vão para produção. O exemplo de cabeceira: text.primary sobre canvas fecha em 18.10:1, nível AAA, folga enorme. A matriz transforma acessibilidade de auditoria posterior em propriedade de construção: quem usa os roles aprovados herda contraste válido sem precisar saber que a WCAG existe.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"A matriz também resolveu um dilema estético que parecia sem saída. O Sacred Modernism pede atmosfera escura e intimista, e atmosfera escura é onde o contraste costuma morrer: texto cinza médio sobre fundo grafite, elegante no monitor calibrado do designer, ilegível no celular de tela gasta sob luz do dia. Com a matriz, o intimismo ganhou piso: os painéis podem ser tão escuros quanto o conceito pedir, desde que o texto sobre eles pertença a um par aprovado. O que seria uma negociação infinita entre “bonito” e “legível” virou regra de trânsito, e regra de trânsito todo mundo respeita sem ressentimento, porque vale para todos.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"O mesmo cuidado aparece nos detalhes menores. O anel de foco do sistema é dourado: shadow.focus, um glow de 0 0 0 3px em #C9A22766, visível sobre qualquer superfície, escura ou clara. Quem navega por teclado, e muita gente mais velha navega, nunca se perde tentando adivinhar onde está o foco. As sombras, aliás, são um conjunto curto de 5 tokens, de none a high mais esse focus, e cumprem uma função do Sacred Modernism: comunicar profundidade sem depender de bordas, deixando as bordas ultra finas para o que é deliberado, como os painéis de vidro. Acessibilidade e estética não brigaram em nenhuma dessas decisões; saíram da mesma conversa.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"E tem a tipografia, que nesse público é decisão de acessibilidade tanto quanto de estética. A Inter foi escolhida para o corpo exatamente porque aguenta tamanhos de leitura confortáveis com clareza em telas comuns, e a escala de 11 tamanhos permite que o texto corrido nunca desça abaixo do legível para economizar layout. A Cormorant Garamond, apesar da elegância de traço fino, aparece sempre em tamanhos grandes de exibição, onde o contraste de hastes não compromete a leitura, e nunca em texto funcional. As sete composições tipográficas prontas existem para que ninguém precise improvisar essa combinação tela a tela: quem monta uma página escolhe a composição pelo papel, e a dupla de famílias, os tamanhos, os pesos e os espaçamentos vêm junto, já testados.",
+				],
+			},
+			{ type: "divider" },
+			{ type: "heading", level: 2, text: "Documentação viva, versão 0.2" },
+			{
+				type: "paragraph",
+				content: [
+					"A ",
+					{ text: "documentação do Orixá Design System", href: "https://nossasenhoradorosario.netlify.app/design-system" },
+					" segue o mesmo princípio que apliquei no Aero: ela vive dentro do produto, é pública, e é renderizada com os próprios tokens --color-* que documenta. O selo no topo diz DOCUMENTAÇÃO VIVA · V0.2, e o v0.2 é sincero: não é a versão final, é a versão atual, e os números que ela mostra são os números reais do sistema hoje, 4 famílias aprovadas, 3 a 4 funcionais provisórias, 77 tokens de cor, 20 roles semânticos. Se um token muda no JSON, a página muda junto, porque ela é feita da matéria que descreve.",
+				],
+			},
+			{
+				type: "image",
+				src: "/blog/sacred-modernism-design-system/tipografia-cormorant-inter.png",
+				alt: "Seção de tipografia do Orixá Design System: Cormorant Garamond para títulos e Inter para texto e botões, com pesos, tamanhos e composições tipográficas",
+				caption:
+					"Tipografia no sistema: Cormorant Garamond na exibição, Inter na função, 11 tamanhos e 7 composições prontas.",
+			},
+			{
+				type: "paragraph",
+				content: [
+					"O showcase de componentes é a parte que mais diverte quem visita: os botões aparecem em todos os estados, normal, hover, active, disabled e carregando, e cada variação vem com um botão de copiar snippet em React ou Tailwind. Isso muda o perfil de quem usa a documentação: não é mais só um catálogo para olhar, é uma bancada de trabalho para copiar e colar decisões prontas. Para um projeto que pode ser mantido por voluntários no futuro, reduzir a distância entre “ver como é” e “usar do jeito certo” é a melhor proteção contra a degradação do sistema.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"Manter a documentação dentro do site tem ainda um efeito que eu não planejei: ela virou vitrine do cuidado. Qualquer visitante, designer ou não, consegue abrir a página e ver que por trás daquele site existe um sistema nomeado, versionado, com status e regras. Para uma comunidade que está construindo sua presença digital, isso comunica seriedade de uma forma que nenhum texto institucional comunica. A documentação deixou de ser bastidor e virou parte da fachada, e eu acho que deveria ser assim em muito mais projetos: o cuidado que não se mostra tende a não ser valorizado, e o que não é valorizado é a primeira coisa cortada quando aperta o tempo.",
+				],
+			},
+			{
+				type: "image",
+				src: "/blog/sacred-modernism-design-system/showcase-estados-botoes.png",
+				alt: "Showcase de botões do Orixá Design System com estados normal, hover, active, desabilitado e carregando, e opção de copiar snippet em React ou Tailwind",
+				caption:
+					"Botões no showcase: todos os estados visíveis, com snippet React/Tailwind pronto para copiar.",
+			},
+			{ type: "heading", level: 2, text: "O que esse projeto me ensinou sobre design systems" },
+			{
+				type: "paragraph",
+				content: [
+					"O Aero me ensinou a construir sistema para mim: critério, economia de decisão, velocidade. O Orixá me ensinou a construir sistema para o outro, e isso mudou minha cabeça em pelo menos três pontos. O primeiro: design system também é um ato de representação. Cada token do Orixá carrega a responsabilidade de representar uma comunidade real diante do mundo digital, uma comunidade que historicamente foi representada pelos outros, e mal. Isso elevou o padrão de exigência de cada escolha. Um hover meio sem graça num SaaS meu é detalhe; uma cor errada aqui é desrespeito.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"Essa responsabilidade tem um lado prático que me pegou desprevenido: ela alonga a vida das decisões. Num produto meu, uma escolha ruim é minha, eu a corrijo na semana seguinte e ninguém fica sabendo. Aqui, cada decisão vai ser vista por pessoas para quem aquele espaço digital é a porta de entrada da sua fé, e potencialmente por pessoas que nunca pisaram num terreiro e vão formar sua primeira imagem ali. Saber disso não paralisou o processo, pelo contrário: deu critério. Quando duas opções pareciam equivalentes, a pergunta “qual delas representa melhor?” desempatava quase sempre. Representação não é um freio na velocidade; é um norte quando o gosto não decide.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"O segundo: identidade forte exige mais sistema, não menos. A intuição diz que projeto com alma pede liberdade, que regra mata expressão. Minha experiência foi o contrário. Foi justamente porque a identidade era rica e delicada que ela precisou de 77 tokens, 20 roles e uma matriz de contraste: sem essa armadura, a identidade dependeria da memória e do gosto de quem tocasse no site em cada dia, e se degradaria em meses. O sistema não congela a identidade; ele a protege do tempo e das boas intenções.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"O terceiro: a frase que está na escala tipográfica da documentação, “A Umbanda é brasileira e genuinamente nossa”, virou para mim um teste de qualidade. Quando travo numa decisão, pergunto se ela honra essa frase. Um template genérico não honra. Uma caricatura folclórica não honra. Um sistema cuidadoso, acessível, tecnicamente sério e esteticamente vivo, que trata o site de um terreiro com o mesmo rigor que o mercado reserva a fintechs, honra. Design, no limite, é sobre quem recebe o nosso melhor trabalho. Esse projeto me lembrou que essa escolha também é uma decisão de design, talvez a primeira de todas.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"E tem um quarto aprendizado, mais prático: trabalhar com e para uma comunidade muda o ritmo do projeto, e o sistema precisa absorver isso. Decisões que num produto comercial saem numa call de quarenta minutos aqui esperam o momento certo de conversa, e está tudo bem. O que não pode acontecer é o projeto sangrar enquanto espera. Por isso a combinação de status provisório, roles semânticos e documentação viva funciona tão bem nesse contexto: ela permite que o site evolua com o que já está validado, deixe visível o que aguarda conversa, e nunca trave esperando aprovação de detalhe. O sistema virou a memória do projeto, e projetos comunitários, mais do que quaisquer outros, precisam de memória externa às pessoas, porque as pessoas têm a vida inteira acontecendo ao redor do site.",
+				],
+			},
+			{ type: "heading", level: 2, text: "Checklist: sinais de que seu design system tem identidade de verdade" },
+			{
+				type: "paragraph",
+				content: [
+					"Para fechar a parte prática: os sinais que eu procuro hoje para saber se um design system tem identidade de verdade, ou se é só uma biblioteca bonita que poderia pertencer a qualquer produto do mundo. O teste é mais simples do que parece: se você trocasse todos os tokens pelos de outro produto e ninguém percebesse, o sistema nunca teve identidade. Identidade de verdade é aquela que desce até a camada mais baixa da pilha e ainda é reconhecível lá:",
+				],
+			},
+			{
+				type: "list",
+				items: [
+					"Cada cor da fundação responde a uma pergunta de identidade, não de gosto: você consegue dizer de onde ela veio e por que ela existe.",
+					"Os tokens têm nomes de papel, não de aparência, e os componentes consomem apenas a camada semântica.",
+					"A identidade sobrevive a uma mudança: ajustar uma âncora propaga coerência, em vez de exigir caça ao hex.",
+					"O sistema declara o que não está decidido, com status ou equivalente, em vez de fingir completude.",
+					"Acessibilidade é propriedade de construção (contraste validado por par, foco visível por token), não auditoria depois do pronto.",
+					"A documentação é viva e usa o próprio sistema, então ela não consegue mentir sobre o estado atual.",
+					"Alguém de fora consegue reconhecer o produto olhando só os tokens: a identidade chegou até a camada mais baixa.",
+					"As decisões difíceis têm justificativa escrita que uma pessoa nova no projeto consegue ler e entender sem você na sala.",
+				],
+			},
+			{ type: "heading", level: 2, text: "Conclusão" },
+			{
+				type: "paragraph",
+				content: [
+					"Sacred Modernism começou como uma resposta a um brief impossível e virou uma convicção de método: tradição e minimalismo não se reconciliam no meio-termo aguado, se reconciliam num sistema que dá a cada um dos dois um lugar exato. A terracota tem seu lugar, o vidro escuro tem o seu, a Cormorant tem o seu, e a regra que os separa é o que impede tanto a frieza quanto o folclore. Tradução exige mais disciplina que decoração, e é justamente por isso que ela dura.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"Se esse projeto me deixou uma frase para levar aos próximos, é esta: todo design system é sobre alguma coisa, mesmo quando finge que não. O do Aero era sobre foco e velocidade de trabalho. O do Orixá é sobre dignidade, memória e pertencimento. Os dois usam OKLCH, roles semânticos e documentação viva, mas a técnica é só o veículo; a carga é diferente, e é a carga que dá sentido ao veículo. Quando alguém me pergunta por que tanto cuidado com um site de terreiro, a resposta honesta é curta: porque todo projeto merece esse cuidado, e alguns projetos apenas tornam impossível fingir que não.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"O Orixá Design System está em v0.2, com status provisório espalhado por várias seções, e isso não me constrange nem um pouco: um sistema honesto em construção vale mais que um sistema perfeito de mentira. Os próximos passos já têm endereço: validar as três famílias funcionais, fechar as composições restantes e deixar o DARK tão auditado quanto o LIGHT. Se quiser ver tudo isso ao vivo, a ",
+					{ text: "Documentação Viva do Orixá Design System", href: "https://nossasenhoradorosario.netlify.app/design-system" },
+					" está aberta, com os 77 tokens, os 20 roles, a matriz de contraste e o showcase de componentes renderizados com as próprias cores que documentam. E o ",
+					{ text: "site da T. U. Senhora do Rosário", href: "https://nossasenhoradorosario.netlify.app" },
+					" mostra o sistema onde ele realmente importa: nas páginas que a comunidade usa, do Início ao Sobre Nós, das Giras aos Eventos, do Blog à Área do Filho. Se você quer comparar com um sistema de outra natureza, o ",
+					{ text: "case do Aero", href: "/projetos/aero/" },
+					" mostra a mesma disciplina aplicada a um SaaS de produtividade. E se o seu projeto, comunitário ou não, precisa traduzir identidade em sistema, me chama pela ",
+					{ text: "página inicial", href: "/" },
+					". É o tipo de conversa que eu mais gosto de ter.",
+				],
+			},
+		],
+	},
 ];
 
 /** Busca um artigo pelo slug (sem barras). */
