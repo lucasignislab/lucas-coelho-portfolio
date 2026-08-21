@@ -1,7 +1,7 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { useLocalTime } from "@/hooks/use-local-time";
 import { useTilt } from "@/hooks/use-tilt";
-import { contactEmail, socials } from "@/data/site";
+import { contactEmail, crmWebhookUrl, socials } from "@/data/site";
 import { revealCharsOnScroll, splitChars } from "@/lib/animations";
 
 type ContactIntent = "project" | "opportunity";
@@ -33,14 +33,27 @@ function ContactForm() {
 
 		const form = event.currentTarget;
 		const formData = new FormData(form);
-		const body = new URLSearchParams();
-		formData.forEach((value, key) => body.append(key, String(value)));
+		const value = (name: string) => String(formData.get(name) ?? "");
+		const isProject = intent === "project";
+		const data = {
+			tipo_conversa: isProject
+				? "Quero contratar um projeto"
+				: "Quero falar sobre uma oportunidade",
+			nome: value("name"),
+			email: value("email"),
+			empresa: value("company"),
+			tipo_projeto: isProject ? value("projectType") : "",
+			investimento: isProject ? value("budget") : "",
+			tipo_oportunidade: isProject ? "" : value("opportunityType"),
+			modelo_trabalho: isProject ? "" : value("workModel"),
+			mensagem: value("message"),
+		};
 
 		try {
-			const response = await fetch("/", {
+			const response = await fetch(crmWebhookUrl, {
 				method: "POST",
-				headers: { "Content-Type": "application/x-www-form-urlencoded" },
-				body: body.toString(),
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(data),
 			});
 
 			if (!response.ok) throw new Error("Não foi possível enviar a mensagem.");
