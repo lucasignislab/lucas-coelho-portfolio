@@ -14,7 +14,7 @@ export const credibilityItems = [
 export const contactEmail = "lucascoelho.cps@gmail.com";
 
 export const crmWebhookUrl =
-	"https://n8n.lucascoelhoux.site/webhook-test/c026c8cd-7ed6-4e53-ad18-e53c064c4f25";
+	"https://n8n.lucascoelhoux.site/webhook/de672de2-351e-46bc-bd55-287dcacb6ffb";
 
 export const socials = [
 	{ name: "LinkedIn", url: "https://www.linkedin.com/in/lucascoelhodesigner/" },
