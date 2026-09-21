@@ -25,6 +25,8 @@
  *    — basta adicionar a URL com barra final em `public/sitemap.xml`.
  */
 
+import { feedbackVagoCriterioDecisao } from "./feedback-vago-criterio-decisao";
+
 export type InlineSegment = string | { text: string; href: string };
 
 export type ArticleBlock =
@@ -97,6 +99,7 @@ export function formatArticleDate(isoDate: string): string {
 }
 
 export const articles: Article[] = [
+	feedbackVagoCriterioDecisao,
 	{
 		slug: "design-system-do-zero",
 		title: "Como estruturei um design system do zero (e o que faria diferente)",

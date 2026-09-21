@@ -67,6 +67,7 @@ function staticSeoPages() {
 					root: __dirname,
 					logLevel: "silent",
 					plugins: [react()],
+					ssr: { noExternal: ["gsap"] },
 					resolve: {
 						alias: { "@": path.resolve(__dirname, "./src") },
 					},
@@ -115,7 +116,7 @@ function staticSeoPages() {
 	};
 }
 
-export default defineConfig(({ mode }) => ({
+export default defineConfig(() => ({
 	server: {
 		host: "::",
 		port: 8080,

@@ -180,6 +180,7 @@ export function BlogArticle({ slug }: { slug: string }) {
 	const currentIndex = sorted.findIndex(item => item.slug === article.slug);
 	const previous = sorted[currentIndex + 1];
 	const next = sorted[currentIndex - 1];
+	const isFeedbackArticle = article.slug === "feedback-vago-criterio-decisao";
 
 	return (
 		<div className="blog-page">
@@ -230,14 +231,19 @@ export function BlogArticle({ slug }: { slug: string }) {
 					<footer className="blog-article-footer">
 						<div className="blog-article-cta">
 							<p className="eyebrow">Próximo passo</p>
-							<h2>Tem um produto que precisa de um sistema assim?</h2>
+							<h2>
+								{isFeedbackArticle
+									? "Seu produto também acumula decisões difíceis?"
+									: "Tem um produto que precisa de um sistema assim?"}
+							</h2>
 							<p>
-								Posso ajudar a estruturar princípios, tokens e componentes — e
-								acompanhar a implementação até o produto respirar sozinho.
+								{isFeedbackArticle
+									? "Posso ajudar a transformar dúvidas de uso em critérios claros e decisões que a equipe consegue explicar."
+									: "Posso ajudar a estruturar princípios, tokens e componentes — e acompanhar a implementação até o produto respirar sozinho."}
 							</p>
 							<div className="blog-article-cta-actions">
 								<a
-									href={`mailto:${contactEmail}?subject=Quero conversar sobre um design system`}
+									href={`mailto:${contactEmail}?subject=${encodeURIComponent(isFeedbackArticle ? "Quero conversar sobre uma decisão de design" : "Quero conversar sobre um design system")}`}
 									className="btn-primary"
 								>
 									Conversar sobre um projeto <span aria-hidden="true">→</span>
