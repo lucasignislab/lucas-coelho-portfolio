@@ -1051,6 +1051,17 @@ html.lenis {
 	}
 }
 
+@keyframes whatsapp-in {
+	0% {
+		opacity: 0;
+		transform: scale(0.5);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
 .aero-case-facts {
 	display: grid;
 	grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -4176,6 +4187,10 @@ html.lenis {
 	.blog-card:first-child {
 		grid-column: 1 / -1;
 	}
+
+	.blog-card.is-featured .blog-card-media {
+		aspect-ratio: 2.1 / 1;
+	}
 }
 
 .blog-card-link {
@@ -4206,6 +4221,22 @@ html.lenis {
 	color: rgba(244, 241, 237, 0.85);
 }
 
+.blog-card-featured-label {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	padding: 0.45rem 0.7rem;
+	border: 1px solid rgba(244, 241, 237, 0.42);
+	border-radius: 9999px;
+	background: rgba(33, 33, 33, 0.72);
+	backdrop-filter: blur(8px);
+	font-family: 'JetBrains Mono', ui-monospace, monospace;
+	font-size: 0.625rem;
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+	color: #F4F1ED;
+}
+
 .blog-card-info {
 	display: grid;
 	gap: 0.9rem;
@@ -4231,6 +4262,11 @@ html.lenis {
 	line-height: 1.05;
 	letter-spacing: -0.02em;
 	transition: color 300ms ease;
+}
+
+.blog-card.is-featured .blog-card-info h2 {
+	font-size: clamp(2.25rem, 5vw, 4.25rem);
+	line-height: 0.98;
 }
 
 .blog-card:hover .blog-card-info h2 {

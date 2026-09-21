@@ -1358,5 +1358,11 @@ export function getArticle(slug: string): Article | undefined {
 
 /** Artigos ordenados do mais recente para o mais antigo. */
 export function getSortedArticles(): Article[] {
-	return [...articles].sort((a, b) => b.date.localeCompare(a.date));
+	return articles
+		.map((article, index) => ({ article, index }))
+		.sort((a, b) => {
+			const byDate = b.article.date.localeCompare(a.article.date);
+			return byDate || b.index - a.index;
+		})
+		.map(({ article }) => article);
 }

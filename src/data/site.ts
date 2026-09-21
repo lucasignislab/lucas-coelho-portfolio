@@ -13,6 +13,11 @@ export const credibilityItems = [
 
 export const contactEmail = "lucascoelho.cps@gmail.com";
 
+export const whatsappNumber = "5519992492409";
+export const whatsappMessage =
+	"Olá Lucas! Vi seu portfólio e quero conversar sobre um projeto.";
+export const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
 export const crmWebhookUrl =
 	"https://n8n.lucascoelhoux.site/webhook/de672de2-351e-46bc-bd55-287dcacb6ffb";
 

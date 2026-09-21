@@ -49,7 +49,10 @@ export function BlogIndex() {
 				) : (
 					<section className="blog-list" aria-label="Artigos publicados">
 						{sorted.map((article, index) => (
-							<article key={article.slug} className="blog-card group">
+							<article
+								key={article.slug}
+								className={`blog-card group${index === 0 ? " is-featured" : ""}`}
+							>
 								<a
 									href={`/blog/${article.slug}/`}
 									data-cursor-hover
@@ -68,6 +71,9 @@ export function BlogIndex() {
 										<span className="blog-card-index" aria-hidden="true">
 											/{String(index + 1).padStart(2, "0")}
 										</span>
+										{index === 0 && (
+											<span className="blog-card-featured-label">Mais recente</span>
+										)}
 									</div>
 									<div className="blog-card-info">
 										<div className="blog-card-meta">

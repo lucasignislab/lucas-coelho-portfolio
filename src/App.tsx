@@ -19,6 +19,7 @@ import { Skills } from "@/components/Skills";
 import { SelectedWork } from "@/components/SelectedWork";
 import { Footer } from "@/components/Footer";
 import { PrivacyPolicy } from "@/components/PrivacyPolicy";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { useGtagPageview } from "@/hooks/useGtagPageview";
 
 const lazyBlog: BlogComponents = {
@@ -137,6 +138,7 @@ function App({ path, cases, blog }: AppProps) {
 		return (
 			<ErrorBoundary>
 				<Seo pathname={pathname} />
+				<WhatsAppButton />
 				<Suspense fallback={null}>
 					<Blog.Index />
 				</Suspense>
@@ -149,6 +151,7 @@ function App({ path, cases, blog }: AppProps) {
 		return (
 			<ErrorBoundary>
 				<Seo pathname={pathname} />
+				<WhatsAppButton />
 				<Suspense fallback={null}>
 					<Blog.Article slug={slug} />
 				</Suspense>
@@ -160,6 +163,7 @@ function App({ path, cases, blog }: AppProps) {
 		return (
 			<ErrorBoundary>
 				<Seo pathname={pathname} />
+				<WhatsAppButton />
 				<Cursor />
 				<PrivacyPolicy />
 			</ErrorBoundary>
@@ -170,6 +174,7 @@ function App({ path, cases, blog }: AppProps) {
 		return (
 			<ErrorBoundary>
 				<Seo pathname={pathname} />
+				<WhatsAppButton />
 				<Suspense fallback={null}>
 					<Cases.Aero />
 				</Suspense>
@@ -181,6 +186,7 @@ function App({ path, cases, blog }: AppProps) {
 		return (
 			<ErrorBoundary>
 				<Seo pathname={pathname} />
+				<WhatsAppButton />
 				<Suspense fallback={null}>
 					<Cases.FitsYou />
 				</Suspense>
@@ -192,6 +198,7 @@ function App({ path, cases, blog }: AppProps) {
 		return (
 			<ErrorBoundary>
 				<Seo pathname={pathname} />
+				<WhatsAppButton />
 				<Suspense fallback={null}>
 					<Cases.RatoeiraHub />
 				</Suspense>
@@ -203,6 +210,7 @@ function App({ path, cases, blog }: AppProps) {
 		return (
 			<ErrorBoundary>
 				<Seo pathname={pathname} />
+				<WhatsAppButton />
 				<Suspense fallback={null}>
 					<Cases.Pogne />
 				</Suspense>
