@@ -221,6 +221,7 @@ function App({ path, cases, blog }: AppProps) {
 	return (
 		<ErrorBoundary>
 			<Seo pathname={pathname} />
+			<WhatsAppButton />
 			<Cursor />
 			<SmoothScroll>
 				<Header />
