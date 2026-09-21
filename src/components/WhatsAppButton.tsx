@@ -12,7 +12,7 @@ export function WhatsAppButton() {
 			rel="noopener noreferrer"
 			aria-label="Conversar com Lucas Coelho no WhatsApp"
 			title="Conversar no WhatsApp"
-			className="group fixed bottom-6 right-6 z-[90] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/30 transition-transform duration-300 hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#25D366] motion-safe:animate-[whatsapp-in_0.5s_ease-out_1s_both]"
+			className="group fixed bottom-6 right-6 z-[90] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/30 transition-transform duration-300 hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#25D366]"
 		>
 			{/* Ícone oficial WhatsApp */}
 			<svg
