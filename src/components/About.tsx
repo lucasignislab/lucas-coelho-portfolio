@@ -43,10 +43,10 @@ export function About() {
 					className="image-reveal lg:col-span-6 aspect-[4/5] rounded-sm overflow-hidden"
 				>
 					<img
-						src="/lovable-uploads/eu2.webp"
+						src="/lovable-uploads/imagemlucas.webp"
 						alt="Retrato de Lucas Coelho, designer digital"
 						width="1024"
-						height="1024"
+						height="1536"
 						className="w-full h-full object-cover scale-110"
 						loading="lazy"
 						onError={(e) => {
