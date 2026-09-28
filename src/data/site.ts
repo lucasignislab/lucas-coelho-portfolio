@@ -11,7 +11,7 @@ export const credibilityItems = [
 	{ value: "Web + Produto", label: "Da estratégia à interface" },
 ];
 
-export const contactEmail = "lucascoelho.cps@gmail.com";
+export const contactEmail = "lucas@lucascoelhoux.site";
 
 export const whatsappNumber = "5519992492409";
 export const whatsappMessage =
