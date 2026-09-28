@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { revealOnScroll, parallaxImage } from "@/lib/animations";
+import { revealOnScroll } from "@/lib/animations";
 
 /**
  * Sobre — bloco editorial com largura de leitura controlada:
@@ -15,9 +15,6 @@ export function About() {
 	useEffect(() => {
 		revealOnScroll(textRef.current, { y: 30, duration: 1 });
 		revealOnScroll(detailsRef.current, { y: 30, duration: 1, delay: 0.15 });
-		if (imageContainerRef.current) {
-			parallaxImage(imageContainerRef.current, { strength: 0.05 });
-		}
 	}, []);
 
 	return (
