@@ -40,14 +40,14 @@ export function About() {
 				{/* Portrait com parallax on scroll */}
 				<div
 					ref={imageContainerRef}
-					className="image-reveal lg:col-span-6 aspect-[4/5] rounded-sm overflow-hidden"
+					className="image-reveal lg:col-span-6 aspect-[2/3] rounded-sm overflow-hidden"
 				>
 					<img
 						src="/lovable-uploads/imagemlucas.webp"
 						alt="Retrato de Lucas Coelho, designer digital"
 						width="1024"
 						height="1536"
-						className="w-full h-full object-cover scale-110"
+						className="w-full h-full object-contain scale-100"
 						loading="lazy"
 						onError={(e) => {
 							(e.currentTarget as HTMLImageElement).style.display = "none";
