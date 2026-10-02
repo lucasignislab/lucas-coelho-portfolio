@@ -2086,6 +2086,11 @@ html.lenis {
 		font-size: clamp(3.25rem, 15vw, 5rem);
 	}
 
+	.work-heading h2 > strong {
+		font-size: clamp(1.5rem, 8vw, 3rem);
+		letter-spacing: -0.04em;
+	}
+
 	.work-intro {
 		margin-top: 2.5rem;
 		margin-left: 0;
