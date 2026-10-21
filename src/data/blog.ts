@@ -602,7 +602,7 @@ export const articles: Article[] = [
 		title: "Tracking server-side para afiliados: as vendas que o pixel esconde de você (e como recuperá-las)",
 		seoTitle: "Tracking server-side para afiliados | Blog Lucas Coelho",
 		excerpt:
-			"O pixel perde de 25% a 40% das suas conversões e o algoritmo otimiza em cima de dado errado. O guia definitivo de tracking server-side para afiliados: por que o pixel morreu, como funciona o envio duplo para a Conversions API, dado enriquecido, antifraude com bloqueio de IP e a arquitetura real do Ratoeira Hub, produto que projetei.",
+			"A Ratoeira afirma que seu tracking server-side recupera conversões antes não atribuídas. Neste guia, explico como funcionam integrações, deduplicação, dados de conversão e antifraude, com aprendizados do projeto de produto que acompanhei.",
 		date: "2026-08-13",
 		tags: ["Tracking", "Tráfego Pago", "Afiliados", "Conversões"],
 		coverImage: "/blog/tracking-server-side-afiliados/dashboard-tracking-conversoes.webp",
@@ -620,7 +620,9 @@ export const articles: Article[] = [
 			{
 				type: "paragraph",
 				content: [
-					"O número é mais feio do que a intuição sugere. Entre bloqueadores de anúncio, restrições de navegador, o App Tracking Transparency da Apple e os redirecionamentos de checkout que quebram a sessão, o pixel tradicional perde entre 25% e 40% das conversões de uma operação típica de afiliados. Não é exagero de vendedor de ferramenta; é a faixa que aparece de novo e de novo quando se compara o que a plataforma de afiliação registra com o que o gerenciador de anúncios enxerga. Um quarto a quase metade das suas vendas é invisível para quem decide onde seu orçamento vai parar amanhã.",
+					"O site da Ratoeira afirma que o tracking server-side recupera de ",
+					{ text: "25% a 40% das conversões", href: "https://ratoeiraads.com.br/" },
+					". Para este artigo, esse número é uma referência publicada pela própria plataforma, não um resultado de estudo independente. A variação depende de navegador, consentimento, checkout, integrações e critérios de atribuição; por isso, cada operação precisa comparar as vendas aprovadas com os registros dos gerenciadores. Uma diferença entre relatórios pode apontar falhas de mensuração, mas não prova, por si só, que todas as vendas ausentes foram causadas pelo pixel. O diagnóstico precisa considerar os dados e o período comparáveis e documentar como plataformas contabilizam os eventos enviados.",
 				],
 			},
 			{
@@ -642,21 +644,31 @@ export const articles: Article[] = [
 			{
 				type: "paragraph",
 				content: [
-					"Quando a Apple lançou o App Tracking Transparency, em 2021, a pergunta “permitir que este app rastreie sua atividade?” virou o botão mais caro da história da publicidade digital. A esmagadora maioria dos usuários de iPhone diz não, e com razão. O efeito prático para quem anuncia no Meta Ads é brutal: uma fatia enorme do público mais valioso do leilão, donos de iPhone, simplesmente deixou de reportar conversões pelo caminho tradicional. A venda continua acontecendo; o Facebook só não fica sabendo. E o algoritmo de entrega, que otimiza para conversões, passa a otimizar para um retrato distorcido do público, empurrando seu anúncio para quem o sistema consegue medir, não para quem realmente compra.",
+					"Quando a Apple lançou o ",
+					{ text: "App Tracking Transparency", href: "https://developer.apple.com/documentation/apptrackingtransparency" },
+					", em 2021, o aviso pede que a pessoa autorize o rastreamento entre apps e sites e o acesso ao identificador do dispositivo. Cada pessoa decide se autoriza o rastreamento conforme as opções exibidas pelo sistema. Para anunciantes, uma recusa limita identificadores usados na atribuição entre apps e sites; plataformas também oferecem outras formas de mensuração. A venda pode acontecer mesmo quando certos sinais não ficam disponíveis; isso não significa que cada conversão deixará de ser registrada. O efeito depende da autorização, das configurações, do consentimento, das regras de cada plataforma e da implementação. Esse efeito deve ser avaliado com dados de cada campanha e sinais disponíveis.",
 				],
 			},
 			{ type: "heading", level: 3, text: "Ad blockers e a morte dos cookies de terceiros" },
 			{
 				type: "paragraph",
 				content: [
-					"Bloqueadores de anúncio não bloqueiam só banner: eles bloqueiam o script do pixel. Uma parcela relevante dos seus visitantes carrega sua página inteira sem que o navegador execute uma linha sequer do código de rastreamento do Google ou do Meta. Para essas pessoas, o pixel é literalmente inexistente, e qualquer conversão que elas gerem nasce invisível. Some a isso a morte anunciada dos cookies de terceiros, primeiro no Safari e no Firefox, depois no Chrome com o Privacy Sandbox, e o mecanismo que o pixel usava para lembrar quem clicou no quê desaparece debaixo dele. O pixel dependia de um contrato entre navegadores que os navegadores resolveram rasgar.",
+					"Bloqueadores de anúncio podem impedir o carregamento do pixel, e restrições de privacidade mudam os sinais disponíveis para atribuição. O Safari ",
+					{ text: "bloqueia cookies de terceiros", href: "https://webkit.org/tracking-prevention/" },
+					" por padrão e o WebKit limita armazenamentos criados por scripts; o Firefox também oferece ",
+					{ text: "proteções contra rastreamento entre sites", href: "https://blog.mozilla.org/en/firefox/firefox-privacy-protections/" },
+					". No ",
+					{ text: "Chrome", href: "https://blog.google/intl/es-419/actualizaciones-de-producto/informacion/los-proximos-pasos-para-privacy-sandbox-y-las-protecciones-de-seguimiento-en-chrome/" },
+					", cookies de terceiros continuam disponíveis, com controles e bloqueio por padrão no modo anônimo. Isso não significa que todo visitante ficará sem medição nem que as vendas se tornarão invisíveis. O efeito depende do navegador, das configurações da pessoa, do consentimento, dos domínios e da implementação. Por isso, estimativas de perda precisam vir dos dados da operação, não de uma porcentagem universal.",
 				],
 			},
 			{ type: "heading", level: 3, text: "ITP: o Safari encurtando a memória" },
 			{
 				type: "paragraph",
 				content: [
-					"O Intelligent Tracking Prevention da Apple merece parágrafo próprio porque ele ataca até quem acha que está protegido. O ITP limita a vida útil de cookies de primeira parte criados via JavaScript a algo entre 24 horas e 7 dias, dependendo do cenário. Tradução: o usuário clica no seu anúncio numa segunda-feira, volta na semana seguinte direto pelo link salvo e compra. Para você, é a mesma pessoa, a mesma jornada, a mesma campanha. Para o Safari, é um estranho. A atribuição morre no caminho e sua campanha perde o crédito de uma venda que ela gerou. Num mercado onde o ciclo de decisão do comprador frequentemente passa de uma semana, isso não é exceção; é rotina.",
+					"O ",
+					{ text: "Intelligent Tracking Prevention da Apple", href: "https://webkit.org/tracking-prevention/" },
+					" merece parágrafo próprio porque ele ataca até quem acha que está protegido. O ITP limita a vida útil de cookies de primeira parte criados via JavaScript a algo entre 24 horas e 7 dias, dependendo do cenário. Tradução: o usuário clica no seu anúncio numa segunda-feira, volta na semana seguinte direto pelo link salvo e compra. Para você, é a mesma pessoa, a mesma jornada, a mesma campanha. Para o Safari, é um estranho. A atribuição morre no caminho e sua campanha perde o crédito de uma venda que ela gerou. Num mercado onde o ciclo de decisão do comprador frequentemente passa de uma semana, isso não é exceção; é rotina.",
 				],
 			},
 			{ type: "heading", level: 3, text: "O redirecionamento de checkout que quebra a sessão" },
@@ -726,7 +738,9 @@ export const articles: Article[] = [
 			{
 				type: "paragraph",
 				content: [
-					"A segunda peça é o dado enriquecido de primeira parte. Quando o evento sai pelo servidor, ele pode carregar informações que o comprador forneceu no checkout, como e-mail e telefone, devidamente hasheados antes de saírem da sua infraestrutura. Por que isso importa tanto? Porque a plataforma de anúncio precisa casar a conversão que você envia com o clique que ela registrou. O gclid e o fbclid são o casamento perfeito, mas nem toda conversão chega com eles intactos. E-mail e telefone hasheados funcionam como testemunhas: aumentam a taxa de correspondência entre venda e clique, mesmo em cenários onde o identificador direto se perdeu. É aqui que mora a recuperação prática das conversões perdidas: anunciantes que migram para essa arquitetura recuperam, em média, de 25% a 40% das conversões que antes eram invisíveis. O número do início do artigo não era só diagnóstico; é também o tamanho do que se recupera.",
+					"A segunda peça é o dado enriquecido de primeira parte. Quando o evento sai pelo servidor, ele pode carregar informações que o comprador forneceu no checkout, como e-mail e telefone, devidamente hasheados antes de saírem da sua infraestrutura. Por que isso importa tanto? Porque a plataforma de anúncio precisa casar a conversão que você envia com o clique que ela registrou. O gclid e o fbclid são o casamento perfeito, mas nem toda conversão chega com eles intactos. E-mail e telefone hasheados funcionam como testemunhas: aumentam a taxa de correspondência entre venda e clique, mesmo em cenários onde o identificador direto se perdeu. É aqui que mora a recuperação prática das conversões perdidas: anunciantes que migram para essa arquitetura recuperam, em média, de ",
+					{ text: "25% a 40% das conversões que antes eram invisíveis", href: "https://ratoeiraads.com.br/" },
+					". O número do início do artigo não era só diagnóstico; é também o tamanho do que se recupera.",
 				],
 			},
 			{
@@ -852,7 +866,9 @@ export const articles: Article[] = [
 			{
 				type: "paragraph",
 				content: [
-					"Do lado do design, a pergunta que guiou o dashboard foi: o que um afiliado precisa saber nos primeiros dez segundos de olhar a tela? A resposta virou a estrutura do painel: páginas, visitantes, dispositivos e eventos. Páginas, porque a operação vive de saber qual página segura clique e qual sangra. Visitantes, porque volume e qualidade de tráfego são a matéria-prima. Dispositivos, porque a diferença entre mobile e desktop muda lance, criativo e expectativa de conversão. E eventos, porque é ali que o rastreamento prova seu valor: cada evento registrado é uma peça da jornada que o pixel teria perdido. A meta era um painel que respondesse “estou vendo tudo?” num relance, e a métrica de sucesso do ecossistema hoje é essa: praticamente 100% das conversões rastreadas, contra os 25–40% de perda do modelo antigo.",
+					"Do lado do design, a pergunta que guiou o dashboard foi: o que um afiliado precisa saber nos primeiros dez segundos de olhar a tela? A resposta virou a estrutura do painel: páginas, visitantes, dispositivos e eventos. Páginas, porque a operação vive de saber qual página segura clique e qual sangra. Visitantes, porque volume e qualidade de tráfego são a matéria-prima. Dispositivos, porque a diferença entre mobile e desktop muda lance, criativo e expectativa de conversão. E eventos, porque é ali que o rastreamento prova seu valor: cada evento registrado é uma peça da jornada que o pixel teria perdido. A meta era um painel que respondesse “estou vendo tudo?” num relance, e a métrica de sucesso do ecossistema hoje é essa: ",
+					{ text: "praticamente 100% das conversões rastreadas, contra os 25–40% de perda do modelo antigo", href: "https://ratoeiraads.com.br/" },
+					".",
 				],
 			},
 			{
@@ -865,7 +881,9 @@ export const articles: Article[] = [
 			{
 				type: "paragraph",
 				content: [
-					"Os números do ecossistema dão a escala da coisa: mais de 2.600 anunciantes usando a plataforma e mais de US$ 81 milhões rastreados. Projetar produto para esse público me ensinou uma coisa que carrego para todo projeto: usuário de tráfego pago não quer dashboard bonito, quer resposta rápida com número confiável. Toda decisão de interface, da densidade da tabela ao destaque do evento de conversão, foi tomada a favor da velocidade de leitura. Se quiser ver como isso se materializou, o ",
+					"Os números do ecossistema dão a escala da coisa: ",
+					{ text: "mais de 2.600 anunciantes usando a plataforma e mais de US$ 81 milhões rastreados", href: "https://ratoeiraads.com.br/" },
+					". Projetar produto para esse público me ensinou uma coisa que carrego para todo projeto: usuário de tráfego pago não quer dashboard bonito, quer resposta rápida com número confiável. Toda decisão de interface, da densidade da tabela ao destaque do evento de conversão, foi tomada a favor da velocidade de leitura. Se quiser ver como isso se materializou, o ",
 					{ text: "case completo do Ratoeira Hub", href: "/projetos/ratoeira-hub/" },
 					" está no meu portfólio, com as telas e as decisões de experiência por trás delas.",
 				],
@@ -973,7 +991,9 @@ export const articles: Article[] = [
 					{ text: "case do Ratoeira Hub", href: "/projetos/ratoeira-hub/" },
 					" aqui no portfólio: o dashboard de páginas, visitantes, dispositivos e eventos, as Flash Pages, o antifraude com bloqueio de IP e as decisões de design por trás de tudo. E se a sua operação está perdendo conversões para o pixel hoje, conheça o ",
 					{ text: "Ratoeira Hub", href: "https://ratoeiraadsoficial.com.br" },
-					" em funcionamento: tracking, antifraude e páginas integrados desde o primeiro clique, com praticamente 100% das conversões rastreadas. Para conversar sobre design de produto para dados e performance, me acha pela ",
+					" em funcionamento: tracking, antifraude e páginas integrados desde o primeiro clique, com ",
+					{ text: "praticamente 100% das conversões rastreadas", href: "https://ratoeiraads.com.br/" },
+					". Para conversar sobre design de produto para dados e performance, me acha pela ",
 					{ text: "página inicial", href: "/" },
 					". Operação que enxerga as próprias vendas sempre vence a que adivinha.",
 				],
