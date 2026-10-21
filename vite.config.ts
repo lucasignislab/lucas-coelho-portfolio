@@ -3,7 +3,13 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
-import { seoPages, SITE_URL, type SeoPage } from "./src/data/seo";
+import {
+	breadcrumbSchema,
+	getBreadcrumbs,
+	seoPages,
+	SITE_URL,
+	type SeoPage,
+} from "./src/data/seo";
 
 function escapeHtml(value: string) {
 	return value
@@ -17,6 +23,12 @@ function renderSeoHead(page: SeoPage) {
 	const canonicalUrl = `${SITE_URL}${page.path === "/" ? "/" : `${page.path}/`}`;
 	const imageUrl = `${SITE_URL}${page.image}`;
 	const jsonLd = JSON.stringify(page.schema).replace(/</g, "\\u003c");
+	const breadcrumbs = getBreadcrumbs(page.path);
+	const breadcrumbJsonLd = breadcrumbs.length
+		? `<script id="seo-breadcrumb-structured-data" type="application/ld+json">${JSON.stringify(
+				breadcrumbSchema(breadcrumbs, page.path)
+			).replace(/</g, "\\u003c")}</script>`
+		: "";
 
 	return `<!-- SEO_HEAD_START -->
     <title>${escapeHtml(page.title)}</title>
@@ -40,6 +52,7 @@ function renderSeoHead(page: SeoPage) {
     <meta name="twitter:image" content="${imageUrl}" />
     <meta name="twitter:image:alt" content="${escapeHtml(page.imageAlt)}" />
     <script id="seo-structured-data" type="application/ld+json">${jsonLd}</script>
+    ${breadcrumbJsonLd}
     <!-- SEO_HEAD_END -->`;
 }
 

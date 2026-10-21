@@ -3,6 +3,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { contactEmail } from "@/data/site";
 import { CaseQuickRead } from "@/components/CaseQuickRead";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { getBreadcrumbs } from "@/data/seo";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -123,8 +125,9 @@ export function FitsYouCaseStudy() {
 				<a href="/#work">
 					<span aria-hidden>←</span> Voltar aos projetos
 				</a>
-				<span>Case study / 02</span>
+				<span>Estudo de caso / 02</span>
 			</header>
+			<Breadcrumbs items={getBreadcrumbs("/projetos/fits-you")} className="fits-case-breadcrumbs" />
 
 			<main>
 				<section className="fits-case-hero">
@@ -141,7 +144,7 @@ export function FitsYouCaseStudy() {
 								</span>
 								<span className="fits-reveal-mask">
 									<em className="fits-hero-reveal">
-										Web Design para Studio de Pilates
+										Web design para cross training e Pilates
 									</em>
 								</span>
 							</h1>
@@ -215,9 +218,9 @@ export function FitsYouCaseStudy() {
 								"Construir uma arquitetura de conteúdo comum e diferenciar as modalidades por ritmo, imagem e mensagem.",
 						},
 						{
-							label: "Entrega observável",
+							label: "Entrega e evidência",
 							value:
-								"Site institucional publicado com modalidades, equipe, horários, localização e contato organizados em uma jornada única.",
+								"Site publicado com modalidades, equipe, horários, localização e contato. Os indicadores exibidos pertencem ao studio e não medem resultados do projeto de design.",
 						},
 						{
 							label: "Escopo declarado",
@@ -418,6 +421,7 @@ export function FitsYouCaseStudy() {
 					<p className="fits-section-reveal">
 						Posso ajudar a organizar conteúdo, construir uma direção visual
 						própria e transformar tudo em uma experiência digital coerente.
+								Veja também meu trabalho com <a href="/servicos/sites-landing-pages" className="link-underline">sites institucionais e landing pages</a>.
 					</p>
 					<div className="fits-case-actions fits-section-reveal">
 						<a

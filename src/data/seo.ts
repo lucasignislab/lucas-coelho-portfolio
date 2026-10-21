@@ -1,6 +1,13 @@
 import { articles, getReadingTime } from "./blog";
+import { projects } from "./projects";
+import { servicePages } from "./services";
 
 export const SITE_URL = "https://lucascoelhoux.site";
+
+export interface BreadcrumbItem {
+	name: string;
+	href?: string;
+}
 
 export interface SeoPage {
 	path: string;
@@ -85,7 +92,7 @@ const blogSchema = {
 
 const articleSeoPage = (article: (typeof articles)[number]): SeoPage => ({
 	path: `/blog/${article.slug}`,
-	title: `${article.title} | Blog Lucas Coelho`,
+	title: article.seoTitle ?? `${article.title} | Blog Lucas Coelho`,
 	description: article.ogDescription,
 	image: article.coverImage,
 	imageAlt: article.coverImageAlt,
@@ -114,10 +121,40 @@ const articleSeoPages: Record<string, SeoPage> = Object.fromEntries(
 	articles.map(article => [`/blog/${article.slug}`, articleSeoPage(article)])
 );
 
+const serviceSeoPages: Record<string, SeoPage> = Object.fromEntries(
+	servicePages.map(service => [
+		service.path,
+		{
+			path: service.path,
+			title: service.title,
+			description: service.description,
+			image: "/og-card.png",
+			imageAlt: `${service.label} — Lucas Coelho`,
+			imageWidth: 1200,
+			imageHeight: 630,
+			ogType: "website",
+			schema: {
+				"@context": "https://schema.org",
+				"@type": "Service",
+				name: service.label,
+				description: service.description,
+				url: `${SITE_URL}${service.path}/`,
+				serviceType: service.label,
+				provider: person,
+				areaServed: [
+					{ "@type": "City", name: "Campinas" },
+					{ "@type": "Country", name: "Brasil" },
+				],
+				inLanguage: "pt-BR",
+			},
+		},
+	])
+);
+
 export const seoPages: Record<string, SeoPage> = {
 	"/blog": {
 		path: "/blog",
-		title: "Blog — escritos sobre design, produto e código | Lucas Coelho",
+		title: "Blog de design, produto e código | Lucas Coelho",
 		description:
 			"Artigos de Lucas Coelho sobre design systems, product design, UX/UI e front-end: processo real, decisões e aprendizados de projetos digitais.",
 		image: "/og-card.png",
@@ -128,11 +165,12 @@ export const seoPages: Record<string, SeoPage> = {
 		schema: blogSchema,
 	},
 	...articleSeoPages,
+	...serviceSeoPages,
 	"/": {
 		path: "/",
 		title: "Lucas Coelho — Designer Digital em Campinas",
 		description:
-			"Designer digital em Campinas. Crio marcas, sites, produtos e experiências digitais que unem estratégia, clareza visual e conversão.",
+			"Designer digital e web designer em Campinas. Crio sites e landing pages, identidades visuais, produtos digitais e interfaces UX/UI com estratégia e clareza.",
 		image: "/og-card.png",
 		imageAlt: "Lucas Coelho — Designer Digital em Campinas",
 		imageWidth: 1200,
@@ -182,17 +220,17 @@ export const seoPages: Record<string, SeoPage> = {
 	},
 	"/projetos/aero": {
 		path: "/projetos/aero",
-		title: "Case de Product Design para SaaS — Aero | Lucas Coelho",
+		title: "Product design para SaaS de gestão de projetos | Aero",
 		description:
-			"Case de product design e UX/UI para SaaS de gestão de projetos keyboard-first: estratégia, prototipação e desenvolvimento do Aero.",
+			"Estudo de caso de product design e UX/UI para o Aero, SaaS de gestão de projetos. Estratégia, interfaces keyboard-first, design system e implementação.",
 		image: "/lovable-uploads/aero-project-cover.webp",
 		imageAlt: "Interface do Aero Project Manager",
 		imageWidth: 1024,
 		imageHeight: 576,
 		ogType: "article",
 		schema: caseSchema(
-			"Case de Product Design para SaaS — Aero",
-			"Case de product design e UX/UI do Aero, um SaaS de gestão de projetos keyboard-first.",
+			"Product design para SaaS de gestão de projetos | Aero",
+			"Estudo de caso de product design e UX/UI para o Aero, SaaS de gestão de projetos keyboard-first.",
 			"/projetos/aero",
 			"/lovable-uploads/aero-project-cover.webp",
 			"2025",
@@ -201,16 +239,16 @@ export const seoPages: Record<string, SeoPage> = {
 	},
 	"/projetos/fits-you": {
 		path: "/projetos/fits-you",
-		title: "Case de Web Design e UX/UI para Studio de Pilates — Fits You",
+		title: "Web design para cross training e Pilates | Fits You",
 		description:
-			"Case de web design e UX/UI para o Fits You, studio de cross training e Pilates em Barão Geraldo, Campinas: site institucional completo.",
+			"Case de web design e UX/UI para o Fits You Studio, em Barão Geraldo, Campinas. Site institucional com modalidades, equipe, horários, localização e contato.",
 		image: "/lovable-uploads/fitsyou.webp",
 		imageAlt: "Interface do site Fits You Studio",
 		imageWidth: 2868,
 		imageHeight: 1314,
 		ogType: "article",
 		schema: caseSchema(
-			"Case de Web Design e UX/UI para Studio de Pilates — Fits You",
+			"Web design para cross training e Pilates | Fits You",
 			"Site institucional para um studio de cross training e Pilates em Barão Geraldo, Campinas.",
 			"/projetos/fits-you",
 			"/lovable-uploads/fitsyou.webp",
@@ -220,16 +258,16 @@ export const seoPages: Record<string, SeoPage> = {
 	},
 	"/projetos/ratoeira-hub": {
 		path: "/projetos/ratoeira-hub",
-		title: "Case de Web Design para Adtech — Ratoeira Hub | Lucas Coelho",
+		title: "Web design e UX/UI para adtech | Ratoeira Hub",
 		description:
-			"Case de web design e UX/UI para o Ratoeira Hub, adtech de tracking server-side, proteção contra cliques fraudulentos e landing pages.",
+			"Case de web design e UX/UI para o Ratoeira Hub: site institucional sobre tracking server-side, proteção antifraude, landing pages e integrações.",
 		image: "/lovable-uploads/ratoeirahub.webp",
 		imageAlt: "Interface do site Ratoeira Hub",
 		imageWidth: 2832,
 		imageHeight: 1408,
 		ogType: "article",
 		schema: caseSchema(
-			"Case de Web Design para Adtech — Ratoeira Hub",
+			"Web design e UX/UI para adtech | Ratoeira Hub",
 			"Web design e UX/UI para um ecossistema de tracking server-side, proteção antifraude e landing pages.",
 			"/projetos/ratoeira-hub",
 			"/lovable-uploads/ratoeirahub.webp",
@@ -239,16 +277,16 @@ export const seoPages: Record<string, SeoPage> = {
 	},
 	"/projetos/pogne": {
 		path: "/projetos/pogne",
-		title: "Case de Landing Page de Conversão — Pogne × Ratoeira Ads",
+		title: "Landing page para Google Ads | Pogne × Ratoeira Ads",
 		description:
-			"Case de landing page de conversão para a campanha Pogne × Ratoeira Ads (Método PNG), com narrativa direta e foco em CTA.",
+			"Case de landing page para a parceria entre Pogne e Ratoeira Ads. A campanha apresenta proteção de orçamento e rastreamento a alunos do Método PNG.",
 		image: "/lovable-uploads/pogne.webp",
 		imageAlt: "Landing page da campanha Pogne e Ratoeira Ads",
 		imageWidth: 2838,
 		imageHeight: 1410,
 		ogType: "article",
 		schema: caseSchema(
-			"Case de Landing Page de Conversão — Pogne × Ratoeira Ads",
+			"Landing page para Google Ads | Pogne × Ratoeira Ads",
 			"Landing page de campanha com narrativa direta e foco em conversão para a parceria entre Método PNG e Ratoeira Ads.",
 			"/projetos/pogne",
 			"/lovable-uploads/pogne.webp",
@@ -261,4 +299,58 @@ export const seoPages: Record<string, SeoPage> = {
 export function getSeoPage(pathname: string): SeoPage {
 	const normalizedPath = pathname.replace(/\/+$/, "") || "/";
 	return seoPages[normalizedPath] ?? seoPages["/"];
+}
+
+export function getBreadcrumbs(pathname: string): BreadcrumbItem[] {
+	const normalizedPath = pathname.replace(/\/+$/, "") || "/";
+	if (normalizedPath === "/") return [];
+	if (normalizedPath === "/blog") {
+		return [{ name: "Início", href: "/" }, { name: "Blog" }];
+	}
+	if (normalizedPath.startsWith("/blog/")) {
+		const article = articles.find(
+			item => `/blog/${item.slug}` === normalizedPath
+		);
+		return [
+			{ name: "Início", href: "/" },
+			{ name: "Blog", href: "/blog/" },
+			{ name: article?.title ?? "Artigo não encontrado" },
+		];
+	}
+	const service = servicePages.find(item => item.path === normalizedPath);
+	if (service) {
+		return [
+			{ name: "Início", href: "/" },
+			{ name: "Serviços", href: "/#skills" },
+			{ name: service.label },
+		];
+	}
+	const project = projects.find(item => item.caseUrl === normalizedPath);
+	if (project) {
+		return [
+			{ name: "Início", href: "/" },
+			{ name: "Projetos", href: "/#work" },
+			{ name: project.name },
+		];
+	}
+	if (normalizedPath === "/politica-de-privacidade") {
+		return [
+			{ name: "Início", href: "/" },
+			{ name: "Política de privacidade" },
+		];
+	}
+	return [];
+}
+
+export function breadcrumbSchema(items: BreadcrumbItem[], currentPath: string) {
+	return {
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		itemListElement: items.map((item, index) => ({
+			"@type": "ListItem",
+			position: index + 1,
+			name: item.name,
+			item: `${SITE_URL}${item.href ?? `${currentPath}/`}`,
+		})),
+	};
 }

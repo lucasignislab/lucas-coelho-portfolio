@@ -142,7 +142,7 @@ export function AeroDesignSystemPanel() {
 		>
 			<div className="aero-ds-grid" aria-hidden="true" />
 			<div className="aero-interactive-meta">
-				<span>Aero · Product Case Study</span>
+				<span>Aero · Estudo de caso de produto</span>
 				<span>/07</span>
 			</div>
 

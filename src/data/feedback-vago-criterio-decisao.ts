@@ -5,12 +5,13 @@ const media = "/blog/feedback-vago-criterio-decisao";
 export const feedbackVagoCriterioDecisao: Article = {
 	slug: "feedback-vago-criterio-decisao",
 	title: "Como transformar um feedback vago em uma decisão de design",
+	seoTitle: "Feedback de design: como decidir | Blog Lucas Coelho",
 	excerpt: "O que fazer quando alguém diz que não gostou de uma tela? Um processo para sair da reação, encontrar o problema e decidir o que vale mudar.",
 	date: "2026-09-21",
 	tags: ["UX Design", "Processo de design", "Feedback", "Tomada de decisão"],
 	coverImage: `${media}/capa.svg`,
 	coverImageAlt: "Composição editorial mostrando a passagem de um comentário vago para uma decisão fundamentada de design",
-	ogDescription: "Um método prático para transformar comentários vagos sobre interfaces em critérios de decisão, alternativas testáveis e um registro claro do que foi aprendido.",
+	ogDescription: "Um método para transformar comentários vagos sobre interfaces em critérios de decisão, alternativas testáveis e aprendizados registrados.",
 	blocks: [
 		{ type: "paragraph", content: ["“Não gostei dessa tela.” Já ouvi versões dessa frase em apresentações, revisões e conversas rápidas no meio de um projeto. Às vezes ela vem acompanhada de uma sugestão: aumentar o botão, trocar a cor, reorganizar tudo. A vontade imediata é abrir o arquivo e começar a ajustar. Afinal, há uma opinião na mesa e parece que precisamos responder a ela."] },
 		{ type: "paragraph", content: ["Mas qual mudança responderia ao problema? Se eu não souber dizer o que está incomodando a pessoa, posso produzir uma versão visualmente diferente e preservar a mesma dificuldade. Também posso descartar um comentário importante só porque ele chegou sem vocabulário técnico. Esse é o ponto delicado do feedback vago: a frase é insuficiente como instrução, mas pode ser valiosa como sinal."] },

@@ -6,6 +6,8 @@ import { AeroHeroScene } from "@/components/AeroHeroScene";
 import { AeroInteractivePanel } from "@/components/AeroInteractivePanel";
 import { AeroDesignSystemPanel } from "@/components/AeroDesignSystemPanel";
 import { CaseQuickRead } from "@/components/CaseQuickRead";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { getBreadcrumbs } from "@/data/seo";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -200,8 +202,9 @@ export function AeroCaseStudy() {
 				<a href="/#work" className="aero-case-back">
 					<span aria-hidden>←</span> Voltar aos projetos
 				</a>
-				<span className="aero-case-index">Case study / 01</span>
+				<span className="aero-case-index">Estudo de caso / 01</span>
 			</header>
+			<Breadcrumbs items={getBreadcrumbs("/projetos/aero")} className="aero-case-breadcrumbs" />
 
 			<main>
 				<section className="aero-case-hero">
@@ -284,9 +287,9 @@ export function AeroCaseStudy() {
 								"Combinar command menu, edição em drawer e densidade visual controlada em uma experiência keyboard-first.",
 						},
 						{
-							label: "Entrega observável",
+							label: "Entrega e evidência",
 							value:
-								"Produto publicado em React, TypeScript, Tailwind e Tiptap, disponível para exploração.",
+								"Produto autoral publicado em React, TypeScript, Tailwind e Tiptap. O case registra decisões e aprendizados, sem métricas de uso.",
 						},
 						{
 							label: "Limite declarado",
@@ -297,7 +300,7 @@ export function AeroCaseStudy() {
 				/>
 
 				<section id="case" className="aero-case-intro" aria-labelledby="case-title">
-					<p>Retrospective product case study</p>
+					<p>Estudo retrospectivo de produto</p>
 					<h2 id="case-title">
 						Decisões reais reconstruídas a partir do produto funcional.
 					</h2>
@@ -349,7 +352,8 @@ export function AeroCaseStudy() {
 					<h2>Tem um produto complexo que precisa parecer simples?</h2>
 					<p>
 						Posso ajudar a organizar a estratégia, transformar fluxos em uma
-						interface clara e acompanhar a implementação.
+						interface clara e acompanhar a implementação. Conheça também meu
+						trabalho em <a href="/servicos/produtos-interfaces" className="link-underline">product design</a> e <a href="/servicos/design-systems" className="link-underline">design systems</a>.
 					</p>
 					<div className="aero-case-actions">
 						<a
@@ -367,7 +371,7 @@ export function AeroCaseStudy() {
 
 			<footer className="aero-case-footer">
 				<span>Lucas Coelho · Digital Designer</span>
-				<span>Case study / 2025</span>
+				<span>Estudo de caso / 2025</span>
 			</footer>
 		</div>
 	);

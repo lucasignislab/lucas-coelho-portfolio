@@ -74,8 +74,8 @@ export function Hero() {
 					ref={leadRef}
 					className="lg:col-span-5 lg:col-start-8 font-mono text-[11px] md:text-xs leading-[1.6] text-bone/80 uppercase tracking-[0.05em] text-justify hyphens-auto indent-0"
 				>
-					Crio marcas e experiências digitais que tornam negócios mais claros,
-					desejáveis e preparados para converter.
+					Uno identidade visual, sites, interfaces de produto e design systems
+					para transformar ideias em experiências digitais claras e úteis.
 				</p>
 			</div>
 

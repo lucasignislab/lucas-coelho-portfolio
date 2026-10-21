@@ -8,6 +8,8 @@ import {
 	type InlineSegment,
 } from "@/data/blog";
 import { contactEmail } from "@/data/site";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { getBreadcrumbs } from "@/data/seo";
 
 function renderInline(content: InlineSegment[]): ReactNode {
 	return content.map((segment, index) => {
@@ -162,6 +164,10 @@ export function BlogArticle({ slug }: { slug: string }) {
 						<a href="/blog">Blog</a>
 					</nav>
 				</header>
+				<Breadcrumbs
+					items={getBreadcrumbs(`/blog/${slug}`)}
+					className="blog-main blog-breadcrumbs"
+				/>
 				<main className="blog-main blog-notfound">
 					<p className="eyebrow">Artigo não encontrado</p>
 					<h1>Este texto ainda não existe.</h1>
@@ -193,6 +199,10 @@ export function BlogArticle({ slug }: { slug: string }) {
 					<a href="/blog">← Voltar ao blog</a>
 				</nav>
 			</header>
+			<Breadcrumbs
+				items={getBreadcrumbs(`/blog/${slug}`)}
+				className="blog-main blog-breadcrumbs"
+			/>
 
 			<main className="blog-main">
 				<article className="blog-article">

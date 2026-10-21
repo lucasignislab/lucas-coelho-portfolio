@@ -20,6 +20,8 @@ import { SelectedWork } from "@/components/SelectedWork";
 import { Footer } from "@/components/Footer";
 import { PrivacyPolicy } from "@/components/PrivacyPolicy";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { ServicePage } from "@/components/ServicePage";
+import { getServicePage } from "@/data/services";
 import { useGtagPageview } from "@/hooks/useGtagPageview";
 
 const lazyBlog: BlogComponents = {
@@ -155,6 +157,16 @@ function App({ path, cases, blog }: AppProps) {
 				<Suspense fallback={null}>
 					<Blog.Article slug={slug} />
 				</Suspense>
+			</ErrorBoundary>
+		);
+	}
+
+	if (getServicePage(pathname)) {
+		return (
+			<ErrorBoundary>
+				<Seo pathname={pathname} />
+				<WhatsAppButton />
+				<ServicePage pathname={pathname} />
 			</ErrorBoundary>
 		);
 	}

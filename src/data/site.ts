@@ -1,10 +1,3 @@
-export const services = [
-	"Identidade e direção digital",
-	"Sites e landing pages",
-	"Produtos e interfaces",
-	"Design systems",
-];
-
 export const credibilityItems = [
 	{ value: "2017", label: "Atuando com design desde" },
 	{ value: "Brasil", label: "Campinas · projetos remotos" },

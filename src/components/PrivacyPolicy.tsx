@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { contactEmail } from "@/data/site";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { getBreadcrumbs } from "@/data/seo";
 
 const sections = [
 	{
@@ -150,6 +152,10 @@ export function PrivacyPolicy() {
 					← Voltar ao portfólio
 				</a>
 			</header>
+			<Breadcrumbs
+				items={getBreadcrumbs("/politica-de-privacidade")}
+				className="privacy-main privacy-breadcrumbs"
+			/>
 
 			<main className="privacy-main">
 				<section className="privacy-hero" aria-labelledby="privacy-title">

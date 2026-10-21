@@ -3,6 +3,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { contactEmail } from "@/data/site";
 import { CaseQuickRead } from "@/components/CaseQuickRead";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { getBreadcrumbs } from "@/data/seo";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -109,8 +111,9 @@ export function RatoeiraHubCaseStudy() {
 		<div ref={pageRef} className="hub-case">
 			<header className="hub-case-header">
 				<a href="/#work"><span aria-hidden>←</span> Voltar aos projetos</a>
-				<span>Case study / 03</span>
+				<span>Estudo de caso / 03</span>
 			</header>
+			<Breadcrumbs items={getBreadcrumbs("/projetos/ratoeira-hub")} className="hub-case-breadcrumbs" />
 
 			<main>
 				<section className="hub-case-hero">
@@ -168,9 +171,9 @@ export function RatoeiraHubCaseStudy() {
 								"Organizar a comunicação como uma jornada operacional comum, mantendo clara a função específica de cada módulo.",
 						},
 						{
-							label: "Entrega observável",
+							label: "Entrega e evidência",
 							value:
-								"Site institucional publicado com ecossistema, demonstração de produto e integrações apresentados em uma narrativa única.",
+								"Site publicado com três produtos, demonstração do dashboard e mais de 70 integrações comunicadas. O case não inclui métricas de aquisição ou conversão.",
 						},
 						{
 							label: "Escopo declarado",
@@ -271,7 +274,7 @@ export function RatoeiraHubCaseStudy() {
 				<section className="hub-case-closing hub-scroll-section">
 					<p className="hub-case-eyebrow hub-section-reveal">Próximo passo</p>
 					<h2 className="hub-section-reveal">Seu ecossistema também precisa parecer uma única história?</h2>
-					<p className="hub-section-reveal">Posso ajudar a organizar produtos, públicos e mensagens em uma experiência digital coerente.</p>
+					<p className="hub-section-reveal">Posso ajudar a organizar produtos, públicos e mensagens em uma experiência digital coerente. Veja meu trabalho com <a href="/servicos/sites-landing-pages" className="link-underline">sites e landing pages</a>.</p>
 					<div className="hub-case-actions hub-section-reveal">
 						<a href={`mailto:${contactEmail}?subject=Quero conversar sobre um projeto digital`} className="hub-primary-button">Conversar sobre um projeto <span aria-hidden>→</span></a>
 						<a href="/#work" className="hub-secondary-button">Ver outros projetos</a>

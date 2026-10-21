@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useSplitText } from "@/hooks/use-split-text";
 import { revealOnScroll } from "@/lib/animations";
-import { services } from "@/data/site";
+import { services } from "@/data/services";
 
 /**
  * Serviços — texto serif grande com em-dashes separando as ofertas.
@@ -24,7 +24,14 @@ export function Skills() {
 
 			<h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-bone leading-[1.2] text-balance max-w-7xl">
 				<span ref={textRef} className="font-display italic text-bone/85">
-					{services.join(" — ")}
+					{services.map((service, index) => (
+						<span key={service.path}>
+							{index > 0 && " — "}
+							<a href={service.path} className="link-underline">
+								{service.label}
+							</a>
+						</span>
+					))}
 				</span>
 			</h2>
 			<p className="max-w-2xl text-bone/80 text-lg leading-relaxed">

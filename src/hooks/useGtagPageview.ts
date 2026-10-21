@@ -3,10 +3,28 @@ import { useEffect } from "react";
 declare global {
 	interface Window {
 		gtag?: (...args: unknown[]) => void;
+		umami?: {
+			track: (eventName: string, eventData?: Record<string, string>) => void;
+		};
 	}
 }
 
 let lastSentPath: string | null = null;
+
+export function trackLeadConversion(intent: "project" | "opportunity") {
+	if (typeof window === "undefined") return;
+	const eventData = {
+		lead_type: intent,
+		method: "contact_form",
+	};
+
+	if (typeof window.umami?.track === "function") {
+		window.umami.track("generate_lead", eventData);
+	}
+	if (typeof window.gtag === "function") {
+		window.gtag("event", "generate_lead", eventData);
+	}
+}
 
 function sendPageview() {
 	if (typeof window === "undefined") return;

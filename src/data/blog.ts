@@ -25,6 +25,7 @@
  *    — basta adicionar a URL com barra final em `public/sitemap.xml`.
  */
 
+import { articleSiteInstitucional } from "./article-site-institucional";
 import { feedbackVagoCriterioDecisao } from "./feedback-vago-criterio-decisao";
 
 export type InlineSegment = string | { text: string; href: string };
@@ -42,6 +43,7 @@ export type ArticleBlock =
 export interface Article {
 	slug: string;
 	title: string;
+	seoTitle?: string;
 	excerpt: string;
 	/** Data ISO (AAAA-MM-DD). */
 	date: string;
@@ -99,10 +101,12 @@ export function formatArticleDate(isoDate: string): string {
 }
 
 export const articles: Article[] = [
+	articleSiteInstitucional,
 	feedbackVagoCriterioDecisao,
 	{
 		slug: "design-system-do-zero",
 		title: "Como estruturei um design system do zero (e o que faria diferente)",
+		seoTitle: "Como criar um design system do zero | Blog Lucas Coelho",
 		excerpt:
 			"Guia completo e honesto de como criei um design system do zero para o Aero: 18 tokens de cor, 7 níveis tipográficos, 8 passos de espaçamento, 9 componentes, uma documentação viva dentro do produto, erros que cometi e um checklist prático para começar o seu.",
 		date: "2026-08-10",
@@ -111,7 +115,7 @@ export const articles: Article[] = [
 		coverImageAlt:
 			"Interface do Aero, produto de gestão de projetos com tema escuro, usada como base do design system",
 		ogDescription:
-			"Como criar um design system do zero, na prática: o guia completo do sistema do Aero — 18 tokens de cor, 7 níveis tipográficos, 9 componentes, documentação viva dentro do produto, erros comuns e o que eu faria diferente.",
+			"Como criei o design system do Aero: princípios, tokens, componentes, documentação viva e decisões que mudaram meu processo.",
 		blocks: [
 			{
 				type: "paragraph",
@@ -596,6 +600,7 @@ export const articles: Article[] = [
 	{
 		slug: "tracking-server-side-afiliados",
 		title: "Tracking server-side para afiliados: as vendas que o pixel esconde de você (e como recuperá-las)",
+		seoTitle: "Tracking server-side para afiliados | Blog Lucas Coelho",
 		excerpt:
 			"O pixel perde de 25% a 40% das suas conversões e o algoritmo otimiza em cima de dado errado. O guia definitivo de tracking server-side para afiliados: por que o pixel morreu, como funciona o envio duplo para a Conversions API, dado enriquecido, antifraude com bloqueio de IP e a arquitetura real do Ratoeira Hub, produto que projetei.",
 		date: "2026-08-13",
@@ -604,7 +609,7 @@ export const articles: Article[] = [
 		coverImageAlt:
 			"Dashboard de tracking do Ratoeira Hub mostrando páginas, visitantes, dispositivos e eventos rastreados server-side",
 		ogDescription:
-			"Tracking server-side para afiliados, sem enrolação: por que o pixel perde 25–40% das conversões, como o envio duplo para a Conversions API e o dado enriquecido recuperam vendas invisíveis, e como a arquitetura do Ratoeira Hub resolve isso na prática.",
+			"Guia de tracking server-side para afiliados: como funciona o envio de eventos, as integrações com anúncios e os recursos do Ratoeira Hub.",
 		blocks: [
 			{
 				type: "paragraph",
@@ -978,6 +983,7 @@ export const articles: Article[] = [
 	{
 		slug: "sacred-modernism-design-system",
 		title: "Sacred Modernism: como traduzi tradição ancestral em um design system",
+		seoTitle: "Design system para identidade ancestral | Blog Lucas Coelho",
 		excerpt:
 			"Como projetar um design system para um terreiro de umbanda sem cair no clichê nem no frio corporativo: o Sacred Modernism do Orixá Design System — 77 tokens de cor derivados em OKLCH, 20 roles semânticos, tipografia Cormorant Garamond + Inter, Dark Glassmorphism com Efeito Vela, governança por status e acessibilidade AAA.",
 		date: "2026-08-13",
@@ -986,7 +992,7 @@ export const articles: Article[] = [
 		coverImageAlt:
 			"Topo da documentação viva do Orixá Design System, com o conceito Sacred Modernism, selo v0.2 e os números do sistema",
 		ogDescription:
-			"Sacred Modernism na prática: como traduzir tradição ancestral em design tokens — 77 tokens de cor em OKLCH, 20 roles semânticos, Cormorant Garamond + Inter, Dark Glassmorphism com Efeito Vela e uma documentação viva que não finge estar pronta.",
+			"Como traduzi uma tradição ancestral em um design system para um terreiro, com decisões de cor, tipografia, tokens e documentação viva.",
 		blocks: [
 			{
 				type: "paragraph",

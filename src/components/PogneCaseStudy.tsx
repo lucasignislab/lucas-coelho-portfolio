@@ -3,6 +3,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { contactEmail } from "@/data/site";
 import { CaseQuickRead } from "@/components/CaseQuickRead";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { getBreadcrumbs } from "@/data/seo";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -80,8 +82,9 @@ export function PogneCaseStudy() {
 		<div ref={pageRef} className="pogne-case">
 			<header className="pogne-case-header">
 				<a href="/#work"><span aria-hidden>←</span> Voltar aos projetos</a>
-				<span>Case study / 04</span>
+				<span>Estudo de caso / 04</span>
 			</header>
+			<Breadcrumbs items={getBreadcrumbs("/projetos/pogne")} className="pogne-case-breadcrumbs" />
 
 			<main>
 				<section className="pogne-case-hero">
@@ -129,9 +132,9 @@ export function PogneCaseStudy() {
 								"Apresentar primeiro o público e a promessa, depois o mecanismo, deixando o CTA como consequência da leitura.",
 						},
 						{
-							label: "Entrega observável",
+							label: "Entrega e evidência",
 							value:
-								"Landing page publicada com uma oferta exclusiva, argumento sequencial e um próximo passo dominante.",
+								"Landing page publicada com oferta exclusiva, argumento sequencial e CTA principal. O case não tem dados de conversão da campanha.",
 						},
 						{
 							label: "Escopo declarado",
@@ -209,7 +212,7 @@ export function PogneCaseStudy() {
 				<section className="pogne-closing pogne-scroll-section">
 					<p className="pogne-case-eyebrow pogne-reveal">Próximo passo</p>
 					<h2 className="pogne-reveal">Sua oferta também precisa ser entendida antes de ser vendida?</h2>
-					<p className="pogne-reveal">Posso transformar posicionamento, produto e argumento comercial em uma experiência digital clara e convincente.</p>
+					<p className="pogne-reveal">Posso transformar posicionamento, produto e argumento comercial em uma experiência digital clara. Conheça meu trabalho com <a href="/servicos/sites-landing-pages" className="link-underline">landing pages</a>.</p>
 					<div className="pogne-case-actions pogne-reveal">
 						<a href={`mailto:${contactEmail}?subject=Quero conversar sobre uma landing page`} className="pogne-primary-button">Conversar sobre um projeto <span aria-hidden>→</span></a>
 						<a href="/#work" className="pogne-secondary-button">Ver outros projetos</a>

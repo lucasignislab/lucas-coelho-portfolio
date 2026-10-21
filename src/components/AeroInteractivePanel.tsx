@@ -25,7 +25,7 @@ type Panel = {
 const panelContent: Record<PanelKind, Panel> = {
 	challenge: {
 		page: "02",
-		kicker: "Aero · Product Case Study",
+		kicker: "Aero · Estudo de caso de produto",
 		title: "O desafio",
 		description:
 			"Ferramentas de gestão poderosas também podem se tornar lentas, inchadas e difíceis de atravessar.",
@@ -83,7 +83,7 @@ const panelContent: Record<PanelKind, Panel> = {
 	},
 	audiences: {
 		page: "04",
-		kicker: "Aero · Product Case Study",
+		kicker: "Aero · Estudo de caso de produto",
 		title: "Necessidades que orientaram o produto",
 		description:
 			"Não são personas de pesquisa formal. São hipóteses de uso derivadas dos fluxos que o produto precisava suportar.",

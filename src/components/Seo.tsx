@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { getSeoPage, SITE_URL } from "@/data/seo";
+import { breadcrumbSchema, getBreadcrumbs, getSeoPage, SITE_URL } from "@/data/seo";
 
 function setMeta(selector: string, attribute: "name" | "property", key: string, content: string) {
 	let element = document.head.querySelector<HTMLMetaElement>(selector);
@@ -55,6 +55,25 @@ export function Seo({ pathname }: { pathname: string }) {
 			document.head.appendChild(structuredData);
 		}
 		structuredData.textContent = JSON.stringify(page.schema).replace(/</g, "\\u003c");
+
+		const normalizedPath = pathname.replace(/\/+$/, "") || "/";
+		const breadcrumbs = getBreadcrumbs(pathname);
+		let breadcrumbData = document.head.querySelector<HTMLScriptElement>(
+			"#seo-breadcrumb-structured-data"
+		);
+		if (breadcrumbs.length > 0 && page.path === normalizedPath) {
+			if (!breadcrumbData) {
+				breadcrumbData = document.createElement("script");
+				breadcrumbData.id = "seo-breadcrumb-structured-data";
+				breadcrumbData.type = "application/ld+json";
+				document.head.appendChild(breadcrumbData);
+			}
+			breadcrumbData.textContent = JSON.stringify(
+				breadcrumbSchema(breadcrumbs, page.path)
+			).replace(/</g, "\\u003c");
+		} else {
+			breadcrumbData?.remove();
+		}
 	}, [pathname]);
 
 	return null;

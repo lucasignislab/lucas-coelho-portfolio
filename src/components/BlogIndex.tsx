@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { formatArticleDate, getReadingTime, getSortedArticles } from "@/data/blog";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { getBreadcrumbs } from "@/data/seo";
 
 /**
  * Índice do blog (/blog) — página editorial autônoma no mesmo DNA do
@@ -30,6 +32,7 @@ export function BlogIndex() {
 			</header>
 
 			<main className="blog-main">
+				<Breadcrumbs items={getBreadcrumbs("/blog")} className="blog-breadcrumbs" />
 				<section className="blog-hero" aria-labelledby="blog-title">
 					<p className="eyebrow">Escritos sobre design, produto e código</p>
 					<h1 id="blog-title">Blog</h1>

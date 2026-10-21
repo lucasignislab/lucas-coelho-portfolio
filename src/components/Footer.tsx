@@ -3,6 +3,7 @@ import { useLocalTime } from "@/hooks/use-local-time";
 import { useTilt } from "@/hooks/use-tilt";
 import { contactEmail, crmWebhookUrl, socials } from "@/data/site";
 import { revealCharsOnScroll, splitChars } from "@/lib/animations";
+import { trackLeadConversion } from "@/hooks/useGtagPageview";
 
 type ContactIntent = "project" | "opportunity";
 
@@ -57,6 +58,7 @@ function ContactForm() {
 			});
 
 			if (!response.ok) throw new Error("Não foi possível enviar a mensagem.");
+			trackLeadConversion(intent);
 			form.reset();
 			setStatus("success");
 		} catch {
