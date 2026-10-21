@@ -72,10 +72,14 @@ export function Hero() {
 				</div>
 				<p
 					ref={leadRef}
-					className="lg:col-span-5 lg:col-start-8 font-mono text-[11px] md:text-xs leading-[1.6] text-bone/80 uppercase tracking-[0.05em] text-justify hyphens-auto indent-0"
+					className="lg:col-span-5 lg:col-start-8 font-sans text-sm leading-relaxed text-bone/80 md:text-base"
 				>
-					Uno identidade visual, sites, interfaces de produto e design systems
-					para transformar ideias em experiências digitais claras e úteis.
+					Lucas Coelho é designer digital em Campinas e trabalha com identidade
+					visual, sites, landing pages, produtos digitais e design systems.
+					Desde 2017, combina estratégia, conteúdo, UX/UI e desenvolvimento
+					para organizar mensagens, facilitar tarefas e transformar necessidades
+					de negócio em experiências digitais claras, funcionais e preparadas
+					para evoluir.
 				</p>
 			</div>
 

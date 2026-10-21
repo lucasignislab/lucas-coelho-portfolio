@@ -15,7 +15,7 @@ export function CaseQuickRead({ id, intro, items }: CaseQuickReadProps) {
 			<div className="case-quick-read-heading">
 				<p>Leitura executiva</p>
 				<div>
-					<h2 id={`${id}-title`}>Resumo em 60 segundos</h2>
+					<h2 id={`${id}-title`}>O que resume este projeto?</h2>
 					<p>{intro}</p>
 				</div>
 			</div>

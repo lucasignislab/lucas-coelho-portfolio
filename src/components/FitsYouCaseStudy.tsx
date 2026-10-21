@@ -149,9 +149,11 @@ export function FitsYouCaseStudy() {
 								</span>
 							</h1>
 							<p>
-								Performance encontra cuidado: um site institucional para
-								apresentar um studio de cross training e Pilates sem reduzir
-								sua identidade a apenas intensidade ou bem-estar.
+								O site institucional do Fits You Studio, em Barão Geraldo,
+								Campinas, apresenta modalidades de cross training e Pilates sem
+								reduzir a marca a intensidade ou bem-estar. A estrutura organiza
+								modalidades, localização, horários e contato para que visitantes
+								entendam o espaço e encontrem informações úteis antes da visita.
 							</p>
 						</div>
 
@@ -252,8 +254,7 @@ export function FitsYouCaseStudy() {
 					<div className="fits-section-index fits-section-reveal">01 / Contexto</div>
 					<div>
 						<h2 className="fits-section-reveal">
-							Uma marca com diferentes ritmos precisava de uma experiência
-							única.
+							Por que o Fits You precisava de uma experiência única?
 						</h2>
 						<p className="fits-section-reveal">
 							O Fits You reúne treinos de alta intensidade, práticas de
@@ -273,7 +274,7 @@ export function FitsYouCaseStudy() {
 							02 / Modalidades
 						</div>
 						<h2 id="fits-disciplines-title" className="fits-section-reveal">
-							Intensidade não é uma linguagem única.
+							Como comunicar modalidades com intensidades diferentes?
 						</h2>
 					</div>
 
@@ -307,7 +308,7 @@ export function FitsYouCaseStudy() {
 							03 / Arquitetura
 						</div>
 						<h2 className="fits-section-reveal">
-							Explorar primeiro. Decidir no próprio ritmo.
+							Como a arquitetura ajuda cada pessoa a escolher?
 						</h2>
 						<p className="fits-section-reveal">
 							A navegação distribui o conteúdo em rotas específicas, ajudando
@@ -354,7 +355,7 @@ export function FitsYouCaseStudy() {
 							04 / Sistema visual
 						</div>
 						<h2 className="fits-section-reveal">
-							Alto contraste para uma marca em movimento.
+							Como o sistema visual equilibra contraste e movimento?
 						</h2>
 					</div>
 
@@ -389,7 +390,7 @@ export function FitsYouCaseStudy() {
 					<div className="fits-proof-layout">
 						<div className="fits-proof-copy">
 							<h2 className="fits-section-reveal">
-								Informação prática fecha a distância entre interesse e visita.
+								Quais informações ajudam a pessoa a visitar o estúdio?
 							</h2>
 							<p className="fits-section-reveal">
 								O site destaca as provas apresentadas pela marca e oferece

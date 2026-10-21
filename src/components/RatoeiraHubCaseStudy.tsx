@@ -126,8 +126,11 @@ export function RatoeiraHubCaseStudy() {
 							<span className="hub-reveal-mask"><em className="hub-hero-reveal">Hub · Web Design para Adtech</em></span>
 						</h1>
 						<p>
-							Um site institucional desenhado para transformar diferentes produtos,
-							públicos e tecnologias em uma única narrativa de ecossistema.
+							O site institucional do Ratoeira Hub explica um ecossistema de adtech
+							composto por tracking server-side, proteção antifraude e landing pages.
+							A experiência conecta cada produto à rotina de anunciantes e afiliados,
+							apresenta integrações e aproxima tecnologias de tarefas concretas sem
+							tratar os módulos como soluções isoladas.
 						</p>
 					</div>
 
@@ -186,7 +189,7 @@ export function RatoeiraHubCaseStudy() {
 				<section id="hub-case-content" className="hub-case-context hub-scroll-section">
 					<div className="hub-section-index hub-section-reveal">01 / Contexto</div>
 					<div>
-						<h2 className="hub-section-reveal">Quando os produtos se conectam, a comunicação também precisa se conectar.</h2>
+						<h2 className="hub-section-reveal">Como conectar produtos sem apagar suas funções?</h2>
 						<p className="hub-section-reveal">
 							A marca reúne tracking server-side, proteção contra cliques fraudulentos
 							e criação de landing pages. A oportunidade de design foi apresentar essas
@@ -199,7 +202,7 @@ export function RatoeiraHubCaseStudy() {
 				<section className="hub-ecosystem hub-scroll-section" aria-labelledby="hub-ecosystem-title">
 					<div className="hub-section-heading">
 						<div className="hub-section-index hub-section-reveal">02 / Ecossistema</div>
-						<h2 id="hub-ecosystem-title" className="hub-section-reveal">Três produtos. Uma jornada conectada.</h2>
+						<h2 id="hub-ecosystem-title" className="hub-section-reveal">Quais produtos formam o ecossistema Ratoeira Hub?</h2>
 						<p className="hub-section-reveal">Cada módulo resolve uma etapa diferente, mas compartilha a mesma promessa de clareza operacional.</p>
 					</div>
 
@@ -220,7 +223,7 @@ export function RatoeiraHubCaseStudy() {
 				<section className="hub-tracking hub-scroll-section">
 					<div className="hub-section-heading">
 						<div className="hub-section-index hub-section-reveal">03 / Produto</div>
-						<h2 className="hub-section-reveal">Transformar rastreamento em algo que pode ser lido.</h2>
+						<h2 className="hub-section-reveal">Como mostrar o funcionamento do tracking server-side?</h2>
 						<p className="hub-section-reveal">A demonstração visual aproxima uma tecnologia abstrata de situações reconhecíveis: páginas, visitantes, dispositivos e eventos.</p>
 					</div>
 
@@ -234,7 +237,7 @@ export function RatoeiraHubCaseStudy() {
 				<section className="hub-integrations hub-scroll-section">
 					<div className="hub-section-heading">
 						<div className="hub-section-index hub-section-reveal">04 / Integrações</div>
-						<h2 className="hub-section-reveal">O ecossistema começa onde o trabalho já acontece.</h2>
+						<h2 className="hub-section-reveal">Como as integrações entram no fluxo de trabalho?</h2>
 						<p className="hub-section-reveal">O site apresenta integrações com plataformas de mídia e comunica compatibilidade com mais de 70 serviços.</p>
 					</div>
 
@@ -253,7 +256,7 @@ export function RatoeiraHubCaseStudy() {
 				<section className="hub-design-system hub-scroll-section">
 					<div className="hub-section-heading">
 						<div className="hub-section-index hub-section-reveal">05 / Sistema visual</div>
-						<h2 className="hub-section-reveal">Sinal, contraste e densidade tecnológica.</h2>
+						<h2 className="hub-section-reveal">Como traduzir tecnologia em uma linguagem visual?</h2>
 					</div>
 
 					<div className="hub-system-grid">

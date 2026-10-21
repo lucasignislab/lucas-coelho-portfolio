@@ -23,6 +23,8 @@ export function Skills() {
 			<p className="eyebrow">Serviços ►</p>
 
 			<h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-bone leading-[1.2] text-balance max-w-7xl">
+				Quais serviços posso oferecer?
+				{" "}
 				<span ref={textRef} className="font-display italic text-bone/85">
 					{services.map((service, index) => (
 						<span key={service.path}>

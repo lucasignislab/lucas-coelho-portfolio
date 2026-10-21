@@ -226,9 +226,12 @@ export function AeroCaseStudy() {
 								</span>
 							</h1>
 							<p className="aero-case-lead">
-								Um estudo retrospectivo sobre a criação de um ecossistema de
-								gestão de projetos keyboard-first, desenhado para reduzir a
-								fricção entre ideia, documentação e execução.
+								O Aero é um produto autoral de gestão de projetos, desenvolvido
+								com React, TypeScript, Tailwind e Tiptap. Este case documenta
+								decisões de estratégia, UX/UI, arquitetura keyboard-first e
+								design system que conectam tarefas, documentação e execução.
+								Como o projeto é solo e não teve pesquisa formal, os aprendizados
+								são retrospectivos e não incluem métricas de uso.
 							</p>
 						</div>
 						<AeroHeroScene />
@@ -302,7 +305,7 @@ export function AeroCaseStudy() {
 				<section id="case" className="aero-case-intro" aria-labelledby="case-title">
 					<p>Estudo retrospectivo de produto</p>
 					<h2 id="case-title">
-						Decisões reais reconstruídas a partir do produto funcional.
+						Quais decisões orientaram a criação do Aero?
 					</h2>
 					<p>
 						Este case não apresenta uma pesquisa formal que não aconteceu.
@@ -349,7 +352,7 @@ export function AeroCaseStudy() {
 
 				<section className="aero-case-closing">
 					<p className="aero-case-eyebrow">Próximo passo</p>
-					<h2>Tem um produto complexo que precisa parecer simples?</h2>
+					<h2>Como simplificar um produto digital complexo?</h2>
 					<p>
 						Posso ajudar a organizar a estratégia, transformar fluxos em uma
 						interface clara e acompanhar a implementação. Conheça também meu

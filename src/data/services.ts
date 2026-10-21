@@ -23,7 +23,7 @@ export const servicePages: ServicePageData[] = [
 			"Identidade visual e direção digital para marcas que precisam comunicar seu valor com clareza em sites, produtos e experiências digitais.",
 		headline: "Uma identidade que faz sentido antes mesmo da primeira tela.",
 		intro:
-			"Em Campinas e para projetos remotos, aproximo estratégia, linguagem visual e experiência digital para construir uma presença coerente com o negócio. O trabalho parte do contexto e das pessoas que a marca precisa alcançar, e transforma esse entendimento em decisões visuais e digitais consistentes.",
+			"Em Campinas e em projetos remotos, crio identidades visuais e direções digitais para marcas que precisam expressar seu valor com clareza. O trabalho combina estratégia, linguagem visual e experiência digital: parte do contexto e das pessoas que a marca quer alcançar para orientar aplicações em sites, produtos e outros pontos de contato.",
 		scope: [
 			{
 				title: "Direção estratégica",
@@ -86,7 +86,7 @@ export const servicePages: ServicePageData[] = [
 			"Criação de sites institucionais e landing pages com estrutura, conteúdo e interface pensados para apresentar sua oferta com clareza.",
 		headline: "Sites que organizam a mensagem e deixam o próximo passo claro.",
 		intro:
-			"Desenvolvo a estrutura e a experiência visual de sites institucionais e landing pages para negócios que precisam explicar melhor o que oferecem. O projeto considera conteúdo, navegação, leitura em diferentes telas e o caminho que a pessoa percorre até entrar em contato ou conhecer uma oferta.",
+			"Sites institucionais e landing pages ajudam negócios a apresentar ofertas e conduzir visitantes a uma ação clara. Crio estrutura, conteúdo e interface responsiva para negócios que precisam explicar melhor o que oferecem. O projeto considera navegação, leitura em diferentes telas e o caminho até o contato ou a oferta.",
 		scope: [
 			{
 				title: "Estrutura e conteúdo",
@@ -153,7 +153,7 @@ export const servicePages: ServicePageData[] = [
 			"Product design e UX/UI para produtos digitais: arquitetura de informação, fluxos, protótipos e interfaces conectados às necessidades do produto.",
 		headline: "Interfaces melhores começam com decisões melhores.",
 		intro:
-			"Trabalho com produtos digitais desde a organização dos problemas até a definição das interfaces. A arquitetura, os fluxos e os componentes ajudam a tornar as tarefas compreensíveis para quem usa e viáveis para quem mantém o produto.",
+			"Product design e UX/UI transformam necessidades de um produto digital em fluxos e interfaces compreensíveis. Trabalho da organização do problema à definição dos componentes, considerando as tarefas das pessoas e as restrições técnicas. O resultado é uma base clara para avaliar decisões, implementar melhorias e evoluir o produto com consistência.",
 		scope: [
 			{
 				title: "Arquitetura de informação",
@@ -216,7 +216,7 @@ export const servicePages: ServicePageData[] = [
 			"Criação e evolução de design systems com fundamentos visuais, componentes, estados e documentação conectados ao produto digital.",
 		headline: "Um sistema visual que ajuda o produto a crescer com consistência.",
 		intro:
-			"Um design system conecta decisões visuais e componentes a situações reais de uso. Organizo fundamentos, padrões e documentação para que design e desenvolvimento compartilhem uma referência útil no trabalho cotidiano e na evolução do produto.",
+			"Um design system reúne princípios visuais, tokens, componentes e orientações para manter interfaces consistentes. Organizo essa base a partir do produto real e das necessidades do time, conectando documentação, design e desenvolvimento. O escopo pode começar pelos padrões mais usados e evoluir conforme surgem novas situações de interface.",
 		scope: [
 			{
 				title: "Fundamentos visuais",

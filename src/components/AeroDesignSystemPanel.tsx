@@ -150,9 +150,7 @@ export function AeroDesignSystemPanel() {
 				<div>
 					<p>Design system</p>
 					<h2 id="aero-design-system-title">
-						Cor como sinal,
-						<br />
-						não decoração.
+						Como a cor funciona no design system do Aero?
 					</h2>
 				</div>
 				<p>

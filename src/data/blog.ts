@@ -120,7 +120,13 @@ export const articles: Article[] = [
 			{
 				type: "paragraph",
 				content: [
-					"A maioria dos design systems morre antes de completar seis meses. Não morre por falta de talento nem por falta de ferramenta; morre porque nasceu grande demais para o produto que deveria servir. A equipe (ou a pessoa) passa três semanas desenhando a biblioteca perfeita de botões, e quando finalmente volta para o produto, percebe que a interface real precisa de outra coisa. A biblioteca vira museu: bonita, organizada e inútil.",
+					"Para criar um design system, comece pelos problemas recorrentes do produto e defina apenas os princípios, tokens e componentes necessários às tarefas atuais. Aplique essa base em interfaces reais e expanda conforme surgem novas necessidades. Assim, o sistema acompanha o uso e não vira uma biblioteca grande demais para o produto.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"Sem uso, a biblioteca de botões pode virar um museu inútil para a interface real do produto atual.",
 				],
 			},
 			{
@@ -144,7 +150,7 @@ export const articles: Article[] = [
 				caption:
 					"A interface do Aero: cada pixel desta tela sai do mesmo conjunto de tokens e componentes.",
 			},
-			{ type: "heading", level: 2, text: "O que é um design system de verdade" },
+			{ type: "heading", level: 2, text: "O que é um design system de verdade?" },
 			{
 				type: "paragraph",
 				content: [
@@ -177,7 +183,7 @@ export const articles: Article[] = [
 					"Vale dizer que nenhuma das três coisas é inimiga das outras. Um UI kit bem feito economiza tempo de desenho, e um style guide resolve marca. O problema é chamar qualquer uma delas de design system e esperar que ela faça o trabalho que não foi feita para fazer. Já vi projeto com quinhentos componentes no Figma e nenhuma regra de uso: o resultado era uma interface diferente a cada sprint, porque copiar desenho pronto não transfere critério. Critério é a parte invisível do sistema, e é justamente a parte que não cabe num arquivo de componentes.",
 				],
 			},
-			{ type: "heading", level: 2, text: "O contexto do Aero: por que um sistema para um projeto solo" },
+			{ type: "heading", level: 2, text: "Por que o Aero precisava de um sistema em um projeto solo?" },
 			{
 				type: "paragraph",
 				content: [
@@ -202,7 +208,7 @@ export const articles: Article[] = [
 					"Tem ainda um efeito colateral que eu não previa: qualidade constante no piloto automático. Todo mundo tem dia ruim, dia com pressa, dia de cansaço. Sem sistema, o dia ruim vira tela ruim, e a tela ruim fica lá para sempre, azedando o conjunto. Com o sistema, até a tela feita às pressas sai no padrão, porque o padrão é o caminho mais curto. O design system não eleva o teto do produto; ele levanta o piso. E para um produto que eu mantenho sozinho, o piso é o que garante que o Aero de hoje não envergonhe o Aero de ontem.",
 				],
 			},
-			{ type: "heading", level: 2, text: "Princípios antes de pixels" },
+			{ type: "heading", level: 2, text: "Princípios antes dos pixels?" },
 			{
 				type: "paragraph",
 				content: [
@@ -250,7 +256,7 @@ export const articles: Article[] = [
 				],
 			},
 			{ type: "divider" },
-			{ type: "heading", level: 2, text: "Design tokens na prática" },
+			{ type: "heading", level: 2, text: "Design tokens: como usar?" },
 			{
 				type: "paragraph",
 				content: [
@@ -348,7 +354,7 @@ export const articles: Article[] = [
 					"Elevação, num tema escuro, quase não é sombra: é superfície mais clara sobre superfície mais escura. O card (#1A1C23) flutua sobre o background (#0E1015) por contraste de valor, não por box-shadow decorativa. As sombras existem, numa escala de sm a xl, mas reforçam apenas o que flutua de verdade: dropdowns, popovers, modais e a command palette. Na mesma família de detalhes entram os ícones, todos do Lucide React, traço outline de 2px, tamanhos de 16, 20 ou 24px, herdando currentColor para nunca brigar com o token de texto ao redor. E três efeitos especiais fecham a camada: o .aurora-bg, um gradiente animado usado com parcimônia em fundos de destaque; o .focus-ring, um outline de 2px na cor brand aplicado via focus-visible; e uma scrollbar customizada de 8px que combina com o tema em vez de gritar o cinza padrão do sistema operacional.",
 				],
 			},
-			{ type: "heading", level: 2, text: "Tokens no código: do Figma ao Tailwind" },
+			{ type: "heading", level: 2, text: "Como passar tokens do Figma ao Tailwind?" },
 			{
 				type: "paragraph",
 				content: [
@@ -373,7 +379,7 @@ export const articles: Article[] = [
 					"Um exemplo concreto do amortecedor em ação: em certo momento, achei a superfície dos cards clara demais em relação ao fundo, e o contraste entre cartões e página parecia fraco em monitores piores. A correção foi ajustar uma única variável no :root. Cards, drawers e painéis elevados escureceram juntos, sem eu abrir um único componente. Se esses componentes usassem valores brutos, eu estaria caçando hex por dezenas de arquivos. É nesse tipo de manutenção invisível que o investimento em tokens se paga.",
 				],
 			},
-			{ type: "heading", level: 2, text: "Componentes: de botão a padrões" },
+			{ type: "heading", level: 2, text: "Quais componentes e padrões priorizar?" },
 			{
 				type: "paragraph",
 				content: [
@@ -448,7 +454,7 @@ export const articles: Article[] = [
 				],
 			},
 			{ type: "divider" },
-			{ type: "heading", level: 2, text: "Documentação: o mínimo que documenta (e onde ela mora)" },
+			{ type: "heading", level: 2, text: "O que documentar e onde manter esse design system?" },
 			{
 				type: "paragraph",
 				content: [
@@ -486,7 +492,7 @@ export const articles: Article[] = [
 				type: "quote",
 				text: "Um design system não é uma biblioteca de componentes. É um acordo sobre quais decisões já foram tomadas, para que você possa gastar energia nas que ainda não foram.",
 			},
-			{ type: "heading", level: 2, text: "Ferramentas e workflow" },
+			{ type: "heading", level: 2, text: "Quais ferramentas usar?" },
 			{
 				type: "paragraph",
 				content: [
@@ -505,7 +511,7 @@ export const articles: Article[] = [
 					"A ordem de trabalho também importou. Meu ciclo padrão ficou: problema real no produto, exploração no Figma, decisão registrada na documentação curta, token ou componente no código, tela final usando o que nasceu. Repare que o sistema sempre nasce puxado pelo produto, nunca o contrário. Nas semanas em que inverti essa ordem e trabalhei “no sistema” por esporte, produzi coisas bonitas que o produto não pediu e provavelmente nunca usaria. Design system sem demanda real é hobby com nome corporativo.",
 				],
 			},
-			{ type: "heading", level: 2, text: "Erros comuns que eu vejo (e cometi)" },
+			{ type: "heading", level: 2, text: "Quais erros de design system devo evitar?" },
 			{
 				type: "paragraph",
 				content: [
@@ -523,7 +529,7 @@ export const articles: Article[] = [
 					"Variantes por precaução. Todo componente especulativo que criei “caso precise” virou peso morto. A regra das três repetições existe para matar esse impulso.",
 				],
 			},
-			{ type: "heading", level: 2, text: "O que eu faria diferente" },
+			{ type: "heading", level: 2, text: "O que eu faria diferente?" },
 			{
 				type: "paragraph",
 				content: [
@@ -548,7 +554,7 @@ export const articles: Article[] = [
 					"Tem um quarto item, menos técnico e mais de postura: eu mediria o sistema desde o começo. Nada sofisticado, apenas anotar de onde vêm as demandas novas e quanto tempo levo para montar uma tela típica. Hoje eu afirmo que o sistema acelerou o produto porque sinto que acelerou, e sensação é péssima conselheira. Com números simples, eu saberia antes quais partes do sistema pagam o próprio custo e quais são vaidade minha vestida de rigor.",
 				],
 			},
-			{ type: "heading", level: 2, text: "Checklist para começar seu design system hoje" },
+			{ type: "heading", level: 2, text: "Como começar seu design system hoje: checklist?" },
 			{
 				type: "paragraph",
 				content: [
@@ -570,7 +576,7 @@ export const articles: Article[] = [
 				],
 			},
 			{ type: "divider" },
-			{ type: "heading", level: 2, text: "Conclusão" },
+			{ type: "heading", level: 2, text: "O que fica?" },
 			{
 				type: "paragraph",
 				content: [
@@ -614,7 +620,13 @@ export const articles: Article[] = [
 			{
 				type: "paragraph",
 				content: [
-					"Você fez a venda. O checkout aprovou, a comissão caiu na plataforma de afiliados, o dinheiro existe. Mas quando você abre o gerenciador do Google Ads ou do Meta Ads, aquela venda simplesmente não está lá. Para o algoritmo, o clique que você pagou virou nada: um visitante que entrou e sumiu. E amanhã o algoritmo, que aprende com o que vê, vai tomar decisões de lance e de público com base nessa mentira. Multiplica isso por dezenas de vendas por semana e você tem o retrato da maioria das operações de afiliado hoje: um negócio que lucra apesar dos dados, não por causa deles.",
+					"Tracking server-side envia eventos de conversão aos gerenciadores de anúncios a partir do servidor, complementando o pixel do navegador. Para afiliados, pode ajudar a registrar vendas que não aparecem nos gerenciadores, desde que checkout, consentimento, integrações e atribuição sejam considerados. Diferenças entre relatórios exigem investigação e não provam, sozinhas, a causa da perda.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"Uma venda pode existir no checkout e na plataforma de afiliados sem aparecer no Google Ads ou Meta Ads. Para quem investe em mídia, essa ausência deixa o algoritmo sem um sinal usado para ajustar lances e públicos. O primeiro passo é comparar vendas aprovadas e eventos registrados no mesmo período.",
 				],
 			},
 			{
@@ -633,7 +645,7 @@ export const articles: Article[] = [
 					", uma plataforma de tracking server-side, antifraude e landing pages para afiliados e anunciantes de tráfego pago. Eu cuidei da experiência do produto e do site, e para isso passei meses mergulhado no dia a dia de quem vive de rodar campanha no Google Ads, Meta Ads, Taboola e NewsBreak. Este artigo é o guia que eu daria para qualquer afiliado que ainda roda só com pixel: por que o pixel morreu, o que é tracking server-side de verdade (sem jargão), como o envio duplo e o dado enriquecido recuperam conversões perdidas, como funciona a anatomia de um clique rastreado do anúncio à comissão, por que o antifraude se paga sozinho e como tudo isso foi arquitetado num produto real que hoje atende mais de 2.600 anunciantes.",
 				],
 			},
-			{ type: "heading", level: 2, text: "Por que o pixel morreu para afiliados" },
+			{ type: "heading", level: 2, text: "Por que o pixel morreu para afiliados?" },
 			{
 				type: "paragraph",
 				content: [
@@ -690,7 +702,7 @@ export const articles: Article[] = [
 					"Quem duvida do tamanho do rombo pode fazer o teste mais barato do mundo, que eu recomendo a qualquer afiliado antes de discutir ferramenta: abra a plataforma de afiliação, some as vendas aprovadas dos últimos trinta dias vindas de tráfego pago, e compare com as conversões que o Google Ads e o Meta Ads registraram no mesmo período para as mesmas campanhas. A diferença entre os dois números é o seu buraco de atribuição. Em operação de e-commerce próprio, essa diferença costuma ser pequena. Em operação de afiliado com checkout externo, ela assusta. Eu vi essa comparação feita dezenas de vezes durante o projeto do Ratoeira Hub, e a reação era sempre a mesma: primeiro incredulidade, depois aquela conta mental silenciosa de quanto dinheiro já tinha sido otimizado em cima de um terço da verdade.",
 				],
 			},
-			{ type: "heading", level: 2, text: "O que é tracking server-side de verdade (sem jargão)" },
+			{ type: "heading", level: 2, text: "O que é tracking server-side de verdade, sem jargão?" },
 			{
 				type: "paragraph",
 				content: [
@@ -728,7 +740,7 @@ export const articles: Article[] = [
 					"Vale derrubar outra confusão comum: tracking server-side não é sinônimo de “instalar o Google Tag Manager server-side”. O GTM em servidor é uma das formas de fazer isso, útil para e-commerces com time de desenvolvimento, mas pressupõe que você controla o site inteiro de ponta a ponta, incluindo o checkout, o que simplesmente não é o mundo do afiliado. O afiliado precisa de uma camada de rastreamento que nasça no clique do anúncio, atravesse páginas que ele controla e checkouts que ele não controla, e devolva a conversão para várias plataformas de anúncio ao mesmo tempo. É um desenho de produto diferente, e foi exatamente esse desenho que estruturou o Ratoeira Hub.",
 				],
 			},
-			{ type: "heading", level: 2, text: "Envio duplo e dado enriquecido: onde as conversões perdidas voltam" },
+			{ type: "heading", level: 2, text: "Envio duplo e dado enriquecido: onde as conversões perdidas voltam?" },
 			{
 				type: "paragraph",
 				content: [
@@ -766,7 +778,7 @@ export const articles: Article[] = [
 				type: "quote",
 				text: "O algoritmo não otimiza para o que vende. Ele otimiza para o que ele consegue ver vendendo. Tracking é decidir o que o algoritmo enxerga.",
 			},
-			{ type: "heading", level: 2, text: "A anatomia de um clique rastreado" },
+			{ type: "heading", level: 2, text: "Como funciona a anatomia do clique?" },
 			{
 				type: "paragraph",
 				content: [
@@ -805,7 +817,7 @@ export const articles: Article[] = [
 				],
 			},
 			{ type: "divider" },
-			{ type: "heading", level: 2, text: "Antifraude: o clique que você paga e nunca deveria ter existido" },
+			{ type: "heading", level: 2, text: "Antifraude: quais cliques você paga e nunca deveriam existir na operação?" },
 			{
 				type: "paragraph",
 				content: [
@@ -843,7 +855,7 @@ export const articles: Article[] = [
 					"Os sinais de fraude são mais fáceis de ler do que parece, quando você tem o clique registrado: rajadas de cliques do mesmo IP ou da mesma faixa de rede em minutos, horários que não combinam com o público do nicho, dispositivos e versões de navegador estranhamente repetidos, regiões geográficas fora da segmentação que mesmo assim geram clique. Cada um desses padrões é invisível no gerenciador de anúncios, que mostra agregados, e evidente num rastreador que guarda o clique individual. É a mesma infraestrutura do tracking server-side trabalhando duas vezes: uma para recuperar conversões, outra para defender o orçamento.",
 				],
 			},
-			{ type: "heading", level: 2, text: "A arquitetura do Ratoeira Hub na prática" },
+			{ type: "heading", level: 2, text: "Como funciona a arquitetura do Ratoeira Hub?" },
 			{
 				type: "paragraph",
 				content: [
@@ -894,7 +906,7 @@ export const articles: Article[] = [
 					"Uma decisão de design desse projeto que vale contar: resistimos à tentação de transformar o dashboard numa cabine de avião com quarenta gráficos. A tentação era real, porque dado é o que não falta numa plataforma de tracking. Mas cada métrica a mais na tela inicial é atenção roubada da pergunta que importa, e usuário de tráfego pago trabalha com uma mão no orçamento e outra no gerenciador de anúncios. O que sobrou na superfície foi o essencial com camadas: o resumo imediato em cima, o detalhe a um clique de distância, e nenhum número sem contexto de comparação. Produto de dados bom não é o que mostra mais; é o que deixa a próxima decisão óbvia.",
 				],
 			},
-			{ type: "heading", level: 2, text: "Checklist: sinais de que sua operação está perdendo conversões" },
+			{ type: "heading", level: 2, text: "Quais sinais mostram que sua operação está perdendo conversões?" },
 			{
 				type: "paragraph",
 				content: [
@@ -914,7 +926,7 @@ export const articles: Article[] = [
 					"Você toma decisão de pausar ou escalar campanha olhando só o que o gerenciador mostra, sem cruzar com a plataforma de afiliação.",
 				],
 			},
-			{ type: "heading", level: 2, text: "Erros comuns ao implementar tracking por conta própria" },
+			{ type: "heading", level: 2, text: "Erros a evitar ao implementar tracking por conta própria?" },
 			{
 				type: "paragraph",
 				content: [
@@ -939,7 +951,7 @@ export const articles: Article[] = [
 					"O fio condutor desses erros é sempre o mesmo: tracking parece um problema de instalação e é um problema de operação. Instalar é o dia um; manter o vínculo entre clique e venda vivo, limpo e deduplicado, todo dia, em quatro plataformas de anúncio e três de checkout, é o resto da vida. É exatamente por isso que o mercado de afiliados migrou de scripts caseiros para plataformas dedicadas: o custo da ferramenta é menor que o custo de descobrir, três meses depois, que o setup caseiro estava contando metade das vendas.",
 				],
 			},
-			{ type: "heading", level: 2, text: "O que eu faria em uma operação de afiliado hoje" },
+			{ type: "heading", level: 2, text: "O que eu faria em uma operação de afiliado hoje?" },
 			{
 				type: "paragraph",
 				content: [
@@ -971,7 +983,7 @@ export const articles: Article[] = [
 				],
 			},
 			{ type: "divider" },
-			{ type: "heading", level: 2, text: "Conclusão: o pixel mostra uma operação menor que a sua" },
+			{ type: "heading", level: 2, text: "Como o pixel mostra uma operação menor que a sua?" },
 			{
 				type: "paragraph",
 				content: [
@@ -1017,7 +1029,13 @@ export const articles: Article[] = [
 			{
 				type: "paragraph",
 				content: [
-					"Todo designer conhece o brief que cabe numa página: público-alvo, tom de voz, concorrentes, entregáveis. E todo designer já recebeu aquele outro tipo de brief, o que não cabe em página nenhuma. O meu chegou mais ou menos assim: precisamos de um site para a T. U. Senhora do Rosário, um terreiro de umbanda. Tem que ser bonito, tem que ser sério, tem que parecer a gente. Parecer a gente, nesse contexto, carrega séculos. Carrega uma religião brasileira, genuinamente nossa, que foi perseguida, estigmatizada e representada de forma torta pela cultura dominante durante a maior parte da sua história. Carrega comunidade, acolhimento, ancestralidade. Como é que isso vira paleta de cor?",
+					"Neste projeto, o Sacred Modernism traduz a identidade de um terreiro de umbanda em decisões de design system, combinando acolhimento ancestral, materiais rústicos e minimalismo contemporâneo. O conceito organiza escolhas de cor, tipografia, camadas e documentação para o site da T. U. Senhora do Rosário, sem pretender falar pela comunidade.",
+				],
+			},
+			{
+				type: "paragraph",
+				content: [
+					"Designers recebem briefs de público, tom, concorrentes e entregáveis; este chegou em outra forma: um site que precisava parecer com a comunidade e ser bonito, sério. Essa identidade carrega séculos de uma religião brasileira perseguida e estigmatizada, junto de comunidade, acolhimento e ancestralidade. A pergunta de projeto era como traduzir esse contexto em uma paleta de cor para esse projeto.",
 				],
 			},
 			{
@@ -1053,7 +1071,7 @@ export const articles: Article[] = [
 				caption:
 					"A Documentação Viva (v0.2) do Orixá Design System, renderizada com os próprios tokens do projeto.",
 			},
-			{ type: "heading", level: 2, text: "O que é Sacred Modernism" },
+			{ type: "heading", level: 2, text: "O que é Sacred Modernism?" },
 			{
 				type: "paragraph",
 				content: [
@@ -1104,7 +1122,7 @@ export const articles: Article[] = [
 					"Vale contar de onde veio o nome, porque nomear o conceito foi uma decisão de projeto, não um capricho. Enquanto o conceito não tinha nome, cada conversa sobre direção visual descambava para gosto pessoal: eu gosto, eu não gosto, será que não é escuro demais, será que não é simples demais. No dia em que Sacred Modernism passou a existir como termo, as conversas mudaram de objeto: a pergunta deixou de ser “você gosta?” e virou “isso está servindo ao conceito?”. O nome funciona como um princípio de design portátil, que qualquer pessoa envolvida no projeto consegue carregar na cabeça e aplicar a uma tela nova sem me consultar. Conceito sem nome é opinião; conceito nomeado é ferramenta de alinhamento.",
 				],
 			},
-			{ type: "heading", level: 2, text: "Tradução, não decoração" },
+			{ type: "heading", level: 2, text: "Tradução ou decoração?" },
 			{
 				type: "paragraph",
 				content: [
@@ -1149,7 +1167,7 @@ export const articles: Article[] = [
 				],
 			},
 			{ type: "divider" },
-			{ type: "heading", level: 2, text: "A arquitetura em três camadas" },
+			{ type: "heading", level: 2, text: "Qual arquitetura tem três camadas?" },
 			{
 				type: "paragraph",
 				content: [
@@ -1204,7 +1222,7 @@ export const articles: Article[] = [
 					"A mesma lógica de camadas governa movimento e profundidade. A escala de duração tem seis passos com nomes de intenção: instant (0ms), fast (150ms), moderate (250ms), slow (500ms, aprovada para o fade do hero), deliberate (700ms, aprovada) e ambient (1200ms), todos na mesma curva cubic-bezier(0.2, 0, 0, 1). Nomear durações por intenção muda a conversa: ninguém mais pergunta “quantos milissegundos?”, pergunta-se “esse momento é rápido ou deliberado?”, e uma transição deliberada num site desses tem significado, é o ritmo de quem não tem pressa porque o que está ali merece permanência. As sombras seguem a mesma filosofia, cinco tokens do none ao high mais o shadow.focus dourado, comunicando profundidade sem depender de bordas, para que a borda ultra fina do glassmorphism continue sendo um gesto deliberado e não o padrão de tudo.",
 				],
 			},
-			{ type: "heading", level: 2, text: "Status como governança: APROVADA e PROVISÓRIA" },
+			{ type: "heading", level: 2, text: "Status: quando usar APROVADA ou PROVISÓRIA?" },
 			{
 				type: "paragraph",
 				content: [
@@ -1227,7 +1245,7 @@ export const articles: Article[] = [
 				type: "quote",
 				text: "Um design system não é um catálogo do que foi decidido. É um mapa honesto do que está decidido, do que está em validação e do que ainda precisa de conversa.",
 			},
-			{ type: "heading", level: 2, text: "Acessibilidade como respeito" },
+			{ type: "heading", level: 2, text: "Acessibilidade é respeito?" },
 			{
 				type: "paragraph",
 				content: [
@@ -1259,7 +1277,7 @@ export const articles: Article[] = [
 				],
 			},
 			{ type: "divider" },
-			{ type: "heading", level: 2, text: "Documentação viva, versão 0.2" },
+			{ type: "heading", level: 2, text: "Documentação viva: versão 0.2?" },
 			{
 				type: "paragraph",
 				content: [
@@ -1294,7 +1312,7 @@ export const articles: Article[] = [
 				caption:
 					"Botões no showcase: todos os estados visíveis, com snippet React/Tailwind pronto para copiar.",
 			},
-			{ type: "heading", level: 2, text: "O que esse projeto me ensinou sobre design systems" },
+			{ type: "heading", level: 2, text: "O que esse projeto ensinou sobre os design systems?" },
 			{
 				type: "paragraph",
 				content: [
@@ -1325,7 +1343,7 @@ export const articles: Article[] = [
 					"E tem um quarto aprendizado, mais prático: trabalhar com e para uma comunidade muda o ritmo do projeto, e o sistema precisa absorver isso. Decisões que num produto comercial saem numa call de quarenta minutos aqui esperam o momento certo de conversa, e está tudo bem. O que não pode acontecer é o projeto sangrar enquanto espera. Por isso a combinação de status provisório, roles semânticos e documentação viva funciona tão bem nesse contexto: ela permite que o site evolua com o que já está validado, deixe visível o que aguarda conversa, e nunca trave esperando aprovação de detalhe. O sistema virou a memória do projeto, e projetos comunitários, mais do que quaisquer outros, precisam de memória externa às pessoas, porque as pessoas têm a vida inteira acontecendo ao redor do site.",
 				],
 			},
-			{ type: "heading", level: 2, text: "Checklist: sinais de que seu design system tem identidade de verdade" },
+			{ type: "heading", level: 2, text: "Quais sinais mostram que seu design system tem identidade de verdade?" },
 			{
 				type: "paragraph",
 				content: [
@@ -1345,7 +1363,7 @@ export const articles: Article[] = [
 					"As decisões difíceis têm justificativa escrita que uma pessoa nova no projeto consegue ler e entender sem você na sala.",
 				],
 			},
-			{ type: "heading", level: 2, text: "Conclusão" },
+			{ type: "heading", level: 2, text: "Como continuar?" },
 			{
 				type: "paragraph",
 				content: [

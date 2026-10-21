@@ -5,7 +5,7 @@ import { getBreadcrumbs } from "@/data/seo";
 
 const sections = [
 	{
-		title: "Quem cuida dos seus dados",
+		title: "Quem cuida dos seus dados?",
 		content: (
 			<p>
 				Lucas Coelho é o responsável pelo tratamento dos dados pessoais neste
@@ -15,7 +15,7 @@ const sections = [
 		),
 	},
 	{
-		title: "Dados que podem ser coletados",
+		title: "Quais dados podem ser coletados?",
 		content: (
 			<>
 				<p>Este site pode tratar duas categorias de informações:</p>
@@ -35,7 +35,7 @@ const sections = [
 		),
 	},
 	{
-		title: "Como os dados são usados",
+		title: "Como os dados são usados?",
 		content: (
 			<>
 				<p>As informações são utilizadas para:</p>
@@ -55,7 +55,7 @@ const sections = [
 		),
 	},
 	{
-		title: "Serviços de terceiros",
+		title: "Quais serviços de terceiros são usados?",
 		content: (
 			<>
 				<p>
@@ -90,7 +90,7 @@ const sections = [
 		),
 	},
 	{
-		title: "Cookies e tecnologias semelhantes",
+		title: "Como funcionam cookies e tecnologias semelhantes?",
 		content: (
 			<p>
 				O Microsoft Clarity pode usar cookies e tecnologias semelhantes para
@@ -102,7 +102,7 @@ const sections = [
 		),
 	},
 	{
-		title: "Retenção e segurança",
+		title: "Como os dados são retidos e protegidos?",
 		content: (
 			<p>
 				Os dados são mantidos apenas pelo tempo necessário para cumprir as
@@ -113,7 +113,7 @@ const sections = [
 		),
 	},
 	{
-		title: "Seus direitos",
+		title: "Quais são seus direitos?",
 		content: (
 			<p>
 				Nos termos da LGPD, você pode solicitar confirmação do tratamento, acesso,
@@ -125,7 +125,7 @@ const sections = [
 		),
 	},
 	{
-		title: "Atualizações desta política",
+		title: "Quando esta política é atualizada?",
 		content: (
 			<p>
 				Esta política pode ser atualizada para refletir mudanças no site, nos

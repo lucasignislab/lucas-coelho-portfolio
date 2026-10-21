@@ -66,7 +66,7 @@ export function ServicePage({ pathname }: { pathname: string }) {
 			<section className="section border-t border-bone/10" aria-labelledby="escopo-title">
 				<div className="grid gap-12 lg:grid-cols-12">
 					<h2 id="escopo-title" className="font-display text-4xl leading-tight md:text-5xl lg:col-span-4">
-						O que este trabalho pode reunir
+						O que inclui {service.label}?
 					</h2>
 					<ul className="grid gap-x-12 lg:col-span-7 lg:col-start-6 lg:grid-cols-2">
 						{service.scope.map(item => (
@@ -84,7 +84,7 @@ export function ServicePage({ pathname }: { pathname: string }) {
 			<section className="section border-t border-bone/10" aria-labelledby="processo-title">
 				<div className="grid gap-12 lg:grid-cols-12">
 					<h2 id="processo-title" className="font-display text-4xl leading-tight md:text-5xl lg:col-span-4">
-						Da primeira conversa à entrega
+						Como funciona um projeto de {service.label}?
 					</h2>
 					<ol className="lg:col-span-7 lg:col-start-6">
 						{service.process.map(step => (
@@ -101,7 +101,7 @@ export function ServicePage({ pathname }: { pathname: string }) {
 				<div className="grid gap-12 lg:grid-cols-12">
 					<div className="lg:col-span-4">
 						<h2 id="trabalho-title" className="font-display text-4xl leading-tight md:text-5xl">
-							Trabalho relacionado
+							Quais projetos mostram {service.label}?
 						</h2>
 						<p className="mt-5 max-w-sm leading-relaxed text-bone/70">
 							Projetos em que estratégia, identidade e interface se conectam a necessidades reais.
@@ -143,7 +143,8 @@ export function ServicePage({ pathname }: { pathname: string }) {
 					<a href={service.article.href} className="group flex flex-col justify-between gap-6 border-b border-bone/20 pb-6 md:flex-row md:items-end">
 						<div>
 							<p className="font-mono text-xs uppercase tracking-[0.15em] text-bone/70">Leitura relacionada</p>
-							<h2 className="mt-3 font-display text-3xl md:text-4xl">{service.article.title}</h2>
+							<h2 className="mt-3 font-display text-3xl md:text-4xl">Qual leitura aprofunda {service.label}?</h2>
+							<p className="mt-3 text-bone/70">{service.article.title}</p>
 						</div>
 						<span className="font-mono text-xs uppercase tracking-[0.12em] text-bone link-underline">Ler artigo <span aria-hidden="true">↗</span></span>
 					</a>
@@ -153,7 +154,7 @@ export function ServicePage({ pathname }: { pathname: string }) {
 			<section className="section border-t border-bone/10" aria-labelledby="duvidas-title">
 				<div className="grid gap-12 lg:grid-cols-12">
 					<h2 id="duvidas-title" className="font-display text-4xl leading-tight md:text-5xl lg:col-span-4">
-						Dúvidas comuns
+						Quais dúvidas surgem antes de contratar {service.label}?
 					</h2>
 					<div className="lg:col-span-7 lg:col-start-6">
 						{service.questions.map(item => (
@@ -170,7 +171,7 @@ export function ServicePage({ pathname }: { pathname: string }) {
 				<div className="grid gap-8 md:grid-cols-12 md:items-end">
 					<div className="md:col-span-8">
 						<h2 className="max-w-4xl font-display text-5xl leading-[1.05] md:text-7xl">
-							Vamos entender o que seu projeto precisa.
+							O que seu projeto precisa agora?
 						</h2>
 						<p className="mt-5 max-w-2xl leading-relaxed text-bone/70">
 							Conte um pouco sobre o momento do negócio e o desafio que quer resolver. A primeira conversa ajuda a definir o escopo adequado.

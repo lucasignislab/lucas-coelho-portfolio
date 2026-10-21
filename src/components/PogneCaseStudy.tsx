@@ -95,7 +95,7 @@ export function PogneCaseStudy() {
 							<span className="pogne-reveal-mask"><em className="pogne-hero-line">× RA Ads · Landing Page de Conversão</em></span>
 						</h1>
 						<p className="pogne-hero-intro">
-							Uma landing page de parceria desenhada para transformar uma oferta técnica em uma história direta sobre segurança, acesso e ação.
+							A landing page Pogne e Ratoeira Ads apresenta uma oferta de parceria a alunos do Método PNG. A narrativa explica o acesso à proteção de orçamento e ao rastreamento de vendas, conecta as duas marcas e conduz à ação principal. O case mostra decisões de web design, UX/UI e organização do funil, sem dados de conversão da campanha.
 						</p>
 					</div>
 
@@ -147,7 +147,7 @@ export function PogneCaseStudy() {
 				<section id="pogne-case-content" className="pogne-context pogne-scroll-section">
 					<div className="pogne-section-index pogne-reveal">01 / Contexto</div>
 					<div>
-						<h2 className="pogne-reveal">Duas marcas, uma proposta que precisava parecer indivisível.</h2>
+						<h2 className="pogne-reveal">Como integrar duas marcas em uma oferta clara?</h2>
 						<p className="pogne-reveal">A Ratoeira Ads e Michael Pogne se uniram para oferecer aos alunos do Método PNG acesso a uma ferramenta de proteção de orçamento e rastreamento de vendas. A página organiza essa colaboração como uma oferta única, em vez de duas narrativas concorrentes.</p>
 					</div>
 				</section>
@@ -155,7 +155,7 @@ export function PogneCaseStudy() {
 				<section className="pogne-message pogne-scroll-section" aria-labelledby="pogne-message-title">
 					<div className="pogne-section-heading">
 						<div className="pogne-section-index pogne-reveal">02 / Arquitetura da mensagem</div>
-						<h2 id="pogne-message-title" className="pogne-reveal">Uma página que responde às perguntas na ordem certa.</h2>
+						<h2 id="pogne-message-title" className="pogne-reveal">Quais perguntas uma landing page deve responder?</h2>
 						<p className="pogne-reveal">Antes de detalhar funcionalidades, a experiência estabelece público, promessa e mecanismo — e só então pede uma decisão.</p>
 					</div>
 					<div className="pogne-message-grid">
@@ -173,7 +173,7 @@ export function PogneCaseStudy() {
 				<section className="pogne-funnel pogne-scroll-section">
 					<div className="pogne-section-heading">
 						<div className="pogne-section-index pogne-reveal">03 / Funil visual</div>
-						<h2 className="pogne-reveal">Hierarquia para reduzir esforço, não para aumentar pressão.</h2>
+						<h2 className="pogne-reveal">Como organizar a hierarquia sem pressionar a conversão?</h2>
 						<p className="pogne-reveal">Contraste, escala e repetição orientam a leitura. O visitante entende primeiro o valor da parceria e encontra o CTA como consequência natural do conteúdo.</p>
 					</div>
 					<div className="pogne-funnel-board pogne-reveal">
@@ -197,7 +197,7 @@ export function PogneCaseStudy() {
 				<section className="pogne-system pogne-scroll-section">
 					<div className="pogne-section-heading">
 						<div className="pogne-section-index pogne-reveal">04 / Sistema visual</div>
-						<h2 className="pogne-reveal">O amarelo funciona como sinal, não como decoração.</h2>
+						<h2 className="pogne-reveal">Como o sistema visual usa o amarelo?</h2>
 					</div>
 					<div className="pogne-system-grid">
 						<div className="pogne-type-specimen pogne-reveal"><span>Display / Sans</span><strong>BLINDAGEM</strong><em>desde o dia zero.</em><p>Escala ampla, peso alto e itálico criam uma leitura que alterna autoridade e velocidade.</p></div>

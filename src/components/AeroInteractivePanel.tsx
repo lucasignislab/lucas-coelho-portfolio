@@ -26,7 +26,7 @@ const panelContent: Record<PanelKind, Panel> = {
 	challenge: {
 		page: "02",
 		kicker: "Aero · Estudo de caso de produto",
-		title: "O desafio",
+		title: "Qual era o desafio?",
 		description:
 			"Ferramentas de gestão poderosas também podem se tornar lentas, inchadas e difíceis de atravessar.",
 		cards: [
@@ -54,7 +54,7 @@ const panelContent: Record<PanelKind, Panel> = {
 	},
 	principles: {
 		page: "03",
-		title: "Três princípios para reduzir fricção",
+		title: "Quais princípios reduzem fricção?",
 		description:
 			"A direção do produto foi construída como um conjunto de hipóteses que poderiam ser testadas na interface funcional.",
 		cards: [
@@ -84,7 +84,7 @@ const panelContent: Record<PanelKind, Panel> = {
 	audiences: {
 		page: "04",
 		kicker: "Aero · Estudo de caso de produto",
-		title: "Necessidades que orientaram o produto",
+		title: "Quais necessidades orientaram o produto?",
 		description:
 			"Não são personas de pesquisa formal. São hipóteses de uso derivadas dos fluxos que o produto precisava suportar.",
 		cards: [
@@ -106,7 +106,7 @@ const panelContent: Record<PanelKind, Panel> = {
 	},
 	learnings: {
 		page: "09",
-		title: "O que este projeto ensinou",
+		title: "O que este projeto ensinou?",
 		cards: [
 			{
 				number: "01",

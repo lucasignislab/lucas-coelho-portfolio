@@ -17,7 +17,7 @@ export const articleSiteInstitucional: Article = {
 		{
 			type: "paragraph",
 			content: [
-				"Um site institucional precisa responder, com pouca fricção, a seis perguntas: o que o negócio oferece, para quem, onde atende, por que merece confiança, como funciona e qual é o próximo passo. A estrutura deve acompanhar essas dúvidas. Assim, a pessoa encontra informação suficiente para decidir se quer conhecer o serviço ou entrar em contato.",
+				"Um site institucional deve responder claramente a seis perguntas: o que o negócio oferece, para quem, onde atende, por que merece confiança, como funciona e qual é o próximo passo. A estrutura deve acompanhar essas dúvidas. Assim, a pessoa encontra informação suficiente para decidir se quer conhecer o serviço ou entrar em contato.",
 			],
 		},
 		{
@@ -26,7 +26,7 @@ export const articleSiteInstitucional: Article = {
 				"Isso vale especialmente para negócios locais. Uma pessoa pode chegar pelo Google procurando uma modalidade, um profissional ou um endereço específico. Se o site explica a oferta, a região de atendimento e como avançar, ela consegue avaliar o negócio sem depender de uma conversa para descobrir o básico.",
 			],
 		},
-		{ type: "heading", level: 2, text: "A estrutura começa pelas dúvidas de quem visita" },
+		{ type: "heading", level: 2, text: "Quais dúvidas devem orientar a estrutura do site?" },
 		{
 			type: "paragraph",
 			content: [
@@ -46,7 +46,7 @@ export const articleSiteInstitucional: Article = {
 		{
 			type: "heading",
 			level: 2,
-			text: "O que colocar em cada parte do site institucional",
+			text: "O que incluir em cada página no site institucional?",
 		},
 		{ type: "heading", level: 3, text: "1. Página inicial: oferta e próximo passo" },
 		{
@@ -93,7 +93,7 @@ export const articleSiteInstitucional: Article = {
 		{
 			type: "heading",
 			level: 2,
-			text: "Um exemplo de arquitetura: Fits You Studio",
+			text: "Como se estrutura o site Fits You?",
 		},
 		{
 			type: "paragraph",
@@ -122,7 +122,7 @@ export const articleSiteInstitucional: Article = {
 		},
 		{
 			type: "heading",
-			text: "Checklist antes de publicar",
+			text: "O que checar antes de publicar?",
 			level: 2,
 		},
 		{

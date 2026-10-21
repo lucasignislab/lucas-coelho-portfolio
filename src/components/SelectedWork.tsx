@@ -75,8 +75,8 @@ export function SelectedWork() {
 						<span>{String(projects.length).padStart(2, "0")} projetos</span>
 					</p>
 					<h2>
-						<span>Projetos</span>
-						<strong>selecionados</strong>
+						<span>Quais projetos</span>
+						<strong>mostram meu trabalho?</strong>
 					</h2>
 				</div>
 				<p className="work-intro">
