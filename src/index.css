@@ -1927,14 +1927,14 @@ html.lenis {
 .work-heading h2 {
 	margin-top: clamp(2rem, 4vw, 3.5rem);
 	color: #f4f1ed;
-	line-height: 0.78;
+	line-height: 0.85;
 }
 
 .work-heading h2 > span,
 .work-heading h2 > strong {
 	display: block;
 	font-size: clamp(4rem, 11vw, 10.5rem);
-	letter-spacing: -0.07em;
+	letter-spacing: -0.04em;
 }
 
 .work-heading h2 > span {
@@ -1944,7 +1944,7 @@ html.lenis {
 }
 
 .work-heading h2 > strong {
-	margin-top: 0.28em;
+	margin-top: 3rem;
 	font-family: 'Inter', system-ui, sans-serif;
 	font-weight: 560;
 	text-transform: uppercase;
@@ -2196,7 +2196,7 @@ html.lenis {
 	}
 
 	.work-heading h2 {
-		line-height: 0.84;
+		line-height: 0.85;
 	}
 
 	.work-heading h2 > span,
@@ -2207,6 +2207,7 @@ html.lenis {
 	.work-heading h2 > strong {
 		font-size: clamp(1.5rem, 8vw, 3rem);
 		letter-spacing: -0.04em;
+		margin-top: 1.5rem;
 	}
 
 	.work-intro {
