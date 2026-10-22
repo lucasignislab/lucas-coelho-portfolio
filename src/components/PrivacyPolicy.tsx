@@ -60,9 +60,7 @@ const sections = [
 			<>
 				<p>
 					O site utiliza a Netlify para hospedagem e processamento do formulário de
-					contato e o Microsoft Clarity para métricas de uso, mapas de calor e
-					gravações de sessão. Campos de formulário são projetados para serem
-					mascarados nas análises do Clarity.
+					contato, além do Google Analytics 4 e do Umami para entender o uso do site.
 				</p>
 				<p>
 					Esses fornecedores tratam informações segundo seus próprios termos e
@@ -71,13 +69,6 @@ const sections = [
 					dados pessoais.
 				</p>
 				<div className="privacy-external-links">
-					<a
-						href="https://clarity.microsoft.com/privacy"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Privacidade no Microsoft Clarity ↗
-					</a>
 					<a
 						href="https://www.netlify.com/privacy/"
 						target="_blank"
@@ -93,11 +84,11 @@ const sections = [
 		title: "Como funcionam cookies e tecnologias semelhantes?",
 		content: (
 			<p>
-				O Microsoft Clarity pode usar cookies e tecnologias semelhantes para
-				associar interações realizadas durante a navegação e produzir métricas
-				agregadas. Você pode restringir ou apagar cookies nas configurações do seu
-				navegador. A restrição pode reduzir a precisão das métricas, mas não impede
-				o acesso ao conteúdo principal deste portfólio.
+				O Google Analytics 4 pode usar cookies e tecnologias semelhantes para
+				medir o uso do site. O Umami é usado para métricas de audiência. Você pode
+				restringir ou apagar cookies nas configurações do seu navegador. A restrição
+				pode reduzir a precisão de algumas métricas, mas não impede o acesso ao
+				conteúdo principal deste portfólio.
 			</p>
 		),
 	},
