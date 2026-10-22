@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
  * Retorna o horário local formatado, atualizando a cada minuto.
  */
 export function useLocalTime(timezone?: string) {
-	const [time, setTime] = useState(() => formatTime(timezone));
+	const [time, setTime] = useState(() => ({ h: "--", m: "--", ampm: "", full: "" }));
 
 	useEffect(() => {
 		const tick = () => setTime(formatTime(timezone));

@@ -89,6 +89,18 @@ export function SelectedWork() {
 				{projects.map((p, i) => {
 					const href = p.caseUrl ?? p.url;
 					const isInternal = Boolean(p.caseUrl);
+					const responsiveImage = p.id !== "aero";
+					const imageBase = p.image.replace(/\.webp$/, "");
+					const imageSrcSet = responsiveImage
+						? [480, 900, 1440, 1920]
+							.map((width) => `${imageBase}-${width}.webp ${width}w`)
+							.join(", ")
+						: undefined;
+					const imageSizes = [
+						"(max-width: 599px) calc(100vw - 3rem)",
+						"(max-width: 899px) calc(100vw - 6rem)",
+						p.id === "fitsyou" ? "57vw" : p.id === "pogne" ? "53vw" : p.id === "hub" ? "70vw" : "78vw",
+					].join(", ");
 
 					return (
 						<article
@@ -113,12 +125,15 @@ export function SelectedWork() {
 									}`}
 								>
 									<img
-										src={p.image}
+										src={responsiveImage ? `${imageBase}-900.webp` : p.image}
+										srcSet={imageSrcSet}
+										sizes={imageSizes}
 										alt={p.name}
 										width="1024"
 										height="576"
 										className="project-image"
 										loading="lazy"
+										decoding="async"
 									/>
 									<span className="project-shade" aria-hidden="true" />
 									<span className="project-index" aria-hidden="true">

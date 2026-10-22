@@ -5,7 +5,7 @@ colors:
   ember: "#E28868"
   ink: "#212121"
   bone: "#F4F1ED"
-  ash: "#827F7E"
+  ash: "#A09C9A"
   smoke: "#1A1717"
 typography:
   display:

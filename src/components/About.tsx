@@ -41,6 +41,8 @@ export function About() {
 				>
 					<img
 						src="/lovable-uploads/imagemlucas.webp"
+						srcSet="/lovable-uploads/imagemlucas-480.webp 480w, /lovable-uploads/imagemlucas-768.webp 768w, /lovable-uploads/imagemlucas-1024.webp 1024w"
+						sizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) calc(100vw - 6rem), 44vw"
 						alt="Retrato de Lucas Coelho, designer digital"
 						width="1024"
 						height="1536"
@@ -58,9 +60,9 @@ export function About() {
 				>
 					<div className="max-w-2xl">
 						<p className="eyebrow mb-8">Minha abordagem ►</p>
-						<h3 className="font-display italic text-4xl md:text-5xl lg:text-6xl leading-[1.05] text-bone text-balance">
+						<h2 className="font-display italic text-4xl md:text-5xl lg:text-6xl leading-[1.05] text-bone text-balance">
 							Meu trabalho começa antes da interface.
-						</h3>
+						</h2>
 						<p className="mt-6 text-base md:text-lg leading-relaxed text-bone/70 max-w-xl">
 							Entendo o negócio, organizo a mensagem e traduzo tudo em uma
 							experiência digital clara, distinta e pronta para evoluir.

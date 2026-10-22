@@ -19,7 +19,7 @@ export default {
 				// Brand palette — lucascoelhoux-site (warm dark with coral accent)
 				ink: '#212121',          // base background
 				ember: '#E28868',        // primary accent
-				ash: '#827F7E',          // secondary text
+				ash: '#A09C9A',          // secondary text with accessible contrast
 				bone: '#F4F1ED',         // light contrast (primary text on dark)
 				smoke: '#1A1717',        // deep background
 

@@ -18,10 +18,7 @@ import { About } from "@/components/About";
 import { Skills } from "@/components/Skills";
 import { SelectedWork } from "@/components/SelectedWork";
 import { Footer } from "@/components/Footer";
-import { PrivacyPolicy } from "@/components/PrivacyPolicy";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { ServicePage } from "@/components/ServicePage";
-import { getServicePage } from "@/data/services";
 import { useGtagPageview } from "@/hooks/useGtagPageview";
 
 const lazyBlog: BlogComponents = {
@@ -71,6 +68,18 @@ const lazyCases: CaseComponents = {
 		}))
 	),
 };
+
+const lazyPrivacyPolicy = lazy(() =>
+	import("@/components/PrivacyPolicy").then(module => ({
+		default: module.PrivacyPolicy,
+	}))
+);
+
+const lazyServicePage = lazy(() =>
+	import("@/components/ServicePage").then(module => ({
+		default: module.ServicePage,
+	}))
+);
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -125,14 +134,20 @@ interface AppProps {
 	cases?: CaseComponents;
 	/** Componentes do blog eager (SSR). No cliente, usa React.lazy. */
 	blog?: BlogComponents;
+	/** Página de serviço eager (SSR). No cliente, usa React.lazy. */
+	servicePage?: ComponentType<{ pathname: string }>;
+	/** Política de privacidade eager (SSR). No cliente, usa React.lazy. */
+	privacyPolicy?: ComponentType;
 }
 
-function App({ path, cases, blog }: AppProps) {
+function App({ path, cases, blog, servicePage, privacyPolicy }: AppProps) {
 	const pathname = (
 		path ?? (typeof window !== "undefined" ? window.location.pathname : "/")
 	).replace(/\/+$/, "") || "/";
 	const Cases = cases ?? lazyCases;
 	const Blog = blog ?? lazyBlog;
+	const ServicePageComponent = servicePage ?? lazyServicePage;
+	const PrivacyPolicyComponent = privacyPolicy ?? lazyPrivacyPolicy;
 
 	useGtagPageview(pathname);
 
@@ -161,12 +176,14 @@ function App({ path, cases, blog }: AppProps) {
 		);
 	}
 
-	if (getServicePage(pathname)) {
+	if (pathname.startsWith("/servicos/")) {
 		return (
 			<ErrorBoundary>
 				<Seo pathname={pathname} />
 				<WhatsAppButton />
-				<ServicePage pathname={pathname} />
+				<Suspense fallback={null}>
+					<ServicePageComponent pathname={pathname} />
+				</Suspense>
 			</ErrorBoundary>
 		);
 	}
@@ -177,7 +194,9 @@ function App({ path, cases, blog }: AppProps) {
 				<Seo pathname={pathname} />
 				<WhatsAppButton />
 				<Cursor />
-				<PrivacyPolicy />
+				<Suspense fallback={null}>
+					<PrivacyPolicyComponent />
+				</Suspense>
 			</ErrorBoundary>
 		);
 	}

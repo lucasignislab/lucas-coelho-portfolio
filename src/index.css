@@ -59,7 +59,7 @@
 		border-radius: 4px;
 	}
 	::-webkit-scrollbar-thumb:hover {
-		background: #827F7E;
+		background: #A09C9A;
 	}
 }
 
@@ -91,7 +91,7 @@
 		font-size: 0.75rem;
 		text-transform: uppercase;
 		letter-spacing: 0.25em;
-		color: #827F7E;
+		color: #A09C9A;
 	}
 
 	/* Justified uppercase text */
@@ -214,7 +214,7 @@
 		font-size: 0.75rem;
 		text-transform: uppercase;
 		letter-spacing: 0.15em;
-		color: #827F7E;
+		color: #A09C9A;
 	}
 
 	/* About copy: readable line length without forced hyphenation */
@@ -256,7 +256,7 @@
 		font-family: 'JetBrains Mono', ui-monospace, monospace;
 		font-size: 0.625rem;
 		letter-spacing: 0.16em;
-		color: #827F7E;
+		color: #A09C9A;
 	}
 
 	.about-principles h4 {
@@ -297,7 +297,7 @@
 		font-size: 0.625rem;
 		text-transform: uppercase;
 		letter-spacing: 0.16em;
-		color: #827F7E;
+		color: #A09C9A;
 	}
 
 	.credibility-item dd {
@@ -338,7 +338,7 @@
 		font-size: 0.6875rem;
 		text-transform: uppercase;
 		letter-spacing: 0.16em;
-		color: #827F7E;
+		color: #A09C9A;
 	}
 
 	.contact-intent > div {
@@ -399,7 +399,7 @@
 		font-size: 0.6875rem;
 		text-transform: uppercase;
 		letter-spacing: 0.16em;
-		color: #827F7E;
+		color: #A09C9A;
 	}
 
 	.contact-field input,
@@ -615,7 +615,7 @@
 	font-size: 0.6875rem;
 	text-transform: uppercase;
 	letter-spacing: 0.14em;
-	color: #827F7E;
+	color: #A09C9A;
 	transition: color 200ms ease;
 }
 
@@ -651,7 +651,7 @@
 	font-size: 0.6875rem;
 	text-transform: uppercase;
 	letter-spacing: 0.14em;
-	color: #827F7E;
+	color: #A09C9A;
 }
 
 .privacy-content {
@@ -747,7 +747,7 @@
 	font-size: 0.6875rem;
 	text-transform: uppercase;
 	letter-spacing: 0.12em;
-	color: #827F7E;
+	color: #A09C9A;
 }
 
 @media (min-width: 640px) {
@@ -4221,7 +4221,7 @@ html.lenis {
 }
 
 .blog-nav a {
-	color: #827F7E;
+	color: #A09C9A;
 	transition: color 200ms ease;
 }
 
@@ -4339,7 +4339,7 @@ html.lenis {
 	font-size: 0.6875rem;
 	text-transform: uppercase;
 	letter-spacing: 0.15em;
-	color: #827F7E;
+	color: #A09C9A;
 }
 
 .blog-card-info h2 {
@@ -4379,7 +4379,7 @@ html.lenis {
 	font-size: 0.625rem;
 	text-transform: uppercase;
 	letter-spacing: 0.14em;
-	color: #827F7E;
+	color: #A09C9A;
 	border: 1px solid rgba(130, 127, 126, 0.3);
 	border-radius: 9999px;
 	padding: 0.3rem 0.75rem;
@@ -4423,7 +4423,7 @@ html.lenis {
 	font-size: 0.6875rem;
 	text-transform: uppercase;
 	letter-spacing: 0.15em;
-	color: #827F7E;
+	color: #A09C9A;
 }
 
 .blog-article-cover {
@@ -4503,7 +4503,7 @@ html.lenis {
 	font-size: 0.6875rem;
 	line-height: 1.6;
 	letter-spacing: 0.06em;
-	color: #827F7E;
+	color: #A09C9A;
 }
 
 .blog-video-frame {
@@ -4604,7 +4604,7 @@ html.lenis {
 	font-style: normal;
 	text-transform: uppercase;
 	letter-spacing: 0.14em;
-	color: #827F7E;
+	color: #A09C9A;
 }
 
 .blog-body-list {
@@ -4710,7 +4710,7 @@ html.lenis {
 	font-size: 0.6875rem;
 	text-transform: uppercase;
 	letter-spacing: 0.12em;
-	color: #827F7E;
+	color: #A09C9A;
 }
 
 .blog-footer a {
