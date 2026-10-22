@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useSplitText } from "@/hooks/use-split-text";
 import { gsap } from "gsap";
-import { revealChars, revealOnScroll, revealStagger } from "@/lib/animations";
+import { revealChars, revealStagger } from "@/lib/animations";
 import { credibilityItems, socials } from "@/data/site";
 
 /**
@@ -19,7 +19,6 @@ export function Hero() {
 	const baseline2 = useSplitText<HTMLSpanElement>({ mode: "chars" });
 	const titleLine1Ref = useRef<HTMLSpanElement | null>(null);
 	const titleLine2Ref = useRef<HTMLSpanElement | null>(null);
-	const leadRef = useRef<HTMLParagraphElement | null>(null);
 	const socialsRef = useRef<HTMLUListElement | null>(null);
 
 	useEffect(() => {
@@ -30,9 +29,6 @@ export function Hero() {
 			revealChars(baseline1.current, { stagger: 0.02, duration: 0.7 });
 			revealChars(baseline2.current, { stagger: 0.02, duration: 0.7, delay: 0.1 });
 		}, 100);
-
-		// Lead: fade-up do paragrafo inteiro (nao split!).
-		revealOnScroll(leadRef.current, { y: 30, duration: 0.9, delay: 0.3 });
 
 		// Title — animacao simples (sem split) para evitar cortar
 		// os descendentes do 'g'/'p'/'y' que a abordagem split-text
@@ -71,7 +67,6 @@ export function Hero() {
 					</span>
 				</div>
 				<p
-					ref={leadRef}
 					className="lg:col-span-5 lg:col-start-8 font-sans text-sm leading-relaxed text-bone/80 md:text-base"
 				>
 					Lucas Coelho é designer digital em Campinas e trabalha com identidade
