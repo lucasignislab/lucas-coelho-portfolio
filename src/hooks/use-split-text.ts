@@ -41,6 +41,12 @@ export function useSplitText<T extends HTMLElement = HTMLElement>(
 	useEffect(() => {
 		const el = ref.current;
 		if (!el) return;
+		if (
+			window.matchMedia("(max-width: 767px)").matches ||
+			window.matchMedia("(prefers-reduced-motion: reduce)").matches
+		) {
+			return;
+		}
 		const mode: SplitMode = options.mode ?? "chars";
 		const className = options.className ?? (mode === "words" ? "split-word" : "split-char");
 

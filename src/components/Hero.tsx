@@ -22,7 +22,12 @@ export function Hero() {
 	const socialsRef = useRef<HTMLUListElement | null>(null);
 
 	useEffect(() => {
-		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+		if (
+			window.matchMedia("(max-width: 767px)").matches ||
+			window.matchMedia("(prefers-reduced-motion: reduce)").matches
+		) {
+			return;
+		}
 
 		// Eyebrows animam por char (linhas curtas — stagger e o charme)
 		setTimeout(() => {
