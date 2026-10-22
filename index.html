@@ -81,26 +81,44 @@
     </script>
     <!-- SEO_HEAD_END -->
 
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-59XEXV7Y4Q"></script>
+    <!-- Google Analytics 4 and Clarity load after the page's initial work. -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-59XEXV7Y4Q');
+      window.gtag = gtag;
+
+      function loadAnalytics() {
+        var gtagScript = document.createElement('script');
+        gtagScript.async = true;
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-59XEXV7Y4Q';
+        document.head.appendChild(gtagScript);
+
+        (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "xt1bf02b14");
+      }
+
+      function scheduleAnalytics() {
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(loadAnalytics, { timeout: 1500 });
+        } else {
+          window.setTimeout(loadAnalytics, 1000);
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        scheduleAnalytics();
+      } else {
+        window.addEventListener('load', scheduleAnalytics, { once: true });
+      }
     </script>
 
     <!-- Umami Analytics -->
     <script defer src="https://analytics.lucascoelhoux.site/script.js" data-website-id="a5cfe871-1c77-49ed-b866-5cc34c61a4bd"></script>
-
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-      (function(c,l,a,r,i,t,y){
-          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "xt1bf02b14");
-    </script>
 
   </head>
   <body>
