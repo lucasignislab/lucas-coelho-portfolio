@@ -1,0 +1,20 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "instrument serif",
+        "createdAt": "2026-10-22T13:57:15.917Z",
+        "reason": "DESIGN.md defines Instrument Serif as the portfolio display face; preserve the established brand typography."
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-10-22T13:57:15.951Z",
+        "reason": "DESIGN.md defines Inter as the portfolio sans face; preserve the established brand typography."
+      }
+    ]
+  }
+}

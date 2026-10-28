@@ -73,7 +73,7 @@ export function About() {
 						<li>
 							<span>01</span>
 							<div>
-								<h4>Estratégia</h4>
+								<h3>Estratégia</h3>
 								<p>
 									O que precisa ser comunicado e qual decisão queremos
 									facilitar.
@@ -83,7 +83,7 @@ export function About() {
 						<li>
 							<span>02</span>
 							<div>
-								<h4>Identidade</h4>
+								<h3>Identidade</h3>
 								<p>
 									Uma linguagem visual que reconhece a personalidade de cada
 									marca.
@@ -93,7 +93,7 @@ export function About() {
 						<li>
 							<span>03</span>
 							<div>
-								<h4>Interface</h4>
+								<h3>Interface</h3>
 								<p>
 									Experiências simples, consistentes e preparadas para a
 									implementação.

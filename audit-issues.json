@@ -1,0 +1,10 @@
+[
+  {
+    "severity": "info",
+    "issueType": "heading-order-skip",
+    "issue": "Heading levels skip",
+    "url": "https://lucascoelhoux.site/",
+    "details": null,
+    "howToFix": "Adjust heading levels so they descend one step at a time (H1 → H2 → H3) without skipping."
+  }
+]

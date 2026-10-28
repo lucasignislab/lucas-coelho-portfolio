@@ -1,0 +1,2 @@
+"Severity","Issue","URL","Details","How To Fix"
+"info","Heading levels skip","https://lucascoelhoux.site/","","Adjust heading levels so they descend one step at a time (H1 → H2 → H3) without skipping."
