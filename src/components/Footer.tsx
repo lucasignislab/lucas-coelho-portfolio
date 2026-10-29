@@ -367,6 +367,12 @@ export function Footer() {
 						Blog
 					</a>
 					<a
+						href="/criacao-de-sites-campinas/"
+						className="text-bone link-underline"
+					>
+						Criação de sites em Campinas
+					</a>
+					<a
 						href="/politica-de-privacidade"
 						className="text-bone link-underline"
 					>

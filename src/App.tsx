@@ -81,6 +81,12 @@ const lazyServicePage = lazy(() =>
 	}))
 );
 
+const lazySitesCampinasPage = lazy(() =>
+	import("@/components/SitesCampinasPage").then(module => ({
+		default: module.SitesCampinasPage,
+	}))
+);
+
 gsap.registerPlugin(ScrollTrigger);
 
 /**
@@ -136,17 +142,20 @@ interface AppProps {
 	blog?: BlogComponents;
 	/** Página de serviço eager (SSR). No cliente, usa React.lazy. */
 	servicePage?: ComponentType<{ pathname: string }>;
+	/** Landing page de criação de sites em Campinas, eager no SSR. */
+	sitesCampinasPage?: ComponentType;
 	/** Política de privacidade eager (SSR). No cliente, usa React.lazy. */
 	privacyPolicy?: ComponentType;
 }
 
-function App({ path, cases, blog, servicePage, privacyPolicy }: AppProps) {
+function App({ path, cases, blog, servicePage, sitesCampinasPage, privacyPolicy }: AppProps) {
 	const pathname = (
 		path ?? (typeof window !== "undefined" ? window.location.pathname : "/")
 	).replace(/\/+$/, "") || "/";
 	const Cases = cases ?? lazyCases;
 	const Blog = blog ?? lazyBlog;
 	const ServicePageComponent = servicePage ?? lazyServicePage;
+	const SitesCampinasPageComponent = sitesCampinasPage ?? lazySitesCampinasPage;
 	const PrivacyPolicyComponent = privacyPolicy ?? lazyPrivacyPolicy;
 
 	useGtagPageview(pathname);
@@ -171,6 +180,18 @@ function App({ path, cases, blog, servicePage, privacyPolicy }: AppProps) {
 				<WhatsAppButton />
 				<Suspense fallback={null}>
 					<Blog.Article slug={slug} />
+				</Suspense>
+			</ErrorBoundary>
+		);
+	}
+
+	if (pathname === "/criacao-de-sites-campinas") {
+		return (
+			<ErrorBoundary>
+				<Seo pathname={pathname} />
+				<WhatsAppButton />
+				<Suspense fallback={null}>
+					<SitesCampinasPageComponent />
 				</Suspense>
 			</ErrorBoundary>
 		);

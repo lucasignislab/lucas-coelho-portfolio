@@ -1,9 +1,60 @@
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import { getServicePage, servicePages } from "@/data/services";
 import { projects } from "@/data/projects";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { getBreadcrumbs } from "@/data/seo";
+import {
+	revealOnScroll,
+	revealWords,
+	splitChars,
+} from "@/lib/animations";
 
 export function ServicePage({ pathname }: { pathname: string }) {
+	const mainRef = useRef<HTMLElement | null>(null);
+	const headlineRef = useRef<HTMLHeadingElement | null>(null);
+	const introRef = useRef<HTMLParagraphElement | null>(null);
+	const ctaRef = useRef<HTMLDivElement | null>(null);
+	const noteRef = useRef<HTMLParagraphElement | null>(null);
+
+	useEffect(() => {
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+		// Hero: entrada no mount — título com split por palavras,
+		// depois subtítulo e CTAs em fade-up encadeado.
+		const headline = headlineRef.current;
+		if (headline) {
+			splitChars(headline, { mode: "words", className: "split-word" });
+			revealWords(headline, { stagger: 0.04, duration: 1, delay: 0.15 });
+		}
+		if (introRef.current) {
+			gsap.fromTo(
+				introRef.current,
+				{ y: 30, opacity: 0 },
+				{ y: 0, opacity: 1, duration: 0.9, delay: 0.45, ease: "power3.out" }
+			);
+		}
+		if (ctaRef.current) {
+			gsap.fromTo(
+				ctaRef.current,
+				{ y: 24, opacity: 0 },
+				{ y: 0, opacity: 1, duration: 0.8, delay: 0.6, ease: "power3.out" }
+			);
+		}
+		if (noteRef.current) {
+			gsap.fromTo(
+				noteRef.current,
+				{ y: 20, opacity: 0 },
+				{ y: 0, opacity: 1, duration: 0.8, delay: 0.7, ease: "power3.out" }
+			);
+		}
+
+		// Seções abaixo do fold: reveal simples ao scroll.
+		mainRef.current
+			?.querySelectorAll<HTMLElement>("[data-reveal]")
+			.forEach(el => revealOnScroll(el, { y: 40, duration: 0.9 }));
+	}, [pathname]);
+
 	const service = getServicePage(pathname);
 	if (!service) return null;
 
@@ -12,7 +63,7 @@ export function ServicePage({ pathname }: { pathname: string }) {
 		.filter((project): project is (typeof projects)[number] => Boolean(project));
 
 	return (
-		<main className="min-h-screen bg-ink text-bone">
+		<main ref={mainRef} className="min-h-screen bg-ink text-bone">
 			<header className="flex items-center justify-between px-6 py-6 md:px-12 lg:px-20">
 				<a
 					href="/"
@@ -43,13 +94,13 @@ export function ServicePage({ pathname }: { pathname: string }) {
 
 			<section className="section grid min-h-[72vh] grid-cols-1 items-end gap-12 lg:grid-cols-12">
 				<div className="lg:col-span-8">
-					<h1 className="max-w-5xl text-balance font-display text-[clamp(3rem,8vw,7rem)] leading-[0.98]">
+					<h1 ref={headlineRef} className="max-w-5xl text-balance font-display text-[clamp(3rem,8vw,7rem)] leading-[0.98]">
 						{service.headline}
 					</h1>
-					<p className="mt-8 max-w-2xl text-lg leading-relaxed text-bone/80 md:text-xl">
+					<p ref={introRef} className="mt-8 max-w-2xl text-lg leading-relaxed text-bone/80 md:text-xl">
 						{service.intro}
 					</p>
-					<div className="mt-9 flex flex-wrap gap-3">
+					<div ref={ctaRef} className="mt-9 flex flex-wrap gap-3">
 						<a href="/#contact-project" className="btn-primary">
 							Conversar sobre este serviço <span aria-hidden="true">↗</span>
 						</a>
@@ -57,13 +108,21 @@ export function ServicePage({ pathname }: { pathname: string }) {
 							Ver projetos relacionados
 						</a>
 					</div>
+					{service.id === "sites-landing-pages" && (
+						<p className="mt-8 max-w-2xl font-mono text-xs uppercase leading-relaxed tracking-[0.12em] text-bone/70">
+							📍 Atendo Campinas e região:{" "}
+							<a href="/criacao-de-sites-campinas/" className="text-bone link-underline">
+								veja a página de criação de sites em Campinas
+							</a>
+						</p>
+					)}
 				</div>
-				<p className="max-w-xs border-t border-bone/20 pt-4 font-mono text-xs uppercase leading-relaxed tracking-[0.12em] text-bone/70 lg:col-span-3 lg:col-start-10">
+				<p ref={noteRef} className="max-w-xs border-t border-bone/20 pt-4 font-mono text-xs uppercase leading-relaxed tracking-[0.12em] text-bone/70 lg:col-span-3 lg:col-start-10">
 					Campinas, Brasil <span aria-hidden="true">·</span> projetos remotos
 				</p>
 			</section>
 
-			<section className="section border-t border-bone/10" aria-labelledby="escopo-title">
+			<section data-reveal className="section border-t border-bone/10" aria-labelledby="escopo-title">
 				<div className="grid gap-12 lg:grid-cols-12">
 					<h2 id="escopo-title" className="font-display text-4xl leading-tight md:text-5xl lg:col-span-4">
 						O que inclui {service.label}?
@@ -81,7 +140,7 @@ export function ServicePage({ pathname }: { pathname: string }) {
 				</div>
 			</section>
 
-			<section className="section border-t border-bone/10" aria-labelledby="processo-title">
+			<section data-reveal className="section border-t border-bone/10" aria-labelledby="processo-title">
 				<div className="grid gap-12 lg:grid-cols-12">
 					<h2 id="processo-title" className="font-display text-4xl leading-tight md:text-5xl lg:col-span-4">
 						Como funciona um projeto de {service.label}?
@@ -97,7 +156,7 @@ export function ServicePage({ pathname }: { pathname: string }) {
 				</div>
 			</section>
 
-			<section id="trabalho" className="section border-t border-bone/10" aria-labelledby="trabalho-title">
+			<section id="trabalho" data-reveal className="section border-t border-bone/10" aria-labelledby="trabalho-title">
 				<div className="grid gap-12 lg:grid-cols-12">
 					<div className="lg:col-span-4">
 						<h2 id="trabalho-title" className="font-display text-4xl leading-tight md:text-5xl">
@@ -139,7 +198,7 @@ export function ServicePage({ pathname }: { pathname: string }) {
 			</section>
 
 			{service.article && (
-				<section className="section border-t border-bone/10" aria-label="Leitura relacionada">
+				<section data-reveal className="section border-t border-bone/10" aria-label="Leitura relacionada">
 					<a href={service.article.href} className="group flex flex-col justify-between gap-6 border-b border-bone/20 pb-6 md:flex-row md:items-end">
 						<div>
 							<p className="font-mono text-xs uppercase tracking-[0.15em] text-bone/70">Leitura relacionada</p>
@@ -151,7 +210,7 @@ export function ServicePage({ pathname }: { pathname: string }) {
 				</section>
 			)}
 
-			<section className="section border-t border-bone/10" aria-labelledby="duvidas-title">
+			<section data-reveal className="section border-t border-bone/10" aria-labelledby="duvidas-title">
 				<div className="grid gap-12 lg:grid-cols-12">
 					<h2 id="duvidas-title" className="font-display text-4xl leading-tight md:text-5xl lg:col-span-4">
 						Quais dúvidas surgem antes de contratar {service.label}?
@@ -167,7 +226,7 @@ export function ServicePage({ pathname }: { pathname: string }) {
 				</div>
 			</section>
 
-			<section className="section border-t border-bone/10">
+			<section data-reveal className="section border-t border-bone/10">
 				<div className="grid gap-8 md:grid-cols-12 md:items-end">
 					<div className="md:col-span-8">
 						<h2 className="max-w-4xl font-display text-5xl leading-[1.05] md:text-7xl">
@@ -191,6 +250,9 @@ export function ServicePage({ pathname }: { pathname: string }) {
 									<a href={page.path} className="font-mono text-xs uppercase tracking-[0.12em] text-bone/70 link-underline">{page.label}</a>
 							</li>
 						))}
+						<li>
+							<a href="/criacao-de-sites-campinas/" className="font-mono text-xs uppercase tracking-[0.12em] text-bone/70 link-underline">Criação de sites em Campinas</a>
+						</li>
 					</ul>
 				</nav>
 				<a href="/" className="font-mono text-xs uppercase tracking-[0.12em] text-bone/70 link-underline">Lucas Coelho © {new Date().getFullYear()}</a>

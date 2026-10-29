@@ -8,6 +8,7 @@ import { BlogIndex } from "./components/BlogIndex";
 import { BlogArticle } from "./components/BlogArticle";
 import { PrivacyPolicy } from "./components/PrivacyPolicy";
 import { ServicePage } from "./components/ServicePage";
+import { SitesCampinasPage } from "./components/SitesCampinasPage";
 
 // No SSR usamos imports eager: renderToString (React 18) renderiza apenas
 // o fallback de <Suspense> para componentes lazy.
@@ -31,6 +32,7 @@ export function render(path: string) {
 			blog={ssrBlog}
 			privacyPolicy={PrivacyPolicy}
 			servicePage={ServicePage}
+			sitesCampinasPage={SitesCampinasPage}
 		/>
 	);
 }

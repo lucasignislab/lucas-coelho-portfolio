@@ -1,6 +1,7 @@
 import { articles, getReadingTime } from "./blog";
 import { projects } from "./projects";
 import { servicePages } from "./services";
+import { sitesCampinasFaq } from "./sites-campinas";
 
 export const SITE_URL = "https://lucascoelhoux.site";
 
@@ -166,6 +167,50 @@ export const seoPages: Record<string, SeoPage> = {
 	},
 	...articleSeoPages,
 	...serviceSeoPages,
+	"/criacao-de-sites-campinas": {
+		path: "/criacao-de-sites-campinas",
+		title: "Criação de Sites em Campinas | Lucas Coelho — Web Designer",
+		description:
+			"Criação de sites profissionais em Campinas: sites institucionais, landing pages e páginas de vendas com código sob medida, feitos para gerar clientes. Peça um orçamento pelo WhatsApp.",
+		image: "/og-card.png",
+		imageAlt: "Criação de sites em Campinas — Lucas Coelho, web designer",
+		imageWidth: 1200,
+		imageHeight: 630,
+		ogType: "website",
+		schema: {
+			"@context": "https://schema.org",
+			"@graph": [
+				{
+					"@type": "ProfessionalService",
+					"@id": `${SITE_URL}/criacao-de-sites-campinas/#service`,
+					name: "Criação de Sites em Campinas — Lucas Coelho",
+					description:
+						"Criação de sites institucionais, landing pages e páginas de vendas em Campinas, com código sob medida e foco em gerar clientes.",
+					url: `${SITE_URL}/criacao-de-sites-campinas/`,
+					serviceType: "Criação de sites",
+					provider: person,
+					areaServed: [
+						{ "@type": "City", name: "Campinas" },
+						{ "@type": "State", name: "São Paulo" },
+						{ "@type": "Country", name: "Brasil" },
+					],
+					inLanguage: "pt-BR",
+				},
+				{
+					"@type": "FAQPage",
+					"@id": `${SITE_URL}/criacao-de-sites-campinas/#faq`,
+					mainEntity: sitesCampinasFaq.map(item => ({
+						"@type": "Question",
+						name: item.question,
+						acceptedAnswer: {
+							"@type": "Answer",
+							text: item.answer,
+						},
+					})),
+				},
+			],
+		},
+	},
 	"/": {
 		path: "/",
 		title: "Lucas Coelho — Designer Digital em Campinas",
@@ -331,6 +376,13 @@ export function getBreadcrumbs(pathname: string): BreadcrumbItem[] {
 			{ name: "Início", href: "/" },
 			{ name: "Projetos", href: "/#work" },
 			{ name: project.name },
+		];
+	}
+	if (normalizedPath === "/criacao-de-sites-campinas") {
+		return [
+			{ name: "Início", href: "/" },
+			{ name: "Serviços", href: "/#skills" },
+			{ name: "Criação de sites em Campinas" },
 		];
 	}
 	if (normalizedPath === "/politica-de-privacidade") {
