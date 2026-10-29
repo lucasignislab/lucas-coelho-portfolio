@@ -27,6 +27,7 @@
 
 import { articleSiteInstitucional } from "./article-site-institucional";
 import { feedbackVagoCriterioDecisao } from "./feedback-vago-criterio-decisao";
+import { quantoCustaCriarUmSite } from "./quanto-custa-criar-um-site";
 
 export type InlineSegment = string | { text: string; href: string };
 
@@ -101,6 +102,7 @@ export function formatArticleDate(isoDate: string): string {
 }
 
 export const articles: Article[] = [
+	quantoCustaCriarUmSite,
 	articleSiteInstitucional,
 	feedbackVagoCriterioDecisao,
 	{

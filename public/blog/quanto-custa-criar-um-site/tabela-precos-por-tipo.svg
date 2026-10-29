@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img">
+  <rect width="1400" height="900" fill="#212121"/>
+  <rect x="80" y="806" width="1240" height="1" fill="#3a3a3a"/>
+  <text x="80" y="853" fill="#E28868" font-family="Georgia, serif" font-size="34">L,</text>
+  <text x="1320" y="850" fill="#8a8580" font-family="Arial, sans-serif" font-size="18" font-weight="600" text-anchor="end">LUCASCOELHOUX.SITE</text>
+  <text x="80" y="95" fill="#8a8580" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="4">TABELA DE PREÇOS</text>
+  <text x="80" y="170" fill="#F4F1ED" font-family="Georgia, serif" font-size="56">Quanto custa cada tipo de site em 2026</text>
+  <line x1="80" y1="210" x2="1320" y2="210" stroke="#3a3a3a" stroke-width="2"/>
+  <text x="80" y="252" fill="#bdb7b0" font-family="Arial, sans-serif" font-size="22">Execução profissional no Brasil, design sob medida. Escala de R$ 0 a R$ 40.000.</text>
+  <g font-family="Arial, sans-serif">
+    <text x="80" y="330" fill="#F4F1ED" font-size="24" font-weight="600">Landing page</text>
+    <rect x="80" y="348" width="1240" height="26" rx="13" fill="#2a2a2a"/>
+    <rect x="126" y="348" width="248" height="26" rx="13" fill="#E28868"/>
+    <text x="392" y="367" fill="#F4F1ED" font-size="20">R$ 1.500 a R$ 8.000</text>
+    <text x="1320" y="367" fill="#8a8580" font-size="18" text-anchor="end">1 a 3 semanas</text>
+
+    <text x="80" y="430" fill="#F4F1ED" font-size="24" font-weight="600">Portfólio</text>
+    <rect x="80" y="448" width="1240" height="26" rx="13" fill="#2a2a2a"/>
+    <rect x="142" y="448" width="310" height="26" rx="13" fill="#E28868"/>
+    <text x="470" y="467" fill="#F4F1ED" font-size="20">R$ 2.000 a R$ 10.000</text>
+    <text x="1320" y="467" fill="#8a8580" font-size="18" text-anchor="end">2 a 5 semanas</text>
+
+    <text x="80" y="530" fill="#F4F1ED" font-size="24" font-weight="600">Site institucional</text>
+    <rect x="80" y="548" width="1240" height="26" rx="13" fill="#2a2a2a"/>
+    <rect x="173" y="548" width="465" height="26" rx="13" fill="#E28868"/>
+    <text x="656" y="567" fill="#F4F1ED" font-size="20">R$ 3.000 a R$ 15.000</text>
+    <text x="1320" y="567" fill="#8a8580" font-size="18" text-anchor="end">3 a 8 semanas</text>
+
+    <text x="80" y="630" fill="#F4F1ED" font-size="24" font-weight="600">Página de vendas</text>
+    <rect x="80" y="648" width="1240" height="26" rx="13" fill="#2a2a2a"/>
+    <rect x="157" y="648" width="372" height="26" rx="13" fill="#E28868"/>
+    <text x="547" y="667" fill="#F4F1ED" font-size="20">R$ 2.500 a R$ 12.000</text>
+    <text x="1320" y="667" fill="#8a8580" font-size="18" text-anchor="end">2 a 6 semanas</text>
+
+    <text x="80" y="730" fill="#F4F1ED" font-size="24" font-weight="600">Loja virtual</text>
+    <rect x="80" y="748" width="1240" height="26" rx="13" fill="#2a2a2a"/>
+    <rect x="235" y="748" width="1085" height="26" rx="13" fill="#E28868"/>
+    <text x="260" y="767" fill="#212121" font-size="20" font-weight="600">R$ 5.000 a R$ 40.000+</text>
+    <text x="1320" y="737" fill="#8a8580" font-size="18" text-anchor="end">8 a 16 semanas</text>
+  </g>
+</svg>

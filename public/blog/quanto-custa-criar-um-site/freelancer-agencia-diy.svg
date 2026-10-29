@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img">
+  <rect width="1400" height="900" fill="#212121"/>
+  <rect x="80" y="806" width="1240" height="1" fill="#3a3a3a"/>
+  <text x="80" y="853" fill="#E28868" font-family="Georgia, serif" font-size="34">L,</text>
+  <text x="1320" y="850" fill="#8a8580" font-family="Arial, sans-serif" font-size="18" font-weight="600" text-anchor="end">LUCASCOELHOUX.SITE</text>
+  <text x="80" y="95" fill="#8a8580" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="4">QUEM EXECUTA</text>
+  <text x="80" y="170" fill="#F4F1ED" font-family="Georgia, serif" font-size="56">O mesmo site, três preços</text>
+  <line x1="80" y1="210" x2="1320" y2="210" stroke="#3a3a3a" stroke-width="2"/>
+  <text x="80" y="252" fill="#bdb7b0" font-family="Arial, sans-serif" font-size="22">O que muda não é só o valor. É o que está incluso nele.</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="80" y="300" width="390" height="460" rx="20" fill="#2a2a2a"/>
+    <text x="110" y="352" fill="#E28868" font-size="19" font-weight="700">FREELANCER</text>
+    <text x="110" y="408" fill="#F4F1ED" font-size="34" font-weight="600">R$ 2.000 a</text>
+    <text x="110" y="450" fill="#F4F1ED" font-size="34" font-weight="600">R$ 15.000</text>
+    <text x="110" y="492" fill="#bdb7b0" font-size="20">por projeto fechado</text>
+    <text x="110" y="546" fill="#bdb7b0" font-size="19">Hora técnica: R$ 80 a R$ 200</text>
+    <line x1="110" y1="572" x2="440" y2="572" stroke="#3a3a3a" stroke-width="1"/>
+    <text x="110" y="612" fill="#F4F1ED" font-size="19">Fala direto com quem executa</text>
+    <text x="110" y="652" fill="#F4F1ED" font-size="19">Decisão rápida, escopo flexível</text>
+    <text x="110" y="692" fill="#8a8580" font-size="19">Risco: dependência de uma pessoa</text>
+    <text x="110" y="732" fill="#8a8580" font-size="19">Ideal para: negócios locais</text>
+
+    <rect x="505" y="300" width="390" height="460" rx="20" fill="#2a2a2a"/>
+    <text x="535" y="352" fill="#E28868" font-size="19" font-weight="700">AGÊNCIA</text>
+    <text x="535" y="408" fill="#F4F1ED" font-size="34" font-weight="600">R$ 8.000 a</text>
+    <text x="535" y="450" fill="#F4F1ED" font-size="34" font-weight="600">R$ 60.000</text>
+    <text x="535" y="492" fill="#bdb7b0" font-size="20">por projeto fechado</text>
+    <text x="535" y="546" fill="#bdb7b0" font-size="19">Hora efetiva: R$ 150 a R$ 350</text>
+    <line x1="535" y1="572" x2="865" y2="572" stroke="#3a3a3a" stroke-width="1"/>
+    <text x="535" y="612" fill="#F4F1ED" font-size="19">Time completo e processo</text>
+    <text x="535" y="652" fill="#F4F1ED" font-size="19">Estratégia, redação e gestão</text>
+    <text x="535" y="692" fill="#8a8580" font-size="19">Risco: pagar overhead sem usar</text>
+    <text x="535" y="732" fill="#8a8580" font-size="19">Ideal para: empresas em escala</text>
+
+    <rect x="930" y="300" width="390" height="460" rx="20" fill="#2a2a2a"/>
+    <text x="960" y="352" fill="#E28868" font-size="19" font-weight="700">FAÇA VOCÊ MESMO</text>
+    <text x="960" y="408" fill="#F4F1ED" font-size="34" font-weight="600">R$ 0 a</text>
+    <text x="960" y="450" fill="#F4F1ED" font-size="34" font-weight="600">R$ 3.000</text>
+    <text x="960" y="492" fill="#bdb7b0" font-size="20">no primeiro ano</text>
+    <text x="960" y="546" fill="#bdb7b0" font-size="19">Builders: R$ 30 a R$ 150 por mês</text>
+    <line x1="960" y1="572" x2="1290" y2="572" stroke="#3a3a3a" stroke-width="1"/>
+    <text x="960" y="612" fill="#F4F1ED" font-size="19">Custo direto baixo e imediato</text>
+    <text x="960" y="652" fill="#F4F1ED" font-size="19">Bom para validar ideias</text>
+    <text x="960" y="692" fill="#8a8580" font-size="19">Risco: 20 a 60 horas do seu tempo</text>
+    <text x="960" y="732" fill="#8a8580" font-size="19">Ideal para: começo de jornada</text>
+  </g>
+</svg>

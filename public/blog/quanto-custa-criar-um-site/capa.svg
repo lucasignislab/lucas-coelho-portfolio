@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 788" role="img">
+  <rect width="1400" height="788" fill="#212121"/>
+  <rect x="80" y="700" width="1240" height="1" fill="#3a3a3a"/>
+  <text x="80" y="745" fill="#E28868" font-family="Georgia, serif" font-size="34">L,</text>
+  <text x="1320" y="742" fill="#8a8580" font-family="Arial, sans-serif" font-size="18" font-weight="600" text-anchor="end">LUCASCOELHOUX.SITE</text>
+  <text x="80" y="110" fill="#8a8580" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="4">TABELA DE PREÇOS 2026</text>
+  <text x="80" y="200" fill="#F4F1ED" font-family="Georgia, serif" font-size="72">Quanto custa criar</text>
+  <text x="80" y="285" fill="#F4F1ED" font-family="Georgia, serif" font-size="72">um site em 2026?</text>
+  <line x1="80" y1="330" x2="1320" y2="330" stroke="#3a3a3a" stroke-width="2"/>
+  <text x="80" y="380" fill="#bdb7b0" font-family="Arial, sans-serif" font-size="24">Faixas reais de mercado, por tipo de site e por quem executa.</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="80" y="430" width="290" height="180" rx="18" fill="#2a2a2a"/>
+    <text x="108" y="478" fill="#E28868" font-size="17" font-weight="700">LANDING PAGE</text>
+    <text x="108" y="540" fill="#F4F1ED" font-size="30" font-weight="600">R$ 1.500</text>
+    <text x="108" y="580" fill="#bdb7b0" font-size="22">a R$ 8.000</text>
+    <rect x="395" y="430" width="290" height="180" rx="18" fill="#2a2a2a"/>
+    <text x="423" y="478" fill="#E28868" font-size="17" font-weight="700">INSTITUCIONAL</text>
+    <text x="423" y="540" fill="#F4F1ED" font-size="30" font-weight="600">R$ 3.000</text>
+    <text x="423" y="580" fill="#bdb7b0" font-size="22">a R$ 15.000</text>
+    <rect x="710" y="430" width="290" height="180" rx="18" fill="#2a2a2a"/>
+    <text x="738" y="478" fill="#E28868" font-size="17" font-weight="700">PÁGINA DE VENDAS</text>
+    <text x="738" y="540" fill="#F4F1ED" font-size="30" font-weight="600">R$ 2.500</text>
+    <text x="738" y="580" fill="#bdb7b0" font-size="22">a R$ 12.000</text>
+    <rect x="1025" y="430" width="295" height="180" rx="18" fill="#2a2a2a"/>
+    <text x="1053" y="478" fill="#E28868" font-size="17" font-weight="700">LOJA VIRTUAL</text>
+    <text x="1053" y="540" fill="#F4F1ED" font-size="30" font-weight="600">R$ 5.000</text>
+    <text x="1053" y="580" fill="#bdb7b0" font-size="22">a R$ 40.000+</text>
+  </g>
+  <text x="80" y="668" fill="#8a8580" font-family="Arial, sans-serif" font-size="19">+ custos ocultos, sinais de proposta suspeita e como pedir orçamento sem ser enrolado</text>
+</svg>

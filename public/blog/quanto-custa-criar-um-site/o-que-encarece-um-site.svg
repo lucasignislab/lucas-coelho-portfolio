@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img">
+  <rect width="1400" height="900" fill="#212121"/>
+  <rect x="80" y="806" width="1240" height="1" fill="#3a3a3a"/>
+  <text x="80" y="853" fill="#E28868" font-family="Georgia, serif" font-size="34">L,</text>
+  <text x="1320" y="850" fill="#8a8580" font-family="Arial, sans-serif" font-size="18" font-weight="600" text-anchor="end">LUCASCOELHOUX.SITE</text>
+  <text x="80" y="95" fill="#8a8580" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="4">VILÕES DE CUSTO</text>
+  <text x="80" y="170" fill="#F4F1ED" font-family="Georgia, serif" font-size="56">O que encarece um site</text>
+  <line x1="80" y1="210" x2="1320" y2="210" stroke="#3a3a3a" stroke-width="2"/>
+  <text x="80" y="252" fill="#bdb7b0" font-family="Arial, sans-serif" font-size="22">Cinco fatores inflam orçamentos. Quatro estão sob controle de quem contrata.</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="80" y="300" width="1240" height="86" rx="16" fill="#2a2a2a"/>
+    <circle cx="126" cy="343" r="22" fill="#E28868"/>
+    <text x="126" y="351" fill="#212121" font-size="22" font-weight="700" text-anchor="middle">1</text>
+    <text x="170" y="336" fill="#F4F1ED" font-size="23" font-weight="600">Mudança de escopo no meio do caminho</text>
+    <text x="170" y="366" fill="#8a8580" font-size="18">Cada "já que estamos fazendo" soma horas. Controle: contrato com escopo e adicionais precificados.</text>
+
+    <rect x="80" y="406" width="1240" height="86" rx="16" fill="#2a2a2a"/>
+    <circle cx="126" cy="449" r="22" fill="#E28868"/>
+    <text x="126" y="457" fill="#212121" font-size="22" font-weight="700" text-anchor="middle">2</text>
+    <text x="170" y="442" fill="#F4F1ED" font-size="23" font-weight="600">Prazo curto demais</text>
+    <text x="170" y="472" fill="#8a8580" font-size="18">Urgência custa 20% a 50% a mais. Controle: avisar datas inegociáveis na primeira conversa.</text>
+
+    <rect x="80" y="512" width="1240" height="86" rx="16" fill="#2a2a2a"/>
+    <circle cx="126" cy="555" r="22" fill="#E28868"/>
+    <text x="126" y="563" fill="#212121" font-size="22" font-weight="700" text-anchor="middle">3</text>
+    <text x="170" y="548" fill="#F4F1ED" font-size="23" font-weight="600">Conteúdo que ainda não existe</text>
+    <text x="170" y="578" fill="#8a8580" font-size="18">Texto, foto e logo produzidos do zero entram no orçamento. Controle: levantar o material antes de pedir propostas.</text>
+
+    <rect x="80" y="618" width="1240" height="86" rx="16" fill="#2a2a2a"/>
+    <circle cx="126" cy="661" r="22" fill="#E28868"/>
+    <text x="126" y="669" fill="#212121" font-size="22" font-weight="700" text-anchor="middle">4</text>
+    <text x="170" y="654" fill="#F4F1ED" font-size="23" font-weight="600">Comitê de aprovação sem dono da decisão</text>
+    <text x="170" y="684" fill="#8a8580" font-size="18">Cinco opiniões conflitantes multiplicam revisões. Controle: uma pessoa com palavra final.</text>
+
+    <rect x="80" y="724" width="1240" height="86" rx="16" fill="#2a2a2a"/>
+    <circle cx="126" cy="767" r="22" fill="#E28868"/>
+    <text x="126" y="775" fill="#212121" font-size="22" font-weight="700" text-anchor="middle">5</text>
+    <text x="170" y="760" fill="#F4F1ED" font-size="23" font-weight="600">Integrações com sistemas de terceiros</text>
+    <text x="170" y="790" fill="#8a8580" font-size="18">Agenda, ERP e pagamento exigem testes e exceções. Controle: listar integrações no briefing inicial.</text>
+  </g>
+</svg>
