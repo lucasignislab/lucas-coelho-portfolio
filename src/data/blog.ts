@@ -28,6 +28,7 @@
 import { articleSiteInstitucional } from "./article-site-institucional";
 import { feedbackVagoCriterioDecisao } from "./feedback-vago-criterio-decisao";
 import { quantoCustaCriarUmSite } from "./quanto-custa-criar-um-site";
+import { comoCriarPaginaDeVendas } from "./como-criar-pagina-de-vendas";
 
 export type InlineSegment = string | { text: string; href: string };
 
@@ -102,6 +103,7 @@ export function formatArticleDate(isoDate: string): string {
 }
 
 export const articles: Article[] = [
+	comoCriarPaginaDeVendas,
 	quantoCustaCriarUmSite,
 	articleSiteInstitucional,
 	feedbackVagoCriterioDecisao,

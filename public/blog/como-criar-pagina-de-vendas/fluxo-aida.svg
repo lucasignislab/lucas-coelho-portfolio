@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 788" role="img">
+  <rect width="1400" height="788" fill="#212121"/>
+  <text x="80" y="80" fill="#8a8580" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="4">ESTRUTURA CLÁSSICA DE COPY</text>
+  <text x="80" y="140" fill="#F4F1ED" font-family="Georgia, serif" font-size="44">O fluxo AIDA na prática</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="80" y="190" width="580" height="230" rx="18" fill="#2a2a2a"/>
+    <text x="120" y="248" fill="#E28868" font-size="20" font-weight="700">A · ATENÇÃO</text>
+    <text x="120" y="300" fill="#F4F1ED" font-size="26" font-weight="600">Headline e primeira dobra</text>
+    <text x="120" y="345" fill="#bdb7b0" font-size="20">Gancho específico, promessa</text>
+    <text x="120" y="375" fill="#bdb7b0" font-size="20">concreta, nada de enigma</text>
+    <rect x="740" y="190" width="580" height="230" rx="18" fill="#2a2a2a"/>
+    <text x="780" y="248" fill="#E28868" font-size="20" font-weight="700">I · INTERESSE</text>
+    <text x="780" y="300" fill="#F4F1ED" font-size="26" font-weight="600">Problema e contexto</text>
+    <text x="780" y="345" fill="#bdb7b0" font-size="20">A dor descrita com as palavras</text>
+    <text x="780" y="375" fill="#bdb7b0" font-size="20">que o próprio cliente usaria</text>
+    <rect x="80" y="470" width="580" height="230" rx="18" fill="#2a2a2a"/>
+    <text x="120" y="528" fill="#E28868" font-size="20" font-weight="700">D · DESEJO</text>
+    <text x="120" y="580" fill="#F4F1ED" font-size="26" font-weight="600">Solução, prova e oferta</text>
+    <text x="120" y="625" fill="#bdb7b0" font-size="20">Resultados de quem comprou,</text>
+    <text x="120" y="655" fill="#bdb7b0" font-size="20">garantia que remove o risco</text>
+    <rect x="740" y="470" width="580" height="230" rx="18" fill="#2a2a2a"/>
+    <text x="780" y="528" fill="#E28868" font-size="20" font-weight="700">A · AÇÃO</text>
+    <text x="780" y="580" fill="#F4F1ED" font-size="26" font-weight="600">CTA claro e repetido</text>
+    <text x="780" y="625" fill="#bdb7b0" font-size="20">Um botão, uma ação,</text>
+    <text x="780" y="655" fill="#bdb7b0" font-size="20">sem menu nem distração</text>
+  </g>
+  <text x="80" y="752" fill="#8a8580" font-family="Arial, sans-serif" font-size="18">AIDA não é fórmula mágica: é um mapa para não esquecer nenhuma etapa da decisão</text>
+</svg>

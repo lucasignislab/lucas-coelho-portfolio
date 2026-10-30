@@ -92,12 +92,17 @@ function YouTubeEmbed({ src, title }: { src: string; title: string }) {
 
 function renderBlock(block: ArticleBlock, index: number): ReactNode {
 	switch (block.type) {
-		case "heading":
-			return block.level === 2 ? (
-				<h2 key={index}>{block.text}</h2>
-			) : (
-				<h3 key={index}>{block.text}</h3>
+		case "heading": {
+			const parts = block.text.split("\n");
+			const content = parts.flatMap((part, i) =>
+				i === 0 ? [part] : [<br key={`br-${index}-${i}`} />, part],
 			);
+			return block.level === 2 ? (
+				<h2 key={index}>{content}</h2>
+			) : (
+				<h3 key={index}>{content}</h3>
+			);
+		}
 		case "paragraph":
 			return <p key={index}>{renderInline(block.content)}</p>;
 		case "image":
