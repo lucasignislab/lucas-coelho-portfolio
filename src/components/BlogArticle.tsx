@@ -12,16 +12,16 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { getBreadcrumbs } from "@/data/seo";
 import { localizePath } from "@/i18n/locale";
 import { useLocale } from "@/i18n/useTranslations";
-import { englishArticleCopy } from "@/i18n/blogCopy";
+import { englishArticles } from "@/data/blog.en";
 
-function renderInline(content: InlineSegment[]): ReactNode {
+function renderInline(content: InlineSegment[], locale: "pt-BR" | "en"): ReactNode {
 	return content.map((segment, index) => {
 		if (typeof segment === "string") return segment;
 		const isExternal = /^https?:\/\//.test(segment.href);
 		return (
 			<a
 				key={index}
-				href={segment.href}
+				href={isExternal ? segment.href : localizePath(segment.href, locale)}
 				className="link-underline"
 				{...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
 			>
@@ -42,16 +42,16 @@ function extractYouTubeId(src: string): string | null {
  * YouTube "lite": no SSR e no primeiro paint renderiza apenas o pôster
  * (hqdefault) com botão de play; o iframe só é injetado após o clique.
  */
-function YouTubeEmbed({ src, title }: { src: string; title: string }) {
+function YouTubeEmbed({ src, title, locale }: { src: string; title: string; locale: "pt-BR" | "en" }) {
 	const [activated, setActivated] = useState(false);
 	const videoId = extractYouTubeId(src);
 
 	if (!videoId) {
 		return (
 			<p className="blog-video-fallback">
-				Vídeo indisponível no momento.{" "}
+				{locale === "en" ? "Video unavailable right now." : "Vídeo indisponível no momento."}{" "}
 				<a href={src} target="_blank" rel="noopener noreferrer" className="link-underline">
-					Assistir no YouTube ↗
+					{locale === "en" ? "Watch on YouTube" : "Assistir no YouTube"} ↗
 				</a>
 			</p>
 		);
@@ -76,7 +76,7 @@ function YouTubeEmbed({ src, title }: { src: string; title: string }) {
 			type="button"
 			className="blog-video-poster"
 			onClick={() => setActivated(true)}
-			aria-label={`Reproduzir vídeo: ${title}`}
+			aria-label={`${locale === "en" ? "Play video" : "Reproduzir vídeo"}: ${title}`}
 			data-cursor-hover
 		>
 			<img
@@ -93,7 +93,7 @@ function YouTubeEmbed({ src, title }: { src: string; title: string }) {
 	);
 }
 
-function renderBlock(block: ArticleBlock, index: number): ReactNode {
+function renderBlock(block: ArticleBlock, index: number, locale: "pt-BR" | "en"): ReactNode {
 	switch (block.type) {
 		case "heading": {
 			const parts = block.text.split("\n");
@@ -107,7 +107,7 @@ function renderBlock(block: ArticleBlock, index: number): ReactNode {
 			);
 		}
 		case "paragraph":
-			return <p key={index}>{renderInline(block.content)}</p>;
+			return <p key={index}>{renderInline(block.content, locale)}</p>;
 		case "image":
 			return (
 				<figure key={index} className="blog-figure">
@@ -121,7 +121,7 @@ function renderBlock(block: ArticleBlock, index: number): ReactNode {
 			return (
 				<figure key={index} className="blog-figure">
 					{block.kind === "youtube" ? (
-						<YouTubeEmbed src={block.src} title={block.title} />
+						<YouTubeEmbed src={block.src} title={block.title} locale={locale} />
 					) : (
 						<div className="blog-video-frame">
 							<video controls preload="metadata" playsInline src={block.src} />
@@ -155,7 +155,8 @@ function renderBlock(block: ArticleBlock, index: number): ReactNode {
 export function BlogArticle({ slug }: { slug: string }) {
 	const locale = useLocale();
 	const en = locale === "en";
-	const article = getArticle(slug);
+	const sourceArticle = getArticle(slug);
+	const article = en ? englishArticles[slug] ?? sourceArticle : sourceArticle;
 	const sorted = getSortedArticles();
 
 	useEffect(() => {
@@ -170,21 +171,18 @@ export function BlogArticle({ slug }: { slug: string }) {
 						<img src="/favicon-32.png?v=2" alt="" width="32" height="32" />
 						<span>Lucas Coelho</span>
 					</a>
-					<nav className="blog-nav" aria-label="Navegação do blog">
-						<a href="/blog">Blog</a>
+					<nav className="blog-nav" aria-label={en ? "Blog navigation" : "Navegação do blog"}>
+						<a href={localizePath("/blog/", locale)}>Blog</a>
 					</nav>
 				</header>
 				<Breadcrumbs
-					items={getBreadcrumbs(`/blog/${slug}`)}
+					items={getBreadcrumbs(`/blog/${slug}`, locale)}
 					className="blog-main blog-breadcrumbs"
 				/>
 				<main className="blog-main blog-notfound">
 								<p className="eyebrow">{en ? "Article not found" : "Artigo não encontrado"}</p>
 								<h1>{en ? "This article isn’t available." : "Este texto ainda não existe."}</h1>
-					<p>
-						O endereço pode ter mudado ou o artigo nunca foi publicado. Que tal
-						ver o que já está no ar?
-					</p>
+					<p>{en ? "The address may have changed, or this article may not have been published. Browse the articles that are available." : "O endereço pode ter mudado ou o artigo nunca foi publicado. Que tal ver o que já está no ar?"}</p>
 								<a href={localizePath("/blog/", locale)} className="btn-primary">
 									{en ? "Back to the blog" : "Voltar ao blog"}
 					</a>
@@ -201,7 +199,7 @@ export function BlogArticle({ slug }: { slug: string }) {
 	return (
 		<div className="blog-page">
 			<header className="blog-header">
-				<a href="/" className="blog-brand" aria-label="Voltar ao portfólio">
+				<a href={localizePath("/", locale)} className="blog-brand" aria-label={en ? "Back to portfolio" : "Voltar ao portfólio"}>
 					<img src="/favicon-32.png?v=2" alt="" width="32" height="32" />
 					<span>Lucas Coelho</span>
 				</a>
@@ -218,7 +216,7 @@ export function BlogArticle({ slug }: { slug: string }) {
 				<article className="blog-article">
 					<header className="blog-article-hero">
 						<p className="eyebrow">{article.tags[0]}</p>
-						<h1>{en ? englishArticleCopy[slug]?.title ?? article.title : article.title}</h1>
+						<h1>{article.title}</h1>
 						<p className="blog-article-meta">
 							<span>{formatArticleDate(article.date, locale)}</span>
 							<span aria-hidden="true"> · </span>
@@ -245,13 +243,7 @@ export function BlogArticle({ slug }: { slug: string }) {
 					</figure>
 
 					<div className="blog-article-body">
-						{en ? (
-							<section className="blog-article-translation-note">
-								<h2>Article overview</h2>
-								<p>{englishArticleCopy[slug]?.summary ?? "This article is being prepared in English."}</p>
-								<p>The full article is currently available in Portuguese: <a href={`/blog/${slug}/`} className="link-underline">read the Portuguese version</a>.</p>
-							</section>
-						) : article.blocks.map((block, index) => renderBlock(block, index))}
+						{article.blocks.map((block, index) => renderBlock(block, index, locale))}
 					</div>
 
 					<footer className="blog-article-footer">
@@ -269,7 +261,7 @@ export function BlogArticle({ slug }: { slug: string }) {
 							</p>
 							<div className="blog-article-cta-actions">
 								<a
-									href={`mailto:${contactEmail}?subject=${encodeURIComponent(isFeedbackArticle ? "Quero conversar sobre uma decisão de design" : "Quero conversar sobre um design system")}`}
+									href={`mailto:${contactEmail}?subject=${encodeURIComponent(en ? (isFeedbackArticle ? "Let's discuss a design decision" : "Let's discuss a design system") : isFeedbackArticle ? "Quero conversar sobre uma decisão de design" : "Quero conversar sobre um design system")}`}
 									className="btn-primary"
 								>
 									{en ? "Discuss a project" : "Conversar sobre um projeto"} <span aria-hidden="true">→</span>
@@ -283,18 +275,18 @@ export function BlogArticle({ slug }: { slug: string }) {
 						<nav className="blog-article-pager" aria-label={en ? "More articles" : "Mais artigos"}>
 							{previous ? (
 								<a href={localizePath(`/blog/${previous.slug}/`, locale)} className="link-underline">
-									← {en ? englishArticleCopy[previous.slug]?.title ?? previous.title : previous.title}
+									← {en ? englishArticles[previous.slug]?.title ?? previous.title : previous.title}
 								</a>
 							) : (
 								<span />
 							)}
 							{next ? (
 								<a href={localizePath(`/blog/${next.slug}/`, locale)} className="link-underline">
-									{en ? englishArticleCopy[next.slug]?.title ?? next.title : next.title} →
+									{en ? englishArticles[next.slug]?.title ?? next.title : next.title} →
 								</a>
 							) : (
-								<a href="/blog/" className="link-underline">
-									Voltar ao blog →
+								<a href={localizePath("/blog/", locale)} className="link-underline">
+									{en ? "Back to the blog" : "Voltar ao blog"} →
 								</a>
 							)}
 						</nav>

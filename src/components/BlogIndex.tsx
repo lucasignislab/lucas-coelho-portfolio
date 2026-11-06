@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { getBreadcrumbs } from "@/data/seo";
 import { localizePath } from "@/i18n/locale";
 import { useLocale } from "@/i18n/useTranslations";
-import { englishArticleCopy } from "@/i18n/blogCopy";
+import { englishArticles } from "@/data/blog.en";
 
 /**
  * Índice do blog (/blog) — página editorial autônoma no mesmo DNA do
@@ -54,21 +54,22 @@ export function BlogIndex() {
 					</section>
 				) : (
 					<section className="blog-list" aria-label={en ? "Published articles" : "Artigos publicados"}>
-						{sorted.map((article, index) => (
-							<article
+						{sorted.map((article, index) => {
+							const displayArticle = en ? englishArticles[article.slug] ?? article : article;
+							return <article
 								key={article.slug}
 								className={`blog-card group${index === 0 ? " is-featured" : ""}`}
 							>
 								<a
 									href={localizePath(`/blog/${article.slug}/`, locale)}
 									data-cursor-hover
-									aria-label={`${en ? "Read article:" : "Ler artigo:"} ${en ? englishArticleCopy[article.slug]?.title ?? article.title : article.title}`}
+									aria-label={`${en ? "Read article:" : "Ler artigo:"} ${displayArticle.title}`}
 									className="blog-card-link"
 								>
 									<div className="blog-card-media image-reveal">
 										<img
 											src={article.coverImage}
-										alt={article.coverImageAlt}
+											alt={displayArticle.coverImageAlt}
 											width="1024"
 											height="576"
 											loading={index === 0 ? "eager" : "lazy"}
@@ -84,12 +85,12 @@ export function BlogIndex() {
 									<div className="blog-card-info">
 										<div className="blog-card-meta">
 										<span>{formatArticleDate(article.date, locale)}</span>
-										<span>{getReadingTime(article)} {en ? "min read" : "min de leitura"}</span>
+										<span>{getReadingTime(displayArticle)} {en ? "min read" : "min de leitura"}</span>
 										</div>
-									<h2>{en ? englishArticleCopy[article.slug]?.title ?? article.title : article.title}</h2>
-									<p>{en ? englishArticleCopy[article.slug]?.excerpt ?? article.excerpt : article.excerpt}</p>
+									<h2>{displayArticle.title}</h2>
+									<p>{displayArticle.excerpt}</p>
 										<ul className="blog-card-tags" aria-label="Tags">
-											{article.tags.map(tag => (
+											{displayArticle.tags.map(tag => (
 												<li key={tag}>{tag}</li>
 											))}
 										</ul>
@@ -99,8 +100,8 @@ export function BlogIndex() {
 										</span>
 									</div>
 								</a>
-							</article>
-						))}
+							</article>;
+						})}
 					</section>
 				)}
 			</main>

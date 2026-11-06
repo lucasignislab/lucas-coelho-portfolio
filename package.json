@@ -9,6 +9,7 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "test:i18n": "node --experimental-strip-types --test tests/locale.test.mjs",
+    "test:content": "node --experimental-strip-types --test tests/blog-english.test.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

@@ -9,6 +9,8 @@ import {
 import { getBreadcrumbs } from "@/data/seo";
 import { sitesCampinasFaq } from "@/data/sites-campinas";
 import { contactEmail, whatsappUrl } from "@/data/site";
+import { useLocale } from "@/i18n/useTranslations";
+import { localizePath } from "@/i18n/locale";
 
 const PAGE_PATH = "/criacao-de-sites-campinas";
 
@@ -108,7 +110,29 @@ const proofProjects = [
 	},
 ];
 
+const englishServices = [
+	["Business websites", "Complete websites that present your company, services, and strengths—and guide visitors toward getting in touch."],
+	["Landing pages", "Focused pages for one offer or campaign, with a clear path to enquire, book, or buy."],
+	["Portfolios", "Websites for professionals and studios that need to present their work with the same care they put into it."],
+	["Sales pages", "Conversion-focused pages where copy and design work together from the first scroll to the purchase button."],
+];
+
+const englishBenefits = [
+	["Build trust from the first visit", "A professional website helps people trust your business before the first conversation—and see why you may be the right choice."],
+	["Show up in search", "A fast, well-structured website gives your business a better foundation to be found in local searches around Campinas."],
+	["A direct path to contact", "Each page leads to a useful next step, such as starting a WhatsApp conversation, booking, or requesting a quote."],
+	["Real-world speed", "Custom-coded websites without heavy plugins, built to load quickly on the phones your customers use."],
+];
+
+const englishProjectDescriptions = [
+	"Business website for a cross-training and Pilates studio in Barão Geraldo, Campinas.",
+	"Business website and landing pages for a server-side tracking and fraud-protection ecosystem.",
+	"Google Ads campaign landing page, built around a direct narrative and a clear conversion path.",
+	"Product design and interface for a project management SaaS, from design system to implementation.",
+];
+
 export function SitesCampinasPage() {
+	const en = useLocale() === "en";
 	const mainRef = useRef<HTMLElement | null>(null);
 	const headlineRef = useRef<HTMLHeadingElement | null>(null);
 	const introRef = useRef<HTMLParagraphElement | null>(null);
@@ -157,20 +181,20 @@ export function SitesCampinasPage() {
 		<main ref={mainRef} className="min-h-screen bg-ink text-bone">
 			<header className="flex items-center justify-between px-6 py-6 md:px-12 lg:px-20">
 				<a
-					href="/"
+					href={localizePath("/", en ? "en" : "pt-BR")}
 					className="inline-flex min-h-11 items-center font-mono text-xs uppercase tracking-[0.18em] text-bone link-underline"
 				>
 					Lucas Coelho
 				</a>
-				<nav aria-label="Navegação da página" className="flex gap-6">
+				<nav aria-label={en ? "Page navigation" : "Navegação da página"} className="flex gap-6">
 					<a
-						href="/#work"
+						href={localizePath("/#work", en ? "en" : "pt-BR")}
 						className="inline-flex min-h-11 items-center font-mono text-xs uppercase tracking-[0.16em] text-bone link-underline"
 					>
-						Projetos
+						{en ? "Projects" : "Projetos"}
 					</a>
 					<a
-						href="/blog/"
+						href={localizePath("/blog/", en ? "en" : "pt-BR")}
 						className="inline-flex min-h-11 items-center font-mono text-xs uppercase tracking-[0.16em] text-bone link-underline"
 					>
 						Blog
@@ -179,20 +203,20 @@ export function SitesCampinasPage() {
 			</header>
 
 			<Breadcrumbs
-				items={getBreadcrumbs(PAGE_PATH)}
+				items={getBreadcrumbs(PAGE_PATH, en ? "en" : "pt-BR")}
 				className="px-6 pt-8 font-mono text-xs uppercase tracking-[0.15em] text-bone/70 md:px-12 lg:px-20"
 			/>
 
 			<section className="section grid min-h-[72vh] grid-cols-1 items-end gap-12 lg:grid-cols-12">
 				<div className="lg:col-span-9">
-					<p className="eyebrow mb-6">Web designer · Campinas, SP</p>
+					<p className="eyebrow mb-6">{en ? "Web designer · Campinas, Brazil" : "Web designer · Campinas, SP"}</p>
 					<h1 ref={headlineRef} className="max-w-5xl text-balance font-display text-[clamp(2.75rem,7vw,6rem)] leading-[1.02]">
-						Criação de sites em Campinas que transforma visitantes em clientes.
+						{en ? "Websites in Campinas that turn visitors into customers." : "Criação de sites em Campinas que transforma visitantes em clientes."}
 					</h1>
 					<p ref={introRef} className="mt-8 max-w-2xl text-lg leading-relaxed text-bone/80 md:text-xl">
-						Sou Lucas Coelho, web designer em Campinas. Crio sites profissionais
+						{en ? "I’m Lucas Coelho, a web designer based in Campinas, Brazil. I design, build, and launch custom-coded websites and landing pages—fast, search-ready, and made to turn visits into enquiries and sales." : <>Sou Lucas Coelho, web designer em Campinas. Crio sites profissionais
 						e landing pages com código sob medida: rápidos, otimizados para
-						aparecer no Google e pensados para gerar contato, orçamento e venda.
+						aparecer no Google e pensados para gerar contato, orçamento e venda.</>}
 					</p>
 					<div ref={ctaRef} className="mt-9 flex flex-wrap gap-3">
 						<a
@@ -201,29 +225,29 @@ export function SitesCampinasPage() {
 							rel="noopener noreferrer"
 							className="btn-primary"
 						>
-							Pedir orçamento no WhatsApp <span aria-hidden="true">↗</span>
+							{en ? "Request a quote on WhatsApp" : "Pedir orçamento no WhatsApp"} <span aria-hidden="true">↗</span>
 						</a>
-						<a href="/#work" className="btn-ghost">
-							Ver projetos
+						<a href={localizePath("/#work", en ? "en" : "pt-BR")} className="btn-ghost">
+							{en ? "View projects" : "Ver projetos"}
 						</a>
 					</div>
 				</div>
 				<p ref={noteRef} className="max-w-xs border-t border-bone/20 pt-4 font-mono text-xs uppercase leading-relaxed tracking-[0.12em] text-bone/70 lg:col-span-3 lg:col-start-10">
-					Atendimento presencial em Campinas e remoto para todo o Brasil
+					{en ? "In-person in Campinas, remote across Brazil" : "Atendimento presencial em Campinas e remoto para todo o Brasil"}
 				</p>
 			</section>
 
 			<section data-reveal className="section border-t border-bone/10" aria-labelledby="servicos-title">
 				<div className="grid gap-12 lg:grid-cols-12">
 					<h2 id="servicos-title" className="font-display text-4xl leading-tight md:text-5xl lg:col-span-4">
-						O que eu crio
+						{en ? "What I build" : "O que eu crio"}
 					</h2>
 					<ul className="grid gap-x-12 lg:col-span-7 lg:col-start-6 lg:grid-cols-2">
-						{services.map(item => (
+						{services.map((item, index) => (
 							<li key={item.title} className="border-t border-bone/20 py-5">
-								<h3 className="text-lg font-medium">{item.title}</h3>
+								<h3 className="text-lg font-medium">{en ? englishServices[index][0] : item.title}</h3>
 								<p className="mt-3 max-w-prose leading-relaxed text-bone/70">
-									{item.description}
+									{en ? englishServices[index][1] : item.description}
 								</p>
 							</li>
 						))}
@@ -235,19 +259,20 @@ export function SitesCampinasPage() {
 				<div className="grid gap-12 lg:grid-cols-12">
 					<div className="lg:col-span-4">
 						<h2 id="por-que-title" className="font-display text-4xl leading-tight md:text-5xl">
-							Por que investir em um site profissional?
+							{en ? "Why invest in a professional website?" : "Por que investir em um site profissional?"}
 						</h2>
 						<p className="mt-5 max-w-sm leading-relaxed text-bone/70">
-							Seu concorrente está a uma busca no Google de distância. Um site
+							{en ? "Your next customer is already searching. A well-made website helps them understand why they should choose you." : <>Seu concorrente está a uma busca no Google de distância. Um site
 							bem feito é o que faz o cliente escolher você.
+							</>}
 						</p>
 					</div>
 					<ul className="grid gap-x-12 lg:col-span-7 lg:col-start-6 lg:grid-cols-2">
-						{benefits.map(item => (
+						{benefits.map((item, index) => (
 							<li key={item.title} className="border-t border-bone/20 py-5">
-								<h3 className="text-lg font-medium">{item.title}</h3>
+								<h3 className="text-lg font-medium">{en ? englishBenefits[index][0] : item.title}</h3>
 								<p className="mt-3 max-w-prose leading-relaxed text-bone/70">
-									{item.description}
+									{en ? englishBenefits[index][1] : item.description}
 								</p>
 							</li>
 						))}
@@ -258,7 +283,7 @@ export function SitesCampinasPage() {
 			<section data-reveal className="section border-t border-bone/10" aria-labelledby="processo-title">
 				<div className="grid gap-12 lg:grid-cols-12">
 					<h2 id="processo-title" className="font-display text-4xl leading-tight md:text-5xl lg:col-span-4">
-						Como funciona
+						{en ? "How it works" : "Como funciona"}
 					</h2>
 					<ol className="lg:col-span-7 lg:col-start-6">
 						{steps.map((step, index) => (
@@ -267,9 +292,9 @@ export function SitesCampinasPage() {
 									<span className="mr-3 font-mono text-xs text-ember">
 										{String(index + 1).padStart(2, "0")}
 									</span>
-									{step.title}
+									{en ? ["Discovery call", "Proposal", "Design and development", "Handover and launch"][index] : step.title}
 								</h3>
-								<p className="leading-relaxed text-bone/70 md:col-span-3">{step.description}</p>
+								<p className="leading-relaxed text-bone/70 md:col-span-3">{en ? ["Tell me about your business, audience, and goals for the website. No obligation and no technical jargon.", "I’ll send a clear proposal with scope, timeline, and a fixed investment, so you know exactly what’s included.", "I design and build your website with custom code, sharing progress at each stage and making room for agreed revisions.", "I handle launch, domain and hosting setup, and the final handover. Your website goes live, ready for customers."][index] : step.description}</p>
 							</li>
 						))}
 					</ol>
@@ -280,28 +305,29 @@ export function SitesCampinasPage() {
 				<div className="grid gap-12 lg:grid-cols-12">
 					<div className="lg:col-span-4">
 						<h2 id="projetos-title" className="font-display text-4xl leading-tight md:text-5xl">
-							Sites reais, entregues e no ar
+							{en ? "Real websites, launched and live" : "Sites reais, entregues e no ar"}
 						</h2>
 						<p className="mt-5 max-w-sm leading-relaxed text-bone/70">
-							Alguns sites e landing pages que criei, e também o que escrevo
+							{en ? "A few websites and landing pages I’ve built, plus notes on the process on the " : <>Alguns sites e landing pages que criei, e também o que escrevo
 							sobre o processo no{" "}
-							<a href="/blog/" className="text-bone link-underline">
+							</>}
+							<a href={localizePath("/blog/", en ? "en" : "pt-BR")} className="text-bone link-underline">
 								blog
 							</a>
 							.
 						</p>
 					</div>
 					<div className="lg:col-span-7 lg:col-start-6">
-						{proofProjects.map(project => (
+						{proofProjects.map((project, index) => (
 							<a
 								key={project.name}
-								href={project.href}
+								href={localizePath(project.href, en ? "en" : "pt-BR")}
 								className="group block border-t border-bone/20 py-5"
 							>
 								<h3 className="font-display text-3xl group-hover:text-ember">{project.name}</h3>
-								<p className="mt-2 leading-relaxed text-bone/70">{project.description}</p>
+								<p className="mt-2 leading-relaxed text-bone/70">{en ? englishProjectDescriptions[index] : project.description}</p>
 								<span className="mt-4 inline-block font-mono text-xs uppercase tracking-[0.12em] text-bone link-underline">
-									Ver projeto <span aria-hidden="true">↗</span>
+								{en ? "View project" : "Ver projeto"} <span aria-hidden="true">↗</span>
 								</span>
 							</a>
 						))}
@@ -312,21 +338,21 @@ export function SitesCampinasPage() {
 			<section data-reveal className="section border-t border-bone/10" aria-labelledby="campinas-title">
 				<div className="grid gap-12 lg:grid-cols-12">
 					<h2 id="campinas-title" className="font-display text-4xl leading-tight md:text-5xl lg:col-span-4">
-						Web designer em Campinas e região metropolitana
+						{en ? "Web designer in Campinas and the surrounding region" : "Web designer em Campinas e região metropolitana"}
 					</h2>
 					<div className="max-w-prose space-y-5 leading-relaxed text-bone/70 lg:col-span-7 lg:col-start-6">
 						<p>
-							Vivo e trabalho em Campinas, e conheço de perto a realidade de
+							{en ? "I live and work in Campinas, and understand the needs of local businesses—from clinics and studios to offices, restaurants, and independent service providers—that need to be found and earn trust online." : <>Vivo e trabalho em Campinas, e conheço de perto a realidade de
 							quem tem um negócio na cidade: clínicas, studios, escritórios,
 							restaurantes e prestadores de serviço que dependem de ser
-							encontrados e de transmitir confiança.
+							encontrados e de transmitir confiança.</>}
 						</p>
 						<p>
-							Atendo presencialmente em Campinas e em toda a região
+							{en ? "I work in person in Campinas and across the metropolitan area (Valinhos, Vinhedo, Paulínia, Hortolândia, and Sumaré), and remotely throughout Brazil. The process stays straightforward: a direct conversation, a clear proposal, and a website delivered on schedule—without intermediaries." : <>Atendo presencialmente em Campinas e em toda a região
 							metropolitana (Valinhos, Vinhedo, Paulínia, Hortolândia e Sumaré)
 							e remotamente em qualquer lugar do Brasil. Na prática, o
 							processo é o mesmo: conversa direta, proposta clara e um site
-							entregue no prazo, sem intermediários.
+							entregue no prazo, sem intermediários.</>}
 						</p>
 					</div>
 				</div>
@@ -335,13 +361,13 @@ export function SitesCampinasPage() {
 			<section data-reveal className="section border-t border-bone/10" aria-labelledby="faq-title">
 				<div className="grid gap-12 lg:grid-cols-12">
 					<h2 id="faq-title" className="font-display text-4xl leading-tight md:text-5xl lg:col-span-4">
-						Perguntas frequentes
+						{en ? "Frequently asked questions" : "Perguntas frequentes"}
 					</h2>
 					<div className="lg:col-span-7 lg:col-start-6">
-						{sitesCampinasFaq.map(item => (
+						{sitesCampinasFaq.map((item, index) => (
 							<details key={item.question} className="border-t border-bone/20 py-5">
-								<summary className="cursor-pointer text-lg font-medium marker:text-ember">{item.question}</summary>
-								<p className="mt-4 max-w-prose leading-relaxed text-bone/70">{item.answer}</p>
+								<summary className="cursor-pointer text-lg font-medium marker:text-ember">{en ? ["How much does a website cost in Campinas?", "How long does a website take to build?", "Do we need to meet in person in Campinas?", "Will the site use WordPress or a template?", "Can you handle hosting and the domain?", "What happens after launch? Is maintenance available?"][index] : item.question}</summary>
+								<p className="mt-4 max-w-prose leading-relaxed text-bone/70">{en ? ["The investment depends on scope: a campaign landing page differs from a full business website. After an initial conversation, I’ll send a fixed proposal with a clear price and timeline.", "A landing page typically takes two to four weeks. A full business website takes around four to eight weeks, depending on the number of pages and feedback cycles. Your proposal will include the project timeline.", "No. Video calls and asynchronous check-ins work well for most projects. If you’re in Campinas or nearby, we can also arrange an in-person meeting when useful.", "No. I build websites with custom code for speed, security, and design flexibility—without generic templates or a stack of plugins to maintain.", "I can advise on hosting and configure the domain and hosting. They remain registered in your name, so you retain ownership of your website.", "Yes. I can help with updates, content changes, and ongoing improvements through a support package or individual requests, depending on what your business needs."][index] : item.answer}</p>
 							</details>
 						))}
 					</div>
@@ -352,16 +378,18 @@ export function SitesCampinasPage() {
 				<div className="grid gap-8 md:grid-cols-12 md:items-end">
 					<div className="md:col-span-8">
 						<h2 className="max-w-4xl font-display text-5xl leading-[1.05] md:text-7xl">
-							Pronto para colocar
+							{en ? "Ready to bring" : "Pronto para colocar"}
 						<br />
-						seu negócio no ar?
+						{en ? "your business online?" : "seu negócio no ar?"}
 						</h2>
 						<p className="mt-5 max-w-2xl leading-relaxed text-bone/70">
-							Me conte sobre o seu negócio e receba uma proposta sem
+						{en ? "Tell me about your business and get a no-obligation proposal." : <>Me conte sobre o seu negócio e receba uma proposta sem
 							compromisso.
+						</>}
 						</p>
 						<p className="mt-4 max-w-2xl leading-relaxed text-bone/70">
-							Prefere e-mail? Escreva para{" "}
+						{en ? "Prefer email? Write to " : <>Prefere e-mail? Escreva para{" "}
+						</>}
 							<a href={`mailto:${contactEmail}`} className="text-bone link-underline">
 								{contactEmail}
 							</a>
@@ -374,24 +402,24 @@ export function SitesCampinasPage() {
 						rel="noopener noreferrer"
 						className="btn-primary md:col-span-4 md:justify-self-end"
 					>
-						Chamar no WhatsApp <span aria-hidden="true">↗</span>
+						{en ? "Message me on WhatsApp" : "Chamar no WhatsApp"} <span aria-hidden="true">↗</span>
 					</a>
 				</div>
 			</section>
 
 			<footer className="flex flex-col gap-5 border-t border-bone/10 px-6 py-8 md:flex-row md:items-center md:justify-between md:px-12 lg:px-20">
-				<nav aria-label="Serviços" className="flex flex-wrap gap-x-6 gap-y-3">
-					<a href="/servicos/sites-landing-pages/" className="font-mono text-xs uppercase tracking-[0.12em] text-bone/70 link-underline">
-						Sites e landing pages
+				<nav aria-label={en ? "Services" : "Serviços"} className="flex flex-wrap gap-x-6 gap-y-3">
+					<a href={localizePath("/servicos/sites-landing-pages/", en ? "en" : "pt-BR")} className="font-mono text-xs uppercase tracking-[0.12em] text-bone/70 link-underline">
+						{en ? "Websites and landing pages" : "Sites e landing pages"}
 					</a>
-					<a href="/servicos/identidade-direcao-digital/" className="font-mono text-xs uppercase tracking-[0.12em] text-bone/70 link-underline">
-						Identidade e direção digital
+					<a href={localizePath("/servicos/identidade-direcao-digital/", en ? "en" : "pt-BR")} className="font-mono text-xs uppercase tracking-[0.12em] text-bone/70 link-underline">
+						{en ? "Brand and digital direction" : "Identidade e direção digital"}
 					</a>
-					<a href="/blog/" className="font-mono text-xs uppercase tracking-[0.12em] text-bone/70 link-underline">
+					<a href={localizePath("/blog/", en ? "en" : "pt-BR")} className="font-mono text-xs uppercase tracking-[0.12em] text-bone/70 link-underline">
 						Blog
 					</a>
 				</nav>
-				<a href="/" className="font-mono text-xs uppercase tracking-[0.12em] text-bone/70 link-underline">
+				<a href={localizePath("/", en ? "en" : "pt-BR")} className="font-mono text-xs uppercase tracking-[0.12em] text-bone/70 link-underline">
 					Lucas Coelho © {new Date().getFullYear()}
 				</a>
 			</footer>

@@ -43,6 +43,9 @@ export function Seo({ pathname }: { pathname: string }) {
 			} else if (pathname === "/politica-de-privacidade") {
 				title = "Privacy Policy | Lucas Coelho";
 				description = "Learn what information this portfolio may process, how it is used, and how to exercise your privacy rights under Brazil’s LGPD.";
+			} else if (pathname === "/criacao-de-sites-campinas") {
+				title = "Website Design and Development in Campinas | Lucas Coelho";
+				description = "Custom website design, development, and launch in Campinas, Brazil. Business websites, landing pages, and sales pages built for clarity, speed, and enquiries.";
 			} else if (englishCaseSeo[pathname]) {
 				({ title, description } = englishCaseSeo[pathname]);
 			} else if (articleCopy) {
@@ -84,6 +87,19 @@ export function Seo({ pathname }: { pathname: string }) {
 		}
 		canonical.href = canonicalUrl;
 
+		let schema = page.schema;
+		const articleSlug = pathname.startsWith("/blog/") ? pathname.slice("/blog/".length) : "";
+		const englishArticle = locale === "en" ? englishArticleCopy[articleSlug] : undefined;
+		if (englishArticle) {
+			schema = {
+				...page.schema,
+				headline: englishArticle.title,
+				description: englishArticle.summary,
+				inLanguage: "en",
+				keywords: undefined,
+			};
+		}
+
 		let structuredData = document.head.querySelector<HTMLScriptElement>("#seo-structured-data");
 		if (!structuredData) {
 			structuredData = document.createElement("script");
@@ -91,7 +107,7 @@ export function Seo({ pathname }: { pathname: string }) {
 			structuredData.type = "application/ld+json";
 			document.head.appendChild(structuredData);
 		}
-		structuredData.textContent = JSON.stringify(page.schema).replace(/</g, "\\u003c");
+		structuredData.textContent = JSON.stringify(schema).replace(/</g, "\\u003c");
 
 		const normalizedPath = pathname.replace(/\/+$/, "") || "/";
 		const breadcrumbs = getBreadcrumbs(pathname, locale);

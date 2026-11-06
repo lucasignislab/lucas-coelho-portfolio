@@ -383,9 +383,9 @@ export function getBreadcrumbs(pathname: string, locale: Locale = "pt-BR"): Brea
 	}
 	if (normalizedPath === "/criacao-de-sites-campinas") {
 		return [
-			{ name: "Início", href: "/" },
-			{ name: "Serviços", href: "/#skills" },
-			{ name: "Criação de sites em Campinas" },
+			{ name: locale === "en" ? "Home" : "Início", href: localizePath("/", locale) },
+			{ name: locale === "en" ? "Services" : "Serviços", href: localizePath("/#skills", locale) },
+			{ name: locale === "en" ? "Website design in Campinas" : "Criação de sites em Campinas" },
 		];
 	}
 	if (normalizedPath === "/politica-de-privacidade") {
