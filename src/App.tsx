@@ -20,6 +20,8 @@ import { SelectedWork } from "@/components/SelectedWork";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { useGtagPageview } from "@/hooks/useGtagPageview";
+import { LocaleProvider } from "@/i18n/LocaleProvider";
+import { resolveLocalePath } from "@/i18n/locale";
 
 const lazyBlog: BlogComponents = {
 	Index: lazy(() =>
@@ -148,17 +150,36 @@ interface AppProps {
 	privacyPolicy?: ComponentType;
 }
 
-function App({ path, cases, blog, servicePage, sitesCampinasPage, privacyPolicy }: AppProps) {
-	const pathname = (
-		path ?? (typeof window !== "undefined" ? window.location.pathname : "/")
+function App(props: AppProps) {
+	const requestedPath = (
+		props.path ?? (typeof window !== "undefined" ? window.location.pathname : "/")
 	).replace(/\/+$/, "") || "/";
+	const { locale, pathname } = resolveLocalePath(requestedPath);
+
+	return (
+		<LocaleProvider locale={locale}>
+			<AppRoutes {...props} path={pathname} analyticsPath={requestedPath} />
+		</LocaleProvider>
+	);
+}
+
+function AppRoutes({
+	path,
+	cases,
+	blog,
+	servicePage,
+	sitesCampinasPage,
+	privacyPolicy,
+	analyticsPath,
+}: AppProps & { path: string; analyticsPath: string }) {
+	const pathname = path;
 	const Cases = cases ?? lazyCases;
 	const Blog = blog ?? lazyBlog;
 	const ServicePageComponent = servicePage ?? lazyServicePage;
 	const SitesCampinasPageComponent = sitesCampinasPage ?? lazySitesCampinasPage;
 	const PrivacyPolicyComponent = privacyPolicy ?? lazyPrivacyPolicy;
 
-	useGtagPageview(pathname);
+	useGtagPageview(analyticsPath);
 
 	if (pathname === "/blog") {
 		return (

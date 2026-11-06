@@ -1,0 +1,106 @@
+import type { ServicePageData } from "./services";
+
+export const englishServicePages: ServicePageData[] = [
+	{
+		id: "identidade-direcao-digital",
+		path: "/servicos/identidade-direcao-digital",
+		label: "Brand identity and digital direction",
+		title: "Brand identity and digital direction | Lucas Coelho",
+		description: "Brand identity and digital direction for businesses that need to communicate their value clearly across websites, products, and digital experiences.",
+		headline: "An identity that makes sense before the first screen.",
+		intro: "I create visual identities and digital direction for brands that need to express their value clearly. The work brings strategy, visual language, and digital experience together, starting with the business context and the people the brand wants to reach, then shaping applications across websites, products, and other touchpoints.",
+		scope: [
+			{ title: "Strategic direction", description: "Clarify the context, message, and priorities to define what the brand needs to communicate and the perception it wants to build." },
+			{ title: "Visual identity", description: "Define a visual language, typography, color, and graphic elements that express the brand’s personality consistently." },
+			{ title: "Digital application", description: "Translate the visual direction into interfaces and digital touchpoints while preserving clarity, recognition, and continuity." },
+			{ title: "Usage guidance", description: "Document the essential principles and decisions so the identity can evolve without losing its original intent." },
+		],
+		process: [
+			{ title: "Understand the context", description: "Align on goals, audience, references, and constraints before choosing a visual direction." },
+			{ title: "Set the direction", description: "Explore visual approaches and clarify the message so form and intent move forward together." },
+			{ title: "Apply and document", description: "Bring the decisions to the agreed touchpoints and document guidance that fits the project scope." },
+		],
+		projectIds: ["aero"],
+		questions: [
+			{ question: "Does this include creating a brand from scratch?", answer: "It can include a new identity or the evolution of an existing brand. We define the scope after understanding the business’s needs and stage." },
+			{ question: "Can the identity be applied to a website too?", answer: "Yes. The digital direction can extend to a website or product when that application is part of the agreed scope." },
+		],
+	},
+	{
+		id: "sites-landing-pages",
+		path: "/servicos/sites-landing-pages",
+		label: "Websites and landing pages",
+		title: "Website design and development | Lucas Coelho",
+		description: "Website design, development, and launch—from message structure to a responsive experience live on the web.",
+		headline: "Websites that make the message clear and the next step obvious.",
+		intro: "I take projects from kickoff to launch: clarify the message, design the experience, build the front end, and publish the website. You can work with one partner across design, development, and launch, with careful attention to navigation, reading on different screens, and the path to an inquiry or offer.",
+		scope: [
+			{ title: "Structure and content", description: "Organize pages, information hierarchy, and calls to action so each section helps explain the offer." },
+			{ title: "Responsive web design", description: "Design interfaces for desktop and mobile, with attention to readability, navigation, and visual consistency." },
+			{ title: "Landing pages", description: "Focused pages for an offer or campaign, with a clear narrative and an easy-to-understand action path." },
+			{ title: "Development and launch", description: "Build a responsive front end, validate the pages, and publish the website. Technology and integrations depend on the agreed scope." },
+		],
+		process: [
+			{ title: "Understand the need", description: "Define who needs to find the website, which questions it should answer, and what action should stand out." },
+			{ title: "Shape the experience", description: "Organize pages and content before refining the visual design, so every section has a clear purpose." },
+			{ title: "Build and launch", description: "Develop the responsive front end, review the experience on agreed screen sizes, and publish it to the project’s chosen environment." },
+		],
+		projectIds: ["fitsyou", "hub", "pogne"],
+		article: { title: "What should a business website include?", href: "/blog/o-que-colocar-site-institucional/" },
+		questions: [
+			{ question: "What’s the difference between a business website and a landing page?", answer: "A business website introduces a company, its services, and different paths through the content. A landing page focuses the message on one specific offer or campaign." },
+			{ question: "Does the project include website development?", answer: "Yes. I can handle the design, front-end development, and launch. Technology, integrations, and deliverables are agreed before work begins." },
+		],
+	},
+	{
+		id: "produtos-interfaces",
+		path: "/servicos/produtos-interfaces",
+		label: "Digital products and interfaces",
+		title: "Product design and UX/UI for digital products | Lucas Coelho",
+		description: "Product design and UX/UI for digital products, from information architecture and flows to prototypes and interfaces shaped around product needs.",
+		headline: "Better interfaces start with better decisions.",
+		intro: "Product design and UX/UI turn the needs of a digital product into understandable flows and interfaces. I work from problem framing through component definition, considering people’s tasks and technical constraints. The result is a clear foundation for evaluating decisions, implementing improvements, and evolving the product consistently.",
+		scope: [
+			{ title: "Information architecture", description: "Organize content, sections, and navigation so people can understand where they are and what they can do." },
+			{ title: "Flows and prototypes", description: "Map tasks and prototype key interactions to evaluate the experience before implementation." },
+			{ title: "UX/UI design", description: "Design interfaces and states for different situations, with attention to readability, feedback, and consistency." },
+			{ title: "Design-development alignment", description: "Specify components and behaviors to support implementation and the product’s ongoing evolution." },
+		],
+		process: [
+			{ title: "Investigate the problem", description: "Bring together product context, user needs, technical constraints, and team goals." },
+			{ title: "Design the paths", description: "Shape the information architecture and flows, exploring alternatives before consolidating the interfaces." },
+			{ title: "Refine for implementation", description: "Adjust hierarchy, components, and states, then prepare decisions for implementation." },
+		],
+		projectIds: ["aero"],
+		questions: [
+			{ question: "Do you work on products that are already live?", answer: "Yes. The scope can focus on a feature, a specific journey, or an interface review for an existing product." },
+			{ question: "Does the project include user research?", answer: "Research activities depend on the project questions, access to participants, and available time. We agree on the plan before starting." },
+		],
+	},
+	{
+		id: "design-systems",
+		path: "/servicos/design-systems",
+		label: "Design systems",
+		title: "Design systems for digital products | Lucas Coelho",
+		description: "Design system creation and evolution, connecting visual foundations, components, states, and documentation to the digital product.",
+		headline: "A visual system that helps a product grow consistently.",
+		intro: "A design system brings together visual principles, tokens, components, and guidance to keep interfaces consistent. I build this foundation around the real product and team needs, connecting documentation, design, and development. The scope can start with the most-used patterns and grow as new interface needs emerge.",
+		scope: [
+			{ title: "Visual foundations", description: "Define principles, color, typography, spacing, and tokens that underpin the product’s interfaces." },
+			{ title: "Components and states", description: "Organize reusable components with the variations and states required by existing interfaces." },
+			{ title: "Interface patterns", description: "Document recurring combinations and behaviors to reduce repeated decisions and keep screens coherent." },
+			{ title: "Living documentation", description: "Connect documentation to the product’s components and decisions so the team can consult and update it." },
+		],
+		process: [
+			{ title: "Map the product", description: "Identify existing patterns, inconsistencies, team needs, and the components used most often." },
+			{ title: "Build the foundation", description: "Define foundations and priority components, documenting the rules that guide their use." },
+			{ title: "Apply and evolve", description: "Validate the system in real interfaces and refine the documentation as the product grows." },
+		],
+		projectIds: ["aero"],
+		article: { title: "How to build a design system from scratch", href: "/blog/design-system-do-zero/" },
+		questions: [
+			{ question: "Does a design system need to be complete from day one?", answer: "No. It can start with the most common patterns and grow as the product and team needs become clearer." },
+			{ question: "Does a design system include code?", answer: "The deliverables can include visual specifications, documentation, or implemented components. Design and development involvement is defined in the scope." },
+		],
+	},
+];

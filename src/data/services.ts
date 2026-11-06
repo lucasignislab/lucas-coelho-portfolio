@@ -13,6 +13,9 @@ export interface ServicePageData {
 	article?: { title: string; href: string };
 }
 
+import type { Locale } from "../i18n/locale";
+import { englishServicePages } from "./services.en";
+
 export const servicePages: ServicePageData[] = [
 	{
 		id: "identidade-direcao-digital",
@@ -83,10 +86,10 @@ export const servicePages: ServicePageData[] = [
 		label: "Sites e landing pages",
 		title: "Web design para sites e landing pages | Lucas Coelho",
 		description:
-			"Criação de sites institucionais e landing pages com estrutura, conteúdo e interface pensados para apresentar sua oferta com clareza.",
+			"Design, desenvolvimento e publicação de sites institucionais e landing pages responsivos, da estrutura da mensagem à experiência no ar.",
 		headline: "Sites que organizam a mensagem e deixam o próximo passo claro.",
 		intro:
-			"Sites institucionais e landing pages ajudam negócios a apresentar ofertas e conduzir visitantes a uma ação clara. Crio estrutura, conteúdo e interface responsiva para negócios que precisam explicar melhor o que oferecem. O projeto considera navegação, leitura em diferentes telas e o caminho até o contato ou a oferta.",
+			"Cuido do projeto do início ao lançamento: organizo a mensagem, desenho a experiência, desenvolvo o front-end e publico o site. Assim, você pode contratar design, desenvolvimento e publicação em um processo integrado, com atenção à navegação, à leitura em diferentes telas e ao caminho até o contato ou a oferta.",
 		scope: [
 			{
 				title: "Estrutura e conteúdo",
@@ -104,9 +107,9 @@ export const servicePages: ServicePageData[] = [
 					"Páginas focadas em uma oferta ou campanha, com narrativa organizada e um caminho de ação fácil de entender.",
 			},
 			{
-				title: "Preparação para implementação",
+				title: "Desenvolvimento e publicação",
 				description:
-					"Especificações e estados necessários para levar a interface à implementação, conforme a tecnologia e o escopo do projeto.",
+					"Implementação front-end responsiva, validação das páginas e publicação do site. Tecnologia e integrações são definidas conforme o escopo.",
 			},
 		],
 		process: [
@@ -121,9 +124,9 @@ export const servicePages: ServicePageData[] = [
 					"Organizamos páginas e conteúdo antes de aprofundar o visual, para que cada seção tenha uma função clara.",
 			},
 			{
-				title: "Desenhar e preparar",
+				title: "Desenvolver e publicar",
 				description:
-					"Refinamos a interface nos tamanhos de tela relevantes e alinhamos os materiais para a etapa de implementação.",
+					"Desenvolvo o front-end responsivo, valido a experiência nas telas combinadas e publico o site no ambiente definido para o projeto.",
 			},
 		],
 		projectIds: ["fitsyou", "hub", "pogne"],
@@ -140,7 +143,7 @@ export const servicePages: ServicePageData[] = [
 			{
 				question: "O trabalho inclui desenvolvimento do site?",
 				answer:
-					"A implementação pode fazer parte do projeto ou ser conduzida por outra pessoa. Isso é definido conforme as necessidades, a tecnologia e o escopo acordado.",
+					"Sim. Posso cuidar do design, do desenvolvimento front-end e da publicação. Tecnologia, integrações e entregáveis são alinhados ao escopo antes do início.",
 			},
 		],
 	},
@@ -276,8 +279,16 @@ export const servicePages: ServicePageData[] = [
 	},
 ];
 
-export const services = servicePages.map(({ label, path }) => ({ label, path }));
+export function getServicePages(locale: Locale = "pt-BR") {
+	return locale === "en" ? englishServicePages : servicePages;
+}
 
-export function getServicePage(pathname: string) {
-	return servicePages.find(page => page.path === pathname);
+export function getServices(locale: Locale = "pt-BR") {
+	return getServicePages(locale).map(({ label, path }) => ({ label, path }));
+}
+
+export const services = getServices();
+
+export function getServicePage(pathname: string, locale: Locale = "pt-BR") {
+	return getServicePages(locale).find(page => page.path === pathname);
 }

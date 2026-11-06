@@ -1,12 +1,17 @@
 import { useEffect, useRef } from "react";
 import { useSplitText } from "@/hooks/use-split-text";
 import { revealOnScroll } from "@/lib/animations";
-import { services } from "@/data/services";
+import { getServices } from "@/data/services";
+import { localizePath } from "@/i18n/locale";
+import { useLocale, useTranslations } from "@/i18n/useTranslations";
 
 /**
  * Serviços: texto serif grande com separadores entre as ofertas.
  */
 export function Skills() {
+	const locale = useLocale();
+	const t = useTranslations();
+	const services = getServices(locale);
 	const sectionRef = useRef<HTMLElement | null>(null);
 	const textRef = useSplitText<HTMLSpanElement>({ mode: "words" });
 
@@ -20,10 +25,10 @@ export function Skills() {
 			id="skills"
 			className="section flex flex-col gap-12"
 		>
-			<p className="eyebrow">Serviços ►</p>
+			<p className="eyebrow">{t.servicesEyebrow}</p>
 
 			<h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-bone leading-[1.2] text-balance max-w-7xl">
-				Quais serviços posso oferecer?
+				{t.servicesHeadline}
 			</h2>
 			<p
 				ref={textRef}
@@ -32,22 +37,21 @@ export function Skills() {
 				{services.map((service, index) => (
 					<span key={service.path}>
 						{index > 0 && " · "}
-						<a href={service.path} className="link-underline">
+						<a href={localizePath(service.path, locale)} className="link-underline">
 							{service.label}
 						</a>
 					</span>
 				))}
 			</p>
 			<p className="max-w-2xl text-bone/80 text-lg leading-relaxed">
-				Do primeiro direcionamento visual à entrega da interface, cada projeto
-				é pensado para unir personalidade, clareza e resultado.
+				{t.servicesDescription}
 			</p>
-			<p className="font-mono text-xs uppercase tracking-[0.12em] text-bone/70">
-				📍 Atendimento em Campinas e região:{" "}
-				<a href="/criacao-de-sites-campinas/" className="text-bone link-underline">
-					criação de sites em Campinas
+			{locale === "pt-BR" && <p className="font-mono text-xs uppercase tracking-[0.12em] text-bone/70">
+				📍 {t.localServiceIntro}{" "}
+				<a href={localizePath("/criacao-de-sites-campinas/", locale)} className="text-bone link-underline">
+					{t.campinasSites}
 				</a>
-			</p>
+			</p>}
 		</section>
 	);
 }

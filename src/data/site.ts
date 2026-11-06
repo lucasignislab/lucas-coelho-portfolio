@@ -19,11 +19,3 @@ export const socials = [
 	{ name: "Behance", url: "https://www.behance.net/lucascoelho30" },
 	{ name: "GitHub", url: "https://github.com/lucasignislab" },
 ];
-
-export const navItems = [
-	{ label: "Projetos", href: "#work" },
-	{ label: "Sobre", href: "#about" },
-	{ label: "Serviços", href: "#skills" },
-	{ label: "Blog", href: "/blog/" },
-	{ label: "Contato", href: "#contact" },
-];

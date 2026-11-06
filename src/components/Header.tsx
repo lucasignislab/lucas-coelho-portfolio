@@ -1,4 +1,5 @@
-import { navItems } from "@/data/site";
+import { localizePath } from "@/i18n/locale";
+import { useLocale, useTranslations } from "@/i18n/useTranslations";
 
 /**
  * Header posicionado no topo e integrado ao fluxo de rolagem:
@@ -6,6 +7,16 @@ import { navItems } from "@/data/site";
  *  - Direita: navegação + botão de contato
  */
 export function Header() {
+	const locale = useLocale();
+	const t = useTranslations();
+	const navItems = [
+		{ label: t.projects, href: "#work" },
+		{ label: t.about, href: "#about" },
+		{ label: t.services, href: "#skills" },
+		{ label: t.blog, href: "/blog/" },
+		{ label: t.contact, href: "#contact" },
+	];
+
 	return (
 		<header className="absolute top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-20 py-5 flex items-center justify-between mix-blend-difference pointer-events-none">
 			{/* Left: brand signature */}
@@ -33,7 +44,7 @@ export function Header() {
 					{navItems.map((item) => (
 						<li key={item.href}>
 							<a
-								href={item.href}
+								href={localizePath(item.href, locale)}
 								className="font-mono text-xs uppercase tracking-[0.2em] text-bone link-underline"
 							>
 								{item.label}
@@ -46,15 +57,15 @@ export function Header() {
 					href="#work"
 					className="md:hidden min-h-11 inline-flex items-center font-mono text-[0.68rem] uppercase tracking-[0.16em] text-bone link-underline"
 				>
-					Projetos
+					{t.projects}
 				</a>
 
 				<a
 					href="#contact"
 					className="magnetic min-h-11 inline-flex items-center gap-2 px-4 md:px-5 py-2.5 rounded-full border border-bone/40 text-bone font-mono text-[0.68rem] md:text-xs uppercase tracking-[0.16em] md:tracking-[0.2em] hover:border-ember hover:text-ember transition-colors duration-500"
 				>
-					<span className="hidden md:inline">Vamos conversar</span>
-					<span className="md:hidden">Contato</span>
+					<span className="hidden md:inline">{t.contactCta}</span>
+					<span className="md:hidden">{t.contact}</span>
 				</a>
 			</nav>
 		</header>

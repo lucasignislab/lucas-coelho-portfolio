@@ -10,6 +10,9 @@ import {
 import { contactEmail } from "@/data/site";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { getBreadcrumbs } from "@/data/seo";
+import { localizePath } from "@/i18n/locale";
+import { useLocale } from "@/i18n/useTranslations";
+import { englishArticleCopy } from "@/i18n/blogCopy";
 
 function renderInline(content: InlineSegment[]): ReactNode {
 	return content.map((segment, index) => {
@@ -150,6 +153,8 @@ function renderBlock(block: ArticleBlock, index: number): ReactNode {
 }
 
 export function BlogArticle({ slug }: { slug: string }) {
+	const locale = useLocale();
+	const en = locale === "en";
 	const article = getArticle(slug);
 	const sorted = getSortedArticles();
 
@@ -161,7 +166,7 @@ export function BlogArticle({ slug }: { slug: string }) {
 		return (
 			<div className="blog-page">
 				<header className="blog-header">
-					<a href="/" className="blog-brand" aria-label="Voltar ao portfólio">
+					<a href={localizePath("/", locale)} className="blog-brand" aria-label={en ? "Back to portfolio" : "Voltar ao portfólio"}>
 						<img src="/favicon-32.png?v=2" alt="" width="32" height="32" />
 						<span>Lucas Coelho</span>
 					</a>
@@ -174,14 +179,14 @@ export function BlogArticle({ slug }: { slug: string }) {
 					className="blog-main blog-breadcrumbs"
 				/>
 				<main className="blog-main blog-notfound">
-					<p className="eyebrow">Artigo não encontrado</p>
-					<h1>Este texto ainda não existe.</h1>
+								<p className="eyebrow">{en ? "Article not found" : "Artigo não encontrado"}</p>
+								<h1>{en ? "This article isn’t available." : "Este texto ainda não existe."}</h1>
 					<p>
 						O endereço pode ter mudado ou o artigo nunca foi publicado. Que tal
 						ver o que já está no ar?
 					</p>
-					<a href="/blog/" className="btn-primary">
-						Voltar ao blog
+								<a href={localizePath("/blog/", locale)} className="btn-primary">
+									{en ? "Back to the blog" : "Voltar ao blog"}
 					</a>
 				</main>
 			</div>
@@ -200,12 +205,12 @@ export function BlogArticle({ slug }: { slug: string }) {
 					<img src="/favicon-32.png?v=2" alt="" width="32" height="32" />
 					<span>Lucas Coelho</span>
 				</a>
-				<nav className="blog-nav" aria-label="Navegação do blog">
-					<a href="/blog">← Voltar ao blog</a>
+				<nav className="blog-nav" aria-label={en ? "Blog navigation" : "Navegação do blog"}>
+					<a href={localizePath("/blog", locale)}>← {en ? "Back to the blog" : "Voltar ao blog"}</a>
 				</nav>
 			</header>
 			<Breadcrumbs
-				items={getBreadcrumbs(`/blog/${slug}`)}
+					items={getBreadcrumbs(`/blog/${slug}`, locale)}
 				className="blog-main blog-breadcrumbs"
 			/>
 
@@ -213,11 +218,11 @@ export function BlogArticle({ slug }: { slug: string }) {
 				<article className="blog-article">
 					<header className="blog-article-hero">
 						<p className="eyebrow">{article.tags[0]}</p>
-						<h1>{article.title}</h1>
+						<h1>{en ? englishArticleCopy[slug]?.title ?? article.title : article.title}</h1>
 						<p className="blog-article-meta">
-							<span>{formatArticleDate(article.date)}</span>
+							<span>{formatArticleDate(article.date, locale)}</span>
 							<span aria-hidden="true"> · </span>
-							<span>{getReadingTime(article)} min de leitura</span>
+							<span>{getReadingTime(article)} {en ? "min read" : "min de leitura"}</span>
 							<span aria-hidden="true"> · </span>
 							<span>Lucas Coelho</span>
 						</p>
@@ -240,19 +245,25 @@ export function BlogArticle({ slug }: { slug: string }) {
 					</figure>
 
 					<div className="blog-article-body">
-						{article.blocks.map((block, index) => renderBlock(block, index))}
+						{en ? (
+							<section className="blog-article-translation-note">
+								<h2>Article overview</h2>
+								<p>{englishArticleCopy[slug]?.summary ?? "This article is being prepared in English."}</p>
+								<p>The full article is currently available in Portuguese: <a href={`/blog/${slug}/`} className="link-underline">read the Portuguese version</a>.</p>
+							</section>
+						) : article.blocks.map((block, index) => renderBlock(block, index))}
 					</div>
 
 					<footer className="blog-article-footer">
 						<div className="blog-article-cta">
-							<p className="eyebrow">Próximo passo</p>
+							<p className="eyebrow">{en ? "Next step" : "Próximo passo"}</p>
 							<h2>
-								{isFeedbackArticle
+								{en ? "Does your project need a clearer design system or decision-making process?" : isFeedbackArticle
 									? "Seu produto também acumula decisões difíceis?"
 									: "Tem um produto que precisa de um sistema assim?"}
 							</h2>
 							<p>
-								{isFeedbackArticle
+								{en ? "I can help turn product needs into clear criteria, reusable interface patterns, and decisions your team can explain." : isFeedbackArticle
 									? "Posso ajudar a transformar dúvidas de uso em critérios claros e decisões que a equipe consegue explicar."
 									: "Posso ajudar a estruturar princípios, tokens e componentes — e acompanhar a implementação até o produto respirar sozinho."}
 							</p>
@@ -261,25 +272,25 @@ export function BlogArticle({ slug }: { slug: string }) {
 									href={`mailto:${contactEmail}?subject=${encodeURIComponent(isFeedbackArticle ? "Quero conversar sobre uma decisão de design" : "Quero conversar sobre um design system")}`}
 									className="btn-primary"
 								>
-									Conversar sobre um projeto <span aria-hidden="true">→</span>
+									{en ? "Discuss a project" : "Conversar sobre um projeto"} <span aria-hidden="true">→</span>
 								</a>
-								<a href="/projetos/aero/" className="btn-ghost">
-									Ver o case do Aero
+								<a href={localizePath("/projetos/aero/", locale)} className="btn-ghost">
+									{en ? "View the Aero case study" : "Ver o case do Aero"}
 								</a>
 							</div>
 						</div>
 
-						<nav className="blog-article-pager" aria-label="Mais artigos">
+						<nav className="blog-article-pager" aria-label={en ? "More articles" : "Mais artigos"}>
 							{previous ? (
-								<a href={`/blog/${previous.slug}/`} className="link-underline">
-									← {previous.title}
+								<a href={localizePath(`/blog/${previous.slug}/`, locale)} className="link-underline">
+									← {en ? englishArticleCopy[previous.slug]?.title ?? previous.title : previous.title}
 								</a>
 							) : (
 								<span />
 							)}
 							{next ? (
-								<a href={`/blog/${next.slug}/`} className="link-underline">
-									{next.title} →
+								<a href={localizePath(`/blog/${next.slug}/`, locale)} className="link-underline">
+									{en ? englishArticleCopy[next.slug]?.title ?? next.title : next.title} →
 								</a>
 							) : (
 								<a href="/blog/" className="link-underline">
@@ -293,7 +304,7 @@ export function BlogArticle({ slug }: { slug: string }) {
 
 			<footer className="blog-footer">
 				<span>Lucas Coelho · Digital Designer</span>
-				<a href="/blog/">← Voltar ao blog</a>
+		<a href={localizePath("/blog/", locale)}>← {en ? "Back to the blog" : "Voltar ao blog"}</a>
 			</footer>
 		</div>
 	);

@@ -4,10 +4,14 @@ import { useTilt } from "@/hooks/use-tilt";
 import { contactEmail, crmWebhookUrl, socials } from "@/data/site";
 import { revealCharsOnScroll, splitChars } from "@/lib/animations";
 import { trackLeadConversion } from "@/hooks/useGtagPageview";
+import { localizePath } from "@/i18n/locale";
+import { useLocale, useTranslations } from "@/i18n/useTranslations";
 
 type ContactIntent = "project" | "opportunity";
 
 function ContactForm() {
+	const locale = useLocale();
+	const t = useTranslations();
 	const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
 		"idle"
 	);
@@ -88,7 +92,7 @@ function ContactForm() {
 			</p>
 
 			<fieldset className="contact-intent">
-				<legend>Qual conversa faz sentido agora?</legend>
+				<legend>{t.formLegend}</legend>
 				<div>
 					<label data-active={intent === "project"}>
 						<input
@@ -98,7 +102,7 @@ function ContactForm() {
 							checked={intent === "project"}
 							onChange={() => setIntent("project")}
 						/>
-						<span>Quero contratar um projeto</span>
+						<span>{t.formProjectIntent}</span>
 					</label>
 					<label data-active={intent === "opportunity"}>
 						<input
@@ -108,18 +112,18 @@ function ContactForm() {
 							checked={intent === "opportunity"}
 							onChange={() => setIntent("opportunity")}
 						/>
-						<span>Quero falar sobre uma oportunidade</span>
+						<span>{t.formOpportunityIntent}</span>
 					</label>
 				</div>
 			</fieldset>
 
 			<div className="contact-field">
-				<label htmlFor="name">Nome</label>
+				<label htmlFor="name">{t.formName}</label>
 				<input id="name" name="name" type="text" autoComplete="name" required />
 			</div>
 
 			<div className="contact-field">
-				<label htmlFor="email">E-mail</label>
+				<label htmlFor="email">{t.formEmail}</label>
 				<input
 					id="email"
 					name="email"
@@ -130,7 +134,7 @@ function ContactForm() {
 			</div>
 
 			<div className="contact-field">
-				<label htmlFor="company">Empresa</label>
+				<label htmlFor="company">{t.formCompany}</label>
 				<input
 					id="company"
 					name="company"
@@ -142,34 +146,38 @@ function ContactForm() {
 			{intent === "project" ? (
 				<>
 					<div className="contact-field">
-						<label htmlFor="projectType">Tipo de projeto</label>
+						<label htmlFor="projectType">{t.formProjectType}</label>
 						<select id="projectType" name="projectType" defaultValue="" required>
 							<option value="" disabled>
-								Selecione uma opção
+								{t.formSelectOption}
 							</option>
-							<option>Site institucional</option>
-							<option>Landing page</option>
-							<option>Produto digital / UX/UI</option>
-							<option>Identidade e direção digital</option>
-							<option>Outro</option>
+							<option>{t.formWebsite}</option>
+							<option>{t.formLandingPage}</option>
+							<option>{t.formDigitalProduct}</option>
+							<option>{t.formBranding}</option>
+							<option>{t.formOther}</option>
 						</select>
 					</div>
 
 					<div className="contact-field">
-						<label htmlFor="budget">Faixa de investimento</label>
-						<select id="budget" name="budget" defaultValue="">
-							<option value="">Prefiro conversar primeiro</option>
-							<option>Até R$ 5 mil</option>
-							<option>R$ 5 mil – R$ 10 mil</option>
-							<option>R$ 10 mil – R$ 20 mil</option>
-							<option>Acima de R$ 20 mil</option>
-						</select>
+						<label htmlFor="budget">{t.formBudget}</label>
+						{locale === "en" ? (
+							<input id="budget" name="budget" type="text" placeholder="e.g. USD 2,000 or EUR 2,000" />
+						) : (
+							<select id="budget" name="budget" defaultValue="">
+								<option value="">{t.formBudgetConversation}</option>
+								<option>{t.formBudgetUnderFive}</option>
+								<option>{t.formBudgetFiveToTen}</option>
+								<option>{t.formBudgetTenToTwenty}</option>
+								<option>{t.formBudgetOverTwenty}</option>
+							</select>
+						)}
 					</div>
 				</>
 			) : (
 				<>
 					<div className="contact-field">
-						<label htmlFor="opportunityType">Tipo de oportunidade</label>
+						<label htmlFor="opportunityType">{t.formOpportunityType}</label>
 						<select
 							id="opportunityType"
 							name="opportunityType"
@@ -177,22 +185,22 @@ function ContactForm() {
 							required
 						>
 							<option value="" disabled>
-								Selecione uma opção
+								{t.formSelectOption}
 							</option>
-							<option>Vaga em produto ou design</option>
-							<option>Posição híbrida design e desenvolvimento</option>
-							<option>Colaboração profissional</option>
-							<option>Conversa exploratória</option>
+							<option>{t.formRoleProductDesign}</option>
+							<option>{t.formRoleHybrid}</option>
+							<option>{t.formCollaboration}</option>
+							<option>{t.formExploratory}</option>
 						</select>
 					</div>
 
 					<div className="contact-field">
-						<label htmlFor="workModel">Modelo de trabalho</label>
+						<label htmlFor="workModel">{t.formWorkModel}</label>
 						<select id="workModel" name="workModel" defaultValue="">
-							<option value="">Podemos definir em conversa</option>
-							<option>Remoto</option>
-							<option>Híbrido em Campinas ou região</option>
-							<option>Presencial em Campinas ou região</option>
+							<option value="">{t.formWorkModelFlexible}</option>
+							<option>{t.formRemote}</option>
+							<option>{t.formHybridCampinas}</option>
+							<option>{t.formOnsiteCampinas}</option>
 						</select>
 					</div>
 				</>
@@ -201,15 +209,15 @@ function ContactForm() {
 			<div className="contact-field contact-field-full">
 				<label htmlFor="message">
 					{intent === "project"
-						? "Conte um pouco sobre o projeto"
-						: "Conte um pouco sobre a oportunidade"}
+						? t.formProjectPrompt
+						: t.formOpportunityPrompt}
 				</label>
 				<textarea id="message" name="message" rows={5} required />
 			</div>
 
 			<div className="contact-form-footer">
 				<p className="text-sm leading-relaxed text-ash">
-					Normalmente respondo em até dois dias úteis.
+					{t.formReplyTime}
 				</p>
 				<button
 					type="submit"
@@ -217,19 +225,19 @@ function ContactForm() {
 					disabled={status === "sending"}
 				>
 					{status === "sending"
-						? "Enviando…"
+						? t.formSending
 						: intent === "project"
-							? "Enviar proposta de conversa"
-							: "Enviar oportunidade"}
+							? t.formSubmitProject
+							: t.formSubmitOpportunity}
 				</button>
 			</div>
 
 			<p className="contact-status" aria-live="polite">
 				{status === "success" &&
-					"Mensagem enviada. Obrigado — entrarei em contato em breve."}
+					t.formSuccess}
 				{status === "error" && (
 					<>
-						Não foi possível enviar agora. Escreva para{" "}
+						{t.formError}{" "}
 						<a className="link-underline" href={`mailto:${contactEmail}`}>
 							{contactEmail}
 						</a>
@@ -260,6 +268,8 @@ function ContactForm() {
  *     duplo para garantir que o DOM ja foi medido.
  */
 export function Footer() {
+	const locale = useLocale();
+	const t = useTranslations();
 	const titleRef = useRef<HTMLHeadingElement | null>(null);
 	const ctaRef = useTilt<HTMLAnchorElement>({ max: 8, speed: 400, scale: 1.03 });
 	const time = useLocalTime();
@@ -295,14 +305,13 @@ export function Footer() {
 					overflow: "visible",
 				}}
 			>
-				Qual é a próxima conversa?
+				{t.contactHeading}
 			</h2>
 
 			<div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
 				<div className="lg:col-span-4 flex flex-col gap-8">
 					<p className="font-mono text-xs uppercase tracking-[0.2em] text-ash">
-						Projetos independentes e oportunidades profissionais têm o mesmo
-						espaço por aqui.
+						{t.contactIntro}
 					</p>
 
 					<a
@@ -312,7 +321,7 @@ export function Footer() {
 						className="group inline-flex items-center gap-3 text-xl md:text-2xl font-display text-bone hover:text-ember transition-colors duration-500 will-change-transform"
 					>
 						<span className="font-display italic">→</span>
-						<span className="link-underline">Prefere e-mail?</span>
+						<span className="link-underline">{t.contactEmailCta}</span>
 					</a>
 				</div>
 				<div className="lg:col-span-8 contact-form-shell">
@@ -329,7 +338,7 @@ export function Footer() {
 			{/* Local time */}
 			<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pt-8 border-t border-bone/10">
 				<div className="flex items-baseline gap-3 font-mono text-sm uppercase tracking-[0.2em] text-ash">
-					<span>Hora local ►</span>
+					<span>{t.localTime}</span>
 					<span className="text-bone font-medium text-2xl tracking-tight font-display">
 						{time.h}
 						<span className="animate-pulse-slow">:</span>
@@ -363,24 +372,24 @@ export function Footer() {
 				</span>
 
 				<div className="flex flex-col items-center md:items-end gap-2 font-mono text-xs uppercase tracking-[0.16em] text-ash md:text-right">
-					<a href="/blog/" className="text-bone link-underline">
-						Blog
+					<a href={localizePath("/blog/", locale)} className="text-bone link-underline">
+						{t.blog}
 					</a>
 					<a
-						href="/criacao-de-sites-campinas/"
+						href={localizePath("/criacao-de-sites-campinas/", locale)}
 						className="text-bone link-underline"
 					>
-						Criação de sites em Campinas
+						{t.campinasSites}
 					</a>
 					<a
-						href="/politica-de-privacidade"
+						href={localizePath("/politica-de-privacidade", locale)}
 						className="text-bone link-underline"
 					>
-						Política de privacidade
+						{t.privacyPolicy}
 					</a>
 					<p>
 						<span className="block">© {new Date().getFullYear()} Lucas Coelho.</span>
-						<span className="block">Feito com amor por mim.</span>
+						<span className="block">{t.footerMadeWithCare}</span>
 					</p>
 				</div>
 			</div>

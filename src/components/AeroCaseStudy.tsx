@@ -8,6 +8,8 @@ import { AeroDesignSystemPanel } from "@/components/AeroDesignSystemPanel";
 import { CaseQuickRead } from "@/components/CaseQuickRead";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { getBreadcrumbs } from "@/data/seo";
+import { localizePath } from "@/i18n/locale";
+import { useLocale } from "@/i18n/useTranslations";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -62,6 +64,8 @@ const interactivePanels = {
 } as const;
 
 export function AeroCaseStudy() {
+	const locale = useLocale();
+	const en = locale === "en";
 	const caseRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
@@ -199,12 +203,12 @@ export function AeroCaseStudy() {
 	return (
 		<div ref={caseRef} className="aero-case">
 			<header className="aero-case-header">
-				<a href="/#work" className="aero-case-back">
-					<span aria-hidden>←</span> Voltar aos projetos
+				<a href={localizePath("/#work", locale)} className="aero-case-back">
+					<span aria-hidden>←</span> {en ? "Back to projects" : "Voltar aos projetos"}
 				</a>
-				<span className="aero-case-index">Estudo de caso / 01</span>
+				<span className="aero-case-index">{en ? "Case study / 01" : "Estudo de caso / 01"}</span>
 			</header>
-			<Breadcrumbs items={getBreadcrumbs("/projetos/aero")} className="aero-case-breadcrumbs" />
+			<Breadcrumbs items={getBreadcrumbs("/projetos/aero", locale)} className="aero-case-breadcrumbs" />
 
 			<main>
 				<section className="aero-case-hero">
@@ -212,7 +216,7 @@ export function AeroCaseStudy() {
 						<div className="aero-case-hero-copy">
 							<div className="aero-reveal-mask">
 								<p className="aero-case-eyebrow aero-hero-reveal">
-									Case de Product Design · SaaS · Projeto autoral · 2025
+									{en ? "Product design · SaaS · Independent project · 2025" : "Case de Product Design · SaaS · Projeto autoral · 2025"}
 								</p>
 							</div>
 							<h1>
@@ -221,34 +225,34 @@ export function AeroCaseStudy() {
 								</span>
 								<span className="aero-reveal-mask">
 									<em className="aero-hero-reveal">
-										Product Design para SaaS
+										{en ? "Product design for SaaS" : "Product Design para SaaS"}
 									</em>
 								</span>
 							</h1>
-							<p className="aero-case-lead">
+							<p className="aero-case-lead">{en ? "Aero is an independent project management product built with React, TypeScript, Tailwind, and Tiptap. This case documents the strategy, UX/UI, keyboard-first architecture, and design system decisions that connect tasks, documentation, and execution. As a solo project without formal research, these are retrospective learnings and do not include usage metrics." : <>
 								O Aero é um produto autoral de gestão de projetos, desenvolvido
 								com React, TypeScript, Tailwind e Tiptap. Este case documenta
 								decisões de estratégia, UX/UI, arquitetura keyboard-first e
 								design system que conectam tarefas, documentação e execução.
 								Como o projeto é solo e não teve pesquisa formal, os aprendizados
 								são retrospectivos e não incluem métricas de uso.
-							</p>
+							</>}</p>
 						</div>
 						<AeroHeroScene />
 					</div>
 
 					<dl className="aero-case-facts">
 						<div>
-							<dt>Papel</dt>
-							<dd>Estratégia · UX/UI · Prototipação · Front-end</dd>
+							<dt>{en ? "Role" : "Papel"}</dt>
+							<dd>{en ? "Strategy · UX/UI · Prototyping · Front end" : "Estratégia · UX/UI · Prototipação · Front-end"}</dd>
 						</div>
 						<div>
-							<dt>Duração</dt>
+							<dt>{en ? "Duration" : "Duração"}</dt>
 							<dd>2–3 meses</dd>
 						</div>
 						<div>
-							<dt>Natureza</dt>
-							<dd>Projeto autoral para uso próprio</dd>
+							<dt>{en ? "Project type" : "Natureza"}</dt>
+							<dd>{en ? "Independent project built for personal use" : "Projeto autoral para uso próprio"}</dd>
 						</div>
 						<div>
 							<dt>Stack</dt>
@@ -263,59 +267,60 @@ export function AeroCaseStudy() {
 							rel="noopener noreferrer"
 							className="aero-case-primary"
 						>
-							Explorar produto ao vivo <span aria-hidden>↗</span>
+							{en ? "Explore the live product" : "Explorar produto ao vivo"} <span aria-hidden>↗</span>
 						</a>
 						<a href="#aero-summary" className="aero-case-secondary">
-							Ver resumo <span aria-hidden>↓</span>
+							{en ? "Project overview" : "Ver resumo"} <span aria-hidden>↓</span>
 						</a>
 					</div>
 					<div className="aero-case-scroll" aria-hidden="true">
-						<span>Scroll to explore</span>
+						<span>{en ? "Scroll to explore" : "Role para explorar"}</span>
 						<i />
 					</div>
 				</section>
 
 				<CaseQuickRead
 					id="aero-summary"
-					intro="Um produto autoral e funcional, reconstruído como estudo retrospectivo para tornar explícitas as decisões que orientaram sua criação."
+					locale={locale}
+					intro={en ? "An independent, working product revisited as a retrospective to make the decisions behind its creation explicit." : "Um produto autoral e funcional, reconstruído como estudo retrospectivo para tornar explícitas as decisões que orientaram sua criação."}
 					items={[
 						{
-							label: "Desafio",
+							label: en ? "Challenge" : "Desafio",
 							value:
-								"Reduzir cliques, troca de contexto e excesso visual na gestão cotidiana de projetos.",
+								en ? "Reduce clicks, context switching, and visual overload in everyday project management." : "Reduzir cliques, troca de contexto e excesso visual na gestão cotidiana de projetos.",
 						},
 						{
-							label: "Decisão central",
+							label: en ? "Key decision" : "Decisão central",
 							value:
-								"Combinar command menu, edição em drawer e densidade visual controlada em uma experiência keyboard-first.",
+								en ? "Combine a command menu, drawer-based editing, and controlled visual density in a keyboard-first experience." : "Combinar command menu, edição em drawer e densidade visual controlada em uma experiência keyboard-first.",
 						},
 						{
-							label: "Entrega e evidência",
+							label: en ? "Deliverable and evidence" : "Entrega e evidência",
 							value:
-								"Produto autoral publicado em React, TypeScript, Tailwind e Tiptap. O case registra decisões e aprendizados, sem métricas de uso.",
+								en ? "Independent product published with React, TypeScript, Tailwind, and Tiptap. The case documents decisions and learnings, without usage metrics." : "Produto autoral publicado em React, TypeScript, Tailwind e Tiptap. O case registra decisões e aprendizados, sem métricas de uso.",
 						},
 						{
-							label: "Limite declarado",
+							label: en ? "Limitations" : "Limite declarado",
 							value:
-								"Projeto solo e autoral, sem pesquisa formal; hipóteses e aprendizados foram organizados retrospectivamente.",
+								en ? "A solo, independent project without formal research; hypotheses and learnings were organized retrospectively." : "Projeto solo e autoral, sem pesquisa formal; hipóteses e aprendizados foram organizados retrospectivamente.",
 						},
 					]}
 				/>
 
 				<section id="case" className="aero-case-intro" aria-labelledby="case-title">
-					<p>Estudo retrospectivo de produto</p>
+					<p>{en ? "Retrospective product study" : "Estudo retrospectivo de produto"}</p>
 					<h2 id="case-title">
-						Quais decisões orientaram a criação do Aero?
+						{en ? "Which decisions shaped Aero?" : "Quais decisões orientaram a criação do Aero?"}
 					</h2>
-					<p>
+					<p>{en ? "This case does not claim formal research that did not take place. It retrospectively organizes the hypotheses, interface decisions, visual system, and learnings that shaped Aero." : <>
 						Este case não apresenta uma pesquisa formal que não aconteceu.
 						Ele organiza retrospectivamente as hipóteses, decisões de
 						interface, sistema visual e aprendizados que orientaram a
 						construção do Aero.
-					</p>
+					</>}</p>
 				</section>
 
-				<section className="aero-case-gallery" aria-label="Painéis do case Aero">
+				<section className="aero-case-gallery" aria-label={en ? "Aero case study panels" : "Painéis do case Aero"}>
 					{panels.map((panel, index) => {
 						const interactiveKind =
 							interactivePanels[index as keyof typeof interactivePanels];
@@ -351,22 +356,23 @@ export function AeroCaseStudy() {
 				</section>
 
 				<section className="aero-case-closing">
-					<p className="aero-case-eyebrow">Próximo passo</p>
-					<h2>Como simplificar um produto digital complexo?</h2>
-					<p>
+					<p className="aero-case-eyebrow">{en ? "Next step" : "Próximo passo"}</p>
+					<h2>{en ? "How can a complex digital product feel simpler?" : "Como simplificar um produto digital complexo?"}</h2>
+					<p>{en ? <>I can help shape the strategy, turn workflows into a clear interface, and support implementation. Explore my work in <a href={localizePath("/servicos/produtos-interfaces", locale)} className="link-underline">product design</a> and <a href={localizePath("/servicos/design-systems", locale)} className="link-underline">design systems</a>.</> : <>
 						Posso ajudar a organizar a estratégia, transformar fluxos em uma
 						interface clara e acompanhar a implementação. Conheça também meu
-						trabalho em <a href="/servicos/produtos-interfaces" className="link-underline">product design</a> e <a href="/servicos/design-systems" className="link-underline">design systems</a>.
+						trabalho em <a href={localizePath("/servicos/produtos-interfaces", locale)} className="link-underline">product design</a> e <a href={localizePath("/servicos/design-systems", locale)} className="link-underline">design systems</a>.
+						</>}
 					</p>
 					<div className="aero-case-actions">
 						<a
-							href={`mailto:${contactEmail}?subject=Quero conversar sobre um projeto digital`}
+							href={`mailto:${contactEmail}?subject=${encodeURIComponent(en ? "Let’s discuss a digital project" : "Quero conversar sobre um projeto digital")}`}
 							className="aero-case-primary"
 						>
-							Conversar sobre um projeto <span aria-hidden>→</span>
+							{en ? "Discuss a project" : "Conversar sobre um projeto"} <span aria-hidden>→</span>
 						</a>
-						<a href="/#work" className="aero-case-secondary">
-							Ver outros projetos
+						<a href={localizePath("/#work", locale)} className="aero-case-secondary">
+							{en ? "View other projects" : "Ver outros projetos"}
 						</a>
 					</div>
 				</section>
@@ -374,7 +380,7 @@ export function AeroCaseStudy() {
 
 			<footer className="aero-case-footer">
 				<span>Lucas Coelho · Digital Designer</span>
-				<span>Estudo de caso / 2025</span>
+				<span>{en ? "Case study / 2025" : "Estudo de caso / 2025"}</span>
 			</footer>
 		</div>
 	);

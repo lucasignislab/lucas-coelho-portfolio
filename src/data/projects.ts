@@ -26,14 +26,14 @@ export const projects: Project[] = [
 	{
 		id: "fitsyou",
 		name: "Fits You Studio",
-		subtitle: "Web Design — UX/UI",
+		subtitle: "Design — UX/UI — Desenvolvimento",
 		type: "Website / Cross Training & Pilates",
 		year: "2024",
 		url: "https://fitsyou.com.br",
 		caseUrl: "/projetos/fits-you",
 		image: "/lovable-uploads/fitsyou.webp",
 		description:
-			"Site institucional criado para apresentar o estúdio, suas modalidades de cross training e Pilates, estrutura, horários e formas de contato.",
+			"Design, desenvolvimento e publicação do site institucional do estúdio, com suas modalidades de cross training e Pilates, estrutura, horários e formas de contato.",
 	},
 	{
 		id: "pogne",
@@ -50,13 +50,13 @@ export const projects: Project[] = [
 	{
 		id: "hub",
 		name: "Hub Ratoeira",
-		subtitle: "Web Design — UX/UI",
+		subtitle: "Design — UX/UI — Desenvolvimento",
 		type: "Institucional / Adtech",
 		year: "2024",
 		url: "https://hub.ratoeiraadsoficial.com.br",
 		caseUrl: "/projetos/ratoeira-hub",
 		image: "/lovable-uploads/ratoeirahub.webp",
 		description:
-			"Site institucional para apresentar um ecossistema de tracking server-side, proteção antifraude e landing pages para anunciantes.",
+			"Design, desenvolvimento e publicação do site institucional que apresenta um ecossistema de tracking server-side, proteção antifraude e landing pages para anunciantes.",
 	},
 ];

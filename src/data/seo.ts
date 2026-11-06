@@ -1,6 +1,9 @@
 import { articles, getReadingTime } from "./blog";
 import { projects } from "./projects";
-import { servicePages } from "./services";
+import { getServicePages, servicePages } from "./services";
+import type { Locale } from "../i18n/locale";
+import { localizePath } from "../i18n/locale";
+import { englishArticleCopy } from "../i18n/blogCopy";
 import { sitesCampinasFaq } from "./sites-campinas";
 
 export const SITE_URL = "https://lucascoelhoux.site";
@@ -286,7 +289,7 @@ export const seoPages: Record<string, SeoPage> = {
 		path: "/projetos/fits-you",
 		title: "Web design para cross training e Pilates | Fits You",
 		description:
-			"Case de web design e UX/UI para o Fits You Studio, em Barão Geraldo, Campinas. Site institucional com modalidades, equipe, horários, localização e contato.",
+			"Case de design, desenvolvimento e publicação do site do Fits You Studio, em Barão Geraldo, Campinas, com modalidades, equipe, horários, localização e contato.",
 		image: "/lovable-uploads/fitsyou.webp",
 		imageAlt: "Interface do site Fits You Studio",
 		imageWidth: 2868,
@@ -305,7 +308,7 @@ export const seoPages: Record<string, SeoPage> = {
 		path: "/projetos/ratoeira-hub",
 		title: "Web design e UX/UI para adtech | Ratoeira Hub",
 		description:
-			"Case de web design e UX/UI para o Ratoeira Hub: site institucional sobre tracking server-side, proteção antifraude, landing pages e integrações.",
+			"Case de design, desenvolvimento e publicação do site do Ratoeira Hub: tracking server-side, proteção antifraude, landing pages e integrações.",
 		image: "/lovable-uploads/ratoeirahub.webp",
 		imageAlt: "Interface do site Ratoeira Hub",
 		imageWidth: 2832,
@@ -346,35 +349,35 @@ export function getSeoPage(pathname: string): SeoPage {
 	return seoPages[normalizedPath] ?? seoPages["/"];
 }
 
-export function getBreadcrumbs(pathname: string): BreadcrumbItem[] {
+export function getBreadcrumbs(pathname: string, locale: Locale = "pt-BR"): BreadcrumbItem[] {
 	const normalizedPath = pathname.replace(/\/+$/, "") || "/";
 	if (normalizedPath === "/") return [];
 	if (normalizedPath === "/blog") {
-		return [{ name: "Início", href: "/" }, { name: "Blog" }];
+		return [{ name: locale === "en" ? "Home" : "Início", href: localizePath("/", locale) }, { name: "Blog" }];
 	}
 	if (normalizedPath.startsWith("/blog/")) {
 		const article = articles.find(
 			item => `/blog/${item.slug}` === normalizedPath
 		);
 		return [
-			{ name: "Início", href: "/" },
-			{ name: "Blog", href: "/blog/" },
-			{ name: article?.title ?? "Artigo não encontrado" },
+			{ name: locale === "en" ? "Home" : "Início", href: localizePath("/", locale) },
+			{ name: "Blog", href: localizePath("/blog/", locale) },
+			{ name: locale === "en" ? englishArticleCopy[article?.slug ?? ""]?.title ?? article?.title ?? "Article not found" : article?.title ?? "Artigo não encontrado" },
 		];
 	}
-	const service = servicePages.find(item => item.path === normalizedPath);
+	const service = getServicePages(locale).find(item => item.path === normalizedPath);
 	if (service) {
 		return [
-			{ name: "Início", href: "/" },
-			{ name: "Serviços", href: "/#skills" },
+			{ name: locale === "en" ? "Home" : "Início", href: localizePath("/", locale) },
+			{ name: locale === "en" ? "Services" : "Serviços", href: localizePath("/#skills", locale) },
 			{ name: service.label },
 		];
 	}
 	const project = projects.find(item => item.caseUrl === normalizedPath);
 	if (project) {
 		return [
-			{ name: "Início", href: "/" },
-			{ name: "Projetos", href: "/#work" },
+			{ name: locale === "en" ? "Home" : "Início", href: localizePath("/", locale) },
+			{ name: locale === "en" ? "Projects" : "Projetos", href: localizePath("/#work", locale) },
 			{ name: project.name },
 		];
 	}
@@ -387,8 +390,8 @@ export function getBreadcrumbs(pathname: string): BreadcrumbItem[] {
 	}
 	if (normalizedPath === "/politica-de-privacidade") {
 		return [
-			{ name: "Início", href: "/" },
-			{ name: "Política de privacidade" },
+			{ name: locale === "en" ? "Home" : "Início", href: localizePath("/", locale) },
+			{ name: locale === "en" ? "Privacy policy" : "Política de privacidade" },
 		];
 	}
 	return [];

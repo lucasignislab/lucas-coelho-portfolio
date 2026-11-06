@@ -1,8 +1,18 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { projects } from "@/data/projects";
+import { useLocale, useTranslations } from "@/i18n/useTranslations";
+import { localizePath } from "@/i18n/locale";
 
 export function SelectedWork() {
+	const t = useTranslations();
+	const locale = useLocale();
+	const projectCopy: Record<string, { type: string; subtitle: string; description: string }> = {
+		aero: { type: t.projectAeroType, subtitle: "Branding — UI — Art Direction", description: t.projectAeroDescription },
+		fitsyou: { type: t.projectFitsType, subtitle: t.projectFitsSubtitle, description: t.projectFitsDescription },
+		pogne: { type: t.projectPogneType, subtitle: t.projectPogneSubtitle, description: t.projectPogneDescription },
+		hub: { type: t.projectHubType, subtitle: t.projectHubSubtitle, description: t.projectHubDescription },
+	};
 	const sectionRef = useRef<HTMLElement | null>(null);
 
 	useEffect(() => {
@@ -71,23 +81,23 @@ export function SelectedWork() {
 			<div className="work-heading">
 				<div>
 					<p className="work-kicker">
-						<span>Selected work</span>
-						<span>{String(projects.length).padStart(2, "0")} projetos</span>
+						<span>{t.selectedWorkKicker}</span>
+						<span>{String(projects.length).padStart(2, "0")} {t.projectCount}</span>
 					</p>
 					<h2>
-						<span>Quais projetos</span>
-						<strong>mostram meu trabalho?</strong>
+						<span>{t.workHeadingLineOne}</span>
+						<strong>{t.workHeadingLineTwo}</strong>
 					</h2>
 				</div>
 				<p className="work-intro">
-					Uma seleção de produtos digitais em que estratégia, identidade e
-					interface trabalham juntas para tornar decisões mais simples.
+					{t.workDescription}
 				</p>
 			</div>
 
 			<div className="projects-editorial">
 				{projects.map((p, i) => {
-					const href = p.caseUrl ?? p.url;
+					const copy = projectCopy[p.id];
+					const href = p.caseUrl ? localizePath(p.caseUrl, locale) : p.url;
 					const isInternal = Boolean(p.caseUrl);
 					const responsiveImage = p.id !== "aero";
 					const imageBase = p.image.replace(/\.webp$/, "");
@@ -112,8 +122,8 @@ export function SelectedWork() {
 								target={isInternal ? undefined : "_blank"}
 								rel={isInternal ? undefined : "noopener noreferrer"}
 								data-cursor-hover
-								aria-label={`${isInternal ? "Ler case" : "Visitar"} ${p.name}${
-									isInternal ? "" : " (abre em uma nova aba)"
+								aria-label={`${isInternal ? t.caseRead : t.projectVisit} ${p.name}${
+									isInternal ? "" : ` ${t.visitNewTab}`
 								}`}
 								className="project-link"
 							>
@@ -147,20 +157,20 @@ export function SelectedWork() {
 								<div className="project-info">
 									<div className="project-meta">
 										<span>{p.year}</span>
-										<span>{p.type}</span>
+										<span>{copy?.type ?? p.type}</span>
 									</div>
 
 									<div className="project-title-row">
 										<h3>{p.name}</h3>
-										<span>{p.subtitle}</span>
+										<span>{copy?.subtitle ?? p.subtitle}</span>
 									</div>
 
 									<p className="project-description">
-										{p.description}
+									{copy?.description ?? p.description}
 									</p>
 
 									<span className="project-action">
-										{isInternal ? "Ler case completo" : "Visitar projeto"}
+										{isInternal ? t.caseReadFull : t.projectVisit}
 										<i aria-hidden />
 									</span>
 								</div>

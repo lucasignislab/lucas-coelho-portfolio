@@ -1,4 +1,5 @@
 import type { PointerEvent as ReactPointerEvent } from "react";
+import { useLocale } from "@/i18n/useTranslations";
 
 type PanelKind = "challenge" | "principles" | "audiences" | "learnings";
 
@@ -127,6 +128,44 @@ const panelContent: Record<PanelKind, Panel> = {
 	},
 };
 
+const englishPanelContent: Record<PanelKind, Panel> = {
+	challenge: {
+		page: "02", kicker: "Aero · Product case study", title: "What was the challenge?",
+		description: "Powerful project tools can also become slow, bloated, and difficult to navigate.",
+		cards: [
+			{ number: "01", title: "Too many clicks", body: "Simple actions took too many steps.", accent: "blue" },
+			{ number: "02", title: "Context switching", body: "Moving between mouse, keyboard, and pages breaks focus.", accent: "blue" },
+			{ number: "03", title: "Visual overload", body: "Too much interface competes with the work itself.", accent: "blue" },
+		],
+		footerLabel: "Design question", footerText: "How might the interface fade into the background while work gets done?",
+	},
+	principles: {
+		page: "03", title: "Which principles reduce friction?",
+		description: "The product direction was framed as a set of hypotheses to explore in a working interface.",
+		cards: [
+			{ icon: "plus", title: "Low friction", body: "Capturing an idea should feel almost instant.", tag: "Idea → capture", accent: "blue" },
+			{ icon: "equal", title: "Useful density", body: "More context per screen, without decorative noise.", tag: "Information > ornament", accent: "violet" },
+			{ icon: "keyboard", title: "Keyboard first", body: "Shortcuts and commands make the mouse optional.", tag: "Command → action", accent: "green" },
+		],
+	},
+	audiences: {
+		page: "04", kicker: "Aero · Product case study", title: "Which needs shaped the product?",
+		description: "These are not formal research personas. They are usage hypotheses based on the workflows the product needed to support.",
+		cards: [
+			{ badge: "Builders", title: "Speed without interruption", body: "Create, search, and navigate without taking your hands off the keyboard.", tag: "Shortcuts · response · focus", accent: "blue" },
+			{ badge: "Product managers", title: "Detail without losing context", body: "Open specifications without leaving the sprint view or losing sight of bottlenecks.", tag: "Context · documentation · overview", accent: "violet" },
+		],
+	},
+	learnings: {
+		page: "09", title: "What did this project teach me?",
+		cards: [
+			{ number: "01", title: "Document before building", body: "Defining what the product should do reduced conflicting decisions during implementation.", accent: "blue" },
+			{ number: "02", title: "Simplicity has a backstage", body: "Interactions that feel obvious depend on carefully coordinated states, events, and feedback.", accent: "violet" },
+		],
+		footerLabel: "Next step", footerText: "Validate the workflows with real users and measure task time.",
+	},
+};
+
 function updateCardTilt(event: ReactPointerEvent<HTMLElement>) {
 	if (event.pointerType === "touch") return;
 	const card = event.currentTarget;
@@ -161,7 +200,8 @@ function CardIcon({ icon }: { icon: Card["icon"] }) {
 }
 
 export function AeroInteractivePanel({ kind }: { kind: PanelKind }) {
-	const panel = panelContent[kind];
+	const locale = useLocale();
+	const panel = (locale === "en" ? englishPanelContent : panelContent)[kind];
 
 	return (
 		<section

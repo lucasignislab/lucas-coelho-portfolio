@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { contactEmail } from "@/data/site";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { getBreadcrumbs } from "@/data/seo";
+import { localizePath } from "@/i18n/locale";
+import { useLocale } from "@/i18n/useTranslations";
 
 const sections = [
 	{
@@ -127,7 +129,45 @@ const sections = [
 	},
 ];
 
+const englishSections = [
+	{
+		title: "Who is responsible for your data?",
+		content: <p>Lucas Coelho is responsible for processing personal data through this portfolio. For questions, requests, or to exercise your rights, email <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.</p>,
+	},
+	{
+		title: "What data may be collected?",
+		content: <><p>This website may process two categories of information:</p><ul><li><strong>Information you submit:</strong> name, email address, company, project or opportunity type, budget range, work arrangement, and the message you send through the form.</li><li><strong>Browsing information:</strong> pages visited, clicks, mouse movement, scrolling, browser and device characteristics, and similar technical information.</li></ul></>,
+	},
+	{
+		title: "How is the data used?",
+		content: <><p>Information may be used to:</p><ul><li>respond to messages, project inquiries, and professional opportunities;</li><li>continue conversations or contractual relationships you request;</li><li>understand website usage and improve content, performance, and usability;</li><li>prevent abuse, fraud, and security incidents.</li></ul><p>Processing is based on the applicable purpose, including steps you request before entering into a contract, compliance with legal obligations, and the legitimate interest in operating and improving this portfolio, while respecting your rights.</p></>,
+	},
+	{
+		title: "Which third-party services are used?",
+		content: <><p>This website uses Netlify for hosting and contact-form processing, as well as Google Analytics 4 and Umami to understand website usage.</p><p>These providers process information under their own terms and policies. Data may be processed outside Brazil, subject to the safeguards adopted by each provider. This website does not sell your personal data.</p><div className="privacy-external-links"><a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener noreferrer">Netlify privacy policy ↗</a></div></>,
+	},
+	{
+		title: "How do cookies and similar technologies work?",
+		content: <p>Google Analytics 4 may use cookies and similar technologies to measure website usage. Umami is used for audience metrics. You can restrict or delete cookies in your browser settings. Doing so may reduce the accuracy of some metrics, but does not prevent access to the main content of this portfolio.</p>,
+	},
+	{
+		title: "How long is data kept, and how is it protected?",
+		content: <p>Data is kept only for as long as necessary to fulfill the purposes described here, meet legal obligations, or protect rights. Reasonable security measures are used, but no internet-connected service can guarantee absolute protection against incidents.</p>,
+	},
+	{
+		title: "What are your rights?",
+		content: <p>Under Brazil’s General Data Protection Law (LGPD), you may request confirmation of processing, access, correction, anonymization, blocking or deletion of data, information about sharing, portability where applicable, objection, and withdrawal of consent. To make a request, use the email address on this page. We may ask for information to verify your identity.</p>,
+	},
+	{
+		title: "When is this policy updated?",
+		content: <p>This policy may be updated to reflect changes to the website, the services used, or applicable law. The current version will remain available on this page with its latest update date.</p>,
+	},
+];
+
 export function PrivacyPolicy() {
+	const locale = useLocale();
+	const en = locale === "en";
+	const pageSections = en ? englishSections : sections;
 	useEffect(() => {
 		window.scrollTo({ top: 0, behavior: "auto" });
 	}, []);
@@ -135,32 +175,31 @@ export function PrivacyPolicy() {
 	return (
 		<div className="privacy-page">
 			<header className="privacy-header">
-				<a href="/" className="privacy-brand" aria-label="Voltar ao portfólio">
+				<a href={localizePath("/", locale)} className="privacy-brand" aria-label={en ? "Back to portfolio" : "Voltar ao portfólio"}>
 					<img src="/favicon-32.png?v=2" alt="" width="32" height="32" />
 					<span>Lucas Coelho</span>
 				</a>
-				<a href="/" className="privacy-back">
-					← Voltar ao portfólio
+				<a href={localizePath("/", locale)} className="privacy-back">
+					← {en ? "Back to portfolio" : "Voltar ao portfólio"}
 				</a>
 			</header>
 			<Breadcrumbs
-				items={getBreadcrumbs("/politica-de-privacidade")}
+				items={getBreadcrumbs("/politica-de-privacidade", locale)}
 				className="privacy-main privacy-breadcrumbs"
 			/>
 
 			<main className="privacy-main">
 				<section className="privacy-hero" aria-labelledby="privacy-title">
-					<p className="eyebrow">Transparência e proteção de dados</p>
-					<h1 id="privacy-title">Política de privacidade</h1>
+					<p className="eyebrow">{en ? "Transparency and data protection" : "Transparência e proteção de dados"}</p>
+					<h1 id="privacy-title">{en ? "Privacy policy" : "Política de privacidade"}</h1>
 					<p className="privacy-lead">
-						Esta página explica, em linguagem direta, quais dados podem ser tratados
-						quando você navega pelo portfólio ou entra em contato.
+						{en ? "This page explains in plain language what information may be processed when you browse this portfolio or get in touch." : "Esta página explica, em linguagem direta, quais dados podem ser tratados quando você navega pelo portfólio ou entra em contato."}
 					</p>
-					<p className="privacy-updated">Última atualização: 6 de agosto de 2026</p>
+					<p className="privacy-updated">{en ? "Last updated: August 6, 2026" : "Última atualização: 6 de agosto de 2026"}</p>
 				</section>
 
 				<div className="privacy-content">
-					{sections.map((section, index) => (
+					{pageSections.map((section, index) => (
 						<section key={section.title} className="privacy-section">
 							<span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
 							<div>

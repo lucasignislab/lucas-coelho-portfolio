@@ -8,6 +8,19 @@
   # Versão do Node compatível com Vite 6 / React 18
   NODE_VERSION = "20"
 
+# Permite que a aplicação resolva rotas inglesas ainda não pré-renderizadas.
+[[redirects]]
+  from = "/en"
+  to = "/index.html"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/en/*"
+  to = "/index.html"
+  status = 200
+  force = false
+
 # Headers de cache para assets com hash (immutable)
 [[headers]]
   for = "/assets/*"

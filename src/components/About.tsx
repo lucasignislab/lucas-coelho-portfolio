@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { revealOnScroll } from "@/lib/animations";
+import { useTranslations } from "@/i18n/useTranslations";
 
 /**
  * Sobre — bloco editorial com largura de leitura controlada:
@@ -8,6 +9,7 @@ import { revealOnScroll } from "@/lib/animations";
  *  - Portrait com parallax on scroll
  */
 export function About() {
+	const t = useTranslations();
 	const textRef = useRef<HTMLDivElement | null>(null);
 	const imageContainerRef = useRef<HTMLDivElement | null>(null);
 	const detailsRef = useRef<HTMLDivElement | null>(null);
@@ -20,17 +22,11 @@ export function About() {
 	return (
 		<section id="about" className="section flex flex-col gap-12">
 			{/* Eyebrow */}
-			<p className="eyebrow">Sobre ►</p>
+			<p className="eyebrow">{t.aboutEyebrow}</p>
 
 			<div ref={textRef} className="about-copy">
-				<p>
-					Desde 2017, ajudo empresas e marcas a transformar ideias complexas
-					em experiências digitais claras e memoráveis.
-				</p>
-				<p>
-					Aproximo estratégia, identidade e interface para criar trabalhos que
-					comunicam valor e facilitam a próxima decisão.
-				</p>
+				<p>{t.aboutParagraphOne}</p>
+				<p>{t.aboutParagraphTwo}</p>
 			</div>
 
 			<div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 mt-12 items-stretch">
@@ -43,7 +39,7 @@ export function About() {
 						src="/lovable-uploads/imagemlucas.webp"
 						srcSet="/lovable-uploads/imagemlucas-480.webp 480w, /lovable-uploads/imagemlucas-768.webp 768w, /lovable-uploads/imagemlucas-1024.webp 1024w"
 						sizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) calc(100vw - 6rem), 44vw"
-						alt="Retrato de Lucas Coelho, designer digital"
+						alt={t.portraitAlt}
 						width="1024"
 						height="1536"
 						className="w-full h-full object-contain scale-100"
@@ -59,13 +55,12 @@ export function About() {
 					className="lg:col-span-6 flex flex-col justify-between border-t border-bone/15 pt-8"
 				>
 					<div className="max-w-2xl">
-						<p className="eyebrow mb-8">Minha abordagem ►</p>
+						<p className="eyebrow mb-8">{t.approachEyebrow}</p>
 						<h2 className="font-display italic text-4xl md:text-5xl lg:text-6xl leading-[1.05] text-bone text-balance">
-							Meu trabalho começa antes da interface.
+							{t.approachTitle}
 						</h2>
 						<p className="mt-6 text-base md:text-lg leading-relaxed text-bone/70 max-w-xl">
-							Entendo o negócio, organizo a mensagem e traduzo tudo em uma
-							experiência digital clara, distinta e pronta para evoluir.
+							{t.approachDescription}
 						</p>
 					</div>
 
@@ -73,31 +68,22 @@ export function About() {
 						<li>
 							<span>01</span>
 							<div>
-								<h3>Estratégia</h3>
-								<p>
-									O que precisa ser comunicado e qual decisão queremos
-									facilitar.
-								</p>
+								<h3>{t.principleStrategy}</h3>
+								<p>{t.principleStrategyDescription}</p>
 							</div>
 						</li>
 						<li>
 							<span>02</span>
 							<div>
-								<h3>Identidade</h3>
-								<p>
-									Uma linguagem visual que reconhece a personalidade de cada
-									marca.
-								</p>
+								<h3>{t.principleIdentity}</h3>
+								<p>{t.principleIdentityDescription}</p>
 							</div>
 						</li>
 						<li>
 							<span>03</span>
 							<div>
-								<h3>Interface</h3>
-								<p>
-									Experiências simples, consistentes e preparadas para a
-									implementação.
-								</p>
+								<h3>{t.principleInterface}</h3>
+								<p>{t.principleInterfaceDescription}</p>
 							</div>
 						</li>
 					</ol>
@@ -106,7 +92,7 @@ export function About() {
 						href="#contact"
 						className="mt-10 inline-flex self-start items-center gap-3 font-mono text-xs uppercase tracking-[0.18em] text-bone link-underline"
 					>
-						Conversar sobre um projeto <span aria-hidden>→</span>
+						{t.projectConversation} <span aria-hidden>→</span>
 					</a>
 				</div>
 			</div>

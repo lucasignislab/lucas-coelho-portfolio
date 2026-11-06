@@ -90,16 +90,14 @@ export function getReadingTime(article: Article): number {
 	return Math.max(1, Math.round(words / WORDS_PER_MINUTE));
 }
 
-const dateFormatter = new Intl.DateTimeFormat("pt-BR", {
-	day: "numeric",
-	month: "long",
-	year: "numeric",
-	timeZone: "UTC",
-});
-
 /** "2026-08-10" → "10 de agosto de 2026" */
-export function formatArticleDate(isoDate: string): string {
-	return dateFormatter.format(new Date(`${isoDate}T00:00:00Z`));
+export function formatArticleDate(isoDate: string, locale: "pt-BR" | "en" = "pt-BR"): string {
+	return new Intl.DateTimeFormat(locale === "en" ? "en-US" : "pt-BR", {
+		day: "numeric",
+		month: "long",
+		year: "numeric",
+		timeZone: "UTC",
+	}).format(new Date(`${isoDate}T00:00:00Z`));
 }
 
 export const articles: Article[] = [

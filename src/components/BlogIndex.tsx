@@ -2,6 +2,9 @@ import { useEffect } from "react";
 import { formatArticleDate, getReadingTime, getSortedArticles } from "@/data/blog";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { getBreadcrumbs } from "@/data/seo";
+import { localizePath } from "@/i18n/locale";
+import { useLocale } from "@/i18n/useTranslations";
+import { englishArticleCopy } from "@/i18n/blogCopy";
 
 /**
  * Índice do blog (/blog) — página editorial autônoma no mesmo DNA do
@@ -9,6 +12,8 @@ import { getBreadcrumbs } from "@/data/seo";
  * inspirados no SelectedWork (image-reveal, hover, metadados mono).
  */
 export function BlogIndex() {
+	const locale = useLocale();
+	const en = locale === "en";
 	const sorted = getSortedArticles();
 
 	useEffect(() => {
@@ -18,54 +23,52 @@ export function BlogIndex() {
 	return (
 		<div className="blog-page">
 			<header className="blog-header">
-				<a href="/" className="blog-brand" aria-label="Voltar ao portfólio">
+				<a href={localizePath("/", locale)} className="blog-brand" aria-label={en ? "Back to portfolio" : "Voltar ao portfólio"}>
 					<img src="/favicon-32.png?v=2" alt="" width="32" height="32" />
 					<span>Lucas Coelho</span>
 				</a>
-				<nav className="blog-nav" aria-label="Navegação do blog">
-					<a href="/#work">Projetos</a>
-					<a href="/blog" aria-current="page" className="is-active">
+				<nav className="blog-nav" aria-label={en ? "Blog navigation" : "Navegação do blog"}>
+					<a href={localizePath("/#work", locale)}>{en ? "Projects" : "Projetos"}</a>
+					<a href={localizePath("/blog", locale)} aria-current="page" className="is-active">
 						Blog
 					</a>
-					<a href="/#contact">Contato</a>
+					<a href={localizePath("/#contact", locale)}>{en ? "Contact" : "Contato"}</a>
 				</nav>
 			</header>
 
 			<main className="blog-main">
-				<Breadcrumbs items={getBreadcrumbs("/blog")} className="blog-breadcrumbs" />
+				<Breadcrumbs items={getBreadcrumbs("/blog", locale)} className="blog-breadcrumbs" />
 				<section className="blog-hero" aria-labelledby="blog-title">
-					<p className="eyebrow">Escritos sobre design, produto e código</p>
+					<p className="eyebrow">{en ? "Writing on design, products, and code" : "Escritos sobre design, produto e código"}</p>
 					<h1 id="blog-title">Blog</h1>
 					<p className="blog-lead">
-						Notas de processo, decisões de interface e aprendizados reais de
-						projetos digitais — sem fórmulas mágicas.
+						{en ? "Notes on process, interface decisions, and lessons from real digital projects—without magic formulas." : "Notas de processo, decisões de interface e aprendizados reais de projetos digitais — sem fórmulas mágicas."}
 					</p>
 				</section>
 
 				{sorted.length === 0 ? (
 					<section className="blog-empty">
 						<p>
-							Nenhum artigo publicado ainda. Volte em breve — o primeiro texto
-							já está na mesa.
+							{en ? "No articles yet. Check back soon—the first one is in progress." : "Nenhum artigo publicado ainda. Volte em breve — o primeiro texto já está na mesa."}
 						</p>
 					</section>
 				) : (
-					<section className="blog-list" aria-label="Artigos publicados">
+					<section className="blog-list" aria-label={en ? "Published articles" : "Artigos publicados"}>
 						{sorted.map((article, index) => (
 							<article
 								key={article.slug}
 								className={`blog-card group${index === 0 ? " is-featured" : ""}`}
 							>
 								<a
-									href={`/blog/${article.slug}/`}
+									href={localizePath(`/blog/${article.slug}/`, locale)}
 									data-cursor-hover
-									aria-label={`Ler artigo: ${article.title}`}
+									aria-label={`${en ? "Read article:" : "Ler artigo:"} ${en ? englishArticleCopy[article.slug]?.title ?? article.title : article.title}`}
 									className="blog-card-link"
 								>
 									<div className="blog-card-media image-reveal">
 										<img
 											src={article.coverImage}
-											alt={article.coverImageAlt}
+										alt={article.coverImageAlt}
 											width="1024"
 											height="576"
 											loading={index === 0 ? "eager" : "lazy"}
@@ -75,23 +78,23 @@ export function BlogIndex() {
 											/{String(index + 1).padStart(2, "0")}
 										</span>
 										{index === 0 && (
-											<span className="blog-card-featured-label">Mais recente</span>
+											<span className="blog-card-featured-label">{en ? "Latest" : "Mais recente"}</span>
 										)}
 									</div>
 									<div className="blog-card-info">
 										<div className="blog-card-meta">
-											<span>{formatArticleDate(article.date)}</span>
-											<span>{getReadingTime(article)} min de leitura</span>
+										<span>{formatArticleDate(article.date, locale)}</span>
+										<span>{getReadingTime(article)} {en ? "min read" : "min de leitura"}</span>
 										</div>
-										<h2>{article.title}</h2>
-										<p>{article.excerpt}</p>
+									<h2>{en ? englishArticleCopy[article.slug]?.title ?? article.title : article.title}</h2>
+									<p>{en ? englishArticleCopy[article.slug]?.excerpt ?? article.excerpt : article.excerpt}</p>
 										<ul className="blog-card-tags" aria-label="Tags">
 											{article.tags.map(tag => (
 												<li key={tag}>{tag}</li>
 											))}
 										</ul>
 										<span className="blog-card-action">
-											Ler artigo
+										{en ? "Read article" : "Ler artigo"}
 											<span aria-hidden="true"> →</span>
 										</span>
 									</div>
@@ -104,7 +107,7 @@ export function BlogIndex() {
 
 			<footer className="blog-footer">
 				<span>Lucas Coelho · Digital Designer</span>
-				<a href="/">← Voltar ao portfólio</a>
+			<a href={localizePath("/", locale)}>← {en ? "Back to portfolio" : "Voltar ao portfólio"}</a>
 			</footer>
 		</div>
 	);

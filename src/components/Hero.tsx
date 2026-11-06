@@ -3,6 +3,7 @@ import { useSplitText } from "@/hooks/use-split-text";
 import { gsap } from "gsap";
 import { revealChars, revealStagger } from "@/lib/animations";
 import { credibilityItems, socials } from "@/data/site";
+import { useTranslations } from "@/i18n/useTranslations";
 
 /**
  * Hero / Intro — DNA scalzodesign.be (rebuilt to match reference):
@@ -15,6 +16,8 @@ import { credibilityItems, socials } from "@/data/site";
  *  - Rodape         : CTAs, sinais de confiança e redes profissionais
  */
 export function Hero() {
+	const t = useTranslations();
+	const credibilityLabels = [t.credibilityDesign, t.credibilityRemote, t.credibilityDelivery];
 	const baseline1 = useSplitText<HTMLSpanElement>({ mode: "chars" });
 	const baseline2 = useSplitText<HTMLSpanElement>({ mode: "chars" });
 	const titleLine1Ref = useRef<HTMLSpanElement | null>(null);
@@ -60,21 +63,16 @@ export function Hero() {
 			<div className="grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-10 items-start">
 				<div className="lg:col-span-4 flex flex-col gap-2">
 					<span ref={baseline1} className="eyebrow">
-						Disponível para projetos
+						{t.heroAvailability}
 					</span>
 					<span ref={baseline2} className="eyebrow">
-						Campinas, Brasil
+						{t.heroLocation}
 					</span>
 				</div>
 				<p
 					className="lg:col-span-5 lg:col-start-8 font-sans text-sm leading-relaxed text-bone/80 md:text-base"
 				>
-					Lucas Coelho é designer digital em Campinas e trabalha com identidade
-					visual, sites, landing pages, produtos digitais e design systems.
-					Desde 2017, combina estratégia, conteúdo, UX/UI e desenvolvimento
-					para organizar mensagens, facilitar tarefas e transformar necessidades
-					de negócio em experiências digitais claras, funcionais e preparadas
-					para evoluir.
+					{t.heroBio}
 				</p>
 			</div>
 
@@ -91,7 +89,7 @@ export function Hero() {
 						ref={titleLine2Ref}
 						className="block font-sans not-italic font-medium tracking-ultratight mt-2 md:mt-4 text-bone/95"
 					>
-						Designer Digital
+						{t.heroTitle}
 					</span>
 				</h1>
 			</div>
@@ -99,20 +97,20 @@ export function Hero() {
 			<div className="mt-12 md:mt-16 flex flex-col gap-10">
 				<div className="flex flex-wrap gap-3">
 					<a href="#work" className="btn-primary">
-						Ver projetos <span aria-hidden>↓</span>
+					{t.heroViewWork} <span aria-hidden>↓</span>
 					</a>
 					<a href="#contact-project" className="btn-ghost">
-						Contratar um projeto
+					{t.heroHire}
 					</a>
 					<a href="#contact-opportunity" className="btn-ghost">
-						Oportunidade profissional
+					{t.heroOpportunity}
 					</a>
 				</div>
 
 				<dl className="credibility-grid">
-					{credibilityItems.map((item) => (
+					{credibilityItems.map((item, index) => (
 						<div key={item.value} className="credibility-item">
-							<dt>{item.label}</dt>
+							<dt>{credibilityLabels[index]}</dt>
 							<dd>{item.value}</dd>
 						</div>
 					))}
@@ -121,7 +119,7 @@ export function Hero() {
 				<ul
 					ref={socialsRef}
 					className="flex flex-wrap items-center gap-x-10 md:gap-x-16 gap-y-3"
-					aria-label="Redes profissionais"
+					aria-label={t.heroSocials}
 				>
 					{socials.map((s) => (
 						<li key={s.name}>

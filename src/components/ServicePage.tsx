@@ -1,9 +1,11 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { getServicePage, servicePages } from "@/data/services";
+import { getServicePage, getServicePages } from "@/data/services";
 import { projects } from "@/data/projects";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { getBreadcrumbs } from "@/data/seo";
+import { useLocale, useTranslations } from "@/i18n/useTranslations";
+import { localizePath } from "@/i18n/locale";
 import {
 	revealOnScroll,
 	revealWords,
@@ -11,6 +13,8 @@ import {
 } from "@/lib/animations";
 
 export function ServicePage({ pathname }: { pathname: string }) {
+	const locale = useLocale();
+	const t = useTranslations();
 	const mainRef = useRef<HTMLElement | null>(null);
 	const headlineRef = useRef<HTMLHeadingElement | null>(null);
 	const introRef = useRef<HTMLParagraphElement | null>(null);
@@ -55,8 +59,9 @@ export function ServicePage({ pathname }: { pathname: string }) {
 			.forEach(el => revealOnScroll(el, { y: 40, duration: 0.9 }));
 	}, [pathname]);
 
-	const service = getServicePage(pathname);
+	const service = getServicePage(pathname, locale);
 	if (!service) return null;
+	const otherServices = getServicePages(locale).filter(page => page.id !== service.id);
 
 	const relatedProjects = service.projectIds
 		.map(id => projects.find(project => project.id === id))
@@ -66,29 +71,29 @@ export function ServicePage({ pathname }: { pathname: string }) {
 		<main ref={mainRef} className="min-h-screen bg-ink text-bone">
 			<header className="flex items-center justify-between px-6 py-6 md:px-12 lg:px-20">
 				<a
-					href="/"
+					href={localizePath("/", locale)}
 					className="inline-flex min-h-11 items-center font-mono text-xs uppercase tracking-[0.18em] text-bone link-underline"
 				>
 					Lucas Coelho
 				</a>
-				<nav aria-label="Navegação da página" className="flex gap-6">
+				<nav aria-label={t.pageNavigation} className="flex gap-6">
 					<a
-						href="/#work"
+						href={localizePath("/#work", locale)}
 						className="inline-flex min-h-11 items-center font-mono text-xs uppercase tracking-[0.16em] text-bone link-underline"
 					>
-						Projetos
+						{t.projects}
 					</a>
 					<a
-						href="/#contact-project"
+						href={localizePath("/#contact-project", locale)}
 						className="inline-flex min-h-11 items-center font-mono text-xs uppercase tracking-[0.16em] text-bone link-underline"
 					>
-						Contato
+						{t.contact}
 					</a>
 				</nav>
 			</header>
 
 			<Breadcrumbs
-				items={getBreadcrumbs(service.path)}
+			items={getBreadcrumbs(service.path, locale)}
 				className="px-6 pt-8 font-mono text-xs uppercase tracking-[0.15em] text-bone/70 md:px-12 lg:px-20"
 			/>
 
@@ -101,14 +106,14 @@ export function ServicePage({ pathname }: { pathname: string }) {
 						{service.intro}
 					</p>
 					<div ref={ctaRef} className="mt-9 flex flex-wrap gap-3">
-						<a href="/#contact-project" className="btn-primary">
-							Conversar sobre este serviço <span aria-hidden="true">↗</span>
+						<a href={localizePath("/#contact-project", locale)} className="btn-primary">
+							{t.serviceDiscuss} <span aria-hidden="true">↗</span>
 						</a>
 						<a href="#trabalho" className="btn-ghost">
-							Ver projetos relacionados
+							{t.serviceRelatedProjects}
 						</a>
 					</div>
-					{service.id === "sites-landing-pages" && (
+					{service.id === "sites-landing-pages" && locale === "pt-BR" && (
 						<p className="mt-8 max-w-2xl font-mono text-xs uppercase leading-relaxed tracking-[0.12em] text-bone/70">
 							📍 Atendo Campinas e região:{" "}
 							<a href="/criacao-de-sites-campinas/" className="text-bone link-underline">
@@ -118,14 +123,14 @@ export function ServicePage({ pathname }: { pathname: string }) {
 					)}
 				</div>
 				<p ref={noteRef} className="max-w-xs border-t border-bone/20 pt-4 font-mono text-xs uppercase leading-relaxed tracking-[0.12em] text-bone/70 lg:col-span-3 lg:col-start-10">
-					Campinas, Brasil <span aria-hidden="true">·</span> projetos remotos
+					{t.heroLocation} <span aria-hidden="true">·</span> {t.credibilityRemote}
 				</p>
 			</section>
 
 			<section data-reveal className="section border-t border-bone/10" aria-labelledby="escopo-title">
 				<div className="grid gap-12 lg:grid-cols-12">
 					<h2 id="escopo-title" className="font-display text-4xl leading-tight md:text-5xl lg:col-span-4">
-						O que inclui {service.label}?
+						{t.serviceScopeTitle} {service.label}?
 					</h2>
 					<ul className="grid gap-x-12 lg:col-span-7 lg:col-start-6 lg:grid-cols-2">
 						{service.scope.map(item => (
@@ -143,7 +148,7 @@ export function ServicePage({ pathname }: { pathname: string }) {
 			<section data-reveal className="section border-t border-bone/10" aria-labelledby="processo-title">
 				<div className="grid gap-12 lg:grid-cols-12">
 					<h2 id="processo-title" className="font-display text-4xl leading-tight md:text-5xl lg:col-span-4">
-						Como funciona um projeto de {service.label}?
+						{t.serviceProcessTitle}
 					</h2>
 					<ol className="lg:col-span-7 lg:col-start-6">
 						{service.process.map(step => (
@@ -160,22 +165,22 @@ export function ServicePage({ pathname }: { pathname: string }) {
 				<div className="grid gap-12 lg:grid-cols-12">
 					<div className="lg:col-span-4">
 						<h2 id="trabalho-title" className="font-display text-4xl leading-tight md:text-5xl">
-							Quais projetos mostram {service.label}?
+							{t.serviceProjectsTitle} {service.label}?
 						</h2>
 						<p className="mt-5 max-w-sm leading-relaxed text-bone/70">
-							Projetos em que estratégia, identidade e interface se conectam a necessidades reais.
+							{t.serviceProjectsDescription}
 						</p>
 					</div>
 					<div className="lg:col-span-7 lg:col-start-6">
 						{relatedProjects.map(project => (
 							<a
 								key={project.id}
-								href={project.caseUrl ?? project.url}
+								href={project.caseUrl ? localizePath(project.caseUrl, locale) : project.url}
 								className="group grid gap-5 border-t border-bone/20 py-5 md:grid-cols-[minmax(0,1fr)_2fr] md:items-center"
 							>
 								<img
 									src={project.image}
-									alt={`Projeto ${project.name}`}
+									alt={`${t.projectLabel} ${project.name}`}
 									width="1024"
 									height="576"
 									loading="lazy"
@@ -183,12 +188,12 @@ export function ServicePage({ pathname }: { pathname: string }) {
 								/>
 								<div>
 								<p className="font-mono text-xs uppercase tracking-[0.15em] text-bone/70">
-										{project.year} <span aria-hidden="true">·</span> {project.type}
+									{project.year} <span aria-hidden="true">·</span> {locale === "en" ? ({ fitsyou: t.projectFitsType, hub: t.projectHubType, pogne: t.projectPogneType, aero: t.projectAeroType }[project.id] ?? project.type) : project.type}
 									</p>
 									<h3 className="mt-2 font-display text-3xl group-hover:text-ember">{project.name}</h3>
-									<p className="mt-2 leading-relaxed text-bone/70">{project.description}</p>
+									<p className="mt-2 leading-relaxed text-bone/70">{locale === "en" ? ({ fitsyou: t.projectFitsDescription, hub: t.projectHubDescription, pogne: t.projectPogneDescription, aero: t.projectAeroDescription }[project.id] ?? project.description) : project.description}</p>
 								<span className="mt-4 inline-block font-mono text-xs uppercase tracking-[0.12em] text-bone link-underline">
-										Ver projeto <span aria-hidden="true">↗</span>
+										{t.projectVisit} <span aria-hidden="true">↗</span>
 									</span>
 								</div>
 							</a>
@@ -199,13 +204,13 @@ export function ServicePage({ pathname }: { pathname: string }) {
 
 			{service.article && (
 				<section data-reveal className="section border-t border-bone/10" aria-label="Leitura relacionada">
-					<a href={service.article.href} className="group flex flex-col justify-between gap-6 border-b border-bone/20 pb-6 md:flex-row md:items-end">
+						<a href={localizePath(service.article.href, locale)} className="group flex flex-col justify-between gap-6 border-b border-bone/20 pb-6 md:flex-row md:items-end">
 						<div>
-							<p className="font-mono text-xs uppercase tracking-[0.15em] text-bone/70">Leitura relacionada</p>
-							<h2 className="mt-3 font-display text-3xl md:text-4xl">Qual leitura aprofunda {service.label}?</h2>
+							<p className="font-mono text-xs uppercase tracking-[0.15em] text-bone/70">{t.relatedReading}</p>
+							<h2 className="mt-3 font-display text-3xl md:text-4xl">{t.serviceReadingTitle} {service.label}?</h2>
 							<p className="mt-3 text-bone/70">{service.article.title}</p>
 						</div>
-						<span className="font-mono text-xs uppercase tracking-[0.12em] text-bone link-underline">Ler artigo <span aria-hidden="true">↗</span></span>
+						<span className="font-mono text-xs uppercase tracking-[0.12em] text-bone link-underline">{t.readArticle} <span aria-hidden="true">↗</span></span>
 					</a>
 				</section>
 			)}
@@ -213,7 +218,7 @@ export function ServicePage({ pathname }: { pathname: string }) {
 			<section data-reveal className="section border-t border-bone/10" aria-labelledby="duvidas-title">
 				<div className="grid gap-12 lg:grid-cols-12">
 					<h2 id="duvidas-title" className="font-display text-4xl leading-tight md:text-5xl lg:col-span-4">
-						Quais dúvidas surgem antes de contratar {service.label}?
+						{t.serviceQuestionsTitle} {service.label}?
 					</h2>
 					<div className="lg:col-span-7 lg:col-start-6">
 						{service.questions.map(item => (
@@ -230,32 +235,30 @@ export function ServicePage({ pathname }: { pathname: string }) {
 				<div className="grid gap-8 md:grid-cols-12 md:items-end">
 					<div className="md:col-span-8">
 						<h2 className="max-w-4xl font-display text-5xl leading-[1.05] md:text-7xl">
-							O que seu projeto precisa agora?
+							{t.serviceClosingTitle}
 						</h2>
 						<p className="mt-5 max-w-2xl leading-relaxed text-bone/70">
-							Conte um pouco sobre o momento do negócio e o desafio que quer resolver. A primeira conversa ajuda a definir o escopo adequado.
+							{t.serviceClosingDescription}
 						</p>
 					</div>
-					<a href="/#contact-project" className="btn-primary md:col-span-4 md:justify-self-end">
-						Iniciar uma conversa <span aria-hidden="true">↗</span>
+					<a href={localizePath("/#contact-project", locale)} className="btn-primary md:col-span-4 md:justify-self-end">
+						{t.contactCta} <span aria-hidden="true">↗</span>
 					</a>
 				</div>
 			</section>
 
 			<footer className="flex flex-col gap-5 border-t border-bone/10 px-6 py-8 md:flex-row md:items-center md:justify-between md:px-12 lg:px-20">
-				<nav aria-label="Outros serviços">
+				<nav aria-label={t.otherServices}>
 					<ul className="flex flex-wrap gap-x-6 gap-y-3">
-						{servicePages.filter(page => page.id !== service.id).map(page => (
+						{otherServices.map(page => (
 							<li key={page.id}>
-									<a href={page.path} className="font-mono text-xs uppercase tracking-[0.12em] text-bone/70 link-underline">{page.label}</a>
+									<a href={localizePath(page.path, locale)} className="font-mono text-xs uppercase tracking-[0.12em] text-bone/70 link-underline">{page.label}</a>
 							</li>
 						))}
-						<li>
-							<a href="/criacao-de-sites-campinas/" className="font-mono text-xs uppercase tracking-[0.12em] text-bone/70 link-underline">Criação de sites em Campinas</a>
-						</li>
+						{locale === "pt-BR" && <li><a href="/criacao-de-sites-campinas/" className="font-mono text-xs uppercase tracking-[0.12em] text-bone/70 link-underline">{t.campinasSites}</a></li>}
 					</ul>
 				</nav>
-				<a href="/" className="font-mono text-xs uppercase tracking-[0.12em] text-bone/70 link-underline">Lucas Coelho © {new Date().getFullYear()}</a>
+				<a href={localizePath("/", locale)} className="font-mono text-xs uppercase tracking-[0.12em] text-bone/70 link-underline">Lucas Coelho © {new Date().getFullYear()}</a>
 			</footer>
 		</main>
 	);
